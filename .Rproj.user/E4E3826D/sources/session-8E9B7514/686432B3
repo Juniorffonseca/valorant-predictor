@@ -3,7 +3,7 @@
     "path": "~/TCC Pós/Scripts/champions.R",
     "project_path": "champions.R",
     "type": "r_source",
-    "hash": "2266315975",
+    "hash": "4046067483",
     "contents": "",
     "dirty": false,
     "created": 1670261063447.0,
@@ -13,15 +13,15 @@
         "tempName": "Untitled1",
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "149,52",
+        "cursorPosition": "152,0",
         "scrollLine": "134"
     },
     "folds": "0|21|9|0|\n10|42|12|0|\n13|23|18|0|\n19|30|119|0|\n",
-    "lastKnownWriteTime": 1670687666,
+    "lastKnownWriteTime": 1670688652,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1670687666948,
+    "last_content_update": 1670688652053,
     "read_only": false,
     "read_only_alternatives": []
 }

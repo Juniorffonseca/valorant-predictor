@@ -150,7 +150,7 @@ jogo11 <- round(mediaxset / (mediaxset + mediatl), 3)
 jogo12 <- round(mediaop / (mediaop + medialoud), 3) 
 jogo13 <- round(mediaxset / (mediaxset + mediaop), 3) 
 jogo14 <- round(mediatl / (mediatl + mediaop), 6) 
-##### OS JOGOS TÃO EM ORDEM ERRADA, PRECISO ARRUMAR#### !!!!
+
 
 acertos = 0
 
