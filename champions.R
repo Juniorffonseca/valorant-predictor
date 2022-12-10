@@ -119,37 +119,37 @@ tl_df <- tl_df[,-7:-14]
 fpx_df <- fpx_df[,-7:-14]
 
 # Tentando uma formula para dizer a porcentagem de chance de vitória do time 1 sobre o time 2 -----------------------
-medialoud <- mean(loud_df$R) * 1/mean(loud_df$idc)
+medialoud <- mean(loud_df$R) + 1/mean(loud_df$idc)
 
-medialev <- mean(lev_df$R) * 1/mean(lev_df$idc)
+medialev <- mean(lev_df$R) + 1/mean(lev_df$idc)
 
-mediaxset <- mean(xset_df$R) * 1/mean(xset_df$idc)
+mediaxset <- mean(xset_df$R) + 1/mean(xset_df$idc)
 
-mediafpx <- mean(fpx_df$R) * 1/mean(fpx_df$idc)
+mediafpx <- mean(fpx_df$R) + 1/mean(fpx_df$idc)
 
-mediadrx <- mean(drx_df$R) * 1/mean(drx_df$idc)
+mediadrx <- mean(drx_df$R) + 1/mean(drx_df$idc)
 
-mediaop <- mean(op_df$R) * 1/mean(op_df$idc)
+mediaop <- mean(op_df$R) + 1/mean(op_df$idc)
 
-mediafntc <- mean(fntc_df$R) * 1/mean(fntc_df$idc)
+mediafntc <- mean(fntc_df$R) + 1/mean(fntc_df$idc)
 
-mediatl <- mean(tl_df$R) * 1/mean(tl_df$idc)
+mediatl <- mean(tl_df$R) + 1/mean(tl_df$idc)
 
 # Porcentagem de vitória
 jogo1 <- round(mediadrx / (mediadrx + mediafpx), 3) 
 jogo2 <- round(medialev / (medialev + medialoud), 3) 
-jogo3 <- round(mediaop / (mediaop + mediaop), 3) 
-jogo4 <- round(mediafntc / (mediafntc + mediatl), 3) 
-jogo5 <- round(medialev / (medialev + mediafpx), 3) 
-jogo6 <- round(mediadrx / (mediadrx + mediafntc), 3) 
-jogo7 <- round(medialoud / (medialoud + mediaxset), 3) 
-jogo8 <- round(mediaop / (mediaop + mediatl), 6)
-jogo9 <- round(mediaop / (mediaop + mediafpx), 3) 
-jogo10 <- round(medialoud / (medialoud + mediadrx), 3)
-jogo11 <- round(mediaxset / (mediaxset + mediatl), 3)
-jogo12 <- round(mediaop / (mediaop + medialoud), 3) 
-jogo13 <- round(mediaxset / (mediaxset + mediaop), 3) 
-jogo14 <- round(mediatl / (mediatl + mediaop), 6) 
+jogo3 <- round(mediaop / (mediaop + mediatl), 3) 
+jogo4 <- round(mediaxset / (mediaxset + mediafntc), 3) 
+jogo5 <- round(mediafpx / (mediafpx + medialev), 3) 
+jogo6 <- round(mediatl / (mediatl + mediafntc), 3) 
+jogo7 <- round(mediadrx / (mediadrx + medialoud), 3) 
+jogo8 <- round(mediaop / (mediaop + mediaxset), 6)
+jogo9 <- round(mediaxset / (mediaxset + mediafpx), 3) 
+jogo10 <- round(mediadrx / (mediadrx + mediafntc), 3)
+jogo11 <- round(medialoud / (medialoud + mediaop), 3)
+jogo12 <- round(mediafpx / (mediafpx + mediadrx), 3) 
+jogo13 <- round(mediaxloud / (medialoud + mediaop), 3) 
+jogo14 <- round(mediaop / (mediaop + mediadrx), 6) 
 
 
 acertos = 0
