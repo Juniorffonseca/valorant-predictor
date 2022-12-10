@@ -151,7 +151,6 @@ jogo12 <- round(mediafpx / (mediafpx + mediadrx), 3)
 jogo13 <- round(mediaxloud / (medialoud + mediaop), 3) 
 jogo14 <- round(mediaop / (mediaop + mediadrx), 6) 
 
-
 acertos = 0
 
 analisa_resultados = function(jogo1, jogo2, jogo3, jogo4, jogo5, jogo6, jogo7, jogo8, jogo9, jogo10, jogo11, jogo12,
@@ -201,19 +200,40 @@ analisa_resultados = function(jogo1, jogo2, jogo3, jogo4, jogo5, jogo6, jogo7, j
   return(acertos/14)
 }
 
-
 analisa_resultados(jogo1, jogo2, jogo3, jogo4, jogo5, jogo6, jogo7, jogo8, jogo9, jogo10, jogo11,
                    jogo12, jogo13, jogo14)
 
-
-# Primeiro teste: 42,85 % de acurácia (6/14)
-# Segundo teste: 05714286 % de acurácia (8/14)
-# Terceiro teste: 0.6428571 % de acurácia (9/14)
-
 # Tentando mesclar dataframe ds_adversarios com outras estatisticas
 
-loud_lev = 0
+ds_adversarios_loud <- read.csv("C:/Users/anonb/Documents/TCC Pós/Scripts/scripts_times/ds_adversarios_loud.csv",
+                                sep = ',') %>% select(-X)
+ds_adversarios_drx <- read.csv("C:/Users/anonb/Documents/TCC Pós/Scripts/scripts_times/ds_adversarios_drx.csv",
+                               sep = ',') %>% select(-X)
+ds_adversarios_fpx <- read.csv("C:/Users/anonb/Documents/TCC Pós/Scripts/scripts_times/ds_adversarios_fpx.csv",
+                               sep = ',') %>% select(-X)
+ds_adversarios_fntc <- read.csv("C:/Users/anonb/Documents/TCC Pós/Scripts/scripts_times/ds_adversarios_fntc.csv",
+                                sep = ',') %>% select(-X)
+ds_adversarios_tl <- read.csv("C:/Users/anonb/Documents/TCC Pós/Scripts/scripts_times/ds_adversarios_tl.csv",
+                              sep = ',') %>% select(-X)
+ds_adversarios_op <- read.csv("C:/Users/anonb/Documents/TCC Pós/Scripts/scripts_times/ds_adversarios_op.csv",
+                              sep = ',') %>% select(-X)
+ds_adversarios_xset <- read.csv("C:/Users/anonb/Documents/TCC Pós/Scripts/scripts_times/ds_adversarios_xset.csv",
+                                sep = ',') %>% select(-X)
+ds_adversarios_lev <- read.csv("C:/Users/anonb/Documents/TCC Pós/Scripts/scripts_times/ds_adversarios_xset.csv",
+                               sep = ',') %>% select(-X)
 
-loud_lev <- sum(ds_adversarios$Adversario == 'Leviatán' & ds_adversarios$Resultados == 'Win')
-loud_xset <- sum(ds_adversarios$Adversario == '')
+#Loud
+loud_lev <- sum(ds_adversarios_loud$Adversario == 'Leviatán' & ds_adversarios_loud$Resultados == 'Win') - 
+  sum(ds_adversarios$Adversario == 'Leviatán' & ds_adversarios_loud$Resultados == 'Lose')
+loud_drx <- sum(ds_adversarios_loud$Adversario == 'DRX' & ds_adversarios_loud$Resultados == 'Win') -
+  sum(ds_adversarios_loud$Adversario == 'DRX' & ds_adversarios_loud$Resultados == 'Lose')
+loud_op <- sum(ds_adversarios_loud$Adversario == 'OpTic Gaming' & ds_adversarios_loud$Resultados == 'Win') - 
+  sum(ds_adversarios_loud$Adversario == 'OpTic Gaming' & ds_adversarios_loud$Resultados == 'Lose')
+
+#Drx
+drx_fpx <- sum(ds_adversarios_drx$Adversario == 'FunPlus Phoenix' & ds_adversarios_drx$Resultados == 'Win') -
+  sum(ds_adversarios_drx$Adversario == 'FunPlus Phoenix' & ds_adversarios_drx$Resultados == 'Lose')
+
+
+
 
