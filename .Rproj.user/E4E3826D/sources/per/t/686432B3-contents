@@ -119,21 +119,21 @@ tl_df <- tl_df[,-7:-14]
 fpx_df <- fpx_df[,-7:-14]
 
 # Tentando uma formula para dizer a porcentagem de chance de vitória do time 1 sobre o time 2 -----------------------
-medialoud <- mean(loud_df$R) + 1/mean(loud_df$idc)
+medialoud <- mean(loud_df$R)
 
-medialev <- mean(lev_df$R) + 1/mean(lev_df$idc)
+medialev <- mean(lev_df$R)
 
-mediaxset <- mean(xset_df$R) + 1/mean(xset_df$idc)
+mediaxset <- mean(xset_df$R)
 
-mediafpx <- mean(fpx_df$R) + 1/mean(fpx_df$idc)
+mediafpx <- mean(fpx_df$R)
 
-mediadrx <- mean(drx_df$R) + 1/mean(drx_df$idc)
+mediadrx <- mean(drx_df$R)
 
-mediaop <- mean(op_df$R) + 1/mean(op_df$idc)
+mediaop <- mean(op_df$R)
 
-mediafntc <- mean(fntc_df$R) + 1/mean(fntc_df$idc)
+mediafntc <- mean(fntc_df$R)
 
-mediatl <- mean(tl_df$R) + 1/mean(tl_df$idc)
+mediatl <- mean(tl_df$R)
 
 # Porcentagem de vitória
 jogo1 <- round(mediadrx / (mediadrx + mediafpx), 3) 
@@ -186,7 +186,7 @@ analisa_resultados = function(jogo1, jogo2, jogo3, jogo4, jogo5, jogo6, jogo7, j
   if(jogo10 > 0.50){
     acertos = acertos + 1
   }
-  if(jogo11 < 0.50){
+  if(jogo11 > 0.50){
     acertos = acertos + 1
   }
   if(jogo12 < 0.50){
