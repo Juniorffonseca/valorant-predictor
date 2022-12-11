@@ -54,8 +54,8 @@ ds_adversarios_drx$Resultado <- gsub(" \\b[(^0-9)]+ ", "", ds_adversarios_drx$Re
 
 # Tirando dados que estão longes das barras ("/")
 ds_adversarios_drx$Resultado <- substr(ds_adversarios_drx$Resultado,
-                                        gregexpr("/", ds_adversarios_drx$Resultado)[[1]][1] - 3,
-                                        gregexpr("/", ds_adversarios_drx$Resultado)[[3]][1] + 3)
+                                        gregexpr("/", ds_adversarios_drx$Resultado)[[1]][1] - 9,
+                                        gregexpr("/", ds_adversarios_drx$Resultado)[[3]][1] + 9)
 
 # Transformando a coluna Resultado em RW e RL ------------------------------------------------------------
 ds_adversarios_drx <- separate(ds_adversarios_drx, Resultado, c("RW", "RL"), "/") 
@@ -83,5 +83,6 @@ ds_adversarios_drx[-1] <- lapply(ds_adversarios_drx[-1], str_replace_all, "\\s",
   lapply(str_replace_all, '   ', ' ') %>% 
   lapply(str_replace_all, '  ', '')
 
-# Exportando o arquivo
+# Exportando o arquivo ------------------------------------------------------------------------------------
 write.csv(ds_adversarios_drx, file = "C:/Users/anonb/Documents/TCC Pós/Scripts/scripts_times/ds_adversarios_drx.csv")
+

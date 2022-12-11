@@ -46,34 +46,42 @@ ds_adversarios_lev <- select(ds_adversarios_lev, 'Data', 'Resultado', 'Adversari
 # Passando os dados da coluna Data para o formato de data -------------------------------------------------
 ds_adversarios_lev$Data <- as_date(ds_adversarios_lev$Data)
 
-# Limpando os dados para deixar apenas os resultados------------------------------------------------------
-ds_adversarios_lev$Resultado <- gsub("[^0-9/ .-]", "", ds_adversarios_lev$Resultado)# Deixando apenas números e "/"
-#
+# Deixando apenas números e "/"----------------------------------------------------------------------------
+ds_adversarios_lev$Resultado <- gsub("[^0-9/ ]", "", ds_adversarios_lev$Resultado)
+
+# Tirando valores númericos, que são dos nomes dos times, da coluna Resultado 
+ds_adversarios_lev$Resultado <- gsub(" \\b[(^0-9)]+ ", "", ds_adversarios_lev$Resultado)
+
+# Tirando dados que estão longes das barras ("/")
 ds_adversarios_lev$Resultado <- substr(ds_adversarios_lev$Resultado,
-                                        gregexpr("/", ds_adversarios_lev$Resultado)[[1]][1] - 3,
-                                        gregexpr("/", ds_adversarios_lev$Resultado)[[3]][1] + 3) # Tirando dados que estão longes das barras ("/")
+                                       gregexpr("/", ds_adversarios_lev$Resultado)[[1]][1] - 9,
+                                       gregexpr("/", ds_adversarios_lev$Resultado)[[3]][1] + 9)
 
-ds_adversarios_lev <- separate(ds_adversarios_lev, Resultado, c("RW", "RL"), "/") # Transformando a coluna Resultado em RW e RL
+# Transformando a coluna Resultado em RW e RL ------------------------------------------------------------
+ds_adversarios_lev <- separate(ds_adversarios_lev, Resultado, c("RW", "RL"), "/") 
 
-ds_adversarios_lev$RL <- sub(" .*", "", ds_adversarios_lev$RL) # Tirando todos os caracteres que estavam à direita
-ds_adversarios_lev$RW <- sub("*. ", "", ds_adversarios_lev$RW) # Tirando todos os caracteres que estavam à esquerda
+# Tirando todos os caracteres que estavam à direita e à esquerda
+ds_adversarios_lev$RL <- sub(" .*", "", ds_adversarios_lev$RL) 
+ds_adversarios_lev$RW <- sub("*. ", "", ds_adversarios_lev$RW) 
 
-ds_adversarios_lev$RW <- sub(" ", "", ds_adversarios_lev$RW) # Tirando todos os espaços
-ds_adversarios_lev$RL <- sub(" ", "", ds_adversarios_lev$RL) # Tirando todos os espaços
+# Tirando todos os espaços
+ds_adversarios_lev$RW <- sub(" ", "", ds_adversarios_lev$RW) 
+ds_adversarios_lev$RL <- sub(" ", "", ds_adversarios_lev$RL) 
 
-ds_adversarios_lev$Resultados <- as.numeric(ds_adversarios_lev$RW) > as.numeric(ds_adversarios_lev$RL) # Criando uma coluna de resultados
+# Criando uma coluna de resultados
+ds_adversarios_lev$Resultados <- as.numeric(ds_adversarios_lev$RW) > as.numeric(ds_adversarios_lev$RL) 
 
+# Renomeando TRUE para 'Win' e FALSE para 'Lose'
 ds_adversarios_lev$Resultados <- replace(ds_adversarios_lev$Resultados, ds_adversarios_lev$Resultados == TRUE, 'Win') %>% 
-  replace(ds_adversarios_lev$Resultados == FALSE, 'Lose') # Renomeando TRUE para 'Win' e FALSE para 'Lose'
+  replace(ds_adversarios_lev$Resultados == FALSE, 'Lose') 
 
 # Limpando a coluna 'Adversario' --------------------------------------------------------------------------
 ds_adversarios_lev[-1] <- lapply(ds_adversarios_lev[-1], str_replace_all, "\\s", ' ') %>% 
   lapply(str_replace_all, '  ', ' ') %>% 
   lapply(str_replace_all, '   ', ' ') %>% 
   lapply(str_replace_all, '  ', ' ') %>% 
-  lapply(str_replace_all, '   ', ' ')
-
-ds_adversarios_lev[-1] <- lapply(ds_adversarios_lev[-1], str_replace_all, "  ", '')
+  lapply(str_replace_all, '   ', ' ') %>% 
+  lapply(str_replace_all, '  ', '')
 
 # Exportando o arquivo
 write.csv(ds_adversarios_lev, file = "C:/Users/anonb/Documents/TCC Pós/Scripts/scripts_times/ds_adversarios_lev.csv")

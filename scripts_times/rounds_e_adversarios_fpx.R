@@ -46,34 +46,42 @@ ds_adversarios_fpx <- select(ds_adversarios_fpx, 'Data', 'Resultado', 'Adversari
 # Passando os dados da coluna Data para o formato de data -------------------------------------------------
 ds_adversarios_fpx$Data <- as_date(ds_adversarios_fpx$Data)
 
-# Limpando os dados para deixar apenas os resultados------------------------------------------------------
-ds_adversarios_fpx$Resultado <- gsub("[^0-9/ .-]", "", ds_adversarios_fpx$Resultado)# Deixando apenas números e "/"
-#
+# Deixando apenas números e "/"----------------------------------------------------------------------------
+ds_adversarios_fpx$Resultado <- gsub("[^0-9/ ]", "", ds_adversarios_fpx$Resultado)
+
+# Tirando valores númericos, que são dos nomes dos times, da coluna Resultado 
+ds_adversarios_fpx$Resultado <- gsub(" \\b[(^0-9)]+ ", "", ds_adversarios_fpx$Resultado)
+
+# Tirando dados que estão longes das barras ("/")
 ds_adversarios_fpx$Resultado <- substr(ds_adversarios_fpx$Resultado,
-                                        gregexpr("/", ds_adversarios_fpx$Resultado)[[1]][1] - 3,
-                                        gregexpr("/", ds_adversarios_fpx$Resultado)[[3]][1] + 3) # Tirando dados que estão longes das barras ("/")
+                                       gregexpr("/", ds_adversarios_fpx$Resultado)[[1]][1] - 9,
+                                       gregexpr("/", ds_adversarios_fpx$Resultado)[[3]][1] + 9)
 
-ds_adversarios_fpx <- separate(ds_adversarios_fpx, Resultado, c("RW", "RL"), "/") # Transformando a coluna Resultado em RW e RL
+# Transformando a coluna Resultado em RW e RL ------------------------------------------------------------
+ds_adversarios_fpx <- separate(ds_adversarios_fpx, Resultado, c("RW", "RL"), "/") 
 
-ds_adversarios_fpx$RL <- sub(" .*", "", ds_adversarios_fpx$RL) # Tirando todos os caracteres que estavam à direita
-ds_adversarios_fpx$RW <- sub("*. ", "", ds_adversarios_fpx$RW) # Tirando todos os caracteres que estavam à esquerda
+# Tirando todos os caracteres que estavam à direita e à esquerda
+ds_adversarios_fpx$RL <- sub(" .*", "", ds_adversarios_fpx$RL) 
+ds_adversarios_fpx$RW <- sub("*. ", "", ds_adversarios_fpx$RW) 
 
-ds_adversarios_fpx$RW <- sub(" ", "", ds_adversarios_fpx$RW) # Tirando todos os espaços
-ds_adversarios_fpx$RL <- sub(" ", "", ds_adversarios_fpx$RL) # Tirando todos os espaços
+# Tirando todos os espaços
+ds_adversarios_fpx$RW <- sub(" ", "", ds_adversarios_fpx$RW) 
+ds_adversarios_fpx$RL <- sub(" ", "", ds_adversarios_fpx$RL) 
 
-ds_adversarios_fpx$Resultados <- as.numeric(ds_adversarios_fpx$RW) > as.numeric(ds_adversarios_fpx$RL) # Criando uma coluna de resultados
+# Criando uma coluna de resultados
+ds_adversarios_fpx$Resultados <- as.numeric(ds_adversarios_fpx$RW) > as.numeric(ds_adversarios_fpx$RL) 
 
+# Renomeando TRUE para 'Win' e FALSE para 'Lose'
 ds_adversarios_fpx$Resultados <- replace(ds_adversarios_fpx$Resultados, ds_adversarios_fpx$Resultados == TRUE, 'Win') %>% 
-  replace(ds_adversarios_fpx$Resultados == FALSE, 'Lose') # Renomeando TRUE para 'Win' e FALSE para 'Lose'
+  replace(ds_adversarios_fpx$Resultados == FALSE, 'Lose') 
 
 # Limpando a coluna 'Adversario' --------------------------------------------------------------------------
 ds_adversarios_fpx[-1] <- lapply(ds_adversarios_fpx[-1], str_replace_all, "\\s", ' ') %>% 
   lapply(str_replace_all, '  ', ' ') %>% 
   lapply(str_replace_all, '   ', ' ') %>% 
   lapply(str_replace_all, '  ', ' ') %>% 
-  lapply(str_replace_all, '   ', ' ')
-
-ds_adversarios_fpx[-1] <- lapply(ds_adversarios_fpx[-1], str_replace_all, "  ", '')
+  lapply(str_replace_all, '   ', ' ') %>% 
+  lapply(str_replace_all, '  ', '')
 
 # Exportando o arquivo
 write.csv(ds_adversarios_fpx, file = "C:/Users/anonb/Documents/TCC Pós/Scripts/scripts_times/ds_adversarios_fpx.csv")

@@ -46,34 +46,43 @@ ds_adversarios_fntc <- select(ds_adversarios_fntc, 'Data', 'Resultado', 'Adversa
 # Passando os dados da coluna Data para o formato de data -------------------------------------------------
 ds_adversarios_fntc$Data <- as_date(ds_adversarios_fntc$Data)
 
-# Limpando os dados para deixar apenas os resultados------------------------------------------------------
-ds_adversarios_fntc$Resultado <- gsub("[^0-9/ .-]", "", ds_adversarios_fntc$Resultado)# Deixando apenas números e "/"
-#
+# Deixando apenas números e "/"----------------------------------------------------------------------------
+ds_adversarios_fntc$Resultado <- gsub("[^0-9/ ]", "", ds_adversarios_fntc$Resultado)
+
+# Tirando valores númericos, que são dos nomes dos times, da coluna Resultado 
+ds_adversarios_fntc$Resultado <- gsub(" \\b[(^0-9)]+ ", "", ds_adversarios_fntc$Resultado)
+
+# Tirando dados que estão longes das barras ("/")
 ds_adversarios_fntc$Resultado <- substr(ds_adversarios_fntc$Resultado,
-                                        gregexpr("/", ds_adversarios_fntc$Resultado)[[1]][1] - 3,
-                                        gregexpr("/", ds_adversarios_fntc$Resultado)[[3]][1] + 3) # Tirando dados que estão longes das barras ("/")
+                                       gregexpr("/", ds_adversarios_fntc$Resultado)[[1]][1] - 9,
+                                       gregexpr("/", ds_adversarios_fntc$Resultado)[[3]][1] + 9)
 
-ds_adversarios_fntc <- separate(ds_adversarios_fntc, Resultado, c("RW", "RL"), "/") # Transformando a coluna Resultado em RW e RL
+# Transformando a coluna Resultado em RW e RL ------------------------------------------------------------
+ds_adversarios_fntc <- separate(ds_adversarios_fntc, Resultado, c("RW", "RL"), "/") 
 
-ds_adversarios_fntc$RL <- sub(" .*", "", ds_adversarios_fntc$RL) # Tirando todos os caracteres que estavam à direita
-ds_adversarios_fntc$RW <- sub("*. ", "", ds_adversarios_fntc$RW) # Tirando todos os caracteres que estavam à esquerda
+# Tirando todos os caracteres que estavam à direita e à esquerda
+ds_adversarios_fntc$RL <- sub(" .*", "", ds_adversarios_fntc$RL) 
+ds_adversarios_fntc$RW <- sub("*. ", "", ds_adversarios_fntc$RW) 
 
-ds_adversarios_fntc$RW <- sub(" ", "", ds_adversarios_fntc$RW) # Tirando todos os espaços
-ds_adversarios_fntc$RL <- sub(" ", "", ds_adversarios_fntc$RL) # Tirando todos os espaços
+# Tirando todos os espaços
+ds_adversarios_fntc$RW <- sub(" ", "", ds_adversarios_fntc$RW) 
+ds_adversarios_fntc$RL <- sub(" ", "", ds_adversarios_fntc$RL) 
 
-ds_adversarios_fntc$Resultados <- as.numeric(ds_adversarios_fntc$RW) > as.numeric(ds_adversarios_fntc$RL) # Criando uma coluna de resultados
+# Criando uma coluna de resultados
+ds_adversarios_fntc$Resultados <- as.numeric(ds_adversarios_fntc$RW) > as.numeric(ds_adversarios_fntc$RL) 
 
+# Renomeando TRUE para 'Win' e FALSE para 'Lose'
 ds_adversarios_fntc$Resultados <- replace(ds_adversarios_fntc$Resultados, ds_adversarios_fntc$Resultados == TRUE, 'Win') %>% 
-  replace(ds_adversarios_fntc$Resultados == FALSE, 'Lose') # Renomeando TRUE para 'Win' e FALSE para 'Lose'
+  replace(ds_adversarios_fntc$Resultados == FALSE, 'Lose') 
 
 # Limpando a coluna 'Adversario' --------------------------------------------------------------------------
 ds_adversarios_fntc[-1] <- lapply(ds_adversarios_fntc[-1], str_replace_all, "\\s", ' ') %>% 
   lapply(str_replace_all, '  ', ' ') %>% 
   lapply(str_replace_all, '   ', ' ') %>% 
   lapply(str_replace_all, '  ', ' ') %>% 
-  lapply(str_replace_all, '   ', ' ')
-
-ds_adversarios_fntc[-1] <- lapply(ds_adversarios_fntc[-1], str_replace_all, "  ", '')
+  lapply(str_replace_all, '   ', ' ') %>% 
+  lapply(str_replace_all, '  ', '')
 
 # Exportando o arquivo
 write.csv(ds_adversarios_fntc, file = "C:/Users/anonb/Documents/TCC Pós/Scripts/scripts_times/ds_adversarios_fntc.csv")
+
