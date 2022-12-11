@@ -118,24 +118,74 @@ op_df <- op_df[,-7:-14]
 tl_df <- tl_df[,-7:-14]
 fpx_df <- fpx_df[,-7:-14]
 
-# Tentando uma formula para dizer a porcentagem de chance de vitória do time 1 sobre o time 2 -----------------------
+# Tentando mesclar dataframe ds_adversarios com outras estatisticas ------------------------------------------------
+ds_adversarios_loud <- read.csv("C:/Users/anonb/Documents/TCC Pós/Scripts/scripts_times/ds_adversarios_loud.csv",
+                                sep = ',') %>% select(-X)
+ds_adversarios_drx <- read.csv("C:/Users/anonb/Documents/TCC Pós/Scripts/scripts_times/ds_adversarios_drx.csv",
+                               sep = ',') %>% select(-X)
+ds_adversarios_fpx <- read.csv("C:/Users/anonb/Documents/TCC Pós/Scripts/scripts_times/ds_adversarios_fpx.csv",
+                               sep = ',') %>% select(-X)
+ds_adversarios_fntc <- read.csv("C:/Users/anonb/Documents/TCC Pós/Scripts/scripts_times/ds_adversarios_fntc.csv",
+                                sep = ',') %>% select(-X)
+ds_adversarios_tl <- read.csv("C:/Users/anonb/Documents/TCC Pós/Scripts/scripts_times/ds_adversarios_tl.csv",
+                              sep = ',') %>% select(-X)
+ds_adversarios_op <- read.csv("C:/Users/anonb/Documents/TCC Pós/Scripts/scripts_times/ds_adversarios_op.csv",
+                              sep = ',') %>% select(-X)
+ds_adversarios_xset <- read.csv("C:/Users/anonb/Documents/TCC Pós/Scripts/scripts_times/ds_adversarios_xset.csv",
+                                sep = ',') %>% select(-X)
+ds_adversarios_lev <- read.csv("C:/Users/anonb/Documents/TCC Pós/Scripts/scripts_times/ds_adversarios_xset.csv",
+                               sep = ',') %>% select(-X)
+
+#Loud
+loud_lev <- sum(ds_adversarios_loud$Adversario == 'Leviatán' & ds_adversarios_loud$Resultados == 'Win') - 
+  sum(ds_adversarios_loud$Adversario == 'Leviatán' & ds_adversarios_loud$Resultados == 'Lose')
+
+loud_drx <- sum(ds_adversarios_loud$Adversario == 'DRX' & ds_adversarios_loud$Resultados == 'Win') -
+  sum(ds_adversarios_loud$Adversario == 'DRX' & ds_adversarios_loud$Resultados == 'Lose')
+
+loud_op <- sum(ds_adversarios_loud$Adversario == 'OpTic Gaming' & ds_adversarios_loud$Resultados == 'Win') - 
+  sum(ds_adversarios_loud$Adversario == 'OpTic Gaming' & ds_adversarios_loud$Resultados == 'Lose')
+
+#Drx
+drx_fpx <- sum(ds_adversarios_drx$Adversario == 'FunPlus Phoenix' & ds_adversarios_drx$Resultados == 'Win') -
+  sum(ds_adversarios_drx$Adversario == 'FunPlus Phoenix' & ds_adversarios_drx$Resultados == 'Lose')
+
+drx_loud <- sum(ds_adversarios_drx$Adversario == 'LOUD' & ds_adversarios_drx$Resultados == 'Win') -
+  sum(ds_adversarios_drx$Adversario == 'LOUD' & ds_adversarios_drx$Resultados == 'Lose')
+
+drx_fntc <- sum(ds_adversarios_drx$Adversario == 'FNATIC' & ds_adversarios_drx$Resultados == 'Win') -
+  sum(ds_adversarios_drx$Adversario == 'FNATIC' & ds_adversarios_drx$Resultados == 'Lose')
+
+drx_op <- sum(ds_adversarios_drx$Adversario == 'OpTic Gaming' & ds_adversarios_drx$Resultados == 'Win') -
+  sum(ds_adversarios_drx$Adversario == 'OpTic Gaming' & ds_adversarios_drx$Resultados == 'Lose')
+
+#OpTic
+op_tl <- sum(ds_adversarios_op$Adversario == 'Team Liquid' & ds_adversarios_op$Resultados == 'Win') -
+  sum(ds_adversarios_op$Adversario == 'Team Liquid' & ds_adversarios_op$Resultados == 'Lose')
+
+# Tentando uma formula para dizer a porcentagem de chance de vitória do time 1 sobre o time 2 ----------------------
 medialoud <- mean(loud_df$R)
-
 medialev <- mean(lev_df$R)
-
 mediaxset <- mean(xset_df$R)
-
 mediafpx <- mean(fpx_df$R)
-
 mediadrx <- mean(drx_df$R)
-
 mediaop <- mean(op_df$R)
-
 mediafntc <- mean(fntc_df$R)
-
 mediatl <- mean(tl_df$R)
 
-# Porcentagem de vitória
+
+# TESTE
+
+jogo1 <- (mean(drx_df$R) + drx_fpx * 0.01) / ((mean(drx_df$R) + drx_fpx * 0.01) +
+                                                (mean(fpx_df$R) + (-drx_fpx * 0.01)))
+
+jogo2 <- (mean(lev_df$R) + -loud_lev * 0.01) / ((mean(lev_df$R) + -loud_lev * 0.01) +
+                                                 mean(loud_df$R) + (loud_lev * 0.01))
+
+jogo3 <- (mean(op_df$R) + op_tl * 0.01) / ((mean(op_df$R) + op_tl * 0.01) + 
+                                             mean(tl_df$R) + -op_tl * 0.01)
+
+# Porcentagem de vitória 
 jogo1 <- round(mediadrx / (mediadrx + mediafpx), 3) 
 jogo2 <- round(medialev / (medialev + medialoud), 3) 
 jogo3 <- round(mediaop / (mediaop + mediatl), 3) 
@@ -202,37 +252,6 @@ analisa_resultados = function(jogo1, jogo2, jogo3, jogo4, jogo5, jogo6, jogo7, j
 
 analisa_resultados(jogo1, jogo2, jogo3, jogo4, jogo5, jogo6, jogo7, jogo8, jogo9, jogo10, jogo11,
                    jogo12, jogo13, jogo14)
-
-# Tentando mesclar dataframe ds_adversarios com outras estatisticas
-
-ds_adversarios_loud <- read.csv("C:/Users/anonb/Documents/TCC Pós/Scripts/scripts_times/ds_adversarios_loud.csv",
-                                sep = ',') %>% select(-X)
-ds_adversarios_drx <- read.csv("C:/Users/anonb/Documents/TCC Pós/Scripts/scripts_times/ds_adversarios_drx.csv",
-                               sep = ',') %>% select(-X)
-ds_adversarios_fpx <- read.csv("C:/Users/anonb/Documents/TCC Pós/Scripts/scripts_times/ds_adversarios_fpx.csv",
-                               sep = ',') %>% select(-X)
-ds_adversarios_fntc <- read.csv("C:/Users/anonb/Documents/TCC Pós/Scripts/scripts_times/ds_adversarios_fntc.csv",
-                                sep = ',') %>% select(-X)
-ds_adversarios_tl <- read.csv("C:/Users/anonb/Documents/TCC Pós/Scripts/scripts_times/ds_adversarios_tl.csv",
-                              sep = ',') %>% select(-X)
-ds_adversarios_op <- read.csv("C:/Users/anonb/Documents/TCC Pós/Scripts/scripts_times/ds_adversarios_op.csv",
-                              sep = ',') %>% select(-X)
-ds_adversarios_xset <- read.csv("C:/Users/anonb/Documents/TCC Pós/Scripts/scripts_times/ds_adversarios_xset.csv",
-                                sep = ',') %>% select(-X)
-ds_adversarios_lev <- read.csv("C:/Users/anonb/Documents/TCC Pós/Scripts/scripts_times/ds_adversarios_xset.csv",
-                               sep = ',') %>% select(-X)
-
-#Loud
-loud_lev <- sum(ds_adversarios_loud$Adversario == 'Leviatán' & ds_adversarios_loud$Resultados == 'Win') - 
-  sum(ds_adversarios$Adversario == 'Leviatán' & ds_adversarios_loud$Resultados == 'Lose')
-loud_drx <- sum(ds_adversarios_loud$Adversario == 'DRX' & ds_adversarios_loud$Resultados == 'Win') -
-  sum(ds_adversarios_loud$Adversario == 'DRX' & ds_adversarios_loud$Resultados == 'Lose')
-loud_op <- sum(ds_adversarios_loud$Adversario == 'OpTic Gaming' & ds_adversarios_loud$Resultados == 'Win') - 
-  sum(ds_adversarios_loud$Adversario == 'OpTic Gaming' & ds_adversarios_loud$Resultados == 'Lose')
-
-#Drx
-drx_fpx <- sum(ds_adversarios_drx$Adversario == 'FunPlus Phoenix' & ds_adversarios_drx$Resultados == 'Win') -
-  sum(ds_adversarios_drx$Adversario == 'FunPlus Phoenix' & ds_adversarios_drx$Resultados == 'Lose')
 
 
 
