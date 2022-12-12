@@ -119,21 +119,21 @@ tl_df <- tl_df[,-7:-14]
 fpx_df <- fpx_df[,-7:-14]
 
 # Tentando mesclar dataframe ds_adversarios com outras estatisticas ------------------------------------------------
-ds_adversarios_loud <- read.csv("C:/Users/anonb/Documents/TCC Pós/Scripts/scripts_times/ds_adversarios_loud.csv",
+ds_adversarios_loud <- read.csv("C:/Users/anonb/Documents/TCC Pós/Scripts/scripts_times_champions/ds_adversarios_loud.csv",
                                 sep = ',') %>% select(-X)
-ds_adversarios_drx <- read.csv("C:/Users/anonb/Documents/TCC Pós/Scripts/scripts_times/ds_adversarios_drx.csv",
+ds_adversarios_drx <- read.csv("C:/Users/anonb/Documents/TCC Pós/Scripts/scripts_times_champions/ds_adversarios_drx.csv",
                                sep = ',') %>% select(-X)
-ds_adversarios_fpx <- read.csv("C:/Users/anonb/Documents/TCC Pós/Scripts/scripts_times/ds_adversarios_fpx.csv",
+ds_adversarios_fpx <- read.csv("C:/Users/anonb/Documents/TCC Pós/Scripts/scripts_times_champions/ds_adversarios_fpx.csv",
                                sep = ',') %>% select(-X)
-ds_adversarios_fntc <- read.csv("C:/Users/anonb/Documents/TCC Pós/Scripts/scripts_times/ds_adversarios_fntc.csv",
+ds_adversarios_fntc <- read.csv("C:/Users/anonb/Documents/TCC Pós/Scripts/scripts_times_champions/ds_adversarios_fntc.csv",
                                 sep = ',') %>% select(-X)
-ds_adversarios_tl <- read.csv("C:/Users/anonb/Documents/TCC Pós/Scripts/scripts_times/ds_adversarios_tl.csv",
+ds_adversarios_tl <- read.csv("C:/Users/anonb/Documents/TCC Pós/Scripts/scripts_times_champions/ds_adversarios_tl.csv",
                               sep = ',') %>% select(-X)
-ds_adversarios_op <- read.csv("C:/Users/anonb/Documents/TCC Pós/Scripts/scripts_times/ds_adversarios_op.csv",
+ds_adversarios_op <- read.csv("C:/Users/anonb/Documents/TCC Pós/Scripts/scripts_times_champions/ds_adversarios_op.csv",
                               sep = ',') %>% select(-X)
-ds_adversarios_xset <- read.csv("C:/Users/anonb/Documents/TCC Pós/Scripts/scripts_times/ds_adversarios_xset.csv",
+ds_adversarios_xset <- read.csv("C:/Users/anonb/Documents/TCC Pós/Scripts/scripts_times_champions/ds_adversarios_xset.csv",
                                 sep = ',') %>% select(-X)
-ds_adversarios_lev <- read.csv("C:/Users/anonb/Documents/TCC Pós/Scripts/scripts_times/ds_adversarios_xset.csv",
+ds_adversarios_lev <- read.csv("C:/Users/anonb/Documents/TCC Pós/Scripts/scripts_times_champions/ds_adversarios_xset.csv",
                                sep = ',') %>% select(-X)
 
 # Ao fim de cada formula abaixo eu desconsiderei (subtraindo) o número de rounds ganhos ou perdidos nesse campeonato

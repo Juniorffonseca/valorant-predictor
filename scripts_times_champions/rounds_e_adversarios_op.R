@@ -84,4 +84,4 @@ ds_adversarios_op[-1] <- lapply(ds_adversarios_op[-1], str_replace_all, "\\s", '
   lapply(str_replace_all, '  ', '')
 
 # Exportando o arquivo
-write.csv(ds_adversarios_op, file = "C:/Users/anonb/Documents/TCC Pós/Scripts/scripts_times/ds_adversarios_op.csv")
+write.csv(ds_adversarios_op, file = "C:/Users/anonb/Documents/TCC Pós/Scripts/scripts_times_champions/ds_adversarios_op.csv")

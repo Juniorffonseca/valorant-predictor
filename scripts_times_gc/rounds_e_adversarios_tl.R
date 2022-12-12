@@ -9,7 +9,7 @@ library(stringr)
 library(lubridate)
 
 # Urls ----------------------------------------------------------------------------------------------------
-url_tl <- "https://www.vlr.gg/team/stats/474/team-liquid/"
+url_tl <- "https://www.vlr.gg/team/stats/7055/team-liquid-brazil/"
 
 # Pegando os dados dos times no url e transformando em dataframe ------------------------------------------
 ds_adversarios_tl <- read_html(url_tl) %>% 
@@ -83,5 +83,6 @@ ds_adversarios_tl[-1] <- lapply(ds_adversarios_tl[-1], str_replace_all, "\\s", '
   lapply(str_replace_all, '   ', ' ') %>% 
   lapply(str_replace_all, '  ', '')
 
-# Exportando o arquivo
-write.csv(ds_adversarios_tl, file = "C:/Users/anonb/Documents/TCC Pós/Scripts/scripts_times/ds_adversarios_tl.csv")
+# Exportando o arquivo ------------------------------------------------------------------------------------
+write.csv(ds_adversarios_tl, file = "C:/Users/anonb/Documents/TCC Pós/Scripts/scripts_times_gc/ds_adversarios_tl.csv")
+
