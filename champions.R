@@ -133,7 +133,7 @@ ds_adversarios_op <- read.csv("C:/Users/anonb/Documents/TCC Pós/Scripts/scripts
                               sep = ',') %>% select(-X)
 ds_adversarios_xset <- read.csv("C:/Users/anonb/Documents/TCC Pós/Scripts/scripts_times_champions/ds_adversarios_xset.csv",
                                 sep = ',') %>% select(-X)
-ds_adversarios_lev <- read.csv("C:/Users/anonb/Documents/TCC Pós/Scripts/scripts_times_champions/ds_adversarios_xset.csv",
+ds_adversarios_lev <- read.csv("C:/Users/anonb/Documents/TCC Pós/Scripts/scripts_times_champions/ds_adversarios_lev.csv",
                                sep = ',') %>% select(-X)
 
 # Ao fim de cada formula abaixo eu desconsiderei (subtraindo) o número de rounds ganhos ou perdidos nesse campeonato
