@@ -136,6 +136,9 @@ ds_adversarios_xset <- read.csv("C:/Users/anonb/Documents/TCC Pós/Scripts/scrip
 ds_adversarios_lev <- read.csv("C:/Users/anonb/Documents/TCC Pós/Scripts/scripts_times/ds_adversarios_xset.csv",
                                sep = ',') %>% select(-X)
 
+
+#### TENHO Q SUBTRARIR DESSES DADOS \/ OS NÚMEROS DE PARTIDAS Q ACONTECERAM NO WORLDS PARA Q SEJA APENAS CONSIDERADAS 
+#### AS PARTIDAS ANTES DISSO ####
 #Loud
 loud_lev <- sum(ds_adversarios_loud$Adversario == 'Leviatán' & ds_adversarios_loud$Resultados == 'Win') - 
   sum(ds_adversarios_loud$Adversario == 'Leviatán' & ds_adversarios_loud$Resultados == 'Lose')
@@ -163,6 +166,17 @@ drx_op <- sum(ds_adversarios_drx$Adversario == 'OpTic Gaming' & ds_adversarios_d
 op_tl <- sum(ds_adversarios_op$Adversario == 'Team Liquid' & ds_adversarios_op$Resultados == 'Win') -
   sum(ds_adversarios_op$Adversario == 'Team Liquid' & ds_adversarios_op$Resultados == 'Lose')
 
+#Xset
+xset_fntc <- sum(ds_adversarios_xset$Adversario == 'FNATIC' & ds_adversarios_xset$Resultados == 'Win') -
+  sum(ds_adversarios_xset$Adversario == 'FNATIC' & ds_adversarios_xset$Resultados == 'Lose')
+xset_fpx <- sum(ds_adversarios_xset$Adversario == 'FunPlus Phoenix' & ds_adversarios_xset$Resultados == 'Win') -
+  sum(ds_adversarios_xset$Adversario == 'FunPlus Phoenix' & ds_adversarios_xset$Resultados == 'Lose')
+
+#Fpx
+fpx_lev <- sum(ds_adversarios_fpx$Adversario == 'Leviatán' & ds_adversarios_fpx$Resultados == 'Win') -
+  sum(ds_adversarios_fpx$Adversario == 'Leviatán' & ds_adversarios_fpx$Resultados == 'Lose')
+
+
 # Tentando uma formula para dizer a porcentagem de chance de vitória do time 1 sobre o time 2 ----------------------
 medialoud <- mean(loud_df$R)
 medialev <- mean(lev_df$R)
@@ -184,6 +198,11 @@ jogo2 <- (mean(lev_df$R) + -loud_lev * 0.01) / ((mean(lev_df$R) + -loud_lev * 0.
 
 jogo3 <- (mean(op_df$R) + op_tl * 0.01) / ((mean(op_df$R) + op_tl * 0.01) + 
                                              mean(tl_df$R) + -op_tl * 0.01)
+
+jogo4 <- (mean(xset_df$R) + xset_fntc * 0.01) / ((mean(xset_df$R) + xset_fntc * 0.01) +
+                                                 mean(fntc_df$R) + -xset_fntc * 0.01)
+
+jogo5 <- (mean(fpx_df$R) + fpx_)
 
 # Porcentagem de vitória 
 jogo1 <- round(mediadrx / (mediadrx + mediafpx), 3) 
