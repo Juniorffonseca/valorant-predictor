@@ -119,6 +119,110 @@ sr_df <- sr_df[,-7:-14]
 tl_df <- tl_df[,-7:-14]
 x10_df <- x10_df[,-7:-14]
 
+# Tentando mesclar dataframe ds_adversarios com outras estatisticas ------------------------------------------------
+ds_adversarios_loud <- read.csv("C:/Users/anonb/Documents/TCC Pós/Scripts/scripts_times_champions/ds_adversarios_loud.csv",
+                                sep = ',') %>% select(-X)
+ds_adversarios_drx <- read.csv("C:/Users/anonb/Documents/TCC Pós/Scripts/scripts_times_champions/ds_adversarios_drx.csv",
+                               sep = ',') %>% select(-X)
+ds_adversarios_fpx <- read.csv("C:/Users/anonb/Documents/TCC Pós/Scripts/scripts_times_champions/ds_adversarios_fpx.csv",
+                               sep = ',') %>% select(-X)
+ds_adversarios_fntc <- read.csv("C:/Users/anonb/Documents/TCC Pós/Scripts/scripts_times_champions/ds_adversarios_fntc.csv",
+                                sep = ',') %>% select(-X)
+ds_adversarios_tl <- read.csv("C:/Users/anonb/Documents/TCC Pós/Scripts/scripts_times_champions/ds_adversarios_tl.csv",
+                              sep = ',') %>% select(-X)
+ds_adversarios_op <- read.csv("C:/Users/anonb/Documents/TCC Pós/Scripts/scripts_times_champions/ds_adversarios_op.csv",
+                              sep = ',') %>% select(-X)
+ds_adversarios_xset <- read.csv("C:/Users/anonb/Documents/TCC Pós/Scripts/scripts_times_champions/ds_adversarios_xset.csv",
+                                sep = ',') %>% select(-X)
+ds_adversarios_lev <- read.csv("C:/Users/anonb/Documents/TCC Pós/Scripts/scripts_times_champions/ds_adversarios_xset.csv",
+                               sep = ',') %>% select(-X)
+
+# Ao fim de cada formula abaixo eu desconsiderei (subtraindo) o número de rounds ganhos ou perdidos nesse campeonato
+#Loud
+loud_lev <- sum(ds_adversarios_loud$Adversario == 'Leviatán' & ds_adversarios_loud$Resultados == 'Win') - 
+  sum(ds_adversarios_loud$Adversario == 'Leviatán' & ds_adversarios_loud$Resultados == 'Lose') - 2 
+
+loud_op <- sum(ds_adversarios_loud$Adversario == 'OpTic Gaming' & ds_adversarios_loud$Resultados == 'Win') - 
+  sum(ds_adversarios_loud$Adversario == 'OpTic Gaming' & ds_adversarios_loud$Resultados == 'Lose') - 4
+
+#Drx
+drx_fpx <- sum(ds_adversarios_drx$Adversario == 'FunPlus Phoenix' & ds_adversarios_drx$Resultados == 'Win') -
+  sum(ds_adversarios_drx$Adversario == 'FunPlus Phoenix' & ds_adversarios_drx$Resultados == 'Lose') - 4
+
+drx_loud <- sum(ds_adversarios_drx$Adversario == 'LOUD' & ds_adversarios_drx$Resultados == 'Win') -
+  sum(ds_adversarios_drx$Adversario == 'LOUD' & ds_adversarios_drx$Resultados == 'Lose') + 2
+
+drx_fntc <- sum(ds_adversarios_drx$Adversario == 'FNATIC' & ds_adversarios_drx$Resultados == 'Win') -
+  sum(ds_adversarios_drx$Adversario == 'FNATIC' & ds_adversarios_drx$Resultados == 'Lose') - 1
+
+drx_op <- sum(ds_adversarios_drx$Adversario == 'OpTic Gaming' & ds_adversarios_drx$Resultados == 'Win') -
+  sum(ds_adversarios_drx$Adversario == 'OpTic Gaming' & ds_adversarios_drx$Resultados == 'Lose') + 1
+
+#OpTic
+op_tl <- sum(ds_adversarios_op$Adversario == 'Team Liquid' & ds_adversarios_op$Resultados == 'Win') -
+  sum(ds_adversarios_op$Adversario == 'Team Liquid' & ds_adversarios_op$Resultados == 'Lose') - 1
+
+#Xset
+xset_fntc <- sum(ds_adversarios_xset$Adversario == 'FNATIC' & ds_adversarios_xset$Resultados == 'Win') -
+  sum(ds_adversarios_xset$Adversario == 'FNATIC' & ds_adversarios_xset$Resultados == 'Lose') - 2
+
+xset_fpx <- sum(ds_adversarios_xset$Adversario == 'FunPlus Phoenix' & ds_adversarios_xset$Resultados == 'Win') -
+  sum(ds_adversarios_xset$Adversario == 'FunPlus Phoenix' & ds_adversarios_xset$Resultados == 'Lose') + 1
+
+xset_op <- sum(ds_adversarios_xset$Adversario == 'OpTic Gaming' & ds_adversarios_xset$Resultados == 'Win') - 
+  sum(ds_adversarios_xset$Adversario == 'OpTic Gaming' & ds_adversarios_xset$Resultados == 'Lose') + 1
+
+#Fpx
+fpx_lev <- sum(ds_adversarios_fpx$Adversario == 'Leviatán' & ds_adversarios_fpx$Resultados == 'Win') -
+  sum(ds_adversarios_fpx$Adversario == 'Leviatán' & ds_adversarios_fpx$Resultados == 'Lose') - 2
+
+#Team Liquid
+tl_fntc <- sum(ds_adversarios_tl$Adversario == 'FNATIC' & ds_adversarios_tl$Resultados == 'Win') -
+  sum(ds_adversarios_tl$Adversario == 'FNATIC' & ds_adversarios_tl$Resultados == 'Lose') + 2
+
+# Tentando uma formula para dizer a porcentagem de chance de vitória do time 1 sobre o time 2 ----------------------
+jogo1 <- (mean(drx_df$R) + drx_fpx * 0.01) / ((mean(drx_df$R) + drx_fpx * 0.01) +
+                                                (mean(fpx_df$R) + (-drx_fpx * 0.01)))
+
+jogo2 <- (mean(lev_df$R) + -loud_lev * 0.01) / ((mean(lev_df$R) + -loud_lev * 0.01) +
+                                                  mean(loud_df$R) + (loud_lev * 0.01))
+
+jogo3 <- (mean(op_df$R) + op_tl * 0.01) / ((mean(op_df$R) + op_tl * 0.01) + 
+                                             mean(tl_df$R) + -op_tl * 0.01)
+
+jogo4 <- (mean(xset_df$R) + xset_fntc * 0.01) / ((mean(xset_df$R) + xset_fntc * 0.01) +
+                                                   mean(fntc_df$R) + -xset_fntc * 0.01)
+
+jogo5 <- (mean(fpx_df$R) + fpx_lev * 0.01) / ((mean(fpx_df$R) + fpx_lev * 0.01) + 
+                                                mean(lev_df$R) + -fpx_lev * 0.01)
+
+jogo6 <- (mean(tl_df$R) + tl_fntc * 0.01) / ((mean(tl_df$R) + tl_fntc * 0.01) +
+                                               mean(fntc_df$R) + -tl_fntc * 0.01)
+
+jogo7 <- (mean(drx_df$R) + drx_loud * 0.01) / ((mean(drx_df$R) + drx_loud * 0.01) + 
+                                                 mean(loud_df$R) + -drx_loud * 0.01)
+
+jogo8 <- (mean(op_df$R) + -xset_op * 0.01) / ((mean(op_df$R) + -xset_op * 0.01) + 
+                                                mean(xset_df$R) + xset_op * 0.01)
+
+jogo9 <- (mean(xset_df$R) + xset_fpx * 0.01) / ((mean(xset_df$R) + xset_fpx * 0.01) + 
+                                                  mean(fpx_df$R) + -xset_fpx * 0.01)
+
+jogo10 <- (mean(drx_df$R) + drx_fntc * 0.01) / ((mean(drx_df$R) + drx_fntc * 0.01) + 
+                                                  mean(fntc_df$R) + -drx_fntc * 0.01)
+
+jogo11 <- (mean(loud_df$R) + loud_op * 0.01) / ((mean(loud_df$R) + loud_op * 0.01) +
+                                                  mean(op_df$R) + -loud_op * 0.01)
+
+jogo12 <- (mean(fpx_df$R) + -drx_fpx * 0.01) / ((mean(fpx_df$R) + -drx_fpx * 0.01) +
+                                                  mean(drx_df$R) + drx_fpx * 0.01)
+
+jogo13 <- (mean(loud_df$R) + loud_op * 0.01) / ((mean(loud_df$R) + loud_op * 0.01) +
+                                                  mean(op_df$R) + -loud_op * 0.01)
+
+jogo14 <- (mean(op_df$R) + -drx_op * 0.01) / ((mean(op_df$R) + -drx_op * 0.01) + 
+                                                mean(drx_df$R) + drx_op * 0.01)
+
 # Criando uma formula para dizer a porcentagem de chance de vitória do time 1 sobre o time 2 ----------------------
 # Calculando índices dos times
 mediac9w <- mean(c9w_df$R) + 1/mean(c9w_df$idc)
