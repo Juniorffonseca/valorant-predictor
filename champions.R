@@ -176,6 +176,8 @@ xset_fpx <- sum(ds_adversarios_xset$Adversario == 'FunPlus Phoenix' & ds_adversa
 fpx_lev <- sum(ds_adversarios_fpx$Adversario == 'Leviatán' & ds_adversarios_fpx$Resultados == 'Win') -
   sum(ds_adversarios_fpx$Adversario == 'Leviatán' & ds_adversarios_fpx$Resultados == 'Lose')
 
+#Team Liquid
+tl_fntc <- sum(ds_adversarios_fntc$Adversario == '')
 
 # Tentando uma formula para dizer a porcentagem de chance de vitória do time 1 sobre o time 2 ----------------------
 medialoud <- mean(loud_df$R)
@@ -202,7 +204,10 @@ jogo3 <- (mean(op_df$R) + op_tl * 0.01) / ((mean(op_df$R) + op_tl * 0.01) +
 jogo4 <- (mean(xset_df$R) + xset_fntc * 0.01) / ((mean(xset_df$R) + xset_fntc * 0.01) +
                                                  mean(fntc_df$R) + -xset_fntc * 0.01)
 
-jogo5 <- (mean(fpx_df$R) + fpx_)
+jogo5 <- (mean(fpx_df$R) + fpx_lev * 0.01) / ((mean(fpx_df$R) + fpx_lev * 0.01) + 
+                                                mean(lev_df$R) + -fpx_lev * 0.01)
+
+jogo6 <- (mean(tl_df$R) + )
 
 # Porcentagem de vitória 
 jogo1 <- round(mediadrx / (mediadrx + mediafpx), 3) 
