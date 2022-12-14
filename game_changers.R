@@ -198,14 +198,14 @@ jogo4 <- (mean(flgc_df$R) + -tl_flgc * 0.01) / ((mean(flgc_df$R) + -tl_flgc * 0.
 jogo5 <- (mean(kru_df$R) + kru_c9 * 0.01) / ((mean(kru_df$R) + kru_c9 * 0.01) + 
                                                 mean(c9_df$R) + -kru_c9 * 0.01)
 
-jogo6 <- (mean(tl_df$R) + tl_x10 * 0.01) / ((mean(tl_df$R) + tl_x10 * 0.01) +
-                                               mean(x10_df$R) + -tl_x10 * 0.01)
+jogo6 <- (mean(gldx_df$R) + gldx_flgc * 0.01) / ((mean(gldx_df$R) + gldx_flgc * 0.01) +
+                                               mean(flgc_df$R) + -gldx_flgc * 0.01)
 
-jogo7 <- (mean(sr_df$R) + sr_g2 * 0.01) / ((mean(sr_df$R) + sr_g2 * 0.01) + 
-                                                 mean(g2_df$R) + -sr_g2 * 0.01)
+jogo7 <- (mean(c9_df$R) + -g2_c9 * 0.01) / ((mean(c9_df$R) + -g2_c9 * 0.01) + 
+                                                 mean(g2_df$R) + g2_c9 * 0.01)
 
-jogo8 <- (mean(kru_df$R) + -gldx_kru * 0.01) / ((mean(kru_df$R) + -gldx_kru * 0.01) + 
-                                                mean(gldx_df$R) + gldx_kru * 0.01)
+jogo8 <- (mean(sr_df$R) + sr_tl * 0.01) / ((mean(sr_df$R) + sr_tl * 0.01) + 
+                                                mean(tl_df$R) + -sr_tl * 0.01)
 
 jogo9 <- (mean(gldx_df$R) + gldx_c9 * 0.01) / ((mean(gldx_df$R) + gldx_c9 * 0.01) + 
                                                   mean(c9_df$R) + -gldx_c9 * 0.01)
