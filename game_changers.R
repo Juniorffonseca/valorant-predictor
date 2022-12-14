@@ -165,6 +165,9 @@ sr_g2 <- sum(ds_adversarios_sr$Adversario == 'G2 Gozen' & ds_adversarios_sr$Resu
 kru_c9 <- sum(ds_adversarios_kru$Adversario == 'Cloud9 White' & ds_adversarios_kru$Resultados == 'Win') -
   sum(ds_adversarios_kru$Adversario == 'Cloud9 White' & ds_adversarios_kru$Resultados == 'Lose') + 2
 
+kru_x10 <- sum(ds_adversarios_kru$Adversario == 'X10 Sapphire' & ds_adversarios_kru$Resultados == 'Win') - 
+  sum(ds_adversarios_kru$Adversario == 'X10 Sapphire' & ds_adversarios_kru$Resultados == 'Lose') + 1
+
 #gldx
 gldx_flgc <- sum(ds_adversarios_gldx$Adversario == 'FENNEL GC' & ds_adversarios_gldx$Resultados == 'Win') -
   sum(ds_adversarios_gldx$Adversario == 'FENNEL GC' & ds_adversarios_gldx$Resultados == 'Lose') - 2
@@ -177,7 +180,7 @@ tl_g2 <- sum(ds_adversarios_tl$Adversario == 'G2 Gozen' & ds_adversarios_tl$Resu
   sum(ds_adversarios_tl$Adversario == 'G2 Gozen' & ds_adversarios_tl$Resultados == 'Lose') + 2
 
 tl_flgc <- sum(ds_adversarios_tl$Adversario == 'FENNEL GC' & ds_adversarios_tl$Resultados == 'Win') -
-  sum(ds_adversarios_tl$Adversario == 'FENNEL GC' & ds_adversarios_tl$Resultados == 'Lose') 
+  sum(ds_adversarios_tl$Adversario == 'FENNEL GC' & ds_adversarios_tl$Resultados == 'Lose') - 1
 
 # Tentando uma formula para dizer a porcentagem de chance de vitória do time 1 sobre o time 2 ----------------------
 jogo1 <- (mean(c9_df$R) + kru_c9 * 0.01) / ((mean(c9_df$R) + kru_c9 * 0.01) +
@@ -188,12 +191,12 @@ jogo2 <- (mean(g2_df$R) + -g2_x10 * 0.01) / ((mean(g2_df$R) + -g2_x10 * 0.01) +
 
 jogo3 <- (mean(gldx_df$R) + sr_gldx * 0.01) / ((mean(gldx_df$R) + sr_gldx * 0.01) + 
                                              mean(sr_df$R) + -sr_gldx * 0.01)
-# parei aqui
-jogo4 <- (mean(flgc_df$R) + gldx_x10 * 0.01) / ((mean(gldx_df$R) + gldx_x10 * 0.01) +
-                                                   mean(x10_df$R) + -gldx_x10 * 0.01)
 
-jogo5 <- (mean(c9_df$R) + c9_flgc * 0.01) / ((mean(c9_df$R) + c9_flgc * 0.01) + 
-                                                mean(flgc_df$R) + -c9_flgc * 0.01)
+jogo4 <- (mean(flgc_df$R) + -tl_flgc * 0.01) / ((mean(flgc_df$R) + -tl_flgc * 0.01) +
+                                                   mean(tl_df$R) + tl_flgc * 0.01)
+
+jogo5 <- (mean(kru_df$R) + kru_c9 * 0.01) / ((mean(kru_df$R) + kru_c9 * 0.01) + 
+                                                mean(c9_df$R) + -kru_c9 * 0.01)
 
 jogo6 <- (mean(tl_df$R) + tl_x10 * 0.01) / ((mean(tl_df$R) + tl_x10 * 0.01) +
                                                mean(x10_df$R) + -tl_x10 * 0.01)
