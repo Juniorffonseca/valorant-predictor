@@ -182,82 +182,49 @@ tl_g2 <- sum(ds_adversarios_tl$Adversario == 'G2 Gozen' & ds_adversarios_tl$Resu
 tl_flgc <- sum(ds_adversarios_tl$Adversario == 'FENNEL GC' & ds_adversarios_tl$Resultados == 'Win') -
   sum(ds_adversarios_tl$Adversario == 'FENNEL GC' & ds_adversarios_tl$Resultados == 'Lose') - 1
 
-# Tentando uma formula para dizer a porcentagem de chance de vitória do time 1 sobre o time 2 ----------------------
+
+# Criando uma formula para dizer a porcentagem de chance de vitória do time 1 sobre o time 2 ----------------------
 jogo1 <- (mean(c9w_df$R) + kru_c9w * 0.01) / ((mean(c9w_df$R) + kru_c9w * 0.01) +
                                                 (mean(kru_df$R) + (-kru_c9w * 0.01)))
 
 jogo2 <- (mean(g2_df$R) + -g2_x10 * 0.01) / ((mean(g2_df$R) + -g2_x10 * 0.01) +
-                                                  mean(x10_df$R) + (g2_x10 * 0.01))
+                                               mean(x10_df$R) + (g2_x10 * 0.01))
 
 jogo3 <- (mean(gldx_df$R) + sr_gldx * 0.01) / ((mean(gldx_df$R) + sr_gldx * 0.01) + 
-                                             mean(sr_df$R) + -sr_gldx * 0.01)
+                                                 mean(sr_df$R) + -sr_gldx * 0.01)
 
 jogo4 <- (mean(flgc_df$R) + -tl_flgc * 0.01) / ((mean(flgc_df$R) + -tl_flgc * 0.01) +
-                                                   mean(tl_df$R) + tl_flgc * 0.01)
+                                                  mean(tl_df$R) + tl_flgc * 0.01)
 
 jogo5 <- (mean(kru_df$R) + kru_c9w * 0.01) / ((mean(kru_df$R) + kru_c9w * 0.01) + 
                                                 mean(c9w_df$R) + -kru_c9w * 0.01)
 
 jogo6 <- (mean(gldx_df$R) + gldx_flgc * 0.01) / ((mean(gldx_df$R) + gldx_flgc * 0.01) +
-                                               mean(flgc_df$R) + -gldx_flgc * 0.01)
+                                                   mean(flgc_df$R) + -gldx_flgc * 0.01)
 
 jogo7 <- (mean(c9w_df$R) + -g2_c9w * 0.01) / ((mean(c9w_df$R) + -g2_c9w * 0.01) + 
-                                                 mean(g2_df$R) + g2_c9w * 0.01)
+                                                mean(g2_df$R) + g2_c9w * 0.01)
 
 jogo8 <- (mean(sr_df$R) + sr_tl * 0.01) / ((mean(sr_df$R) + sr_tl * 0.01) + 
-                                                mean(tl_df$R) + -sr_tl * 0.01)
+                                             mean(tl_df$R) + -sr_tl * 0.01)
 
 jogo9 <- (mean(sr_df$R) + sr_x10 * 0.01) / ((mean(sr_df$R) + sr_x10 * 0.01) + 
-                                                  mean(x10_df$R) + -sr_x10 * 0.01)
+                                              mean(x10_df$R) + -sr_x10 * 0.01)
 
 jogo10 <- (mean(c9w_df$R) + -gldx_c9w * 0.01) / ((mean(c9w_df$R) + -gldx_c9w * 0.01) + 
-                                                  mean(gldx_df$R) + gldx_c9w * 0.01)
+                                                   mean(gldx_df$R) + gldx_c9w * 0.01)
 
 jogo11 <- (mean(g2_df$R) + -tl_g2 * 0.01) / ((mean(g2_df$R) + -tl_g2 * 0.01) +
-                                                  mean(tl_df$R) + tl_g2 * 0.01)
+                                               mean(tl_df$R) + tl_g2 * 0.01)
 
 jogo12 <- (mean(sr_df$R) + sr_c9w * 0.01) / ((mean(sr_df$R) + sr_c9w * 0.01) +
-                                                  mean(c9w_df$R) + -sr_c9w * 0.01)
+                                               mean(c9w_df$R) + -sr_c9w * 0.01)
 
 jogo13 <- (mean(g2_df$R) + -sr_g2 * 0.01) / ((mean(g2_df$R) + -sr_g2 * 0.01) +
-                                                  mean(sr_df$R) + sr_g2 * 0.01)
+                                               mean(sr_df$R) + sr_g2 * 0.01)
 
 jogo14 <- (mean(tl_df$R) + -sr_tl * 0.01) / ((mean(tl_df$R) + -sr_tl * 0.01) + 
-                                                mean(sr_df$R) + sr_tl * 0.01)
-
-# Criando uma formula para dizer a porcentagem de chance de vitória do time 1 sobre o time 2 ----------------------
-# Calculando índices dos times
-mediac9w <- mean(c9w_df$R) + 1/mean(c9w_df$idc)
-
-mediakru <- mean(kru_df$R) + 1/mean(kru_df$idc)
-
-mediag2 <- mean(g2_df$R) + 1/mean(g2_df$idc)
-
-mediax10 <- mean(x10_df$R) + 1/mean(x10_df$idc)
-
-mediagldx <- mean(gldx_df$R) + 1/mean(gldx_df$idc)
-
-mediasr <- mean(sr_df$R) + 1/mean(sr_df$idc)
-
-mediaflgc <- mean(flgc_df$R) + 1/mean(flgc_df$idc)
-
-mediatl <- mean(tl_df$R) + 1/mean(tl_df$idc)
-
-# Porcentagem de vitória
-jogo1 <- round(mediac9w / (mediac9w + mediakru), 2) 
-jogo2 <- round(mediag2 / (mediag2 + mediax10), 3)
-jogo3 <- round(mediagldx / (mediagldx + mediasr), 2) 
-jogo4 <- round(mediaflgc / (mediaflgc + mediatl), 2) 
-jogo5 <- round(mediakru / (mediakru + mediax10), 2)
-jogo6 <- round(mediagldx / (mediagldx + mediaflgc), 2) 
-jogo7 <- round(mediac9w / (mediac9w + mediag2), 2) 
-jogo8 <- round(mediasr / (mediasr + mediatl), 2) 
-jogo9 <- round(mediasr / (mediasr + mediax10), 2) 
-jogo10 <- round(mediac9w / (mediac9w + mediagldx), 2) 
-jogo11 <- round(mediag2 / (mediag2 + mediatl), 2) 
-jogo12 <- round(mediasr / (mediasr + mediac9w), 2) 
-jogo13 <- round(mediag2 / (mediag2 + mediasr), 2) 
-jogo14 <- round(mediatl / (mediatl + mediasr), 2) 
+                                               mean(sr_df$R) + sr_tl * 0.01)
 
 acertos = 0
 
