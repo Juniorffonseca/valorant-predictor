@@ -28,10 +28,9 @@ players <- na.omit(players)
 # Criando uma coluna IK, onde IK = FK - FD (Impact kill = first kill - first death) ---------------------
 players["IK"] <- players$FK - players$FD
 
-## Começando a categorizar os dados:
 # Select para pegar apenas dados que serão utilizados agora ----------------------------------------------
 players <- select(players, 'Player', 'Team', 'Rnd', 'R', 'ACS', 'K:D', 'KAST', 'ADR', 'HS%', 'KMax', 'IK')
 
 # Exportando como csv -------------------------------------------------------------------------------------
-write.csv2(players, 'jogadores.csv')
+#write.csv2(players, 'jogadores.csv')
 
