@@ -282,7 +282,7 @@ analisa_resultados(jogo1, jogo2, jogo3, jogo4, jogo5, jogo6, jogo7, jogo8, jogo9
 # Primeiro teste: 64.28571% de acuracia
   
 
-
+# Histograma para analisar os resultados e entender melhor a distribuição dos resultados
 hist <- c(jogo1, jogo2, jogo3, jogo4, jogo5, jogo6, jogo7, jogo8, jogo9, jogo10, jogo11, jogo12, jogo13, jogo14)
 
 hist(hist, breaks = 10)

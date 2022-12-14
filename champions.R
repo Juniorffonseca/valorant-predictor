@@ -12,10 +12,9 @@ library(dplyr)
 dados_gerais <- read.csv2('dados_gerais.csv')
 
 # Arrumando as colunas ----------------------------------------------------------------------------------
-dados_gerais <- dados_gerais[,-1]
-dados_gerais <- dados_gerais[,-2]
+dados_gerais <- select(dados_gerais, -X, -Team)
 row.names(dados_gerais) <- make.names(dados_gerais[,1], unique = T)
-dados_gerais <- dados_gerais[,-1]
+dados_gerais <- select(dados_gerais, -Player)
 
 # Definindo times especificos ---------------------------------------------------------------------------
 #Loud
@@ -118,7 +117,7 @@ op_df <- op_df[,-7:-14]
 tl_df <- tl_df[,-7:-14]
 fpx_df <- fpx_df[,-7:-14]
 
-# Tentando mesclar dataframe ds_adversarios com outras estatisticas ------------------------------------------------
+# Carregando os dataframes de adversarios ---------------------------------------------------------------------------
 ds_adversarios_loud <- read.csv("C:/Users/anonb/Documents/TCC Pós/Scripts/scripts_times_champions/ds_adversarios_loud.csv",
                                 sep = ',') %>% select(-X)
 ds_adversarios_drx <- read.csv("C:/Users/anonb/Documents/TCC Pós/Scripts/scripts_times_champions/ds_adversarios_drx.csv",
@@ -276,4 +275,9 @@ analisa_resultados(jogo1, jogo2, jogo3, jogo4, jogo5, jogo6, jogo7, jogo8, jogo9
 
 
 # Resultado final: 0.6428571 % de acurácia, ou seja, (9/14) acertos.
+
+# Histograma para analisar os resultados e entender melhor a distribuição dos resultados
+hist <- c(jogo1, jogo2, jogo3, jogo4, jogo5, jogo6, jogo7, jogo8, jogo9, jogo10, jogo11, jogo12, jogo13, jogo14)
+
+hist(hist, breaks = 10)
 
