@@ -210,20 +210,20 @@ jogo8 <- (mean(sr_df$R) + sr_tl * 0.01) / ((mean(sr_df$R) + sr_tl * 0.01) +
 jogo9 <- (mean(sr_df$R) + sr_x10 * 0.01) / ((mean(sr_df$R) + sr_x10 * 0.01) + 
                                                   mean(x10_df$R) + -sr_x10 * 0.01)
 
-jogo10 <- (mean(c9w_df$R) + sr_x10 * 0.01) / ((mean(c9w_df$R) + sr_x10 * 0.01) + 
-                                                  mean(x10_df$R) + -sr_x10 * 0.01)
+jogo10 <- (mean(c9w_df$R) + -gldx_c9w * 0.01) / ((mean(c9w_df$R) + -gldx_c9w * 0.01) + 
+                                                  mean(gldx_df$R) + gldx_c9w * 0.01)
 
-jogo11 <- (mean(g2_df$R) + g2_kru * 0.01) / ((mean(g2_df$R) + g2_kru * 0.01) +
-                                                  mean(kru_df$R) + -g2_kru * 0.01)
+jogo11 <- (mean(g2_df$R) + -tl_g2 * 0.01) / ((mean(g2_df$R) + -tl_g2 * 0.01) +
+                                                  mean(tl_df$R) + tl_g2 * 0.01)
 
-jogo12 <- (mean(c9w_df$R) + -sr_c9w * 0.01) / ((mean(c9w_df$R) + -sr_c9w * 0.01) +
-                                                  mean(sr_df$R) + sr_c9w * 0.01)
+jogo12 <- (mean(sr_df$R) + sr_c9w * 0.01) / ((mean(sr_df$R) + sr_c9w * 0.01) +
+                                                  mean(c9w_df$R) + -sr_c9w * 0.01)
 
-jogo13 <- (mean(g2_df$R) + g2_kru * 0.01) / ((mean(g2_df$R) + g2_kru * 0.01) +
-                                                  mean(kru_df$R) + -g2_kru * 0.01)
+jogo13 <- (mean(g2_df$R) + -sr_g2 * 0.01) / ((mean(g2_df$R) + -sr_g2 * 0.01) +
+                                                  mean(sr_df$R) + sr_g2 * 0.01)
 
-jogo14 <- (mean(kru_df$R) + -sr_kru * 0.01) / ((mean(kru_df$R) + -sr_kru * 0.01) + 
-                                                mean(sr_df$R) + sr_kru * 0.01)
+jogo14 <- (mean(tl_df$R) + -sr_tl * 0.01) / ((mean(tl_df$R) + -sr_tl * 0.01) + 
+                                                mean(sr_df$R) + sr_tl * 0.01)
 
 # Criando uma formula para dizer a porcentagem de chance de vitória do time 1 sobre o time 2 ----------------------
 # Calculando índices dos times
