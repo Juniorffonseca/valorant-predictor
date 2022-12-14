@@ -124,7 +124,7 @@ ds_adversarios_g2 <- read.csv("C:/Users/anonb/Documents/TCC Pós/Scripts/scripts
                                 sep = ',') %>% select(-X)
 ds_adversarios_sr <- read.csv("C:/Users/anonb/Documents/TCC Pós/Scripts/scripts_times_gc/ds_adversarios_sr.csv",
                                sep = ',') %>% select(-X)
-ds_adversarios_c9 <- read.csv("C:/Users/anonb/Documents/TCC Pós/Scripts/scripts_times_gc/ds_adversarios_c9.csv",
+ds_adversarios_c9w <- read.csv("C:/Users/anonb/Documents/TCC Pós/Scripts/scripts_times_gc/ds_adversarios_c9w.csv",
                                sep = ',') %>% select(-X)
 ds_adversarios_x10 <- read.csv("C:/Users/anonb/Documents/TCC Pós/Scripts/scripts_times_gc/ds_adversarios_x10.csv",
                                 sep = ',') %>% select(-X)
@@ -142,7 +142,7 @@ ds_adversarios_flgc <- read.csv("C:/Users/anonb/Documents/TCC Pós/Scripts/scrip
 g2_x10 <- sum(ds_adversarios_g2$Adversario == 'X10 Sapphire' & ds_adversarios_g2$Resultados == 'Win') - 
   sum(ds_adversarios_g2$Adversario == 'X10 Sapphire' & ds_adversarios_g2$Resultados == 'Lose') - 2 
 
-g2_c9 <- sum(ds_adversarios_g2$Adversario == 'Cloud9 White' & ds_adversarios_g2$Resultados == 'Win') - 
+g2_c9w <- sum(ds_adversarios_g2$Adversario == 'Cloud9 White' & ds_adversarios_g2$Resultados == 'Win') - 
   sum(ds_adversarios_g2$Adversario == 'Cloud9 White' & ds_adversarios_g2$Resultados == 'Lose') - 1
 
 #sr
@@ -155,14 +155,14 @@ sr_tl <- sum(ds_adversarios_sr$Adversario == 'Team Liquid Brazil' & ds_adversari
 sr_x10 <- sum(ds_adversarios_sr$Adversario == 'X10 Sapphire' & ds_adversarios_sr$Resultados == 'Win') -
   sum(ds_adversarios_sr$Adversario == 'X10 Sapphire' & ds_adversarios_sr$Resultados == 'Lose') - 2
 
-sr_c9 <- sum(ds_adversarios_sr$Adversario == 'Cloud9 White' & ds_adversarios_sr$Resultados == 'Win') -
+sr_c9w <- sum(ds_adversarios_sr$Adversario == 'Cloud9 White' & ds_adversarios_sr$Resultados == 'Win') -
   sum(ds_adversarios_sr$Adversario == 'Cloud9 White' & ds_adversarios_sr$Resultados == 'Lose') - 1
 
 sr_g2 <- sum(ds_adversarios_sr$Adversario == 'G2 Gozen' & ds_adversarios_sr$Resultados == 'Win') - 
   sum(ds_adversarios_sr$Adversario == 'G2 Gozen' & ds_adversarios_sr == 'Lose') + 1
 
 #kru
-kru_c9 <- sum(ds_adversarios_kru$Adversario == 'Cloud9 White' & ds_adversarios_kru$Resultados == 'Win') -
+kru_c9w <- sum(ds_adversarios_kru$Adversario == 'Cloud9 White' & ds_adversarios_kru$Resultados == 'Win') -
   sum(ds_adversarios_kru$Adversario == 'Cloud9 White' & ds_adversarios_kru$Resultados == 'Lose') + 2
 
 kru_x10 <- sum(ds_adversarios_kru$Adversario == 'X10 Sapphire' & ds_adversarios_kru$Resultados == 'Win') - 
@@ -172,7 +172,7 @@ kru_x10 <- sum(ds_adversarios_kru$Adversario == 'X10 Sapphire' & ds_adversarios_
 gldx_flgc <- sum(ds_adversarios_gldx$Adversario == 'FENNEL GC' & ds_adversarios_gldx$Resultados == 'Win') -
   sum(ds_adversarios_gldx$Adversario == 'FENNEL GC' & ds_adversarios_gldx$Resultados == 'Lose') - 2
 
-gldx_c9 <- sum(ds_adversarios_gldx$Adversario == 'Cloud9 White' & ds_adversarios_gldx$Resultados == 'Win') -
+gldx_c9w <- sum(ds_adversarios_gldx$Adversario == 'Cloud9 White' & ds_adversarios_gldx$Resultados == 'Win') -
   sum(ds_adversarios_gldx$Adversario == 'Cloud9 White' & ds_adversarios_gldx$Resultados == 'Lose') + 2
 
 #Team Liquid
@@ -183,8 +183,8 @@ tl_flgc <- sum(ds_adversarios_tl$Adversario == 'FENNEL GC' & ds_adversarios_tl$R
   sum(ds_adversarios_tl$Adversario == 'FENNEL GC' & ds_adversarios_tl$Resultados == 'Lose') - 1
 
 # Tentando uma formula para dizer a porcentagem de chance de vitória do time 1 sobre o time 2 ----------------------
-jogo1 <- (mean(c9_df$R) + kru_c9 * 0.01) / ((mean(c9_df$R) + kru_c9 * 0.01) +
-                                                (mean(kru_df$R) + (-kru_c9 * 0.01)))
+jogo1 <- (mean(c9w_df$R) + kru_c9w * 0.01) / ((mean(c9w_df$R) + kru_c9w * 0.01) +
+                                                (mean(kru_df$R) + (-kru_c9w * 0.01)))
 
 jogo2 <- (mean(g2_df$R) + -g2_x10 * 0.01) / ((mean(g2_df$R) + -g2_x10 * 0.01) +
                                                   mean(x10_df$R) + (g2_x10 * 0.01))
@@ -195,29 +195,29 @@ jogo3 <- (mean(gldx_df$R) + sr_gldx * 0.01) / ((mean(gldx_df$R) + sr_gldx * 0.01
 jogo4 <- (mean(flgc_df$R) + -tl_flgc * 0.01) / ((mean(flgc_df$R) + -tl_flgc * 0.01) +
                                                    mean(tl_df$R) + tl_flgc * 0.01)
 
-jogo5 <- (mean(kru_df$R) + kru_c9 * 0.01) / ((mean(kru_df$R) + kru_c9 * 0.01) + 
-                                                mean(c9_df$R) + -kru_c9 * 0.01)
+jogo5 <- (mean(kru_df$R) + kru_c9w * 0.01) / ((mean(kru_df$R) + kru_c9w * 0.01) + 
+                                                mean(c9w_df$R) + -kru_c9w * 0.01)
 
 jogo6 <- (mean(gldx_df$R) + gldx_flgc * 0.01) / ((mean(gldx_df$R) + gldx_flgc * 0.01) +
                                                mean(flgc_df$R) + -gldx_flgc * 0.01)
 
-jogo7 <- (mean(c9_df$R) + -g2_c9 * 0.01) / ((mean(c9_df$R) + -g2_c9 * 0.01) + 
-                                                 mean(g2_df$R) + g2_c9 * 0.01)
+jogo7 <- (mean(c9w_df$R) + -g2_c9w * 0.01) / ((mean(c9w_df$R) + -g2_c9w * 0.01) + 
+                                                 mean(g2_df$R) + g2_c9w * 0.01)
 
 jogo8 <- (mean(sr_df$R) + sr_tl * 0.01) / ((mean(sr_df$R) + sr_tl * 0.01) + 
                                                 mean(tl_df$R) + -sr_tl * 0.01)
 
-jogo9 <- (mean(gldx_df$R) + gldx_c9 * 0.01) / ((mean(gldx_df$R) + gldx_c9 * 0.01) + 
-                                                  mean(c9_df$R) + -gldx_c9 * 0.01)
+jogo9 <- (mean(sr_df$R) + sr_x10 * 0.01) / ((mean(sr_df$R) + sr_x10 * 0.01) + 
+                                                  mean(x10_df$R) + -sr_x10 * 0.01)
 
-jogo10 <- (mean(sr_df$R) + sr_x10 * 0.01) / ((mean(sr_df$R) + sr_x10 * 0.01) + 
+jogo10 <- (mean(c9w_df$R) + sr_x10 * 0.01) / ((mean(c9w_df$R) + sr_x10 * 0.01) + 
                                                   mean(x10_df$R) + -sr_x10 * 0.01)
 
 jogo11 <- (mean(g2_df$R) + g2_kru * 0.01) / ((mean(g2_df$R) + g2_kru * 0.01) +
                                                   mean(kru_df$R) + -g2_kru * 0.01)
 
-jogo12 <- (mean(c9_df$R) + -sr_c9 * 0.01) / ((mean(c9_df$R) + -sr_c9 * 0.01) +
-                                                  mean(sr_df$R) + sr_c9 * 0.01)
+jogo12 <- (mean(c9w_df$R) + -sr_c9w * 0.01) / ((mean(c9w_df$R) + -sr_c9w * 0.01) +
+                                                  mean(sr_df$R) + sr_c9w * 0.01)
 
 jogo13 <- (mean(g2_df$R) + g2_kru * 0.01) / ((mean(g2_df$R) + g2_kru * 0.01) +
                                                   mean(kru_df$R) + -g2_kru * 0.01)
