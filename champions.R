@@ -9,12 +9,13 @@ library(stringr)
 library(dplyr)
 
 # Carregando a base de dados de jogadores ---------------------------------------------------------------
-dados_gerais <- read.csv2('dados_gerais.csv')
+dados_gerais <- read.csv2('jogadores.csv')
 
 # Arrumando as colunas ----------------------------------------------------------------------------------
-dados_gerais <- select(dados_gerais, -X, -Team)
+dados_gerais <- select(dados_gerais, Player, R, ACS, K.D, KAST, ADR)
 row.names(dados_gerais) <- make.names(dados_gerais[,1], unique = T)
 dados_gerais <- select(dados_gerais, -Player)
+dados_gerais$KAST <- parse_number(dados_gerais$KAST)
 
 # Definindo times especificos ---------------------------------------------------------------------------
 #Loud
@@ -62,7 +63,9 @@ resultado <- filter(dados_gerais, dados_gerais$loud == 1 | dados_gerais$op == 1 
                       dados_gerais$fpx == 1 | dados_gerais$fntc == 1)
 
 # Removendo uma jogadora que tem o mesmo de outra
-resultado <- resultado[-41,]
+while (nrow(resultado) > 40) {
+  resultado <- resultado[-41,]
+}
 
 # Calculando IDC (variancia de KAST entre os jogadores de cada time)
 loud_df <- filter(resultado, resultado$loud == 1)
@@ -108,14 +111,14 @@ resultado <- merge(loud_df, op_df, all = T) %>%
   merge(fntc_df, all = T)
 
 # Tirando colunas de times dos dataframes especificos de cada time
-loud_df <- loud_df[,-7:-14]
-fntc_df <- fntc_df[,-7:-14]
-xset_df <- xset_df[,-7:-14]
-drx_df <- drx_df[,-7:-14]
-lev_df <- lev_df[,-7:-14]
-op_df <- op_df[,-7:-14]
-tl_df <- tl_df[,-7:-14]
-fpx_df <- fpx_df[,-7:-14]
+loud_df <- loud_df[,-6:-13]
+fntc_df <- fntc_df[,-6:-13]
+xset_df <- xset_df[,-6:-13]
+drx_df <- drx_df[,-6:-13]
+lev_df <- lev_df[,-6:-13]
+op_df <- op_df[,-6:-13]
+tl_df <- tl_df[,-6:-13]
+fpx_df <- fpx_df[,-6:-13]
 
 # Carregando os dataframes de adversarios ---------------------------------------------------------------------------
 ds_adversarios_loud <- read.csv("C:/Users/anonb/Documents/TCC Pós/Scripts/scripts_times_champions/ds_adversarios_loud.csv",

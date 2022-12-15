@@ -9,12 +9,13 @@ library(stringr)
 library(dplyr)
 
 # Carregando a base de dados de jogadores ---------------------------------------------------------------
-dados_gerais <- read.csv2('dados_gerais.csv')
+dados_gerais <- read.csv2('jogadores.csv')
 
 # Arrumando as colunas ----------------------------------------------------------------------------------
-dados_gerais <- select(dados_gerais, -X, -Team)
+dados_gerais <- select(dados_gerais, Player, R, ACS, K.D, KAST, ADR)
 row.names(dados_gerais) <- make.names(dados_gerais[,1], unique = T)
 dados_gerais <- select(dados_gerais, -Player)
+dados_gerais$KAST <- parse_number(dados_gerais$KAST)
 
 # Definindo times especificos ---------------------------------------------------------------------------
 #Cloud9 White
@@ -110,14 +111,14 @@ resultado <- merge(c9w_df, sr_df, all = T) %>%
   merge(flgc_df, all = T)
 
 # Tirando colunas de times dos dataframes especificos de cada time
-c9w_df <- c9w_df[,-7:-14]
-flgc_df <- flgc_df[,-7:-14]
-g2_df <- g2_df[,-7:-14]
-gldx_df <- gldx_df[,-7:-14]
-kru_df <- kru_df[,-7:-14]
-sr_df <- sr_df[,-7:-14]
-tl_df <- tl_df[,-7:-14]
-x10_df <- x10_df[,-7:-14]
+c9w_df <- c9w_df[,-6:-13]
+flgc_df <- flgc_df[,-6:-13]
+g2_df <- g2_df[,-6:-13]
+gldx_df <- gldx_df[,-6:-13]
+kru_df <- kru_df[,-6:-13]
+sr_df <- sr_df[,-6:-13]
+tl_df <- tl_df[,-6:-13]
+x10_df <- x10_df[,-6:-13]
 
 # Tentando mesclar dataframe ds_adversarios com outras estatisticas ------------------------------------------------
 ds_adversarios_g2 <- read.csv("C:/Users/anonb/Documents/TCC Pós/Scripts/scripts_times_gc/ds_adversarios_g2.csv",
