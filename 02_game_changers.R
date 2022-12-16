@@ -227,15 +227,6 @@ jogo13 <- (mean(g2_df$R) + -sr_g2 * 0.01) / ((mean(g2_df$R) + -sr_g2 * 0.01) +
 jogo14 <- (mean(tl_df$R) + -sr_tl * 0.01) / ((mean(tl_df$R) + -sr_tl * 0.01) + 
                                                mean(sr_df$R) + sr_tl * 0.01)
 
-#
-
-resultado <- c('W', 'W', 'L', 'L', 'L', 'W', 'L', 'L', 'W', 'W', 'W', 'W', 'W', 'L')
-jogo <- c(jogo1, jogo2, jogo3, jogo4, jogo5, jogo6, jogo7, jogo8, jogo9, jogo10, jogo11, jogo12,
-          jogo13, jogo14)
-
-dataframee <- data.frame(resultado, jogo)
-
-#
 acertos = 0
 
 analisa_resultados = function(jogo1, jogo2, jogo3, jogo4, jogo5, jogo6, jogo7, jogo8, jogo9, jogo10, jogo11, jogo12,

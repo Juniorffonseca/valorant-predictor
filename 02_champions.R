@@ -226,18 +226,6 @@ jogo14 <- (mean(op_df$R) + -drx_op * 0.01) / ((mean(op_df$R) + -drx_op * 0.01) +
 
 acertos = 0
 
-# Criando variaveis dos times
-drx <- (mean(drx_df$R) + drx_fpx * 0.01)
-# Tentando criar um dataframe com os embates para usar na rede neural
-resultado <- c('W', 'L', 'W', 'W', 'W', 'L', 'L', 'W', 'L', 'W', 'W', 'L', 'W', 'W')
-jogo <- c(jogo1, jogo2, jogo3, jogo4, jogo5, jogo6, jogo7, jogo8, jogo9, jogo10, jogo11, jogo12,
-          jogo13, jogo14)
-
-dataframeeE <- data.frame(resultado, jogo)
-
-dataframe_1 <- rbind(dataframee, dataframeeE)
-
-#
 analisa_resultados = function(jogo1, jogo2, jogo3, jogo4, jogo5, jogo6, jogo7, jogo8, jogo9, jogo10, jogo11, jogo12,
                               jogo13, jogo14){
   if(jogo1 > 0.50){
