@@ -8,6 +8,7 @@ library(ineq)
 library(stringr)
 library(dplyr)
 library(h2o)
+h2o.init()
 
 # CHAMPIONS -------------------------------------------------------------------------------------------------
 # Carregando a base de dados de jogadores 
@@ -241,7 +242,8 @@ dados_gerais$keyd <- ifelse(grepl(paste(keyd, collapse = '|'), rownames(dados_ge
 #furia
 furia = c('nzr', 'Quick', 'Khalil', 'Mazin', 'dgzin')
 furia <- paste0('\\b', furia, '\\b')
-dados_gerais$furia <- ifelse(grepl(paste(furia, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0) #PRECISO ARRUMAR ESSA PARTE
+dados_gerais$furia <- ifelse(grepl(paste(furia, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
+dados_gerais['Quick.1',]$furia <- 0
 
 #TBK
 tbk = c('matheuzin', 'kon4n', 'tuyz', 'luk', 'ryotzz')
@@ -273,8 +275,8 @@ resultado <- filter(dados_gerais, dados_gerais$nip == 1 | dados_gerais$keyd == 1
                       dados_gerais$exl == 1 | dados_gerais$z9 == 1)
 
 # Removendo uma jogadora que tem o mesmo de outra
-while (nrow(resultado) > 40) {
-  resultado <- resultado[-41,]
+while (nrow(resultado) > 41) {
+  resultado <- resultado[-42,]
 }
 
 # Separando os times em dataframes
@@ -309,15 +311,15 @@ kruR <- mean(kru_df$R)
 nipR <- mean(nip_df$R)
 z9R <- mean(z9_df$R)
 
-time1 <- c(furiaR, fusR, keydR, tbkR, exlR, kruR, furiaR, keydR, tbkR, furiaR, nipR, exlR, nipR, keydR)
-time2 <- c(exlR, nipR, kruR, z9R, fusR, z9R, nipR, tbkR, exlR, z9R, keydR, furiaR, keydR, furiaR)
-ganhador <- c(1, 2, 1, 1, 1, 2, 2, 1, 2, 1, 1, 2, 1, 1)
+time1 <- c(nipR, fusR, kruR, keydR, nipR, tbkR, z9R, kruR, keydR, z9R, furiaR, keydR, furiaR)
+time2 <- c(z9R, furiaR, tbkR, exlR, fusR, exlR, furiaR, keydR, nipR, tbkR, kruR, tbkR, tbkR)
+ganhador <- c(2, 2, 1, 1, 1, 1, 2, 1, 1, 2, 2, 2, 1)
 
 jogos <- data.frame(time1, time2, ganhador)
 
 rm(furiaR, fusR, keydR, tbkR, exlR, kruR, nipR, z9R, time1, time2, ganhador)
 
-write.csv2(jogos, 'jogos.csv')
+write.csv2(jogos, 'jogos3.csv')
 
 rm(list = ls())
 
@@ -325,8 +327,18 @@ rm(list = ls())
 # União dos dataframes -------------------------------------------------------------------------------------
 jogos1 <- read.csv2('jogos.csv') %>% select(-X)
 jogos2 <- read.csv2('jogos2.csv') %>% select(-X)
-jogos <- rbind(jogos1, jogos2)
+jogos3 <- read.csv2('jogos3.csv') %>% select(-X)
+jogos <- rbind(jogos1, jogos2, jogos3)
 
 jogos$ganhador <- as.factor(jogos$ganhador)
   
 #CTLR + ALT + M SERVE PARA FAZER COMMITS E DAR PUSH PARA O REPOSITÓRIO NO GITHUB
+
+jogos <- as.h2o(jogos)
+jogos['ganhador'] <- as.factor(jogos['ganhador'])
+
+jogos.split <- h2o.splitFrame(data = jogos, ratios = 0.80, seed = 333)
+train <- jogos.split[[1]]
+valid <- jogos.split[[2]]
+
+
