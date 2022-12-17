@@ -202,4 +202,13 @@ srR <- mean(sr_df$R)
 tlR <- mean(tl_df$R)
 x10R <- mean(x10_df$R)
 
+time1 <- c(drxR, levR, opR, xsetR, fpxR, tlR, drxR, opR, xsetR, drxR, loudR, fpxR, loudR, opR)
+time2 <- c(fpxR, loudR, tlR, fntcR, levR, fntcR, loudR, xsetR, fpxR, fntcR, opR, drxR, opR, drxR)
+ganhador <- c(1, 2, 1, 1, 1, 2, 2, 1, 2, 1, 1, 2, 1, 1)
+
+jogos <- data.frame(time1, time2, ganhador)
+
+rm(drxR, levR, opR, xsetR, fpxR, tlR, loudR, fntcR, time1, time2, ganhador)
+
+write.csv2(jogos, 'jogos2.csv')
 
