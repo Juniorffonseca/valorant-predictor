@@ -329,16 +329,4 @@ jogos1 <- read.csv2('jogos.csv') %>% select(-X)
 jogos2 <- read.csv2('jogos2.csv') %>% select(-X)
 jogos3 <- read.csv2('jogos3.csv') %>% select(-X)
 jogos <- rbind(jogos1, jogos2, jogos3)
-
 jogos$ganhador <- as.factor(jogos$ganhador)
-  
-#CTLR + ALT + M SERVE PARA FAZER COMMITS E DAR PUSH PARA O REPOSITÓRIO NO GITHUB
-
-jogos <- as.h2o(jogos)
-jogos['ganhador'] <- as.factor(jogos['ganhador'])
-
-jogos.split <- h2o.splitFrame(data = jogos, ratios = 0.80, seed = 333)
-train <- jogos.split[[1]]
-valid <- jogos.split[[2]]
-
-
