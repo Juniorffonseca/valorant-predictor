@@ -214,4 +214,9 @@ write.csv2(jogos, 'jogos2.csv')
 
 rm(list = ls())
 
-jogos1 <- read.csv2('jogos.csv')
+jogos1 <- read.csv2('jogos.csv') %>% select(-X)
+jogos2 <- read.csv2('jogos2.csv') %>% select(-X)
+jogos <- rbind(jogos1, jogos2)
+  
+  
+#CTLR + ALT + M SERVE PARA FAZER COMMITS E DAR PUSH PARA O REPOSITÓRIO NO GITHUB
