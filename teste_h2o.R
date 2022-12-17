@@ -9,16 +9,17 @@ library(stringr)
 library(dplyr)
 library(h2o)
 
-# Carregando a base de dados de jogadores ---------------------------------------------------------------
+# CHAMPIONS -------------------------------------------------------------------------------------------------
+# Carregando a base de dados de jogadores 
 dados_gerais <- read.csv2('jogadores.csv')
 
-# Arrumando as colunas ----------------------------------------------------------------------------------
+# Arrumando as colunas 
 dados_gerais <- select(dados_gerais, Player, R, ACS, K.D, KAST, ADR)
 row.names(dados_gerais) <- make.names(dados_gerais[,1], unique = T)
 dados_gerais <- select(dados_gerais, -Player)
 dados_gerais$KAST <- parse_number(dados_gerais$KAST)
 
-# Definindo times especificos da competição CHAMPIONS ---------------------------------------------------------------------------
+# Definindo times especificos da competição CHAMPIONS 
 #Loud
 loud = c('Sacy', 'pancada', 'saadhak', 'Less', 'aspas') # Definindo o time 1
 loud <- paste0('\\b', loud, '\\b') # Colocando '\\b' antes e dps p pegar apenas as strings exatas
@@ -113,16 +114,17 @@ write.csv2(jogos, 'jogos.csv')
 rm(list = ls())
 
 
-# Carregando a base de dados de jogadores ---------------------------------------------------------------
+# GAME CHANGERS ----------------------------------------------------------------------------------------------
+# Carregando a base de dados de jogadores 
 dados_gerais <- read.csv2('jogadores.csv')
 
-# Arrumando as colunas ----------------------------------------------------------------------------------
+# Arrumando as colunas 
 dados_gerais <- select(dados_gerais, Player, R, ACS, K.D, KAST, ADR)
 row.names(dados_gerais) <- make.names(dados_gerais[,1], unique = T)
 dados_gerais <- select(dados_gerais, -Player)
 dados_gerais$KAST <- parse_number(dados_gerais$KAST)
 
-# Definindo times especificos da competição GAME CHANGERS ---------------------------------------------------------------------------
+# Definindo times especificos da competição GAME CHANGERS 
 #Cloud9 White
 c9w = c('Bob', 'meL', 'Jazzyk1ns', 'alexis', 'katsumi') # Definindo o time 1
 c9w <- paste0('\\b', c9w, '\\b') # Colocando '\\b' antes e dps p pegar apenas as strings exatas
@@ -214,9 +216,117 @@ write.csv2(jogos, 'jogos2.csv')
 
 rm(list = ls())
 
+# CHAMPIONS TOUR SOUTH AMERICA -----------------------------------------------------------------------------
+
+# Carregando a base de dados de jogadores 
+dados_gerais <- read.csv2('jogadores.csv')
+
+# Arrumando as colunas 
+dados_gerais <- select(dados_gerais, Player, R, ACS, K.D, KAST, ADR)
+row.names(dados_gerais) <- make.names(dados_gerais[,1], unique = T)
+dados_gerais <- select(dados_gerais, -Player)
+dados_gerais$KAST <- parse_number(dados_gerais$KAST)
+
+# Definindo times especificos da competição CHAMPIONS 
+#nip
+nip = c('xand', 'Jonn', 'v1xen', 'bezn1', 'cauanzin') # Definindo o time 1
+nip <- paste0('\\b', nip, '\\b') # Colocando '\\b' antes e dps p pegar apenas as strings exatas
+dados_gerais$nip <- ifelse(grepl(paste(nip, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
+
+#keyd Gaming
+keyd = c('murizzz', 'mwzera', 'rhz', 'RgLMeister', 'heat')
+keyd <- paste0('\\b', keyd, '\\b') 
+dados_gerais$keyd <- ifelse(grepl(paste(keyd, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
+
+#furia
+furia = c('nzr', 'Quick', 'Khalil', 'Mazin', 'dgzin')
+furia <- paste0('\\b', furia, '\\b')
+dados_gerais$furia <- ifelse(grepl(paste(furia, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0) #PRECISO ARRUMAR ESSA PARTE
+
+#TBK
+tbk = c('matheuzin', 'kon4n', 'tuyz', 'luk', 'ryotzz')
+tbk <- paste0('\\b', tbk, '\\b')
+dados_gerais$tbk <- ifelse(grepl(paste(tbk, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
+
+#kru
+kru = c('NagZ', 'keznit', 'delz1k', 'Klaus', 'Mazino')
+kru <- paste0('\\b', kru, '\\b')
+dados_gerais$kru <- ifelse(grepl(paste(kru, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
+
+#Fusion
+fus = c('Dcop', 'sickLy', 'xander', 'Torrify', 'Mited', 'Darker')
+fus <- paste0('\\b', fus, '\\b')
+dados_gerais$fus <- ifelse(grepl(paste(fus, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
+
+#E-Xolos LAZER
+exl = c('jfoeN', 'BandiCoot', 'DaveeyS', 'Feniz', 'Peloncito')
+exl <- paste0('\\b', exl, '\\b')
+dados_gerais$exl <- ifelse(grepl(paste(exl, collapse = '|'), rownames(dados_gerais), useBytes = T), 1 ,0)
+
+#z9 Team
+z9 = c('puleule', 'bnj', 'mizu', 'Tuli', 'deigara')
+z9 <- paste0('\\b', z9, '\\b')
+dados_gerais$z9 <- ifelse(grepl(paste(z9, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
+
+resultado <- filter(dados_gerais, dados_gerais$nip == 1 | dados_gerais$keyd == 1 | dados_gerais$furia == 1
+                    | dados_gerais$tbk == 1 | dados_gerais$kru == 1 | dados_gerais$fus == 1 | 
+                      dados_gerais$exl == 1 | dados_gerais$z9 == 1)
+
+# Removendo uma jogadora que tem o mesmo de outra
+while (nrow(resultado) > 40) {
+  resultado <- resultado[-41,]
+}
+
+# Separando os times em dataframes
+nip_df <- filter(resultado, resultado$nip == 1)
+keyd_df <- filter(resultado, resultado$keyd == 1)
+furia_df <- filter(resultado, resultado$furia == 1)
+tbk_df <- filter(resultado, resultado$tbk == 1)
+kru_df <- filter(resultado, resultado$kru == 1)
+fus_df <- filter(resultado, resultado$fus == 1)
+exl_df <- filter(resultado, resultado$exl == 1)
+z9_df <- filter(resultado, resultado$z9 == 1)
+
+rm(nip, keyd, furia, tbk, kru, fus, exl, z9)
+
+# Tirando colunas de times dos dataframes especificos de cada time
+nip_df <- nip_df[,-6:-13]
+z9_df <- z9_df[,-6:-13]
+tbk_df <- tbk_df[,-6:-13]
+furia_df <- furia_df[,-6:-13]
+fus_df <- fus_df[,-6:-13]
+keyd_df <- keyd_df[,-6:-13]
+kru_df <- kru_df[,-6:-13]
+exl_df <- exl_df[,-6:-13]
+
+#
+furiaR <- mean(furia_df$R)
+fusR <- mean(fus_df$R)
+keydR <- mean(keyd_df$R)
+tbkR <- mean(tbk_df$R)
+exlR <- mean(exl_df$R)
+kruR <- mean(kru_df$R)
+nipR <- mean(nip_df$R)
+z9R <- mean(z9_df$R)
+
+time1 <- c(furiaR, fusR, keydR, tbkR, exlR, kruR, furiaR, keydR, tbkR, furiaR, nipR, exlR, nipR, keydR)
+time2 <- c(exlR, nipR, kruR, z9R, fusR, z9R, nipR, tbkR, exlR, z9R, keydR, furiaR, keydR, furiaR)
+ganhador <- c(1, 2, 1, 1, 1, 2, 2, 1, 2, 1, 1, 2, 1, 1)
+
+jogos <- data.frame(time1, time2, ganhador)
+
+rm(furiaR, fusR, keydR, tbkR, exlR, kruR, nipR, z9R, time1, time2, ganhador)
+
+write.csv2(jogos, 'jogos.csv')
+
+rm(list = ls())
+
+
+# União dos dataframes -------------------------------------------------------------------------------------
 jogos1 <- read.csv2('jogos.csv') %>% select(-X)
 jogos2 <- read.csv2('jogos2.csv') %>% select(-X)
 jogos <- rbind(jogos1, jogos2)
-  
+
+jogos$ganhador <- as.factor(jogos$ganhador)
   
 #CTLR + ALT + M SERVE PARA FAZER COMMITS E DAR PUSH PARA O REPOSITÓRIO NO GITHUB
