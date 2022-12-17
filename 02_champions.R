@@ -7,6 +7,7 @@ library(xlsx)
 library(ineq)
 library(stringr)
 library(dplyr)
+library(h2o)
 
 # Carregando a base de dados de jogadores ---------------------------------------------------------------
 dados_gerais <- read.csv2('jogadores.csv')
@@ -76,28 +77,28 @@ tl_df <- filter(resultado, resultado$tl == 1)
 lev_df <- filter(resultado, resultado$lev == 1)
 fpx_df <- filter(resultado, resultado$fpx == 1)
 fntc_df <- filter(resultado, resultado$fntc == 1)
-idc_t1 <- ineq(loud_df$KAST, type = 'Gini')
-idc_t2 <- ineq(op_df$KAST, type = 'Gini')
-idc_t3 <- ineq(drx_df$KAST, type = 'Gini')
-idc_t4 <- ineq(xset_df$KAST, type = 'Gini')
-idc_t5 <- ineq(tl_df$KAST, type = 'Gini')
-idc_t6 <- ineq(lev_df$KAST, type = 'Gini')
-idc_t7 <- ineq(fpx_df$KAST, type = 'Gini')
-idc_t8 <- ineq(fntc_df$KAST, type = 'Gini')
+#idc_t1 <- ineq(loud_df$KAST, type = 'Gini')
+#idc_t2 <- ineq(op_df$KAST, type = 'Gini')
+#idc_t3 <- ineq(drx_df$KAST, type = 'Gini')
+#idc_t4 <- ineq(xset_df$KAST, type = 'Gini')
+#idc_t5 <- ineq(tl_df$KAST, type = 'Gini')
+#idc_t6 <- ineq(lev_df$KAST, type = 'Gini')
+#idc_t7 <- ineq(fpx_df$KAST, type = 'Gini')
+#idc_t8 <- ineq(fntc_df$KAST, type = 'Gini')
 
 
 # Colocando o indice de Gini em cada jogador para seu respectivo time
-loud_df$idc <- idc_t1
-op_df$idc <- idc_t2
-drx_df$idc <- idc_t3
-xset_df$idc <- idc_t4
-tl_df$idc <- idc_t5
-lev_df$idc <- idc_t6
-fpx_df$idc <- idc_t7
-fntc_df$idc <- idc_t8
+#loud_df$idc <- idc_t1
+#op_df$idc <- idc_t2
+#drx_df$idc <- idc_t3
+#xset_df$idc <- idc_t4
+#tl_df$idc <- idc_t5
+#lev_df$idc <- idc_t6
+#fpx_df$idc <- idc_t7
+#fntc_df$idc <- idc_t8
 
 # Removendo as variaveis idc_tn e times
-rm(idc_t1, idc_t2, idc_t3, idc_t4, idc_t5, idc_t6, idc_t7, idc_t8)
+#rm(idc_t1, idc_t2, idc_t3, idc_t4, idc_t5, idc_t6, idc_t7, idc_t8)
 rm(loud, op, drx, xset, tl, lev, fpx, fntc)
 
 # Colocando os indices de gini no dataframe 'resultado'
