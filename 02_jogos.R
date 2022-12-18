@@ -102,7 +102,7 @@ fntcR <- mean(fntc_df$R)
 
 time1 <- c(drxR, levR, opR, xsetR, fpxR, tlR, drxR, opR, xsetR, drxR, loudR, fpxR, loudR, opR)
 time2 <- c(fpxR, loudR, tlR, fntcR, levR, fntcR, loudR, xsetR, fpxR, fntcR, opR, drxR, opR, drxR)
-ganhador <- c(1, 2, 1, 1, 1, 2, 2, 1, 2, 1, 1, 2, 1, 1)
+ganhador <- c(1, 0, 1, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 1)
 
 jogos <- data.frame(time1, time2, ganhador)
 
@@ -205,7 +205,7 @@ x10R <- mean(x10_df$R)
 
 time1 <- c(c9wR, g2R, gldxR, flgcR, kruR, gldxR, c9wR, srR, srR, c9wR, g2R, srR, g2R, tlR)
 time2 <- c(kruR, x10R, srR, tlR, x10R, flgcR, g2R, tlR, x10R, gldxR, tlR, c9wR, srR, srR)
-ganhador <- c(1, 1, 2, 2, 2, 1, 2, 2, 1, 1, 1, 1, 1, 2)
+ganhador <- c(1, 1, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 0)
 
 jogos <- data.frame(time1, time2, ganhador)
 
@@ -311,7 +311,7 @@ z9R <- mean(z9_df$R)
 
 time1 <- c(nipR, fusR, kruR, keydR, nipR, tbkR, z9R, kruR, keydR, z9R, furiaR, keydR, furiaR)
 time2 <- c(z9R, furiaR, tbkR, exlR, fusR, exlR, furiaR, keydR, nipR, tbkR, kruR, tbkR, tbkR)
-ganhador <- c(2, 2, 1, 1, 1, 1, 2, 1, 1, 2, 2, 2, 1)
+ganhador <- c(0, 0, 1, 1, 1, 1, 0, 1, 1, 0, 0, 0, 1)
 
 jogos <- data.frame(time1, time2, ganhador)
 
@@ -418,7 +418,7 @@ nrgR <- mean(nrg_df$R)
 
 time1 <- c(tgR, srR, fzcR, nrgR, senR, egR, tgR, fzcR, t100R, cl9R, tgR, t100R, tgR, fzcR)
 time2 <- c(senR, cl9R, egR, t100R, srR, nrgR, cl9R, t100R, senR, nrgR, fzcR, cl9R, t100R, t100R)
-ganhador <- c(1, 2, 1, 2, 1, 2, 1, 1, 1, 1, 1, 1, 2, 2)
+ganhador <- c(1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0)
 
 jogos <- data.frame(time1, time2, ganhador)
 
