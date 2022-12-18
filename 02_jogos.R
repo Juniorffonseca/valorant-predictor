@@ -322,9 +322,117 @@ write.csv2(jogos, 'jogos3.csv')
 rm(list = ls())
 
 
+# CHAMPIONS TOUR NORTH AMERICA -----------------------------------------------------------------------------
+
+# Carregando a base de dados de jogadores 
+dados_gerais <- read.csv2('jogadores.csv')
+
+# Arrumando as colunas 
+dados_gerais <- select(dados_gerais, Player, R, ACS, K.D, KAST, ADR)
+row.names(dados_gerais) <- make.names(dados_gerais[,1], unique = T)
+dados_gerais <- select(dados_gerais, -Player)
+dados_gerais$KAST <- parse_number(dados_gerais$KAST)
+
+# Definindo times especificos da competição CHAMPIONS 
+#The Guard
+tg = c('valyn', 'Sayaplayer', 'JonahP', 'neT', 'trent') # Definindo o time 1
+tg <- paste0('\\b', tg, '\\b') # Colocando '\\b' antes e dps p pegar apenas as strings exatas
+dados_gerais$tg <- ifelse(grepl(paste(tg, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
+
+#FaZe Clan
+fzc = c('supamen', 'POISED', 'dicey', 'BABYBAY', 'flyuh')
+fzc <- paste0('\\b', fzc, '\\b') 
+dados_gerais$fzc <- ifelse(grepl(paste(fzc, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
+
+#cl9
+cl9 = c('mitch', 'curry', 'leaf', 'vanity', 'Xeppaa')
+cl9 <- paste0('\\b', cl9, '\\b')
+dados_gerais$cl9 <- ifelse(grepl(paste(cl9, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
+dados_gerais['leaf.1',]$cl9 <- 0
+
+#sr
+sr = c('TiGG', 'bdog', 'dazzLe', 'mada', 'moose')
+sr <- paste0('\\b', sr, '\\b')
+dados_gerais$sr <- ifelse(grepl(paste(sr, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
+
+#t100
+t100 = c('Asuna', 'stellar', 'Will', 'Derrek', 'bang')
+t100 <- paste0('\\b', t100, '\\b')
+dados_gerais$t100 <- ifelse(grepl(paste(t100, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
+
+#Evil Geniuses
+eg = c('Boostio', 'C0M', 'Reformed', 'jawgemo', 'Apoth')
+eg <- paste0('\\b', eg, '\\b')
+dados_gerais$eg <- ifelse(grepl(paste(eg, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
+
+#Sentinels
+sen = c('TenZ', 'ShahZaM', 'shroud', 'dapr', 'Zellsis')
+sen <- paste0('\\b', sen, '\\b')
+dados_gerais$sen <- ifelse(grepl(paste(sen, collapse = '|'), rownames(dados_gerais), useBytes = T), 1 ,0)
+
+#NRG Esports
+nrg = c('hazed', 'eeiu', 'tex', 's0m', 'Ethan')
+nrg <- paste0('\\b', nrg, '\\b')
+dados_gerais$nrg <- ifelse(grepl(paste(nrg, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
+
+resultado <- filter(dados_gerais, dados_gerais$tg == 1 | dados_gerais$fzc == 1 | dados_gerais$cl9 == 1
+                    | dados_gerais$sr == 1 | dados_gerais$t100 == 1 | dados_gerais$eg == 1 | 
+                      dados_gerais$sen == 1 | dados_gerais$nrg == 1)
+
+# Removendo uma jogadora que tem o mesmo de outra
+while (nrow(resultado) > 40) {
+  resultado <- resultado[-41,]
+}
+
+# Separando os times em dataframes
+tg_df <- filter(resultado, resultado$tg == 1)
+fzc_df <- filter(resultado, resultado$fzc == 1)
+cl9_df <- filter(resultado, resultado$cl9 == 1)
+sr_df <- filter(resultado, resultado$sr == 1)
+t100_df <- filter(resultado, resultado$t100 == 1)
+eg_df <- filter(resultado, resultado$eg == 1)
+sen_df <- filter(resultado, resultado$sen == 1)
+nrg_df <- filter(resultado, resultado$nrg == 1)
+
+rm(tg, fzc, cl9, sr, t100, eg, sen, nrg)
+
+# Tirando colunas de times dos dataframes especificos de cada time
+tg_df <- tg_df[,-6:-13]
+nrg_df <- nrg_df[,-6:-13]
+sr_df <- sr_df[,-6:-13]
+cl9_df <- cl9_df[,-6:-13]
+eg_df <- eg_df[,-6:-13]
+fzc_df <- fzc_df[,-6:-13]
+t100_df <- t100_df[,-6:-13]
+sen_df <- sen_df[,-6:-13]
+
+#
+cl9R <- mean(cl9_df$R)
+egR <- mean(eg_df$R)
+fzcR <- mean(fzc_df$R)
+srR <- mean(sr_df$R)
+senR <- mean(sen_df$R)
+t100R <- mean(t100_df$R)
+tgR <- mean(tg_df$R)
+nrgR <- mean(nrg_df$R)
+
+time1 <- c(tgR, srR, fzcR, nrgR, senR, egR, tgR, fzcR, t100R, cl9R, tgR, t100R, tgR, fzcR)
+time2 <- c(senR, cl9R, egR, t100R, srR, nrgR, cl9R, t100R, senR, nrgR, fzcR, cl9R, t100R, t100R)
+ganhador <- c(1, 2, 1, 2, 1, 2, 1, 1, 1, 1, 1, 1, 2, 2)
+
+jogos <- data.frame(time1, time2, ganhador)
+
+rm(cl9R, egR, fzcR, srR, senR, t100R, tgR, nrgR, time1, time2, ganhador)
+
+write.csv2(jogos, 'jogos4.csv')
+
+rm(list = ls())
+
+
 # União dos dataframes -------------------------------------------------------------------------------------
 jogos1 <- read.csv2('jogos.csv') %>% select(-X)
 jogos2 <- read.csv2('jogos2.csv') %>% select(-X)
 jogos3 <- read.csv2('jogos3.csv') %>% select(-X)
-jogos <- rbind(jogos1, jogos2, jogos3)
+jogos4 <- read.csv2('jogos4.csv') %>% select(-X)
+jogos <- rbind(jogos1, jogos2, jogos3, jogos4)
 jogos$ganhador <- as.factor(jogos$ganhador)
