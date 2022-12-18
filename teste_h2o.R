@@ -7,8 +7,6 @@ library(xlsx)
 library(ineq)
 library(stringr)
 library(dplyr)
-library(h2o)
-h2o.init()
 
 # CHAMPIONS -------------------------------------------------------------------------------------------------
 # Carregando a base de dados de jogadores 
