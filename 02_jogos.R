@@ -793,13 +793,13 @@ rc <- paste0('\\b', rc, '\\b')
 dados_gerais$rc <- ifelse(grepl(paste(rc, collapse = '|'), rownames(dados_gerais), useBytes = T), 1 ,0)
 
 #Guild Esports
-ge = c('Yacine', 'Sayf', 'koldamenta', 'Leo', 'trexx')
-ge <- paste0('\\b', ge, '\\b')
-dados_gerais$ge <- ifelse(grepl(paste(ge, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
+kone = c('LuoK1ng', 'sword9', 'Ninebody', 'Knight', 'Yosemite')
+kone <- paste0('\\b', kone, '\\b')
+dados_gerais$kone <- ifelse(grepl(paste(kone, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
 
 resultado <- filter(dados_gerais, dados_gerais$mg == 1 | dados_gerais$dwgc == 1 | dados_gerais$edg == 1
                     | dados_gerais$s2 == 1 | dados_gerais$nth == 1 | dados_gerais$cr == 1 | 
-                      dados_gerais$rc == 1 | dados_gerais$ge == 1)
+                      dados_gerais$rc == 1 | dados_gerais$kone == 1)
 
 # Removendo uma jogadora que tem o mesmo de outra
 while (nrow(resultado) > 40) {
@@ -814,13 +814,13 @@ s2_df <- filter(resultado, resultado$s2 == 1)
 nth_df <- filter(resultado, resultado$nth == 1)
 cr_df <- filter(resultado, resultado$cr == 1)
 rc_df <- filter(resultado, resultado$rc == 1)
-ge_df <- filter(resultado, resultado$ge == 1)
+kone_df <- filter(resultado, resultado$kone == 1)
 
-rm(mg, dwgc, edg, s2, nth, cr, rc, ge)
+rm(mg, dwgc, edg, s2, nth, cr, rc, kone)
 
 # Tirando colunas de times dos dataframes especificos de cada time
 mg_df <- mg_df[,-6:-13]
-ge_df <- ge_df[,-6:-13]
+kone_df <- kone_df[,-6:-13]
 s2_df <- s2_df[,-6:-13]
 edg_df <- edg_df[,-6:-13]
 cr_df <- cr_df[,-6:-13]
@@ -836,7 +836,7 @@ s2R <- mean(s2_df$R)
 rcR <- mean(rc_df$R) 
 nthR <- mean(nth_df$R) 
 mgR <- mean(mg_df$R) 
-geR <- mean(ge_df$R) 
+koneR <- mean(kone_df$R) 
 # Média ACS
 edgACS <- mean(edg_df$ACS) 
 crACS <- mean(cr_df$ACS) 
@@ -845,7 +845,7 @@ s2ACS <- mean(s2_df$ACS)
 rcACS <- mean(rc_df$ACS) 
 nthACS <- mean(nth_df$ACS) 
 mgACS <- mean(mg_df$ACS) 
-geACS <- mean(ge_df$ACS) 
+koneACS <- mean(kone_df$ACS) 
 # Média KD
 edgKD <- mean(edg_df$K.D) 
 crKD <- mean(cr_df$K.D) 
@@ -854,7 +854,7 @@ s2KD <- mean(s2_df$K.D)
 rcKD <- mean(rc_df$K.D) 
 nthKD <- mean(nth_df$K.D) 
 mgKD <- mean(mg_df$K.D) 
-geKD <- mean(ge_df$K.D) 
+koneKD <- mean(kone_df$K.D) 
 # Média KAST
 edgKAST <- mean(edg_df$KAST) 
 crKAST <- mean(cr_df$KAST) 
@@ -863,7 +863,7 @@ s2KAST <- mean(s2_df$KAST)
 rcKAST <- mean(rc_df$KAST) 
 nthKAST <- mean(nth_df$KAST) 
 mgKAST <- mean(mg_df$KAST) 
-geKAST <- mean(ge_df$KAST) 
+koneKAST <- mean(kone_df$KAST) 
 # Média ADR
 edgADR <- mean(edg_df$ADR) 
 crADR <- mean(cr_df$ADR) 
@@ -872,24 +872,25 @@ s2ADR <- mean(s2_df$ADR)
 rcADR <- mean(rc_df$ADR) 
 nthADR <- mean(nth_df$ADR) 
 mgADR <- mean(mg_df$ADR) 
-geADR <- mean(ge_df$ADR) 
+koneADR <- mean(kone_df$ADR) 
 #Criando o dataframe
-time1R <- c(mgR, dwgcR, nthR, geR, mgR, s2R, rcR, nthR, crR, rcR, dwgcR, mgR, dwgcR, nthR)
-time2R <- c(rcR, edgR, s2R, crR, edgR, geR, dwgcR, crR, mgR, geR, nthR, rcR, nthR, mgR)
-time1ACS <- c(mgACS, dwgcACS, nthACS, geACS, mgACS, s2ACS, rcACS, nthACS, crACS, rcACS, dwgcACS, mgACS, dwgcACS, nthACS)
-time2ACS <- c(rcACS, edgACS, s2ACS, crACS, edgACS, geACS, dwgcACS, crACS, mgACS, geACS, nthACS, rcACS, nthACS, mgACS)
-time1KD <- c(mgKD, dwgcKD, nthKD, geKD, mgKD, s2KD, rcKD, nthKD, crKD, rcKD, dwgcKD, mgKD, dwgcKD, nthKD)
-time2KD <- c(rcKD, edgKD, s2KD, crKD, edgKD, geKD, dwgcKD, crKD, mgKD, geKD, nthKD, rcKD, nthKD, mgKD)
-time1KAST <- c(mgKAST, dwgcKAST, nthKAST, geKAST, mgKAST, s2KAST, rcKAST, nthKAST, crKAST, rcKAST, dwgcKAST, mgKAST, dwgcKAST, nthKAST)
-time2KAST <- c(rcKAST, edgKAST, s2KAST, crKAST, edgKAST, geKAST, dwgcKAST, crKAST, mgKAST, geKAST, nthKAST, rcKAST, nthKAST, mgKAST)
-time1ADR <- c(mgADR, dwgcADR, nthADR, geADR, mgADR, s2ADR, rcADR, nthADR, crADR, rcADR, dwgcADR, mgADR, dwgcADR, nthADR)
-time2ADR <- c(rcADR, edgADR, s2ADR, crADR, edgADR, geADR, dwgcADR, crADR, mgADR, geADR, nthADR, rcADR, nthADR, mgADR)
+time1R <- c(edgR, mgR, crR, nthR, s2R, dwgcR, edgR, crR, crR, rcR, edgR, s2R, edgR, nthR)
+time2R <- c(s2R, rcR, dwgcR, koneR, mgR, koneR, rcR, nthR, s2R, koneR, nthR, koneR, s2R, s2R)
+time1ACS <- c(edgACS, mgACS, crACS, nthACS, s2ACS, dwgcACS, edgACS, crACS, crACS, rcACS, edgACS, s2ACS, edgACS, nthACS)
+time2ACS <- c(s2ACS, rcACS, dwgcACS, koneACS, mgACS, koneACS, rcACS, nthACS, s2ACS, koneACS, nthACS, koneACS, s2ACS, s2ACS)
+time1KD <- c(edgKD, mgKD, crKD, nthKD, s2KD, dwgcKD, edgKD, crKD, crKD, rcKD, edgKD, s2KD, edgKD, nthKD)
+time2KD <- c(s2KD, rcKD, dwgcKD, koneKD, mgKD, koneKD, rcKD, nthKD, s2KD, koneKD, nthKD, koneKD, s2KD, s2KD)
+time1KAST <- c(edgKAST, mgKAST, crKAST, nthKAST, s2KAST, dwgcKAST, edgKAST, crKAST, crKAST, rcKAST, edgKAST, s2KAST, edgKAST, nthKAST)
+time2KAST <- c(s2KAST, rcKAST, dwgcKAST, koneKAST, mgKAST, koneKAST, rcKAST, nthKAST, s2KAST, koneKAST, nthKAST, koneKAST, s2KAST, s2KAST)
+time1ADR <- c(edgADR, mgADR, crADR, nthADR, s2ADR, dwgcADR, edgADR, crADR, crADR, rcADR, edgADR, s2ADR, edgADR, nthADR)
+time2ADR <- c(s2ADR, rcADR, dwgcADR, koneADR, mgADR, koneADR, rcADR, nthADR, s2ADR, koneADR, nthADR, koneADR, s2ADR, s2ADR)
 
-ganhador <- c(0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1)
+
+ganhador <- c(1, 0, 1, 1, 1, 0, 1, 0, 0, 0, 1, 1, 1, 0)
 
 jogos <- data.frame(time1R, time2R, time1ACS, time2ACS, time1KD, time2KD, time1KAST, time2KAST, time1ADR, time2ADR, ganhador)
 
-write.csv2(jogos, 'jogos5.csv')
+write.csv2(jogos, 'jogos6.csv')
 
 rm(list = ls())
 
@@ -900,5 +901,6 @@ jogos2 <- read.csv2('jogos2.csv') %>% dplyr::select(-X)
 jogos3 <- read.csv2('jogos3.csv') %>% dplyr::select(-X)
 jogos4 <- read.csv2('jogos4.csv') %>% dplyr::select(-X)
 jogos5 <- read.csv2('jogos5.csv') %>% dplyr::select(-X)
-jogos <- rbind(jogos1, jogos2, jogos3, jogos4)
+jogos6 <- read.csv2('jogos6.csv') %>% dplyr::select(-X)
+jogos <- rbind(jogos1, jogos2, jogos3, jogos4, jogos5, jogos6)
 jogos$ganhador <- as.factor(jogos$ganhador)
