@@ -599,10 +599,158 @@ write.csv2(jogos, 'jogos4.csv')
 rm(list = ls())
 
 
+# CHAMPIONS TOUR EMEA LAST CHANCE QUALIFIER ----------------------------------------------------------------
+# Carregando a base de dados de jogadores 
+dados_gerais <- read.csv2('jogadores.csv')
+
+# Arrumando as colunas 
+dados_gerais <- dplyr::select(dados_gerais, Player, R, ACS, K.D, KAST, ADR)
+row.names(dados_gerais) <- make.names(dados_gerais[,1], unique = T)
+dados_gerais <- dplyr::select(dados_gerais, -Player)
+dados_gerais$KAST <- parse_number(dados_gerais$KAST)
+
+# Definindo times especificos da competição CHAMPIONS 
+#g2
+g2 = c('Mixwell', 'Meddo', 'AvovA', 'hoody', 'nukkye') # Definindo o time 1
+g2 <- paste0('\\b', g2, '\\b') # Colocando '\\b' antes e dps p pegar apenas as strings exatas
+dados_gerais$g2 <- ifelse(grepl(paste(g2, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
+
+#m3
+m3c = c('nAts', 'Chronicle', 'Redgar', 'sheydos', 'purp0', 'Jady')
+m3c <- paste0('\\b', m3c, '\\b') 
+dados_gerais$m3c <- ifelse(grepl(paste(m3c, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
+
+#acend
+acend = c('stax', 'Rb', 'Zest', 'BuZz', 'MaKo')
+acend <- paste0('\\b', acend, '\\b')
+dados_gerais$acend <- ifelse(grepl(paste(acend, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
+
+#bbl
+bbl = c('Turko', 'aimDLL', 'AsLanM4shadoW', 'QutionerX', 'CyderX')
+bbl <- paste0('\\b', bbl, '\\b')
+dados_gerais$bbl <- ifelse(grepl(paste(bbl, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
+
+#TL
+tl = c('ScreaM', 'soulcas', 'dimasick', 'Jamppi', 'Nivera')
+tl <- paste0('\\b', tl, '\\b')
+dados_gerais$tl <- ifelse(grepl(paste(tl, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
+
+#Natus Vincere
+navi = c('dinkzj', 'Duno', '7ssk7', 'zeddy', 'Cloud')
+navi <- paste0('\\b', navi, '\\b')
+dados_gerais$navi <- ifelse(grepl(paste(navi, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
+
+#OG LDN UTD
+ldn = c('hype', 'Boo', 'MOLSI', 'Destrian', 'feqew')
+ldn <- paste0('\\b', ldn, '\\b')
+dados_gerais$ldn <- ifelse(grepl(paste(ldn, collapse = '|'), rownames(dados_gerais), useBytes = T), 1 ,0)
+
+#Guild Esports
+ge = c('Yacine', 'Sayf', 'koldamenta', 'Leo', 'trexx')
+ge <- paste0('\\b', ge, '\\b')
+dados_gerais$ge <- ifelse(grepl(paste(ge, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
+
+resultado <- filter(dados_gerais, dados_gerais$g2 == 1 | dados_gerais$m3c == 1 | dados_gerais$acend == 1
+                    | dados_gerais$bbl == 1 | dados_gerais$tl == 1 | dados_gerais$navi == 1 | 
+                      dados_gerais$ldn == 1 | dados_gerais$ge == 1)
+
+# Removendo uma jogadora que tem o mesmo de outra
+while (nrow(resultado) > 40) {
+  resultado <- resultado[-41,]
+}
+
+# Separando os times em dataframes
+g2_df <- filter(resultado, resultado$g2 == 1)
+m3c_df <- filter(resultado, resultado$m3c == 1)
+acend_df <- filter(resultado, resultado$acend == 1)
+bbl_df <- filter(resultado, resultado$bbl == 1)
+tl_df <- filter(resultado, resultado$tl == 1)
+navi_df <- filter(resultado, resultado$navi == 1)
+ldn_df <- filter(resultado, resultado$ldn == 1)
+ge_df <- filter(resultado, resultado$ge == 1)
+
+rm(g2, m3c, acend, bbl, tl, navi, ldn, ge)
+
+# Tirando colunas de times dos dataframes especificos de cada time
+g2_df <- g2_df[,-6:-13]
+ge_df <- ge_df[,-6:-13]
+bbl_df <- bbl_df[,-6:-13]
+acend_df <- acend_df[,-6:-13]
+navi_df <- navi_df[,-6:-13]
+m3c_df <- m3c_df[,-6:-13]
+tl_df <- tl_df[,-6:-13]
+ldn_df <- ldn_df[,-6:-13]
+
+# Média R (Rating)
+acendR <- mean(acend_df$R) 
+naviR <- mean(navi_df$R) 
+m3cR <- mean(m3c_df$R) 
+bblR <- mean(bbl_df$R) 
+ldnR <- mean(ldn_df$R) 
+tlR <- mean(tl_df$R) 
+g2R <- mean(g2_df$R) 
+geR <- mean(ge_df$R) 
+# Média ACS
+acendACS <- mean(acend_df$ACS) 
+naviACS <- mean(navi_df$ACS) 
+m3cACS <- mean(m3c_df$ACS) 
+bblACS <- mean(bbl_df$ACS) 
+ldnACS <- mean(ldn_df$ACS) 
+tlACS <- mean(tl_df$ACS) 
+g2ACS <- mean(g2_df$ACS) 
+geACS <- mean(ge_df$ACS) 
+# Média KD
+acendKD <- mean(acend_df$K.D) 
+naviKD <- mean(navi_df$K.D) 
+m3cKD <- mean(m3c_df$K.D) 
+bblKD <- mean(bbl_df$K.D) 
+ldnKD <- mean(ldn_df$K.D) 
+tlKD <- mean(tl_df$K.D) 
+g2KD <- mean(g2_df$K.D) 
+geKD <- mean(ge_df$K.D) 
+# Média KAST
+acendKAST <- mean(acend_df$KAST) 
+naviKAST <- mean(navi_df$KAST) 
+m3cKAST <- mean(m3c_df$KAST) 
+bblKAST <- mean(bbl_df$KAST) 
+ldnKAST <- mean(ldn_df$KAST) 
+tlKAST <- mean(tl_df$KAST) 
+g2KAST <- mean(g2_df$KAST) 
+geKAST <- mean(ge_df$KAST) 
+# Média ADR
+acendADR <- mean(acend_df$ADR) 
+naviADR <- mean(navi_df$ADR) 
+m3cADR <- mean(m3c_df$ADR) 
+bblADR <- mean(bbl_df$ADR) 
+ldnADR <- mean(ldn_df$ADR) 
+tlADR <- mean(tl_df$ADR) 
+g2ADR <- mean(g2_df$ADR) 
+geADR <- mean(ge_df$ADR) 
+#Criando o dataframe
+time1R <- c(g2R, m3cR, tlR, geR, g2R, bblR, ldnR, tlR, naviR, ldnR, m3cR, g2R, m3cR, tlR)
+time2R <- c(ldnR, acendR, bblR, naviR, acendR, geR, m3cR, naviR, g2R, geR, tlR, ldnR, tlR, g2R)
+time1ACS <- c(g2ACS, m3cACS, tlACS, geACS, g2ACS, bblACS, ldnACS, tlACS, naviACS, ldnACS, m3cACS, g2ACS, m3cACS, tlACS)
+time2ACS <- c(ldnACS, acendACS, bblACS, naviACS, acendACS, geACS, m3cACS, naviACS, g2ACS, geACS, tlACS, ldnACS, tlACS, g2ACS)
+time1KD <- c(g2KD, m3cKD, tlKD, geKD, g2KD, bblKD, ldnKD, tlKD, naviKD, ldnKD, m3cKD, g2KD, m3cKD, tlKD)
+time2KD <- c(ldnKD, acendKD, bblKD, naviKD, acendKD, geKD, m3cKD, naviKD, g2KD, geKD, tlKD, ldnKD, tlKD, g2KD)
+time1KAST <- c(g2KAST, m3cKAST, tlKAST, geKAST, g2KAST, bblKAST, ldnKAST, tlKAST, naviKAST, ldnKAST, m3cKAST, g2KAST, m3cKAST, tlKAST)
+time2KAST <- c(ldnKAST, acendKAST, bblKAST, naviKAST, acendKAST, geKAST, m3cKAST, naviKAST, g2KAST, geKAST, tlKAST, ldnKAST, tlKAST, g2KAST)
+time1ADR <- c(g2ADR, m3cADR, tlADR, geADR, g2ADR, bblADR, ldnADR, tlADR, naviADR, ldnADR, m3cADR, g2ADR, m3cADR, tlADR)
+time2ADR <- c(ldnADR, acendADR, bblADR, naviADR, acendADR, geADR, m3cADR, naviADR, g2ADR, geADR, tlADR, ldnADR, tlADR, g2ADR)
+
+ganhador <- c(0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1)
+
+jogos <- data.frame(time1R, time2R, time1ACS, time2ACS, time1KD, time2KD, time1KAST, time2KAST, time1ADR, time2ADR, ganhador)
+
+write.csv2(jogos, 'jogos5.csv')
+
+rm(list = ls())
+
 # União dos dataframes -------------------------------------------------------------------------------------
 jogos1 <- read.csv2('jogos.csv') %>% dplyr::select(-X)
 jogos2 <- read.csv2('jogos2.csv') %>% dplyr::select(-X)
 jogos3 <- read.csv2('jogos3.csv') %>% dplyr::select(-X)
 jogos4 <- read.csv2('jogos4.csv') %>% dplyr::select(-X)
+jogos5 <- read.csv2('jogos5.csv') %>% dplyr::select(-X)
 jogos <- rbind(jogos1, jogos2, jogos3, jogos4)
 jogos$ganhador <- as.factor(jogos$ganhador)
