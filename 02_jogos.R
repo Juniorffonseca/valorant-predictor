@@ -13,9 +13,9 @@ library(dplyr)
 dados_gerais <- read.csv2('jogadores.csv')
 
 # Arrumando as colunas 
-dados_gerais <- select(dados_gerais, Player, R, ACS, K.D, KAST, ADR)
+dados_gerais <- dplyr::select(dados_gerais, Player, R, ACS, K.D, KAST, ADR)
 row.names(dados_gerais) <- make.names(dados_gerais[,1], unique = T)
-dados_gerais <- select(dados_gerais, -Player)
+dados_gerais <- dplyr::select(dados_gerais, -Player)
 dados_gerais$KAST <- parse_number(dados_gerais$KAST)
 
 # Definindo times especificos da competição CHAMPIONS 
@@ -90,23 +90,66 @@ op_df <- op_df[,-6:-13]
 tl_df <- tl_df[,-6:-13]
 fpx_df <- fpx_df[,-6:-13]
 
-#
-drxR <- mean(drx_df$R)
-levR <- mean(lev_df$R)
-opR <- mean(op_df$R)
-xsetR <- mean(xset_df$R)
-fpxR <- mean(fpx_df$R)
-tlR <- mean(tl_df$R)
-loudR <- mean(loud_df$R)
-fntcR <- mean(fntc_df$R)
+# Média R (Rating)
+drxR <- mean(drx_df$R) 
+levR <- mean(lev_df$R) 
+opR <- mean(op_df$R) 
+xsetR <- mean(xset_df$R) 
+fpxR <- mean(fpx_df$R) 
+tlR <- mean(tl_df$R) 
+loudR <- mean(loud_df$R) 
+fntcR <- mean(fntc_df$R) 
+# Média ACS
+drxACS <- mean(drx_df$ACS) 
+levACS <- mean(lev_df$ACS) 
+opACS <- mean(op_df$ACS) 
+xsetACS <- mean(xset_df$ACS) 
+fpxACS <- mean(fpx_df$ACS) 
+tlACS <- mean(tl_df$ACS) 
+loudACS <- mean(loud_df$ACS) 
+fntcACS <- mean(fntc_df$ACS) 
+# Média KD
+drxKD <- mean(drx_df$K.D) 
+levKD <- mean(lev_df$K.D) 
+opKD <- mean(op_df$K.D) 
+xsetKD <- mean(xset_df$K.D) 
+fpxKD <- mean(fpx_df$K.D) 
+tlKD <- mean(tl_df$K.D) 
+loudKD <- mean(loud_df$K.D) 
+fntcKD <- mean(fntc_df$K.D) 
+# Média KAST
+drxKAST <- mean(drx_df$KAST) 
+levKAST <- mean(lev_df$KAST) 
+opKAST <- mean(op_df$KAST) 
+xsetKAST <- mean(xset_df$KAST) 
+fpxKAST <- mean(fpx_df$KAST) 
+tlKAST <- mean(tl_df$KAST) 
+loudKAST <- mean(loud_df$KAST) 
+fntcKAST <- mean(fntc_df$KAST) 
+# Média ADR
+drxADR <- mean(drx_df$ADR) 
+levADR <- mean(lev_df$ADR) 
+opADR <- mean(op_df$ADR) 
+xsetADR <- mean(xset_df$ADR) 
+fpxADR <- mean(fpx_df$ADR) 
+tlADR <- mean(tl_df$ADR) 
+loudADR <- mean(loud_df$ADR) 
+fntcADR <- mean(fntc_df$ADR) 
+#Criando o dataframe
+time1R <- c(drxR, levR, opR, xsetR, fpxR, tlR, drxR, opR, xsetR, drxR, loudR, fpxR, loudR, opR)
+time2R <- c(fpxR, loudR, tlR, fntcR, levR, fntcR, loudR, xsetR, fpxR, fntcR, opR, drxR, opR, drxR)
+time1ACS <-c(drxACS, levACS, opACS, xsetACS, fpxACS, tlACS, drxACS, opACS, xsetACS, drxACS, loudACS, fpxACS, loudACS, opACS)
+time2ACS <- c(fpxACS, loudACS, tlACS, fntcACS, levACS, fntcACS, loudACS, xsetACS, fpxACS, fntcACS, opACS, drxACS, opACS, drxACS)
+time1KD <-c(drxKD, levKD, opKD, xsetKD, fpxKD, tlKD, drxKD, opKD, xsetKD, drxKD, loudKD, fpxKD, loudKD, opKD)
+time2KD <- c(fpxKD, loudKD, tlKD, fntcKD, levKD, fntcKD, loudKD, xsetKD, fpxKD, fntcKD, opKD, drxKD, opKD, drxKD)
+time1KAST <-c(drxKAST, levKAST, opKAST, xsetKAST, fpxKAST, tlKAST, drxKAST, opKAST, xsetKAST, drxKAST, loudKAST, fpxKAST, loudKAST, opKAST)
+time2KAST <- c(fpxKAST, loudKAST, tlKAST, fntcKAST, levKAST, fntcKAST, loudKAST, xsetKAST, fpxKAST, fntcKAST, opKAST, drxKAST, opKAST, drxKAST)
+time1ADR <-c(drxADR, levADR, opADR, xsetADR, fpxADR, tlADR, drxADR, opADR, xsetADR, drxADR, loudADR, fpxADR, loudADR, opADR)
+time2ADR <- c(fpxADR, loudADR, tlADR, fntcADR, levADR, fntcADR, loudADR, xsetADR, fpxADR, fntcADR, opADR, drxADR, opADR, drxADR)
 
-time1 <- c(drxR, levR, opR, xsetR, fpxR, tlR, drxR, opR, xsetR, drxR, loudR, fpxR, loudR, opR)
-time2 <- c(fpxR, loudR, tlR, fntcR, levR, fntcR, loudR, xsetR, fpxR, fntcR, opR, drxR, opR, drxR)
 ganhador <- c(1, 0, 1, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 1)
 
-jogos <- data.frame(time1, time2, ganhador)
-
-rm(drxR, levR, opR, xsetR, fpxR, tlR, loudR, fntcR, time1, time2, ganhador)
+jogos <- data.frame(time1R, time2R, time1ACS, time2ACS, time1KD, time2KD, time1KAST, time2KAST, time1ADR, time2ADR, ganhador)
 
 write.csv2(jogos, 'jogos.csv')
 
@@ -118,9 +161,9 @@ rm(list = ls())
 dados_gerais <- read.csv2('jogadores.csv')
 
 # Arrumando as colunas 
-dados_gerais <- select(dados_gerais, Player, R, ACS, K.D, KAST, ADR)
+dados_gerais <- dplyr::select(dados_gerais, Player, R, ACS, K.D, KAST, ADR)
 row.names(dados_gerais) <- make.names(dados_gerais[,1], unique = T)
-dados_gerais <- select(dados_gerais, -Player)
+dados_gerais <- dplyr::select(dados_gerais, -Player)
 dados_gerais$KAST <- parse_number(dados_gerais$KAST)
 
 # Definindo times especificos da competição GAME CHANGERS 
@@ -193,23 +236,65 @@ sr_df <- sr_df[,-6:-13]
 tl_df <- tl_df[,-6:-13]
 x10_df <- x10_df[,-6:-13]
 
-#
-c9wR <- mean(c9w_df$R)
-flgcR <- mean(flgc_df$R)
-g2R <- mean(g2_df$R)
-gldxR <- mean(gldx_df$R)
-kruR <- mean(kru_df$R)
-srR <- mean(sr_df$R)
-tlR <- mean(tl_df$R)
-x10R <- mean(x10_df$R)
+# Média R
+c9wR <- mean(c9w_df$R) 
+flgcR <- mean(flgc_df$R) 
+g2R <- mean(g2_df$R) 
+gldxR <- mean(gldx_df$R) 
+kruR <- mean(kru_df$R) 
+srR <- mean(sr_df$R) 
+tlR <- mean(tl_df$R) 
+x10R <- mean(x10_df$R) 
+# Média ACS
+c9wACS <- mean(c9w_df$ACS) 
+flgcACS <- mean(flgc_df$ACS) 
+g2ACS <- mean(g2_df$ACS) 
+gldxACS <- mean(gldx_df$ACS) 
+kruACS <- mean(kru_df$ACS) 
+srACS <- mean(sr_df$ACS) 
+tlACS <- mean(tl_df$ACS) 
+x10ACS <- mean(x10_df$ACS) 
+# Média KD
+c9wKD <- mean(c9w_df$K.D) 
+flgcKD <- mean(flgc_df$K.D) 
+g2KD <- mean(g2_df$K.D) 
+gldxKD <- mean(gldx_df$K.D) 
+kruKD <- mean(kru_df$K.D) 
+srKD <- mean(sr_df$K.D) 
+tlKD <- mean(tl_df$K.D) 
+x10KD <- mean(x10_df$K.D) 
+# Média KAST
+c9wKAST <- mean(c9w_df$KAST) 
+flgcKAST <- mean(flgc_df$KAST) 
+g2KAST <- mean(g2_df$KAST) 
+gldxKAST <- mean(gldx_df$KAST) 
+kruKAST <- mean(kru_df$KAST) 
+srKAST <- mean(sr_df$KAST) 
+tlKAST <- mean(tl_df$KAST) 
+x10KAST <- mean(x10_df$KAST) 
+# Média ADR
+c9wADR <- mean(c9w_df$ADR) 
+flgcADR <- mean(flgc_df$ADR) 
+g2ADR <- mean(g2_df$ADR) 
+gldxADR <- mean(gldx_df$ADR) 
+kruADR <- mean(kru_df$ADR) 
+srADR <- mean(sr_df$ADR) 
+tlADR <- mean(tl_df$ADR) 
+x10ADR <- mean(x10_df$ADR) 
 
-time1 <- c(c9wR, g2R, gldxR, flgcR, kruR, gldxR, c9wR, srR, srR, c9wR, g2R, srR, g2R, tlR)
-time2 <- c(kruR, x10R, srR, tlR, x10R, flgcR, g2R, tlR, x10R, gldxR, tlR, c9wR, srR, srR)
+time1R <- c(c9wR, g2R, gldxR, flgcR, kruR, gldxR, c9wR, srR, srR, c9wR, g2R, srR, g2R, tlR)
+time2R <- c(kruR, x10R, srR, tlR, x10R, flgcR, g2R, tlR, x10R, gldxR, tlR, c9wR, srR, srR)
+time1ACS <- c(c9wACS, g2ACS, gldxACS, flgcACS, kruACS, gldxACS, c9wACS, srACS, srACS, c9wACS, g2ACS, srACS, g2ACS, tlACS)
+time2ACS <- c(kruACS, x10ACS, srACS, tlACS, x10ACS, flgcACS, g2ACS, tlACS, x10ACS, gldxACS, tlACS, c9wACS, srACS, srACS)
+time1KD <- c(c9wKD, g2KD, gldxKD, flgcKD, kruKD, gldxKD, c9wKD, srKD, srKD, c9wKD, g2KD, srKD, g2KD, tlKD)
+time2KD <- c(kruKD, x10KD, srKD, tlKD, x10KD, flgcKD, g2KD, tlKD, x10KD, gldxKD, tlKD, c9wKD, srKD, srKD)
+time1KAST <- c(c9wKAST, g2KAST, gldxKAST, flgcKAST, kruKAST, gldxKAST, c9wKAST, srKAST, srKAST, c9wKAST, g2KAST, srKAST, g2KAST, tlKAST)
+time2KAST <- c(kruKAST, x10KAST, srKAST, tlKAST, x10KAST, flgcKAST, g2KAST, tlKAST, x10KAST, gldxKAST, tlKAST, c9wKAST, srKAST, srKAST)
+time1ADR <- c(c9wADR, g2ADR, gldxADR, flgcADR, kruADR, gldxADR, c9wADR, srADR, srADR, c9wADR, g2ADR, srADR, g2ADR, tlADR)
+time2ADR <- c(kruADR, x10ADR, srADR, tlADR, x10ADR, flgcADR, g2ADR, tlADR, x10ADR, gldxADR, tlADR, c9wADR, srADR, srADR)
 ganhador <- c(1, 1, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 0)
 
-jogos <- data.frame(time1, time2, ganhador)
-
-rm(drxR, levR, opR, xsetR, fpxR, tlR, loudR, fntcR, time1, time2, ganhador)
+jogos <- data.frame(time1R, time2R, time1ACS, time2ACS, time1KD, time2KD, time1KAST, time2KAST, time1ADR, time2ADR, ganhador)
 
 write.csv2(jogos, 'jogos2.csv')
 
@@ -221,9 +306,9 @@ rm(list = ls())
 dados_gerais <- read.csv2('jogadores.csv')
 
 # Arrumando as colunas 
-dados_gerais <- select(dados_gerais, Player, R, ACS, K.D, KAST, ADR)
+dados_gerais <- dplyr::select(dados_gerais, Player, R, ACS, K.D, KAST, ADR)
 row.names(dados_gerais) <- make.names(dados_gerais[,1], unique = T)
-dados_gerais <- select(dados_gerais, -Player)
+dados_gerais <- dplyr::select(dados_gerais, -Player)
 dados_gerais$KAST <- parse_number(dados_gerais$KAST)
 
 # Definindo times especificos da competição CHAMPIONS 
@@ -300,22 +385,20 @@ kru_df <- kru_df[,-6:-13]
 exl_df <- exl_df[,-6:-13]
 
 #
-furiaR <- mean(furia_df$R)
-fusR <- mean(fus_df$R)
-keydR <- mean(keyd_df$R)
-tbkR <- mean(tbk_df$R)
-exlR <- mean(exl_df$R)
-kruR <- mean(kru_df$R)
-nipR <- mean(nip_df$R)
-z9R <- mean(z9_df$R)
+furiaR <- mean(furia_df$R) 
+fusR <- mean(fus_df$R) 
+keydR <- mean(keyd_df$R) 
+tbkR <- mean(tbk_df$R) 
+exlR <- mean(exl_df$R) 
+kruR <- mean(kru_df$R) 
+nipR <- mean(nip_df$R) 
+z9R <- mean(z9_df$R) 
 
 time1 <- c(nipR, fusR, kruR, keydR, nipR, tbkR, z9R, kruR, keydR, z9R, furiaR, keydR, furiaR)
 time2 <- c(z9R, furiaR, tbkR, exlR, fusR, exlR, furiaR, keydR, nipR, tbkR, kruR, tbkR, tbkR)
 ganhador <- c(0, 0, 1, 1, 1, 1, 0, 1, 1, 0, 0, 0, 1)
 
-jogos <- data.frame(time1, time2, ganhador)
-
-rm(furiaR, fusR, keydR, tbkR, exlR, kruR, nipR, z9R, time1, time2, ganhador)
+jogos <- data.frame(time1R, time2R, time1ACS, time2ACS, time1KD, time2KD, time1KAST, time2KAST, time1ADR, time2ADR, ganhador)
 
 write.csv2(jogos, 'jogos3.csv')
 
@@ -328,9 +411,9 @@ rm(list = ls())
 dados_gerais <- read.csv2('jogadores.csv')
 
 # Arrumando as colunas 
-dados_gerais <- select(dados_gerais, Player, R, ACS, K.D, KAST, ADR)
+dados_gerais <- dplyr::select(dados_gerais, Player, R, ACS, K.D, KAST, ADR)
 row.names(dados_gerais) <- make.names(dados_gerais[,1], unique = T)
-dados_gerais <- select(dados_gerais, -Player)
+dados_gerais <- dplyr::select(dados_gerais, -Player)
 dados_gerais$KAST <- parse_number(dados_gerais$KAST)
 
 # Definindo times especificos da competição CHAMPIONS 
@@ -407,22 +490,20 @@ t100_df <- t100_df[,-6:-13]
 sen_df <- sen_df[,-6:-13]
 
 #
-cl9R <- mean(cl9_df$R)
-egR <- mean(eg_df$R)
-fzcR <- mean(fzc_df$R)
-srR <- mean(sr_df$R)
-senR <- mean(sen_df$R)
-t100R <- mean(t100_df$R)
-tgR <- mean(tg_df$R)
-nrgR <- mean(nrg_df$R)
+cl9R <- mean(cl9_df$R) 
+egR <- mean(eg_df$R) 
+fzcR <- mean(fzc_df$R) 
+srR <- mean(sr_df$R) 
+senR <- mean(sen_df$R) 
+t100R <- mean(t100_df$R) 
+tgR <- mean(tg_df$R) 
+nrgR <- mean(nrg_df$R) 
 
 time1 <- c(tgR, srR, fzcR, nrgR, senR, egR, tgR, fzcR, t100R, cl9R, tgR, t100R, tgR, fzcR)
 time2 <- c(senR, cl9R, egR, t100R, srR, nrgR, cl9R, t100R, senR, nrgR, fzcR, cl9R, t100R, t100R)
 ganhador <- c(1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0)
 
-jogos <- data.frame(time1, time2, ganhador)
-
-rm(cl9R, egR, fzcR, srR, senR, t100R, tgR, nrgR, time1, time2, ganhador)
+jogos <- data.frame(time1R, time2R, time1ACS, time2ACS, time1KD, time2KD, time1KAST, time2KAST, time1ADR, time2ADR, ganhador)
 
 write.csv2(jogos, 'jogos4.csv')
 
@@ -430,9 +511,9 @@ rm(list = ls())
 
 
 # União dos dataframes -------------------------------------------------------------------------------------
-jogos1 <- read.csv2('jogos.csv') %>% select(-X)
-jogos2 <- read.csv2('jogos2.csv') %>% select(-X)
-jogos3 <- read.csv2('jogos3.csv') %>% select(-X)
-jogos4 <- read.csv2('jogos4.csv') %>% select(-X)
+jogos1 <- read.csv2('jogos.csv') %>% dplyr::select(-X)
+jogos2 <- read.csv2('jogos2.csv') %>% dplyr::select(-X)
+jogos3 <- read.csv2('jogos3.csv') %>% dplyr::select(-X)
+jogos4 <- read.csv2('jogos4.csv') %>% dplyr::select(-X)
 jogos <- rbind(jogos1, jogos2, jogos3, jogos4)
 jogos$ganhador <- as.factor(jogos$ganhador)
