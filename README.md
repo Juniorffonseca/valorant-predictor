@@ -22,6 +22,12 @@ Atualmente foram catalogadas 83 partidas das seguintes competições:
 
 [Champions Tour South America: Last Chance Qualifier](https://www.vlr.gg/event/1111/champions-tour-south-america-last-chance-qualifier)
 
+[Champions Tour North America: Last Chance Qualifier](https://www.vlr.gg/event/1130/champions-tour-north-america-last-chance-qualifier)
+
+[Champions Tour EMEA: Last Chance Qualifier](https://www.vlr.gg/event/1117/champions-tour-emea-last-chance-qualifier)
+
+[Champions Tour East Asia: Last Chance Qualifier](https://www.vlr.gg/event/1083/champions-tour-east-asia-last-chance-qualifier)
+
 # Diretórios e pastas
 Ao rodar partes dos scripts que tenham diretórios especificos (tal como: "C:/Users/anonb/Documents/TCC Pós/Scripts/scripts_times_gc/ds_adversarios_g2.csv") é necessário trocar as informações das pastas de acordo como estiver organizado dentro do ambiente em que você estiver usando os scripts, colocando o caminho corretamente para a pasta ou arquivo específico.
 
