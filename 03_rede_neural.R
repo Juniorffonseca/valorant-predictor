@@ -26,13 +26,13 @@ test_data <- jogos[inp==2, ]
 
 # Modelando a rede neural ---------------------------------------------------------------------------------
 set.seed(13)
-n <- neuralnet(ganhador == 1 ~ time1R + time2R + time1ACS + time2ACS + time1KD + time2KD + time1KAST + time2KAST + time1ADR + 
+n <- neuralnet(ganhador == 2 ~ time1R + time2R + time1ACS + time2ACS + time1KD + time2KD + time1KAST + time2KAST + time1ADR + 
                  time2ADR,
                data = training_data,
-               hidden = c(7),
+               hidden = 8,
                err.fct = "sse",
-               linear.output = T,
-               threshold = 0.01,
+               linear.output = F,
+               threshold = 0.001,
                lifesign = 'minimal',
                rep = 10,
                algorithm = 'rprop-',
@@ -51,7 +51,7 @@ OutPutVsPred$V1 <- gsub(2, 0, OutPutVsPred$V1)
 Predict = compute(n, test_data)
 Predict$net.result
 
-
+hist(Predict$net.result, breaks = 50, xlim = range(-0.5:2))
 
 predictVstest <- cbind(test_data, Predict$net.result)
 
