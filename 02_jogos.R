@@ -895,6 +895,7 @@ write.csv2(jogos, 'jogos6.csv')
 rm(list = ls())
 
 
+# CHAMPIONS TOUR ~~ Preciso pegar mais algumas comeptições
 # União dos dataframes -------------------------------------------------------------------------------------
 jogos1 <- read.csv2('jogos.csv') %>% dplyr::select(-X)
 jogos2 <- read.csv2('jogos2.csv') %>% dplyr::select(-X)
