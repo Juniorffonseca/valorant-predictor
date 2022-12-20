@@ -8,44 +8,37 @@ library(tibble)
 library(stringr)
 library(neuralnet)
 
-# Normalizando os dados (aplicando normalize) -------------------------------------------------------------
+# Carregando o dataframe -----------------------------------------------------------------------------------
+jogos <- read.csv2('jogos.csv') %>% dplyr::select(-X)
+
+# Normalizando os dados ------------------------------------------------------------------------------------
 normalizando <- dplyr::select(jogos, -ganhador)
 normalizando <- as.data.frame(scale(normalizando))
 jogos <- dplyr::select(jogos, ganhador)
 jogos <- cbind(normalizando, jogos)
-
-#jogos$time1R <- (jogos$time1R - min(jogos$time1R)) / max(jogos$time1R) - min(jogos$time1R)
-#jogos$time2R <- (jogos$time2R - min(jogos$time2R)) / max(jogos$time2R) - min(jogos$time2R)
-#jogos$time1ACS <- (jogos$time1ACS - min(jogos$time1ACS)) / max(jogos$time1ACS) - min(jogos$time1ACS)
-#jogos$time2ACS <- (jogos$time2ACS - min(jogos$time2ACS)) / max(jogos$time2ACS) - min(jogos$time2ACS)
-#jogos$time1KD <- (jogos$time1KD - min(jogos$time1KD)) / max(jogos$time1KD) - min(jogos$time1KD)
-#jogos$time2KD <- (jogos$time2KD - min(jogos$time2KD)) / max(jogos$time2KD) - min(jogos$time2KD)
-#jogos$time1KAST <- (jogos$time1KAST - min(jogos$time1KAST)) / max(jogos$time1KAST) - min(jogos$time1KAST)
-#jogos$time2KAST <- (jogos$time2KAST - min(jogos$time2KAST)) / max(jogos$time2KAST) - min(jogos$time2KAST)
-#jogos$time1ADR <- (jogos$time1ADR - min(jogos$time1ADR)) / max(jogos$time1ADR) - min(jogos$time1ADR)
-#jogos$time2ADR <- (jogos$time2ADR - min(jogos$time2ADR)) / max(jogos$time2ADR) - min(jogos$time2ADR)
+rm(normalizando)
 
 # Criando dataframes de teste e validação -----------------------------------------------------------------
-set.seed(13)
+set.seed(15)
 inp <- sample(2, nrow(jogos), replace = TRUE, prob = c(0.7, 0.3))
 training_data <- jogos[inp==1, ]
 test_data <- jogos[inp==2, ]
 
 # Modelando a rede neural ---------------------------------------------------------------------------------
-set.seed(1)
-n <- neuralnet(ganhador == 1 ~ time1R + time2R + time1ACS + time2ACS + time1KD + time2KD + time1KAST + time2KAST + time1ADR + 
+set.seed(13)
+n <- neuralnet(ganhador ~ time1R + time2R + time1ACS + time2ACS + time1KD + time2KD + time1KAST + time2KAST + time1ADR + 
                  time2ADR,
                data = training_data,
-               hidden = 7,
+               hidden = c(7),
                err.fct = "sse",
                linear.output = T,
-               threshold = 0.1,
+               threshold = 0.01,
                lifesign = 'minimal',
                rep = 10,
                algorithm = 'rprop-',
                stepmax = 10000)
 
-plot(n, rep = 1)
+plot(n, rep = 3)
 
 n$result.matrix
 n$net.result[[1]]
