@@ -26,7 +26,7 @@ test_data <- jogos[inp==2, ]
 
 # Modelando a rede neural ---------------------------------------------------------------------------------
 set.seed(13)
-n <- neuralnet(ganhador ~ time1R + time2R + time1ACS + time2ACS + time1KD + time2KD + time1KAST + time2KAST + time1ADR + 
+n <- neuralnet(ganhador == 1 ~ time1R + time2R + time1ACS + time2ACS + time1KD + time2KD + time1KAST + time2KAST + time1ADR + 
                  time2ADR,
                data = training_data,
                hidden = c(7),
@@ -46,12 +46,12 @@ nn1 <- ifelse(n$net.result[[1]]>0.5,0,1)
 misClassificationError = mean(training_data$ganhador != nn1)
 OutPutVsPred <- as.data.frame(cbind(training_data$ganhador, nn1))
 OutPutVsPred$V1 <- gsub(2, 0, OutPutVsPred$V1) 
-#nteste <- neuralnet(ganhador == 1 ~ time1 + time2, jogos, hidden = 10, threshold = 0.01)
-#plot(nteste, rep = 1)
 # Prediction ---------------------------------------------------------------------------------------------
 
 Predict = compute(n, test_data)
 Predict$net.result
+
+
 
 predictVstest <- cbind(test_data, Predict$net.result)
 
