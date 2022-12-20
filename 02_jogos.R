@@ -151,7 +151,7 @@ ganhador <- c(1, 0, 1, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 1)
 
 jogos <- data.frame(time1R, time2R, time1ACS, time2ACS, time1KD, time2KD, time1KAST, time2KAST, time1ADR, time2ADR, ganhador)
 
-write.csv2(jogos, 'jogos1.csv')
+write.csv2(jogos, 'csv/jogos1.csv')
 
 rm(list = ls())
 
@@ -296,7 +296,7 @@ ganhador <- c(1, 1, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 0)
 
 jogos <- data.frame(time1R, time2R, time1ACS, time2ACS, time1KD, time2KD, time1KAST, time2KAST, time1ADR, time2ADR, ganhador)
 
-write.csv2(jogos, 'jogos2.csv')
+write.csv2(jogos, 'csv/jogos2.csv')
 
 rm(list = ls())
 
@@ -444,7 +444,7 @@ ganhador <- c(0, 0, 1, 1, 1, 1, 0, 1, 1, 0, 0, 0, 1)
 
 jogos <- data.frame(time1R, time2R, time1ACS, time2ACS, time1KD, time2KD, time1KAST, time2KAST, time1ADR, time2ADR, ganhador)
 
-write.csv2(jogos, 'jogos3.csv')
+write.csv2(jogos, 'csv/jogos3.csv')
 
 rm(list = ls())
 
@@ -594,7 +594,7 @@ ganhador <- c(1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0)
 
 jogos <- data.frame(time1R, time2R, time1ACS, time2ACS, time1KD, time2KD, time1KAST, time2KAST, time1ADR, time2ADR, ganhador)
 
-write.csv2(jogos, 'jogos4.csv')
+write.csv2(jogos, 'csv/jogos4.csv')
 
 rm(list = ls())
 
@@ -742,7 +742,7 @@ ganhador <- c(0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1)
 
 jogos <- data.frame(time1R, time2R, time1ACS, time2ACS, time1KD, time2KD, time1KAST, time2KAST, time1ADR, time2ADR, ganhador)
 
-write.csv2(jogos, 'jogos5.csv')
+write.csv2(jogos, 'csv/jogos5.csv')
 
 rm(list = ls())
 
@@ -890,19 +890,19 @@ ganhador <- c(1, 0, 1, 1, 1, 0, 1, 0, 0, 0, 1, 1, 1, 0)
 
 jogos <- data.frame(time1R, time2R, time1ACS, time2ACS, time1KD, time2KD, time1KAST, time2KAST, time1ADR, time2ADR, ganhador)
 
-write.csv2(jogos, 'jogos6.csv')
+write.csv2(jogos, 'csv/jogos6.csv')
 
 rm(list = ls())
 
 
 # CHAMPIONS TOUR ~~ Preciso pegar mais algumas comeptições
 # União dos dataframes -------------------------------------------------------------------------------------
-jogos1 <- read.csv2('jogos1.csv') %>% dplyr::select(-X)
-jogos2 <- read.csv2('jogos2.csv') %>% dplyr::select(-X)
-jogos3 <- read.csv2('jogos3.csv') %>% dplyr::select(-X)
-jogos4 <- read.csv2('jogos4.csv') %>% dplyr::select(-X)
-jogos5 <- read.csv2('jogos5.csv') %>% dplyr::select(-X)
-jogos6 <- read.csv2('jogos6.csv') %>% dplyr::select(-X)
+jogos1 <- read.csv2('csv/jogos1.csv') %>% dplyr::select(-X)
+jogos2 <- read.csv2('csv/jogos2.csv') %>% dplyr::select(-X)
+jogos3 <- read.csv2('csv/jogos3.csv') %>% dplyr::select(-X)
+jogos4 <- read.csv2('csv/jogos4.csv') %>% dplyr::select(-X)
+jogos5 <- read.csv2('csv/jogos5.csv') %>% dplyr::select(-X)
+jogos6 <- read.csv2('csv/jogos6.csv') %>% dplyr::select(-X)
 jogos <- rbind(jogos1, jogos2, jogos3, jogos4, jogos5, jogos6)
 rm(jogos1, jogos2, jogos3, jogos4, jogos5, jogos6)
-write.csv2(jogos, 'jogos.csv')
+write.csv2(jogos, 'csv/jogos.csv')

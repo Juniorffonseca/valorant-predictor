@@ -32,5 +32,5 @@ players["IK"] <- players$FK - players$FD
 players <- select(players, 'Player', 'Team', 'Rnd', 'R', 'ACS', 'K:D', 'KAST', 'ADR', 'HS%', 'KMax', 'IK')
 
 # Exportando como csv -------------------------------------------------------------------------------------
-write.csv2(players, 'jogadores.csv')
+write.csv2(players, 'csv/jogadores.csv')
 
