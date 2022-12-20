@@ -151,7 +151,7 @@ ganhador <- c(1, 0, 1, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 1)
 
 jogos <- data.frame(time1R, time2R, time1ACS, time2ACS, time1KD, time2KD, time1KAST, time2KAST, time1ADR, time2ADR, ganhador)
 
-write.csv2(jogos, 'jogos.csv')
+write.csv2(jogos, 'jogos1.csv')
 
 rm(list = ls())
 
@@ -897,7 +897,7 @@ rm(list = ls())
 
 # CHAMPIONS TOUR ~~ Preciso pegar mais algumas comeptições
 # União dos dataframes -------------------------------------------------------------------------------------
-jogos1 <- read.csv2('jogos.csv') %>% dplyr::select(-X)
+jogos1 <- read.csv2('jogos1.csv') %>% dplyr::select(-X)
 jogos2 <- read.csv2('jogos2.csv') %>% dplyr::select(-X)
 jogos3 <- read.csv2('jogos3.csv') %>% dplyr::select(-X)
 jogos4 <- read.csv2('jogos4.csv') %>% dplyr::select(-X)
@@ -905,4 +905,4 @@ jogos5 <- read.csv2('jogos5.csv') %>% dplyr::select(-X)
 jogos6 <- read.csv2('jogos6.csv') %>% dplyr::select(-X)
 jogos <- rbind(jogos1, jogos2, jogos3, jogos4, jogos5, jogos6)
 rm(jogos1, jogos2, jogos3, jogos4, jogos5, jogos6)
-jogos$ganhador <- as.factor(jogos$ganhador)
+write.csv2(jogos, 'jogos.csv')
