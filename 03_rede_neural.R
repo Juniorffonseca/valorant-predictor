@@ -20,7 +20,7 @@ rm(normalizando)
 
 # Criando dataframes de teste e validação -----------------------------------------------------------------
 set.seed(15)
-inp <- sample(2, nrow(jogos), replace = TRUE, prob = c(0.7, 0.3))
+inp <- sample(2, nrow(jogos), replace = TRUE, prob = c(0.8, 0.2))
 training_data <- jogos[inp==1, ]
 test_data <- jogos[inp==2, ]
 
