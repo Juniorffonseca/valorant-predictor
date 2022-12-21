@@ -10,7 +10,7 @@ library(dplyr)
 
 # CHAMPIONS -------------------------------------------------------------------------------------------------
 # Carregando a base de dados de jogadores 
-dados_gerais <- read.csv2('jogadores.csv')
+dados_gerais <- read.csv2('csv/jogadores.csv')
 
 # Arrumando as colunas 
 dados_gerais <- dplyr::select(dados_gerais, Player, R, ACS, K.D, KAST, ADR)
@@ -158,7 +158,7 @@ rm(list = ls())
 
 # GAME CHANGERS ----------------------------------------------------------------------------------------------
 # Carregando a base de dados de jogadores 
-dados_gerais <- read.csv2('jogadores.csv')
+dados_gerais <- read.csv2('csv/jogadores.csv')
 
 # Arrumando as colunas 
 dados_gerais <- dplyr::select(dados_gerais, Player, R, ACS, K.D, KAST, ADR)
@@ -303,7 +303,7 @@ rm(list = ls())
 # CHAMPIONS TOUR SOUTH AMERICA -----------------------------------------------------------------------------
 
 # Carregando a base de dados de jogadores 
-dados_gerais <- read.csv2('jogadores.csv')
+dados_gerais <- read.csv2('csv/jogadores.csv')
 
 # Arrumando as colunas 
 dados_gerais <- dplyr::select(dados_gerais, Player, R, ACS, K.D, KAST, ADR)
@@ -452,7 +452,7 @@ rm(list = ls())
 # CHAMPIONS TOUR NORTH AMERICA -----------------------------------------------------------------------------
 
 # Carregando a base de dados de jogadores 
-dados_gerais <- read.csv2('jogadores.csv')
+dados_gerais <- read.csv2('csv/jogadores.csv')
 
 # Arrumando as colunas 
 dados_gerais <- dplyr::select(dados_gerais, Player, R, ACS, K.D, KAST, ADR)
@@ -601,7 +601,7 @@ rm(list = ls())
 
 # CHAMPIONS TOUR EMEA LAST CHANCE QUALIFIER ----------------------------------------------------------------
 # Carregando a base de dados de jogadores 
-dados_gerais <- read.csv2('jogadores.csv')
+dados_gerais <- read.csv2('csv/jogadores.csv')
 
 # Arrumando as colunas 
 dados_gerais <- dplyr::select(dados_gerais, Player, R, ACS, K.D, KAST, ADR)
@@ -748,7 +748,7 @@ rm(list = ls())
 
 # CHAMPIONS TOUR EAST ASIA LAST CHANCE QUALIFIER -----------------------------------------------------------
 # Carregando a base de dados de jogadores 
-dados_gerais <- read.csv2('jogadores.csv')
+dados_gerais <- read.csv2('csv/jogadores.csv')
 
 # Arrumando as colunas 
 dados_gerais <- dplyr::select(dados_gerais, Player, R, ACS, K.D, KAST, ADR)
@@ -895,7 +895,150 @@ write.csv2(jogos, 'csv/jogos6.csv')
 rm(list = ls())
 
 
-# CHAMPIONS TOUR ~~ Preciso pegar mais algumas comeptições
+# GAME CHANGERS BRAZIL SERIES 2 -----------------------------
+# Carregando a base de dados de jogadores 
+dados_gerais <- read.csv2('csv/jogadores.csv')
+
+# Arrumando as colunas 
+dados_gerais <- dplyr::select(dados_gerais, Player, R, ACS, K.D, KAST, ADR)
+row.names(dados_gerais) <- make.names(dados_gerais[,1], unique = T)
+dados_gerais <- dplyr::select(dados_gerais, -Player)
+dados_gerais$KAST <- parse_number(dados_gerais$KAST)
+
+# Definindo times especificos da competição GAME CHANGERS 
+#ODDIK Bright
+oddik = c('m4ndzin', 'nAny', 'Aninha', 'isla', 'mindle') # Definindo o time 1
+oddik <- paste0('\\b', oddik, '\\b') # Colocando '\\b' antes e dps p pegar apenas as strings exatas
+dados_gerais$oddik <- ifelse(grepl(paste(oddik, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
+
+#Shopify Rebellion GC
+sr = c('KP', 'bENITA', 'flowerful', 'sonder', 'Lorri')
+sr <- paste0('\\b', sr, '\\b') 
+dados_gerais$sr <- ifelse(grepl(paste(sr, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
+
+#Guild X
+gldx = c('aNNja', 'cinnamon', 'Smurfette', 'roxi', 'ness')
+gldx <- paste0('\\b', gldx, '\\b')
+dados_gerais$gldx <- ifelse(grepl(paste(gldx, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
+
+#G2 Gozen
+g2 = c('Glance', 'Petra', 'mimi', 'juliano', 'Mary')
+g2 <- paste0('\\b', g2, '\\b')
+dados_gerais$g2 <- ifelse(grepl(paste(g2, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
+
+#Team Liquid Brazil
+tl = c('drn', 'naxy', 'bstrdd', 'daiki', 'nat1')
+tl <- paste0('\\b', tl, '\\b')
+dados_gerais$tl <- ifelse(grepl(paste(tl, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
+
+#KRÜ Fem
+kru = c('consu', 'baesht', 'conir', 'kalita', 'romi')
+kru <- paste0('\\b', kru, '\\b')
+dados_gerais$kru <- ifelse(grepl(paste(kru, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
+
+#X10 Sapphire
+x10 = c('JinNy', 'Muffyn', 'Babytz', 'Poly', 'alyssa')
+x10 <- paste0('\\b', x10, '\\b')
+dados_gerais$x10 <- ifelse(grepl(paste(x10, collapse = '|'), rownames(dados_gerais), useBytes = T), 1 ,0)
+
+#FENNEL GC
+flgc = c('suzu', 'KOHAL', 'Festival', 'Len', 'Curumi')
+flgc <- paste0('\\b', flgc, '\\b')
+dados_gerais$flgc <- ifelse(grepl(paste(flgc, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
+
+resultado <- filter(dados_gerais, dados_gerais$oddik == 1 | dados_gerais$sr == 1 | dados_gerais$gldx == 1
+                    | dados_gerais$g2 == 1 | dados_gerais$tl == 1 | dados_gerais$kru == 1 | 
+                      dados_gerais$x10 == 1 | dados_gerais$flgc == 1)
+
+# Removendo uma jogadora que tem o mesmo de outra
+while (nrow(resultado) > 40) {
+  resultado <- resultado[-41,]
+}
+
+# Separando os times em dataframes
+oddik_df <- filter(resultado, resultado$oddik == 1)
+sr_df <- filter(resultado, resultado$sr == 1)
+gldx_df <- filter(resultado, resultado$gldx == 1)
+g2_df <- filter(resultado, resultado$g2 == 1)
+tl_df <- filter(resultado, resultado$tl == 1)
+kru_df <- filter(resultado, resultado$kru == 1)
+x10_df <- filter(resultado, resultado$x10 == 1)
+flgc_df <- filter(resultado, resultado$flgc == 1)
+
+# Tirando colunas de times dos dataframes especificos de cada time
+oddik_df <- oddik_df[,-6:-13]
+flgc_df <- flgc_df[,-6:-13]
+g2_df <- g2_df[,-6:-13]
+gldx_df <- gldx_df[,-6:-13]
+kru_df <- kru_df[,-6:-13]
+sr_df <- sr_df[,-6:-13]
+tl_df <- tl_df[,-6:-13]
+x10_df <- x10_df[,-6:-13]
+
+# Média R
+oddikR <- mean(oddik_df$R) 
+flgcR <- mean(flgc_df$R) 
+g2R <- mean(g2_df$R) 
+gldxR <- mean(gldx_df$R) 
+kruR <- mean(kru_df$R) 
+srR <- mean(sr_df$R) 
+tlR <- mean(tl_df$R) 
+x10R <- mean(x10_df$R) 
+# Média ACS
+oddikACS <- mean(oddik_df$ACS) 
+flgcACS <- mean(flgc_df$ACS) 
+g2ACS <- mean(g2_df$ACS) 
+gldxACS <- mean(gldx_df$ACS) 
+kruACS <- mean(kru_df$ACS) 
+srACS <- mean(sr_df$ACS) 
+tlACS <- mean(tl_df$ACS) 
+x10ACS <- mean(x10_df$ACS) 
+# Média KD
+oddikKD <- mean(oddik_df$K.D) 
+flgcKD <- mean(flgc_df$K.D) 
+g2KD <- mean(g2_df$K.D) 
+gldxKD <- mean(gldx_df$K.D) 
+kruKD <- mean(kru_df$K.D) 
+srKD <- mean(sr_df$K.D) 
+tlKD <- mean(tl_df$K.D) 
+x10KD <- mean(x10_df$K.D) 
+# Média KAST
+oddikKAST <- mean(oddik_df$KAST) 
+flgcKAST <- mean(flgc_df$KAST) 
+g2KAST <- mean(g2_df$KAST) 
+gldxKAST <- mean(gldx_df$KAST) 
+kruKAST <- mean(kru_df$KAST) 
+srKAST <- mean(sr_df$KAST) 
+tlKAST <- mean(tl_df$KAST) 
+x10KAST <- mean(x10_df$KAST) 
+# Média ADR
+oddikADR <- mean(oddik_df$ADR) 
+flgcADR <- mean(flgc_df$ADR) 
+g2ADR <- mean(g2_df$ADR) 
+gldxADR <- mean(gldx_df$ADR) 
+kruADR <- mean(kru_df$ADR) 
+srADR <- mean(sr_df$ADR) 
+tlADR <- mean(tl_df$ADR) 
+x10ADR <- mean(x10_df$ADR) 
+
+time1R <- c(oddikR, g2R, gldxR, flgcR, kruR, gldxR, oddikR, srR, srR, oddikR, g2R, srR, g2R, tlR)
+time2R <- c(kruR, x10R, srR, tlR, x10R, flgcR, g2R, tlR, x10R, gldxR, tlR, oddikR, srR, srR)
+time1ACS <- c(oddikACS, g2ACS, gldxACS, flgcACS, kruACS, gldxACS, oddikACS, srACS, srACS, oddikACS, g2ACS, srACS, g2ACS, tlACS)
+time2ACS <- c(kruACS, x10ACS, srACS, tlACS, x10ACS, flgcACS, g2ACS, tlACS, x10ACS, gldxACS, tlACS, oddikACS, srACS, srACS)
+time1KD <- c(oddikKD, g2KD, gldxKD, flgcKD, kruKD, gldxKD, oddikKD, srKD, srKD, oddikKD, g2KD, srKD, g2KD, tlKD)
+time2KD <- c(kruKD, x10KD, srKD, tlKD, x10KD, flgcKD, g2KD, tlKD, x10KD, gldxKD, tlKD, oddikKD, srKD, srKD)
+time1KAST <- c(oddikKAST, g2KAST, gldxKAST, flgcKAST, kruKAST, gldxKAST, oddikKAST, srKAST, srKAST, oddikKAST, g2KAST, srKAST, g2KAST, tlKAST)
+time2KAST <- c(kruKAST, x10KAST, srKAST, tlKAST, x10KAST, flgcKAST, g2KAST, tlKAST, x10KAST, gldxKAST, tlKAST, oddikKAST, srKAST, srKAST)
+time1ADR <- c(oddikADR, g2ADR, gldxADR, flgcADR, kruADR, gldxADR, oddikADR, srADR, srADR, oddikADR, g2ADR, srADR, g2ADR, tlADR)
+time2ADR <- c(kruADR, x10ADR, srADR, tlADR, x10ADR, flgcADR, g2ADR, tlADR, x10ADR, gldxADR, tlADR, oddikADR, srADR, srADR)
+ganhador <- c(1, 1, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 0)
+
+jogos <- data.frame(time1R, time2R, time1ACS, time2ACS, time1KD, time2KD, time1KAST, time2KAST, time1ADR, time2ADR, ganhador)
+
+write.csv2(jogos, 'csv/jogos2.csv')
+
+rm(list = ls())
+
 # União dos dataframes -------------------------------------------------------------------------------------
 jogos1 <- read.csv2('csv/jogos1.csv') %>% dplyr::select(-X)
 jogos2 <- read.csv2('csv/jogos2.csv') %>% dplyr::select(-X)

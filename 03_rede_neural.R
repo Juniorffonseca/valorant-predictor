@@ -21,19 +21,18 @@ jogos$ganhador <- as.factor(jogos$ganhador)
 
 # Criando dataframes de teste e validação -----------------------------------------------------------------
 set.seed(15)
-inp <- sample(2, nrow(jogos), replace = TRUE, prob = c(0.8, 0.2))
+inp <- sample(2, nrow(jogos), replace = TRUE, prob = c(0.7, 0.3))
 training_data <- jogos[inp==1, ]
 test_data <- jogos[inp==2, ]
 
 # Modelando a rede neural ---------------------------------------------------------------------------------
-set.seed(13)
 n <- neuralnet(ganhador ~ time1R + time2R + time1ACS + time2ACS + time1KD + time2KD + time1KAST + time2KAST + time1ADR + 
                  time2ADR,
                data = training_data,
-               hidden = c(7,7),
+               hidden = c(10,10),
                err.fct = "sse",
                linear.output = T,
-               threshold = 0.01,
+               threshold = 0.001,
                lifesign = 'minimal',
                rep = 10,
                algorithm = 'rprop-',
@@ -45,13 +44,13 @@ plot(n, rep = 3)
 Predict = compute(n, test_data)
 Predict$net.result
 
-nn2 <- ifelse(Predict$net.result[,1]>0.5,1,0)
-nn3 <- ifelse(Predict$net.result[,2]>0.5,1,0)
+nn2 <- ifelse(Predict$net.result[,1]>Predict$net.result[,2],1,0)
+nn3 <- ifelse(Predict$net.result[,2]>Predict$net.result[,1],1,0)
 z <- as.data.frame(cbind(nn2, nn3))
 
 predictVstest <- cbind(test_data, Predict$net.result)
 predictVstest <- cbind(test_data, z)
-sum(predictVstest$ganhador == predictVstest$nn2) / 22
+sum(predictVstest$ganhador == predictVstest$nn2) / 26
 
 
 
