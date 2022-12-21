@@ -9,7 +9,7 @@ library(stringr)
 library(neuralnet)
 
 # Carregando o dataframe -----------------------------------------------------------------------------------
-jogos <- read.csv2('jogos.csv') %>% dplyr::select(-X)
+jogos <- read.csv2('csv/jogos.csv') %>% dplyr::select(-X)
 
 # Normalizando os dados ------------------------------------------------------------------------------------
 normalizando <- dplyr::select(jogos, -ganhador)
@@ -17,6 +17,7 @@ normalizando <- as.data.frame(scale(normalizando))
 jogos <- dplyr::select(jogos, ganhador)
 jogos <- cbind(normalizando, jogos)
 rm(normalizando)
+jogos$ganhador <- as.factor(jogos$ganhador)
 
 # Criando dataframes de teste e validação -----------------------------------------------------------------
 set.seed(15)
@@ -26,13 +27,13 @@ test_data <- jogos[inp==2, ]
 
 # Modelando a rede neural ---------------------------------------------------------------------------------
 set.seed(13)
-n <- neuralnet(ganhador == 2 ~ time1R + time2R + time1ACS + time2ACS + time1KD + time2KD + time1KAST + time2KAST + time1ADR + 
+n <- neuralnet(ganhador ~ time1R + time2R + time1ACS + time2ACS + time1KD + time2KD + time1KAST + time2KAST + time1ADR + 
                  time2ADR,
                data = training_data,
-               hidden = 8,
+               hidden = c(7,7),
                err.fct = "sse",
-               linear.output = F,
-               threshold = 0.001,
+               linear.output = T,
+               threshold = 0.01,
                lifesign = 'minimal',
                rep = 10,
                algorithm = 'rprop-',
@@ -40,25 +41,17 @@ n <- neuralnet(ganhador == 2 ~ time1R + time2R + time1ACS + time2ACS + time1KD +
 
 plot(n, rep = 3)
 
-n$result.matrix
-n$net.result[[1]]
-nn1 <- ifelse(n$net.result[[1]]>0.5,0,1)
-misClassificationError = mean(training_data$ganhador != nn1)
-OutPutVsPred <- as.data.frame(cbind(training_data$ganhador, nn1))
-OutPutVsPred$V1 <- gsub(2, 0, OutPutVsPred$V1) 
 # Prediction ---------------------------------------------------------------------------------------------
-
 Predict = compute(n, test_data)
 Predict$net.result
 
-hist(Predict$net.result, breaks = 50, xlim = range(-0.5:2))
+nn2 <- ifelse(Predict$net.result[,1]>0.5,1,0)
+nn3 <- ifelse(Predict$net.result[,2]>0.5,1,0)
+z <- as.data.frame(cbind(nn2, nn3))
 
 predictVstest <- cbind(test_data, Predict$net.result)
+predictVstest <- cbind(test_data, z)
+sum(predictVstest$ganhador == predictVstest$nn2) / 22
 
-prob <- Predict$net.result
-pred <- ifelse(prob > 0.5, 'Win', 'Lose')
-pred
-
-predictVstest <- cbind(test_data$ganhador, pred)
 
 
