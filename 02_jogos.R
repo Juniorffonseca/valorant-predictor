@@ -911,44 +911,45 @@ oddik = c('m4ndzin', 'nAny', 'Aninha', 'isla', 'mindle') # Definindo o time 1
 oddik <- paste0('\\b', oddik, '\\b') # Colocando '\\b' antes e dps p pegar apenas as strings exatas
 dados_gerais$oddik <- ifelse(grepl(paste(oddik, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
 
-#Shopify Rebellion GC
-sr = c('KP', 'bENITA', 'flowerful', 'sonder', 'Lorri')
-sr <- paste0('\\b', sr, '\\b') 
-dados_gerais$sr <- ifelse(grepl(paste(sr, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
+#Gamelanders purple
+gp = c('biazik', 'lissa', 'antG', 'isaa', 'Joojina')
+gp <- paste0('\\b', gp, '\\b') 
+dados_gerais$gp <- ifelse(grepl(paste(gp, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
 
-#Guild X
-gldx = c('aNNja', 'cinnamon', 'Smurfette', 'roxi', 'ness')
-gldx <- paste0('\\b', gldx, '\\b')
-dados_gerais$gldx <- ifelse(grepl(paste(gldx, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
+#TBK Esports Female
+tbk = c('shyz', 'Daniops', 'giacomiN', 'Bizerra', 'gabee')
+tbk <- paste0('\\b', tbk, '\\b')
+dados_gerais$tbk <- ifelse(grepl(paste(tbk, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
 
-#G2 Gozen
-g2 = c('Glance', 'Petra', 'mimi', 'juliano', 'Mary')
-g2 <- paste0('\\b', g2, '\\b')
-dados_gerais$g2 <- ifelse(grepl(paste(g2, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
+#b4 
+b4 = c('tayhuhu', 'Krysme', 'sayuri', 'let', 'Jelly')
+b4 <- paste0('\\b', b4, '\\b')
+dados_gerais$b4 <- ifelse(grepl(paste(b4, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
 
 #Team Liquid Brazil
 tl = c('drn', 'naxy', 'bstrdd', 'daiki', 'nat1')
 tl <- paste0('\\b', tl, '\\b')
 dados_gerais$tl <- ifelse(grepl(paste(tl, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
 
-#KRÜ Fem
-kru = c('consu', 'baesht', 'conir', 'kalita', 'romi')
-kru <- paste0('\\b', kru, '\\b')
-dados_gerais$kru <- ifelse(grepl(paste(kru, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
+#DELIRA Female
+delira = c('Larischz', 'Bia', 'isa1', 'Mel', 'Cellax')
+delira <- paste0('\\b', delira, '\\b')
+dados_gerais$delira <- ifelse(grepl(paste(delira, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
+dados_gerais['Bia.1',]$delira <- 0
 
-#X10 Sapphire
-x10 = c('JinNy', 'Muffyn', 'Babytz', 'Poly', 'alyssa')
-x10 <- paste0('\\b', x10, '\\b')
-dados_gerais$x10 <- ifelse(grepl(paste(x10, collapse = '|'), rownames(dados_gerais), useBytes = T), 1 ,0)
+#Black Dragons Female
+bdf = c('lule', 'blu', 'mizi', 'quiNtbia', 'luiza')
+bdf <- paste0('\\b', bdf, '\\b')
+dados_gerais$bdf <- ifelse(grepl(paste(bdf, collapse = '|'), rownames(dados_gerais), useBytes = T), 1 ,0)
 
-#FENNEL GC
-flgc = c('suzu', 'KOHAL', 'Festival', 'Len', 'Curumi')
-flgc <- paste0('\\b', flgc, '\\b')
-dados_gerais$flgc <- ifelse(grepl(paste(flgc, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
+#MIBR Female
+mibr = c('pannshi', 'Shizue', 'gabiTê', 'Badgal', 'Bizinha')
+mibr <- paste0('\\b', mibr, '\\b')
+dados_gerais$mibr <- ifelse(grepl(paste(mibr, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
 
-resultado <- filter(dados_gerais, dados_gerais$oddik == 1 | dados_gerais$sr == 1 | dados_gerais$gldx == 1
-                    | dados_gerais$g2 == 1 | dados_gerais$tl == 1 | dados_gerais$kru == 1 | 
-                      dados_gerais$x10 == 1 | dados_gerais$flgc == 1)
+resultado <- filter(dados_gerais, dados_gerais$oddik == 1 | dados_gerais$gp == 1 | dados_gerais$tbk == 1
+                    | dados_gerais$b4 == 1 | dados_gerais$tl == 1 | dados_gerais$delira == 1 | 
+                      dados_gerais$bdf == 1 | dados_gerais$mibr == 1)
 
 # Removendo uma jogadora que tem o mesmo de outra
 while (nrow(resultado) > 40) {
@@ -957,85 +958,85 @@ while (nrow(resultado) > 40) {
 
 # Separando os times em dataframes
 oddik_df <- filter(resultado, resultado$oddik == 1)
-sr_df <- filter(resultado, resultado$sr == 1)
-gldx_df <- filter(resultado, resultado$gldx == 1)
-g2_df <- filter(resultado, resultado$g2 == 1)
+gp_df <- filter(resultado, resultado$gp == 1)
+tbk_df <- filter(resultado, resultado$tbk == 1)
+b4_df <- filter(resultado, resultado$b4 == 1)
 tl_df <- filter(resultado, resultado$tl == 1)
-kru_df <- filter(resultado, resultado$kru == 1)
-x10_df <- filter(resultado, resultado$x10 == 1)
-flgc_df <- filter(resultado, resultado$flgc == 1)
+delira_df <- filter(resultado, resultado$delira == 1)
+bdf_df <- filter(resultado, resultado$bdf == 1)
+mibr_df <- filter(resultado, resultado$mibr == 1)
 
 # Tirando colunas de times dos dataframes especificos de cada time
 oddik_df <- oddik_df[,-6:-13]
-flgc_df <- flgc_df[,-6:-13]
-g2_df <- g2_df[,-6:-13]
-gldx_df <- gldx_df[,-6:-13]
-kru_df <- kru_df[,-6:-13]
-sr_df <- sr_df[,-6:-13]
+mibr_df <- mibr_df[,-6:-13]
+b4_df <- b4_df[,-6:-13]
+tbk_df <- tbk_df[,-6:-13]
+delira_df <- delira_df[,-6:-13]
+gp_df <- gp_df[,-6:-13]
 tl_df <- tl_df[,-6:-13]
-x10_df <- x10_df[,-6:-13]
+bdf_df <- bdf_df[,-6:-13]
 
 # Média R
 oddikR <- mean(oddik_df$R) 
-flgcR <- mean(flgc_df$R) 
-g2R <- mean(g2_df$R) 
-gldxR <- mean(gldx_df$R) 
-kruR <- mean(kru_df$R) 
-srR <- mean(sr_df$R) 
+mibrR <- mean(mibr_df$R) 
+b4R <- mean(b4_df$R) 
+tbkR <- mean(tbk_df$R) 
+deliraR <- mean(delira_df$R) 
+gpR <- mean(gp_df$R) 
 tlR <- mean(tl_df$R) 
-x10R <- mean(x10_df$R) 
+bdfR <- mean(bdf_df$R) 
 # Média ACS
 oddikACS <- mean(oddik_df$ACS) 
-flgcACS <- mean(flgc_df$ACS) 
-g2ACS <- mean(g2_df$ACS) 
-gldxACS <- mean(gldx_df$ACS) 
-kruACS <- mean(kru_df$ACS) 
-srACS <- mean(sr_df$ACS) 
+mibrACS <- mean(mibr_df$ACS) 
+b4ACS <- mean(b4_df$ACS) 
+tbkACS <- mean(tbk_df$ACS) 
+deliraACS <- mean(delira_df$ACS) 
+gpACS <- mean(gp_df$ACS) 
 tlACS <- mean(tl_df$ACS) 
-x10ACS <- mean(x10_df$ACS) 
+bdfACS <- mean(bdf_df$ACS) 
 # Média KD
 oddikKD <- mean(oddik_df$K.D) 
-flgcKD <- mean(flgc_df$K.D) 
-g2KD <- mean(g2_df$K.D) 
-gldxKD <- mean(gldx_df$K.D) 
-kruKD <- mean(kru_df$K.D) 
-srKD <- mean(sr_df$K.D) 
+mibrKD <- mean(mibr_df$K.D) 
+b4KD <- mean(b4_df$K.D) 
+tbkKD <- mean(tbk_df$K.D) 
+deliraKD <- mean(delira_df$K.D) 
+gpKD <- mean(gp_df$K.D) 
 tlKD <- mean(tl_df$K.D) 
-x10KD <- mean(x10_df$K.D) 
+bdfKD <- mean(bdf_df$K.D) 
 # Média KAST
 oddikKAST <- mean(oddik_df$KAST) 
-flgcKAST <- mean(flgc_df$KAST) 
-g2KAST <- mean(g2_df$KAST) 
-gldxKAST <- mean(gldx_df$KAST) 
-kruKAST <- mean(kru_df$KAST) 
-srKAST <- mean(sr_df$KAST) 
+mibrKAST <- mean(mibr_df$KAST) 
+b4KAST <- mean(b4_df$KAST) 
+tbkKAST <- mean(tbk_df$KAST) 
+deliraKAST <- mean(delira_df$KAST) 
+gpKAST <- mean(gp_df$KAST) 
 tlKAST <- mean(tl_df$KAST) 
-x10KAST <- mean(x10_df$KAST) 
+bdfKAST <- mean(bdf_df$KAST) 
 # Média ADR
 oddikADR <- mean(oddik_df$ADR) 
-flgcADR <- mean(flgc_df$ADR) 
-g2ADR <- mean(g2_df$ADR) 
-gldxADR <- mean(gldx_df$ADR) 
-kruADR <- mean(kru_df$ADR) 
-srADR <- mean(sr_df$ADR) 
+mibrADR <- mean(mibr_df$ADR) 
+b4ADR <- mean(b4_df$ADR) 
+tbkADR <- mean(tbk_df$ADR) 
+deliraADR <- mean(delira_df$ADR) 
+gpADR <- mean(gp_df$ADR) 
 tlADR <- mean(tl_df$ADR) 
-x10ADR <- mean(x10_df$ADR) 
+bdfADR <- mean(bdf_df$ADR) 
 
-time1R <- c(oddikR, g2R, gldxR, flgcR, kruR, gldxR, oddikR, srR, srR, oddikR, g2R, srR, g2R, tlR)
-time2R <- c(kruR, x10R, srR, tlR, x10R, flgcR, g2R, tlR, x10R, gldxR, tlR, oddikR, srR, srR)
-time1ACS <- c(oddikACS, g2ACS, gldxACS, flgcACS, kruACS, gldxACS, oddikACS, srACS, srACS, oddikACS, g2ACS, srACS, g2ACS, tlACS)
-time2ACS <- c(kruACS, x10ACS, srACS, tlACS, x10ACS, flgcACS, g2ACS, tlACS, x10ACS, gldxACS, tlACS, oddikACS, srACS, srACS)
-time1KD <- c(oddikKD, g2KD, gldxKD, flgcKD, kruKD, gldxKD, oddikKD, srKD, srKD, oddikKD, g2KD, srKD, g2KD, tlKD)
-time2KD <- c(kruKD, x10KD, srKD, tlKD, x10KD, flgcKD, g2KD, tlKD, x10KD, gldxKD, tlKD, oddikKD, srKD, srKD)
-time1KAST <- c(oddikKAST, g2KAST, gldxKAST, flgcKAST, kruKAST, gldxKAST, oddikKAST, srKAST, srKAST, oddikKAST, g2KAST, srKAST, g2KAST, tlKAST)
-time2KAST <- c(kruKAST, x10KAST, srKAST, tlKAST, x10KAST, flgcKAST, g2KAST, tlKAST, x10KAST, gldxKAST, tlKAST, oddikKAST, srKAST, srKAST)
-time1ADR <- c(oddikADR, g2ADR, gldxADR, flgcADR, kruADR, gldxADR, oddikADR, srADR, srADR, oddikADR, g2ADR, srADR, g2ADR, tlADR)
-time2ADR <- c(kruADR, x10ADR, srADR, tlADR, x10ADR, flgcADR, g2ADR, tlADR, x10ADR, gldxADR, tlADR, oddikADR, srADR, srADR)
-ganhador <- c(1, 1, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 0)
+time1R <- c(tlR, tbkR, oddikR, gpR, mibrR, bdfR, tlR, oddikR, gpR, b4R, tlR, mibrR, tlR, oddikR)
+time2R <- c(mibrR, b4R, bdfR, deliraR, tbkR, deliraR, b4R, gpR, mibrR, deliraR, oddikR, b4R, b4R, b4R)
+time1ACS <- c(tlACS, tbkACS, oddikACS, gpACS, mibrACS, bdfACS, tlACS, oddikACS, gpACS, b4R, tlACS, mibrACS, tlACS, oddikACS)
+time2ACS <- c(mibrACS, b4ACS, bdfACS, deliraACS, tbkACS, deliraACS, b4ACS, gpACS, mibrACS, deliraACS, oddikACS, b4ACS, b4ACS, b4ACS)
+time1KD <- c(tlKD, tbkKD, oddikKD, gpKD, mibrKD, bdfKD, tlKD, oddikKD, gpKD, b4R, tlKD, mibrKD, tlKD, oddikKD)
+time2KD <- c(mibrKD, b4KD, bdfKD, deliraKD, tbkKD, deliraKD, b4KD, gpKD, mibrKD, deliraKD, oddikKD, b4KD, b4KD, b4KD)
+time1KAST <- c(tlKAST, tbkKAST, oddikKAST, gpKAST, mibrKAST, bdfKAST, tlKAST, oddikKAST, gpKAST, b4R, tlKAST, mibrKAST, tlKAST, oddikKAST)
+time2KAST <- c(mibrKAST, b4KAST, bdfKAST, deliraKAST, tbkKAST, deliraKAST, b4KAST, gpKAST, mibrKAST, deliraKAST, oddikKAST, b4KAST, b4KAST, b4KAST)
+time1ADR <- c(tlADR, tbkADR, oddikADR, gpADR, mibrADR, bdfADR, tlADR, oddikADR, gpADR, b4R, tlADR, mibrADR, tlADR, oddikADR)
+time2ADR <- c(mibrADR, b4ADR, bdfADR, deliraADR, tbkADR, deliraADR, b4ADR, gpADR, mibrADR, deliraADR, oddikADR, b4ADR, b4ADR, b4ADR)
+ganhador <- c(1, 0, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0)
 
 jogos <- data.frame(time1R, time2R, time1ACS, time2ACS, time1KD, time2KD, time1KAST, time2KAST, time1ADR, time2ADR, ganhador)
 
-write.csv2(jogos, 'csv/jogos2.csv')
+write.csv2(jogos, 'csv/jogos7.csv')
 
 rm(list = ls())
 
@@ -1046,6 +1047,7 @@ jogos3 <- read.csv2('csv/jogos3.csv') %>% dplyr::select(-X)
 jogos4 <- read.csv2('csv/jogos4.csv') %>% dplyr::select(-X)
 jogos5 <- read.csv2('csv/jogos5.csv') %>% dplyr::select(-X)
 jogos6 <- read.csv2('csv/jogos6.csv') %>% dplyr::select(-X)
-jogos <- rbind(jogos1, jogos2, jogos3, jogos4, jogos5, jogos6)
-rm(jogos1, jogos2, jogos3, jogos4, jogos5, jogos6)
+jogos7 <- read.csv2('csv/jogos7.csv') %>% dplyr::select(-X)
+jogos <- rbind(jogos1, jogos2, jogos3, jogos4, jogos5, jogos6, jogos7)
+rm(jogos1, jogos2, jogos3, jogos4, jogos5, jogos6, jogos7)
 write.csv2(jogos, 'csv/jogos.csv')
