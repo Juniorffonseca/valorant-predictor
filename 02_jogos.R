@@ -1040,6 +1040,8 @@ write.csv2(jogos, 'csv/jogos7.csv')
 
 rm(list = ls())
 
+# AfreecaTV Valorant SEA Invitational ----https://www.vlr.gg/event/1330/afreecatv-valorant-sea-invitational----------
+# PRECISO FAZER ESSE EVENTO E TIRAR O LINK
 # União dos dataframes -------------------------------------------------------------------------------------
 jogos1 <- read.csv2('csv/jogos1.csv') %>% dplyr::select(-X)
 jogos2 <- read.csv2('csv/jogos2.csv') %>% dplyr::select(-X)
