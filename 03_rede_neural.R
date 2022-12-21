@@ -42,15 +42,11 @@ plot(n, rep = 3)
 
 # Prediction ---------------------------------------------------------------------------------------------
 Predict = compute(n, test_data)
-Predict$net.result
 
 nn2 <- ifelse(Predict$net.result[,1]>Predict$net.result[,2],1,0)
-nn3 <- ifelse(Predict$net.result[,2]>Predict$net.result[,1],1,0)
-z <- as.data.frame(cbind(nn2, nn3))
 
 predictVstest <- cbind(test_data, Predict$net.result)
-predictVstest <- cbind(test_data, z)
-sum(predictVstest$ganhador == predictVstest$nn2) / 28
+sum(predictVstest$ganhador == nn2)/28
 
 
 
