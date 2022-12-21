@@ -1040,7 +1040,156 @@ write.csv2(jogos, 'csv/jogos7.csv')
 
 rm(list = ls())
 
-# AfreecaTV Valorant SEA Invitational ----https://www.vlr.gg/event/1330/afreecatv-valorant-sea-invitational----------
+# AfreecaTV Valorant SEA Invitational ---------------------------------------------------------------
+
+# Carregando a base de dados de jogadores 
+dados_gerais <- read.csv2('csv/jogadores.csv')
+
+# Arrumando as colunas 
+dados_gerais <- dplyr::select(dados_gerais, Player, R, ACS, K.D, KAST, ADR)
+row.names(dados_gerais) <- make.names(dados_gerais[,1], unique = T)
+dados_gerais <- dplyr::select(dados_gerais, -Player)
+dados_gerais$KAST <- parse_number(dados_gerais$KAST)
+
+# Definindo times especificos da competição CHAMPIONS 
+#Bigetron Arctic
+ba = c('ZesBeeW', 'frostmind', 'NcSlasher', 'm0rea', 'sayoo') # Definindo o time 1
+ba <- paste0('\\b', ba, '\\b') # Colocando '\\b' antes e dps p pegar apenas as strings exatas
+dados_gerais$ba <- ifelse(grepl(paste(ba, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
+
+#FULL SENSE
+fs = c('THEE', 'ChAlalala', 'JohnOlsen', 'LAMMYSNAX', 'Apinya')
+fs <- paste0('\\b', fs, '\\b') 
+dados_gerais$fs <- ifelse(grepl(paste(fs, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
+
+#XERXIA Esports
+xe = c('aLerT', 'bnwyarb', 'Surf', 'RoLEX', '702')
+xe <- paste0('\\b', xe, '\\b')
+dados_gerais$xe <- ifelse(grepl(paste(xe, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
+
+#FW Esports
+fwe = c('notxd', 'Killua', 'Marjes', 'xcool', 'Teerapong')
+fwe <- paste0('\\b', fwe, '\\b')
+dados_gerais$fwe <- ifelse(grepl(paste(fwe, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
+
+#Made in Thailand
+mit = c('kongared', 'b3ta', 'PTC', 'AloNeFillz', 'Kadoom')
+mit <- paste0('\\b', mit, '\\b')
+dados_gerais$mit <- ifelse(grepl(paste(mit, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
+
+#BOOM Esports
+boom = c('blaZek1ng', 'Famouz', 'BerserX', 'severiNe', 'Shiro')
+boom <- paste0('\\b', boom, '\\b')
+dados_gerais$boom <- ifelse(grepl(paste(boom, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
+
+#SR Nacague
+srn = c('senyorcarL', 'PatMen', 'MaxC', 'Myd Mathers', 'ZYND')
+srn <- paste0('\\b', srn, '\\b')
+dados_gerais$srn <- ifelse(grepl(paste(srn, collapse = '|'), rownames(dados_gerais), useBytes = T), 1 ,0)
+
+#Fancy United Esports
+fue = c('YESicaN', 'WUKONG', 'f1cio', 'Kishi', 'n1zzy', 'gin')
+fue <- paste0('\\b', fue, '\\b')
+dados_gerais$fue <- ifelse(grepl(paste(fue, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
+
+resultado <- filter(dados_gerais, dados_gerais$ba == 1 | dados_gerais$fs == 1 | dados_gerais$xe == 1
+                    | dados_gerais$fwe == 1 | dados_gerais$mit == 1 | dados_gerais$boom == 1 | 
+                      dados_gerais$srn == 1 | dados_gerais$fue == 1)
+
+# Removendo uma jogadora que tem o mesmo de outra
+while (nrow(resultado) > 40) {
+  resultado <- resultado[-41,]
+}
+
+# Separando os times em dataframes
+ba_df <- filter(resultado, resultado$ba == 1)
+fs_df <- filter(resultado, resultado$fs == 1)
+xe_df <- filter(resultado, resultado$xe == 1)
+fwe_df <- filter(resultado, resultado$fwe == 1)
+mit_df <- filter(resultado, resultado$mit == 1)
+boom_df <- filter(resultado, resultado$boom == 1)
+srn_df <- filter(resultado, resultado$srn == 1)
+fue_df <- filter(resultado, resultado$fue == 1)
+
+rm(ba, fs, xe, fwe, mit, boom, srn, fue)
+
+# Tirando colunas de times dos dataframes especificos de cada time
+ba_df <- ba_df[,-6:-13]
+fue_df <- fue_df[,-6:-13]
+fwe_df <- fwe_df[,-6:-13]
+xe_df <- xe_df[,-6:-13]
+boom_df <- boom_df[,-6:-13]
+fs_df <- fs_df[,-6:-13]
+mit_df <- mit_df[,-6:-13]
+srn_df <- srn_df[,-6:-13]
+
+# Média R (Rating)
+xeR <- mean(xe_df$R) 
+boomR <- mean(boom_df$R) 
+fsR <- mean(fs_df$R) 
+fweR <- mean(fwe_df$R) 
+srnR <- mean(srn_df$R) 
+mitR <- mean(mit_df$R) 
+baR <- mean(ba_df$R) 
+fueR <- mean(fue_df$R) 
+# Média ACS
+xeACS <- mean(xe_df$ACS) 
+boomACS <- mean(boom_df$ACS) 
+fsACS <- mean(fs_df$ACS) 
+fweACS <- mean(fwe_df$ACS) 
+srnACS <- mean(srn_df$ACS) 
+mitACS <- mean(mit_df$ACS) 
+baACS <- mean(ba_df$ACS) 
+fueACS <- mean(fue_df$ACS) 
+# Média KD
+xeKD <- mean(xe_df$K.D) 
+boomKD <- mean(boom_df$K.D) 
+fsKD <- mean(fs_df$K.D) 
+fweKD <- mean(fwe_df$K.D) 
+srnKD <- mean(srn_df$K.D) 
+mitKD <- mean(mit_df$K.D) 
+baKD <- mean(ba_df$K.D) 
+fueKD <- mean(fue_df$K.D) 
+# Média KAST
+xeKAST <- mean(xe_df$KAST) 
+boomKAST <- mean(boom_df$KAST) 
+fsKAST <- mean(fs_df$KAST) 
+fweKAST <- mean(fwe_df$KAST) 
+srnKAST <- mean(srn_df$KAST) 
+mitKAST <- mean(mit_df$KAST) 
+baKAST <- mean(ba_df$KAST) 
+fueKAST <- mean(fue_df$KAST) 
+# Média ADR
+xeADR <- mean(xe_df$ADR) 
+boomADR <- mean(boom_df$ADR) 
+fsADR <- mean(fs_df$ADR) 
+fweADR <- mean(fwe_df$ADR) 
+srnADR <- mean(srn_df$ADR) 
+mitADR <- mean(mit_df$ADR) 
+baADR <- mean(ba_df$ADR) 
+fueADR <- mean(fue_df$ADR) 
+#Criando o dataframe
+time1R <- c(xeR, boomR, fsR, fweR, srnR, mitR, xeR, fsR, fweR, xeR, baR, srnR, baR, fsR)
+time2R <- c(srnR, baR, mitR, fueR, boomR, fueR, baR, fweR, srnR, fueR, fsR, xeR, fsR, xeR)
+time1ACS <-c(xeACS, boomACS, fsACS, fweACS, srnACS, mitACS, xeACS, fsACS, fweACS, xeACS, baACS, srnACS, baACS, fsACS)
+time2ACS <- c(srnACS, baACS, mitACS, fueACS, boomACS, fueACS, baACS, fweACS, srnACS, fueACS, fsACS, xeACS, fsACS, xeACS)
+time1KD <-c(xeKD, boomKD, fsKD, fweKD, srnKD, mitKD, xeKD, fsKD, fweKD, xeKD, baKD, srnKD, baKD, fsKD)
+time2KD <- c(srnKD, baKD, mitKD, fueKD, boomKD, fueKD, baKD, fweKD, srnKD, fueKD, fsKD, xeKD, fsKD, xeKD)
+time1KAST <-c(xeKAST, boomKAST, fsKAST, fweKAST, srnKAST, mitKAST, xeKAST, fsKAST, fweKAST, xeKAST, baKAST, srnKAST, baKAST, fsKAST)
+time2KAST <- c(srnKAST, baKAST, mitKAST, fueKAST, boomKAST, fueKAST, baKAST, fweKAST, srnKAST, fueKAST, fsKAST, xeKAST, fsKAST, xeKAST)
+time1ADR <-c(xeADR, boomADR, fsADR, fweADR, srnADR, mitADR, xeADR, fsADR, fweADR, xeADR, baADR, srnADR, baADR, fsADR)
+time2ADR <- c(srnADR, baADR, mitADR, fueADR, boomADR, fueADR, baADR, fweADR, srnADR, fueADR, fsADR, xeADR, fsADR, xeADR)
+
+ganhador <- c(1, 0, 1, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 1)
+
+jogos <- data.frame(time1R, time2R, time1ACS, time2ACS, time1KD, time2KD, time1KAST, time2KAST, time1ADR, time2ADR, ganhador)
+
+write.csv2(jogos, 'csv/jogos1.csv')
+
+rm(list = ls())
+
+
+
 # PRECISO FAZER ESSE EVENTO E TIRAR O LINK
 # União dos dataframes -------------------------------------------------------------------------------------
 jogos1 <- read.csv2('csv/jogos1.csv') %>% dplyr::select(-X)
