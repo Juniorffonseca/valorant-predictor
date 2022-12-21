@@ -7,6 +7,8 @@ library(httr)
 library(tibble)
 library(stringr)
 library(neuralnet)
+library(keras)
+use_session_with_seed(42)
 
 # Carregando o dataframe -----------------------------------------------------------------------------------
 jogos <- read.csv2('csv/jogos.csv') %>% dplyr::select(-X)
@@ -26,19 +28,20 @@ training_data <- jogos[inp==1, ]
 test_data <- jogos[inp==2, ]
 
 # Modelando a rede neural ---------------------------------------------------------------------------------
-n <- neuralnet(ganhador ~ time1R + time2R + time1ACS + time2ACS + time1KD + time2KD + time1KAST + time2KAST + time1ADR + 
+set.seed(15)
+n <- neuralnet(ganhador ~ time1R + time2R + time1ACS + time2ACS + time1KD + time2KD + time1ADR + 
                  time2ADR,
                data = training_data,
-               hidden = c(10,10),
+               hidden = c(7,7),
                err.fct = "sse",
                linear.output = T,
                threshold = 0.01,
                lifesign = 'minimal',
-               rep = 10,
+               rep = 1,
                algorithm = 'rprop-',
-               stepmax = 10000)
+               stepmax = 100000)
 
-plot(n, rep = 3)
+plot(n, rep = 1)
 
 # Prediction ---------------------------------------------------------------------------------------------
 Predict = compute(n, test_data)
@@ -46,7 +49,7 @@ Predict = compute(n, test_data)
 nn2 <- ifelse(Predict$net.result[,1]>Predict$net.result[,2],1,0)
 
 predictVstest <- cbind(test_data, Predict$net.result)
-sum(predictVstest$ganhador == nn2)/28
+sum(predictVstest$ganhador == nn2)/31
 
 
 
