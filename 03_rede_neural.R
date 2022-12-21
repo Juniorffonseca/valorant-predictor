@@ -7,8 +7,6 @@ library(httr)
 library(tibble)
 library(stringr)
 library(neuralnet)
-library(keras)
-use_session_with_seed(42)
 
 # Carregando o dataframe -----------------------------------------------------------------------------------
 jogos <- read.csv2('csv/jogos.csv') %>% dplyr::select(-X)
@@ -29,7 +27,7 @@ test_data <- jogos[inp==2, ]
 
 # Modelando a rede neural ---------------------------------------------------------------------------------
 set.seed(15)
-n <- neuralnet(ganhador ~ time1R + time2R + time1ACS + time2ACS + time1KD + time2KD + time1ADR + 
+n <- neuralnet(ganhador ~ time1R + time2R + time1ACS + time2ACS +time1KAST + time2KAST + time1KD + time2KD + time1ADR + 
                  time2ADR,
                data = training_data,
                hidden = c(7,7),
