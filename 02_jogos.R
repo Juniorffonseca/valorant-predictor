@@ -1198,6 +1198,155 @@ write.csv2(jogos, 'csv/jogos8.csv')
 
 rm(list = ls())
 
+# FaZe Smeag All Star Weekend --------------------------------------------------
+# Carregando a base de dados de jogadores 
+dados_gerais <- read.csv2('csv/jogadores.csv')
+
+# Arrumando as colunas 
+dados_gerais <- dplyr::select(dados_gerais, Player, R, ACS, K.D, KAST, ADR)
+row.names(dados_gerais) <- make.names(dados_gerais[,1], unique = T)
+dados_gerais <- dplyr::select(dados_gerais, -Player)
+dados_gerais$KAST <- parse_number(dados_gerais$KAST)
+
+# Definindo times especificos da competição CHAMPIONS 
+#Team s0m
+s0m = c('Subroza', 'corey', 'eeiu', 's0m', 'NiSMO') # Definindo o time 1
+s0m <- paste0('\\b', s0m, '\\b') # Colocando '\\b' antes e dps p pegar apenas as strings exatas
+dados_gerais$s0m <- ifelse(grepl(paste(s0m, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
+
+#Team Shanks
+shanks = c('Shanks', 'Marved', 'POISED', 'tex', 'flyuh')
+shanks <- paste0('\\b', shanks, '\\b') 
+dados_gerais$shanks <- ifelse(grepl(paste(shanks, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
+
+#DRX
+drx = c('stax', 'Rb', 'Zest', 'BuZz', 'MaKo')
+drx <- paste0('\\b', drx, '\\b')
+dados_gerais$drx <- ifelse(grepl(paste(drx, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
+
+#XSET
+xset = c('AYRIN', 'BcJ', 'dephh', 'zekken', 'Cryocells')
+xset <- paste0('\\b', xset, '\\b')
+dados_gerais$xset <- ifelse(grepl(paste(xset, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
+
+#TL
+tl = c('ScreaM', 'soulcas', 'dimasick', 'Jamppi', 'Nivera')
+tl <- paste0('\\b', tl, '\\b')
+dados_gerais$tl <- ifelse(grepl(paste(tl, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
+
+#Leviatan
+lev = c('Melser', 'adverso', 'Tacolilla', 'kiNgg', 'Shyy')
+lev <- paste0('\\b', lev, '\\b')
+dados_gerais$lev <- ifelse(grepl(paste(lev, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
+
+#FunPlus Phoenix
+fpx = c('Zyppan', 'ardiis', 'ANGE1', 'Shao', 'SUYGETSU')
+fpx <- paste0('\\b', fpx, '\\b')
+dados_gerais$fpx <- ifelse(grepl(paste(fpx, collapse = '|'), rownames(dados_gerais), useBytes = T), 1 ,0)
+
+#FNATIC
+fntc = c('Enzo', 'Boaster', 'Mistic', 'Derke', 'Alfajer')
+fntc <- paste0('\\b', fntc, '\\b')
+dados_gerais$fntc <- ifelse(grepl(paste(fntc, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
+
+resultado <- filter(dados_gerais, dados_gerais$s0m == 1 | dados_gerais$shanks == 1 | dados_gerais$drx == 1
+                    | dados_gerais$xset == 1 | dados_gerais$tl == 1 | dados_gerais$lev == 1 | 
+                      dados_gerais$fpx == 1 | dados_gerais$fntc == 1)
+
+# Removendo jogadores excedentes
+while (nrow(resultado) > 40) {
+  resultado <- resultado[-41,]
+}
+
+# Separando os times em dataframes
+s0m_df <- filter(resultado, resultado$s0m == 1)
+shanks_df <- filter(resultado, resultado$shanks == 1)
+drx_df <- filter(resultado, resultado$drx == 1)
+xset_df <- filter(resultado, resultado$xset == 1)
+tl_df <- filter(resultado, resultado$tl == 1)
+lev_df <- filter(resultado, resultado$lev == 1)
+fpx_df <- filter(resultado, resultado$fpx == 1)
+fntc_df <- filter(resultado, resultado$fntc == 1)
+
+rm(s0m, shanks, drx, xset, tl, lev, fpx, fntc)
+
+# Tirando colunas de times dos dataframes especificos de cada time
+s0m_df <- s0m_df[,-6:-13]
+fntc_df <- fntc_df[,-6:-13]
+xset_df <- xset_df[,-6:-13]
+drx_df <- drx_df[,-6:-13]
+lev_df <- lev_df[,-6:-13]
+shanks_df <- shanks_df[,-6:-13]
+tl_df <- tl_df[,-6:-13]
+fpx_df <- fpx_df[,-6:-13]
+
+# Média R (Rating)
+drxR <- mean(drx_df$R) 
+levR <- mean(lev_df$R) 
+shanksR <- mean(shanks_df$R) 
+xsetR <- mean(xset_df$R) 
+fpxR <- mean(fpx_df$R) 
+tlR <- mean(tl_df$R) 
+s0mR <- mean(s0m_df$R) 
+fntcR <- mean(fntc_df$R) 
+# Média ACS
+drxACS <- mean(drx_df$ACS) 
+levACS <- mean(lev_df$ACS) 
+shanksACS <- mean(shanks_df$ACS) 
+xsetACS <- mean(xset_df$ACS) 
+fpxACS <- mean(fpx_df$ACS) 
+tlACS <- mean(tl_df$ACS) 
+s0mACS <- mean(s0m_df$ACS) 
+fntcACS <- mean(fntc_df$ACS) 
+# Média KD
+drxKD <- mean(drx_df$K.D) 
+levKD <- mean(lev_df$K.D) 
+shanksKD <- mean(shanks_df$K.D) 
+xsetKD <- mean(xset_df$K.D) 
+fpxKD <- mean(fpx_df$K.D) 
+tlKD <- mean(tl_df$K.D) 
+s0mKD <- mean(s0m_df$K.D) 
+fntcKD <- mean(fntc_df$K.D) 
+# Média KAST
+drxKAST <- mean(drx_df$KAST) 
+levKAST <- mean(lev_df$KAST) 
+shanksKAST <- mean(shanks_df$KAST) 
+xsetKAST <- mean(xset_df$KAST) 
+fpxKAST <- mean(fpx_df$KAST) 
+tlKAST <- mean(tl_df$KAST) 
+s0mKAST <- mean(s0m_df$KAST) 
+fntcKAST <- mean(fntc_df$KAST) 
+# Média ADR
+drxADR <- mean(drx_df$ADR) 
+levADR <- mean(lev_df$ADR) 
+shanksADR <- mean(shanks_df$ADR) 
+xsetADR <- mean(xset_df$ADR) 
+fpxADR <- mean(fpx_df$ADR) 
+tlADR <- mean(tl_df$ADR) 
+s0mADR <- mean(s0m_df$ADR) 
+fntcADR <- mean(fntc_df$ADR) 
+#Criando o dataframe
+time1R <- c(drxR, levR, shanksR, xsetR, fpxR, tlR, drxR, shanksR, xsetR, drxR, s0mR, fpxR, s0mR, shanksR)
+time2R <- c(fpxR, s0mR, tlR, fntcR, levR, fntcR, s0mR, xsetR, fpxR, fntcR, shanksR, drxR, shanksR, drxR)
+time1ACS <-c(drxACS, levACS, shanksACS, xsetACS, fpxACS, tlACS, drxACS, shanksACS, xsetACS, drxACS, s0mACS, fpxACS, s0mACS, shanksACS)
+time2ACS <- c(fpxACS, s0mACS, tlACS, fntcACS, levACS, fntcACS, s0mACS, xsetACS, fpxACS, fntcACS, shanksACS, drxACS, shanksACS, drxACS)
+time1KD <-c(drxKD, levKD, shanksKD, xsetKD, fpxKD, tlKD, drxKD, shanksKD, xsetKD, drxKD, s0mKD, fpxKD, s0mKD, shanksKD)
+time2KD <- c(fpxKD, s0mKD, tlKD, fntcKD, levKD, fntcKD, s0mKD, xsetKD, fpxKD, fntcKD, shanksKD, drxKD, shanksKD, drxKD)
+time1KAST <-c(drxKAST, levKAST, shanksKAST, xsetKAST, fpxKAST, tlKAST, drxKAST, shanksKAST, xsetKAST, drxKAST, s0mKAST, fpxKAST, s0mKAST, shanksKAST)
+time2KAST <- c(fpxKAST, s0mKAST, tlKAST, fntcKAST, levKAST, fntcKAST, s0mKAST, xsetKAST, fpxKAST, fntcKAST, shanksKAST, drxKAST, shanksKAST, drxKAST)
+time1ADR <-c(drxADR, levADR, shanksADR, xsetADR, fpxADR, tlADR, drxADR, shanksADR, xsetADR, drxADR, s0mADR, fpxADR, s0mADR, shanksADR)
+time2ADR <- c(fpxADR, s0mADR, tlADR, fntcADR, levADR, fntcADR, s0mADR, xsetADR, fpxADR, fntcADR, shanksADR, drxADR, shanksADR, drxADR)
+
+ganhador <- c(1, 0, 1, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 1)
+
+jogos <- data.frame(time1R, time2R, time1ACS, time2ACS, time1KD, time2KD, time1KAST, time2KAST, time1ADR, time2ADR, ganhador)
+
+write.csv2(jogos, 'csv/jogos1.csv')
+
+rm(list = ls())
+
+
+
 # União dos dataframes -------------------------------------------------------------------------------------
 jogos1 <- read.csv2('csv/jogos1.csv') %>% dplyr::select(-X)
 jogos2 <- read.csv2('csv/jogos2.csv') %>% dplyr::select(-X)
