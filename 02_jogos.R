@@ -181,6 +181,7 @@ dados_gerais$sr <- ifelse(grepl(paste(sr, collapse = '|'), rownames(dados_gerais
 gldx = c('aNNja', 'cinnamon', 'Smurfette', 'roxi', 'ness')
 gldx <- paste0('\\b', gldx, '\\b')
 dados_gerais$gldx <- ifelse(grepl(paste(gldx, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
+dados_gerais['cinnamon.1',]$gldx <- 0
 
 #G2 Gozen
 g2 = c('Glance', 'Petra', 'mimi', 'juliano', 'Mary')
@@ -501,6 +502,7 @@ dados_gerais$sen <- ifelse(grepl(paste(sen, collapse = '|'), rownames(dados_gera
 nrg = c('hazed', 'eeiu', 'tex', 's0m', 'Ethan')
 nrg <- paste0('\\b', nrg, '\\b')
 dados_gerais$nrg <- ifelse(grepl(paste(nrg, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
+dados_gerais['Ethan.1',]$nrg <- 0
 
 resultado <- filter(dados_gerais, dados_gerais$tg == 1 | dados_gerais$fzc == 1 | dados_gerais$cl9 == 1
                     | dados_gerais$sr == 1 | dados_gerais$t100 == 1 | dados_gerais$eg == 1 | 
@@ -644,6 +646,9 @@ dados_gerais$navi <- ifelse(grepl(paste(navi, collapse = '|'), rownames(dados_ge
 ldn = c('hype', 'Boo', 'MOLSI', 'Destrian', 'feqew')
 ldn <- paste0('\\b', ldn, '\\b')
 dados_gerais$ldn <- ifelse(grepl(paste(ldn, collapse = '|'), rownames(dados_gerais), useBytes = T), 1 ,0)
+dados_gerais['Boo.1',]$ldn <- 0
+dados_gerais['Boo.2',]$ldn <- 0
+
 
 #Guild Esports
 ge = c('Yacine', 'Sayf', 'koldamenta', 'Leo', 'trexx')
@@ -771,6 +776,7 @@ dados_gerais$dwgc <- ifelse(grepl(paste(dwgc, collapse = '|'), rownames(dados_ge
 edg = c('nobody', 'Life', 'ZmjjKK', 'Haodong', 'CHICHOO')
 edg <- paste0('\\b', edg, '\\b')
 dados_gerais$edg <- ifelse(grepl(paste(edg, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
+dados_gerais['nobody.1',]$edg <- 0
 
 #s2
 s2 = c('Bazzi', 'TS', 'eKo', 'GodDead', 'Estrella')
@@ -791,11 +797,15 @@ dados_gerais$cr <- ifelse(grepl(paste(cr, collapse = '|'), rownames(dados_gerais
 rc = c('iNTRO', 'Medusa', 'takej', 'Reita', 'Anthem')
 rc <- paste0('\\b', rc, '\\b')
 dados_gerais$rc <- ifelse(grepl(paste(rc, collapse = '|'), rownames(dados_gerais), useBytes = T), 1 ,0)
+dados_gerais['Medusa.1',]$rc <- 0
 
 #Guild Esports
 kone = c('LuoK1ng', 'sword9', 'Ninebody', 'Knight', 'Yosemite')
 kone <- paste0('\\b', kone, '\\b')
 dados_gerais$kone <- ifelse(grepl(paste(kone, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
+dados_gerais['Knight.1',]$kone <- 0
+dados_gerais['Knight.2',]$kone <- 0
+dados_gerais['Knight.3',]$kone <- 0
 
 resultado <- filter(dados_gerais, dados_gerais$mg == 1 | dados_gerais$dwgc == 1 | dados_gerais$edg == 1
                     | dados_gerais$s2 == 1 | dados_gerais$nth == 1 | dados_gerais$cr == 1 | 
@@ -1188,9 +1198,6 @@ write.csv2(jogos, 'csv/jogos8.csv')
 
 rm(list = ls())
 
-
-
-# PRECISO FAZER ESSE EVENTO E TIRAR O LINK
 # União dos dataframes -------------------------------------------------------------------------------------
 jogos1 <- read.csv2('csv/jogos1.csv') %>% dplyr::select(-X)
 jogos2 <- read.csv2('csv/jogos2.csv') %>% dplyr::select(-X)

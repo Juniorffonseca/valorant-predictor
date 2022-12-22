@@ -9,7 +9,7 @@ library(stringr)
 library(car)
 
 # Armazenando a url em uma variável -----------------------------------------------------------------------
-vlr_url_players <- "https://www.vlr.gg/stats/?event_group_id=all&event_id=all&region=all&country=all&min_rounds=1550&min_rating=1550&agent=all&map_id=all&timespan=all"
+vlr_url_players <- "https://www.vlr.gg/stats/?event_group_id=all&event_id=all&region=all&country=all&min_rounds=50&min_rating=1550&agent=all&map_id=all&timespan=all"
 
 # Pegando os Dados no link -------------------------------------------------------------------------------
 players <- read_html(vlr_url_players) %>% 
