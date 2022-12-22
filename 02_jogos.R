@@ -63,7 +63,7 @@ resultado <- filter(dados_gerais, dados_gerais$loud == 1 | dados_gerais$op == 1 
                     | dados_gerais$xset == 1 | dados_gerais$tl == 1 | dados_gerais$lev == 1 | 
                       dados_gerais$fpx == 1 | dados_gerais$fntc == 1)
 
-# Removendo uma jogadora que tem o mesmo de outra
+# Removendo jogadores excedentes
 while (nrow(resultado) > 40) {
   resultado <- resultado[-41,]
 }
@@ -212,7 +212,7 @@ resultado <- filter(dados_gerais, dados_gerais$c9w == 1 | dados_gerais$sr == 1 |
                     | dados_gerais$g2 == 1 | dados_gerais$tl == 1 | dados_gerais$kru == 1 | 
                       dados_gerais$x10 == 1 | dados_gerais$flgc == 1)
 
-# Removendo uma jogadora que tem o mesmo de outra
+# Removendo jogadores excedentes
 while (nrow(resultado) > 40) {
   resultado <- resultado[-41,]
 }
@@ -358,7 +358,7 @@ resultado <- filter(dados_gerais, dados_gerais$nip == 1 | dados_gerais$keyd == 1
                     | dados_gerais$tbk == 1 | dados_gerais$kru == 1 | dados_gerais$fus == 1 | 
                       dados_gerais$exl == 1 | dados_gerais$z9 == 1)
 
-# Removendo uma jogadora que tem o mesmo de outra
+# Removendo jogadores excedentes
 while (nrow(resultado) > 41) {
   resultado <- resultado[-42,]
 }
@@ -508,7 +508,7 @@ resultado <- filter(dados_gerais, dados_gerais$tg == 1 | dados_gerais$fzc == 1 |
                     | dados_gerais$sr == 1 | dados_gerais$t100 == 1 | dados_gerais$eg == 1 | 
                       dados_gerais$sen == 1 | dados_gerais$nrg == 1)
 
-# Removendo uma jogadora que tem o mesmo de outra
+# Removendo jogadores excedentes
 while (nrow(resultado) > 40) {
   resultado <- resultado[-41,]
 }
@@ -659,7 +659,7 @@ resultado <- filter(dados_gerais, dados_gerais$g2 == 1 | dados_gerais$m3c == 1 |
                     | dados_gerais$bbl == 1 | dados_gerais$tl == 1 | dados_gerais$navi == 1 | 
                       dados_gerais$ldn == 1 | dados_gerais$ge == 1)
 
-# Removendo uma jogadora que tem o mesmo de outra
+# Removendo jogadores excedentes
 while (nrow(resultado) > 40) {
   resultado <- resultado[-41,]
 }
@@ -811,7 +811,7 @@ resultado <- filter(dados_gerais, dados_gerais$mg == 1 | dados_gerais$dwgc == 1 
                     | dados_gerais$s2 == 1 | dados_gerais$nth == 1 | dados_gerais$cr == 1 | 
                       dados_gerais$rc == 1 | dados_gerais$kone == 1)
 
-# Removendo uma jogadora que tem o mesmo de outra
+# Removendo jogadores excedentes
 while (nrow(resultado) > 40) {
   resultado <- resultado[-41,]
 }
@@ -961,7 +961,7 @@ resultado <- filter(dados_gerais, dados_gerais$oddik == 1 | dados_gerais$gp == 1
                     | dados_gerais$b4 == 1 | dados_gerais$tl == 1 | dados_gerais$delira == 1 | 
                       dados_gerais$bdf == 1 | dados_gerais$mibr == 1)
 
-# Removendo uma jogadora que tem o mesmo de outra
+# Removendo jogadores excedentes
 while (nrow(resultado) > 40) {
   resultado <- resultado[-41,]
 }
@@ -1106,7 +1106,7 @@ resultado <- filter(dados_gerais, dados_gerais$ba == 1 | dados_gerais$fs == 1 | 
                     | dados_gerais$fwe == 1 | dados_gerais$mit == 1 | dados_gerais$boom == 1 | 
                       dados_gerais$srn == 1 | dados_gerais$fue == 1)
 
-# Removendo uma jogadora que tem o mesmo de outra
+# Removendo jogadores excedentes
 while (nrow(resultado) > 40) {
   resultado <- resultado[-41,]
 }
