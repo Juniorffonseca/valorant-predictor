@@ -1225,10 +1225,10 @@ brax <- paste0('\\b', brax, '\\b')
 dados_gerais$brax <- ifelse(grepl(paste(brax, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
 dados_gerais['leaf.1',]$brax <- 0
 
-#XSET
-xset = c('AYRIN', 'BcJ', 'dephh', 'zekken', 'Cryocells')
-xset <- paste0('\\b', xset, '\\b')
-dados_gerais$xset <- ifelse(grepl(paste(xset, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
+#Stewie2k
+stewie2k = c('AYRIN', 'BcJ', 'dephh', 'zekken', 'Cryocells')
+stewie2k <- paste0('\\b', stewie2k, '\\b')
+dados_gerais$stewie2k <- ifelse(grepl(paste(stewie2k, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
 
 #TL
 tl = c('ScreaM', 'soulcas', 'dimasick', 'Jamppi', 'Nivera')
@@ -1251,7 +1251,7 @@ fntc <- paste0('\\b', fntc, '\\b')
 dados_gerais$fntc <- ifelse(grepl(paste(fntc, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
 
 resultado <- filter(dados_gerais, dados_gerais$s0m == 1 | dados_gerais$shanks == 1 | dados_gerais$brax == 1
-                    | dados_gerais$xset == 1 | dados_gerais$tl == 1 | dados_gerais$lev == 1 | 
+                    | dados_gerais$stewie2k == 1 | dados_gerais$tl == 1 | dados_gerais$lev == 1 | 
                       dados_gerais$fpx == 1 | dados_gerais$fntc == 1)
 
 # Removendo jogadores excedentes
@@ -1263,18 +1263,18 @@ while (nrow(resultado) > 40) {
 s0m_df <- filter(resultado, resultado$s0m == 1)
 shanks_df <- filter(resultado, resultado$shanks == 1)
 brax_df <- filter(resultado, resultado$brax == 1)
-xset_df <- filter(resultado, resultado$xset == 1)
+stewie2k_df <- filter(resultado, resultado$stewie2k == 1)
 tl_df <- filter(resultado, resultado$tl == 1)
 lev_df <- filter(resultado, resultado$lev == 1)
 fpx_df <- filter(resultado, resultado$fpx == 1)
 fntc_df <- filter(resultado, resultado$fntc == 1)
 
-rm(s0m, shanks, brax, xset, tl, lev, fpx, fntc)
+rm(s0m, shanks, brax, stewie2k, tl, lev, fpx, fntc)
 
 # Tirando colunas de times dos dataframes especificos de cada time
 s0m_df <- s0m_df[,-6:-13]
 fntc_df <- fntc_df[,-6:-13]
-xset_df <- xset_df[,-6:-13]
+stewie2k_df <- stewie2k_df[,-6:-13]
 brax_df <- brax_df[,-6:-13]
 lev_df <- lev_df[,-6:-13]
 shanks_df <- shanks_df[,-6:-13]
@@ -1285,7 +1285,7 @@ fpx_df <- fpx_df[,-6:-13]
 braxR <- mean(brax_df$R) 
 levR <- mean(lev_df$R) 
 shanksR <- mean(shanks_df$R) 
-xsetR <- mean(xset_df$R) 
+stewie2kR <- mean(stewie2k_df$R) 
 fpxR <- mean(fpx_df$R) 
 tlR <- mean(tl_df$R) 
 s0mR <- mean(s0m_df$R) 
@@ -1294,7 +1294,7 @@ fntcR <- mean(fntc_df$R)
 braxACS <- mean(brax_df$ACS) 
 levACS <- mean(lev_df$ACS) 
 shanksACS <- mean(shanks_df$ACS) 
-xsetACS <- mean(xset_df$ACS) 
+stewie2kACS <- mean(stewie2k_df$ACS) 
 fpxACS <- mean(fpx_df$ACS) 
 tlACS <- mean(tl_df$ACS) 
 s0mACS <- mean(s0m_df$ACS) 
@@ -1303,7 +1303,7 @@ fntcACS <- mean(fntc_df$ACS)
 braxKD <- mean(brax_df$K.D) 
 levKD <- mean(lev_df$K.D) 
 shanksKD <- mean(shanks_df$K.D) 
-xsetKD <- mean(xset_df$K.D) 
+stewie2kKD <- mean(stewie2k_df$K.D) 
 fpxKD <- mean(fpx_df$K.D) 
 tlKD <- mean(tl_df$K.D) 
 s0mKD <- mean(s0m_df$K.D) 
@@ -1312,7 +1312,7 @@ fntcKD <- mean(fntc_df$K.D)
 braxKAST <- mean(brax_df$KAST) 
 levKAST <- mean(lev_df$KAST) 
 shanksKAST <- mean(shanks_df$KAST) 
-xsetKAST <- mean(xset_df$KAST) 
+stewie2kKAST <- mean(stewie2k_df$KAST) 
 fpxKAST <- mean(fpx_df$KAST) 
 tlKAST <- mean(tl_df$KAST) 
 s0mKAST <- mean(s0m_df$KAST) 
@@ -1321,22 +1321,22 @@ fntcKAST <- mean(fntc_df$KAST)
 braxADR <- mean(brax_df$ADR) 
 levADR <- mean(lev_df$ADR) 
 shanksADR <- mean(shanks_df$ADR) 
-xsetADR <- mean(xset_df$ADR) 
+stewie2kADR <- mean(stewie2k_df$ADR) 
 fpxADR <- mean(fpx_df$ADR) 
 tlADR <- mean(tl_df$ADR) 
 s0mADR <- mean(s0m_df$ADR) 
 fntcADR <- mean(fntc_df$ADR) 
 #Criando o dataframe
-time1R <- c(braxR, levR, shanksR, xsetR, fpxR, tlR, braxR, shanksR, xsetR, braxR, s0mR, fpxR, s0mR, shanksR)
-time2R <- c(fpxR, s0mR, tlR, fntcR, levR, fntcR, s0mR, xsetR, fpxR, fntcR, shanksR, braxR, shanksR, braxR)
-time1ACS <-c(braxACS, levACS, shanksACS, xsetACS, fpxACS, tlACS, braxACS, shanksACS, xsetACS, braxACS, s0mACS, fpxACS, s0mACS, shanksACS)
-time2ACS <- c(fpxACS, s0mACS, tlACS, fntcACS, levACS, fntcACS, s0mACS, xsetACS, fpxACS, fntcACS, shanksACS, braxACS, shanksACS, braxACS)
-time1KD <-c(braxKD, levKD, shanksKD, xsetKD, fpxKD, tlKD, braxKD, shanksKD, xsetKD, braxKD, s0mKD, fpxKD, s0mKD, shanksKD)
-time2KD <- c(fpxKD, s0mKD, tlKD, fntcKD, levKD, fntcKD, s0mKD, xsetKD, fpxKD, fntcKD, shanksKD, braxKD, shanksKD, braxKD)
-time1KAST <-c(braxKAST, levKAST, shanksKAST, xsetKAST, fpxKAST, tlKAST, braxKAST, shanksKAST, xsetKAST, braxKAST, s0mKAST, fpxKAST, s0mKAST, shanksKAST)
-time2KAST <- c(fpxKAST, s0mKAST, tlKAST, fntcKAST, levKAST, fntcKAST, s0mKAST, xsetKAST, fpxKAST, fntcKAST, shanksKAST, braxKAST, shanksKAST, braxKAST)
-time1ADR <-c(braxADR, levADR, shanksADR, xsetADR, fpxADR, tlADR, braxADR, shanksADR, xsetADR, braxADR, s0mADR, fpxADR, s0mADR, shanksADR)
-time2ADR <- c(fpxADR, s0mADR, tlADR, fntcADR, levADR, fntcADR, s0mADR, xsetADR, fpxADR, fntcADR, shanksADR, braxADR, shanksADR, braxADR)
+time1R <- c(braxR, levR, shanksR, stewie2kR, fpxR, tlR, braxR, shanksR, stewie2kR, braxR, s0mR, fpxR, s0mR, shanksR)
+time2R <- c(fpxR, s0mR, tlR, fntcR, levR, fntcR, s0mR, stewie2kR, fpxR, fntcR, shanksR, braxR, shanksR, braxR)
+time1ACS <-c(braxACS, levACS, shanksACS, stewie2kACS, fpxACS, tlACS, braxACS, shanksACS, stewie2kACS, braxACS, s0mACS, fpxACS, s0mACS, shanksACS)
+time2ACS <- c(fpxACS, s0mACS, tlACS, fntcACS, levACS, fntcACS, s0mACS, stewie2kACS, fpxACS, fntcACS, shanksACS, braxACS, shanksACS, braxACS)
+time1KD <-c(braxKD, levKD, shanksKD, stewie2kKD, fpxKD, tlKD, braxKD, shanksKD, stewie2kKD, braxKD, s0mKD, fpxKD, s0mKD, shanksKD)
+time2KD <- c(fpxKD, s0mKD, tlKD, fntcKD, levKD, fntcKD, s0mKD, stewie2kKD, fpxKD, fntcKD, shanksKD, braxKD, shanksKD, braxKD)
+time1KAST <-c(braxKAST, levKAST, shanksKAST, stewie2kKAST, fpxKAST, tlKAST, braxKAST, shanksKAST, stewie2kKAST, braxKAST, s0mKAST, fpxKAST, s0mKAST, shanksKAST)
+time2KAST <- c(fpxKAST, s0mKAST, tlKAST, fntcKAST, levKAST, fntcKAST, s0mKAST, stewie2kKAST, fpxKAST, fntcKAST, shanksKAST, braxKAST, shanksKAST, braxKAST)
+time1ADR <-c(braxADR, levADR, shanksADR, stewie2kADR, fpxADR, tlADR, braxADR, shanksADR, stewie2kADR, braxADR, s0mADR, fpxADR, s0mADR, shanksADR)
+time2ADR <- c(fpxADR, s0mADR, tlADR, fntcADR, levADR, fntcADR, s0mADR, stewie2kADR, fpxADR, fntcADR, shanksADR, braxADR, shanksADR, braxADR)
 
 ganhador <- c(1, 0, 1, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 1)
 
