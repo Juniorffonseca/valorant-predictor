@@ -1,0 +1,35 @@
+EDward Gaming vs FunPlus Phoenix ZHUQUE
+
+ZmjjKK
+CHICHOO
+nobody
+Smoggy
+Haodong
+-- vs --
+Yuicaw
+YuChEn
+berLIN
+AAAAY
+nizhaoTZH
+--------------------------
+         [,1]       [,2]
+[1,] 1.477329 -0.4659822
+--------------------------
+
+NTER vs Attacking Soul Esports
+
+YorkMonster
+Spring
+B3Ar
+Eren
+AC
+-- vs --
+Life
+bunt
+YHchen
+hfmi0dzjc9z7
+monk
+--------------------------
+         [,1]       [,2]
+[1,] 1.334456 -0.3247273
+--------------------------

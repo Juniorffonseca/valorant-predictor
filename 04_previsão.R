@@ -1,3 +1,14 @@
+# Carregando pacotes --------------------------------------------------------------------------------------
+library(dplyr)
+library(tidyr)
+library(rvest)
+library(quantmod)
+library(httr)
+library(tibble)
+library(stringr)
+library(neuralnet)
+library(rjson)
+
 # Carregando o modelo
 load(file = "model_nnet.rda")
 
