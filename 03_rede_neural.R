@@ -7,6 +7,7 @@ library(httr)
 library(tibble)
 library(stringr)
 library(neuralnet)
+library(rjson)
 
 # Carregando o dataframe -----------------------------------------------------------------------------------
 jogos <- read.csv2('csv/jogos.csv') %>% dplyr::select(-X)

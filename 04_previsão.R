@@ -56,4 +56,5 @@ previsao <- compute(n, partida)
 previsao$net.result
 
 
+result <- fromJSON(file = 'json/resultado.json')
 
