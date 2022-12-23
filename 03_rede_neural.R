@@ -29,14 +29,14 @@ test_data <- jogos[inp==2, ]
 n <- neuralnet(ganhador ~ time1R + time2R + time1ACS + time2ACS + time1KAST + time2KAST + time1KD + time2KD + time1ADR + 
                  time2ADR,
                data = training_data,
-               hidden = c(10,10,10,10,10,10,10),
+               hidden = c(8,8,8),
                err.fct = "sse",
                linear.output = T,
                threshold = 0.001,
                lifesign = 'minimal',
                rep = 1,
                algorithm = 'rprop-',
-               stepmax = 100000)
+               stepmax = 10000)
 
 #plot(n, rep = 1)
 
