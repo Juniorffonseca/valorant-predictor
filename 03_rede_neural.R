@@ -48,5 +48,5 @@ nn2 <- ifelse(Predict$net.result[,1]>Predict$net.result[,2],1,0)
 predictVstest <- cbind(test_data, Predict$net.result)
 sum(predictVstest$ganhador == nn2)/30
 
-
-
+# Salvando o modelo
+save(n, file = "model_nnet.rda")
