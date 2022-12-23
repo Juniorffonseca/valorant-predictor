@@ -43,12 +43,22 @@ timeB_KAST <- mean(timeB_df$KAST)
 timeB_KD <- mean(timeB_df$K.D)
 timeB_ADR <- mean(timeB_df$ADR)
 
-partida <- data.frame(timeA_R, timeB_R, timeA_ACS, timeB_ACS, timeA_KAST, timeB_KAST, timeA_KD, timeB_KD, timeA_ADR, timeB_ADR)
+partida <- c(timeA_R, timeB_R, timeA_ACS, timeB_ACS, timeA_KAST, timeB_KAST, timeA_KD, timeB_KD, timeA_ADR, timeB_ADR)
 
-partida <- as.data.frame(scale(partida))
+partida <- scale(partida)
+
+partida <- as.data.frame(partida)
+
+partida <- dcast(partida, 1 ~ V1, fill = 0)
+
+partida <- partida[,-1]
+
+colnames(partida) <- c('timeA_R', 'timeB_R', 'timeA_ACS', 'timeB_ACS', 'timeA_KAST', 'timeB_KAST', 'timeA_KD', 'timeB_KD',
+                       'timeA_ADR', 'timeB_ADR')
 
 previsao <- compute(n, partida)
 
 previsao$net.result
+
 
 
