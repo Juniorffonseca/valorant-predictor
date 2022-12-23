@@ -1,10 +1,5 @@
-# Script onde será possível prever resultados de jogos informando o nome dos jogadores de cada time.
-
 # Carregando o modelo
 load(file = "model_nnet.rda")
-
-
-
 
 # Carregando o dataframe jogadores
 dados_gerais <- read.csv2('csv/jogadores.csv')
@@ -16,13 +11,13 @@ dados_gerais <- dplyr::select(dados_gerais, -Player)
 dados_gerais$KAST <- parse_number(dados_gerais$KAST)
 
 # Time A
-timeA = c('ZmjjKK', 'CHICHOO', 'nobody', 'Smoggy', 'Haodong')
+timeA = c('YorkMonster', 'Spring', 'Eren', 'B3Ar', 'AC')
 timeA <- paste0('\\b', timeA, '\\b') 
 dados_gerais$timeA <- ifelse(grepl(paste(timeA, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
 dados_gerais['nobody.1',]$timeA <- 0
 
 # Time B
-timeB = c('Yuicaw', 'YuChEn', 'berLIN', 'AAAAY', 'nizhaoTZH')
+timeB = c('Life', 'bunt', 'YHchen', 'hfmi0dzjc9z7', 'monk')
 timeB <- paste0('\\b', timeB, '\\b') 
 dados_gerais$timeB <- ifelse(grepl(paste(timeB, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
 
