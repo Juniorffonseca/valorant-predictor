@@ -1,4 +1,5 @@
 # Carregando pacotes --------------------------------------------------------------------------------------
+library(tidyverse)
 library(dplyr)
 library(tidyr)
 library(rvest)
@@ -7,7 +8,7 @@ library(httr)
 library(tibble)
 library(stringr)
 library(neuralnet)
-library(rjson)
+library(reshape2)
 
 # Carregando o modelo
 load(file = "model_nnet.rda")
@@ -22,13 +23,13 @@ dados_gerais <- dplyr::select(dados_gerais, -Player)
 dados_gerais$KAST <- parse_number(dados_gerais$KAST)
 
 # Time A
-timeA = c('YorkMonster', 'Spring', 'Eren', 'B3Ar', 'AC')
+timeA = c('WerlasS', 'ALL3Y', 'reazy', 'fred', 'CyderX')
 timeA <- paste0('\\b', timeA, '\\b') 
 dados_gerais$timeA <- ifelse(grepl(paste(timeA, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
 dados_gerais['nobody.1',]$timeA <- 0
 
 # Time B
-timeB = c('Life', 'bunt', 'YHchen', 'hfmi0dzjc9z7', 'monk')
+timeB = c('DeepMans', 'Masic', 'XiSTOU', 'skylen', 'cacan')
 timeB <- paste0('\\b', timeB, '\\b') 
 dados_gerais$timeB <- ifelse(grepl(paste(timeB, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
 
@@ -49,15 +50,16 @@ timeB_KAST <- mean(timeB_df$KAST)
 timeB_KD <- mean(timeB_df$K.D)
 timeB_ADR <- mean(timeB_df$ADR)
 
-partida <- c(timeA_R, timeB_R, timeA_ACS, timeB_ACS, timeA_KAST, timeB_KAST, timeA_KD, timeB_KD, timeA_ADR, timeB_ADR)
+partida <- c(timeA_R, timeB_R, timeA_ACS, timeB_ACS, timeA_KAST, timeB_KAST, timeA_KD, timeB_KD,
+                           timeA_ADR, timeB_ADR)
 
 partida <- scale(partida)
 
+partida <- t(partida)
+
 partida <- as.data.frame(partida)
 
-partida <- dcast(partida, 1 ~ V1, fill = 0)
-
-partida <- partida[,-1]
+partida <- dcast(partida, timeA_R ~ timeB_ADR, fill = 0)
 
 colnames(partida) <- c('timeA_R', 'timeB_R', 'timeA_ACS', 'timeB_ACS', 'timeA_KAST', 'timeB_KAST', 'timeA_KD', 'timeB_KD',
                        'timeA_ADR', 'timeB_ADR')
@@ -65,7 +67,4 @@ colnames(partida) <- c('timeA_R', 'timeB_R', 'timeA_ACS', 'timeB_ACS', 'timeA_KA
 previsao <- compute(n, partida)
 
 previsao$net.result
-
-
-result <- fromJSON(file = 'json/resultado.json')
 

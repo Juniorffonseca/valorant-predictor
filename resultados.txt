@@ -14,7 +14,7 @@ nizhaoTZH
 --------------------------
          [,1]       [,2]
 [1,] 1.477329 -0.4659822
---------------------------
+--------------------------	CORRETO
 
 NTER vs Attacking Soul Esports
 
@@ -32,4 +32,22 @@ monk
 --------------------------
          [,1]       [,2]
 [1,] 1.334456 -0.3247273
+--------------------------	CORRETO
+
+Regnum Carya Esports vs Digital Athletics
+
+WerlasS
+ALL3Y
+reazy
+fred
+CyderX
+-- vs --
+DeepMans
+Masic
+XiSTOU
+skylen
+cacan
 --------------------------
+           [,1]     [,2]
+[1,] -0.5003482 1.498718
+--------------------------	CORRETO
