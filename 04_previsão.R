@@ -16,10 +16,16 @@ load(file = "model_nnet.rda")
 # Carregando o dataframe jogadores -------------------------------------------------------------------------
 dados_gerais <- read.csv2('csv/jogadores.csv')
 
-# Link da partida
-url <- "https://www.vlr.gg/161159/zeta-division-vs-drx-riot-games-one-pro-invitational-showmatch-zeta"
+# Arrumando as colunas -------------------------------------------------------------------------------------
+dados_gerais <- dplyr::select(dados_gerais, Player, R, ACS, K.D, KAST, ADR)
+row.names(dados_gerais) <- make.names(dados_gerais[,1], unique = T)
+dados_gerais <- dplyr::select(dados_gerais, -Player)
+dados_gerais$KAST <- parse_number(dados_gerais$KAST)
 
-# Pegando os dados no link da partida
+# Link da partida ------------------------------------------------------------------------------------------
+url <- "https://www.vlr.gg/163379/bleed-vs-boom-esports-penta-pro-series-gf"
+
+# Pegando os dados no link da partida ----------------------------------------------------------------------
 info <- read_html(url) %>% 
   html_nodes("table") %>% 
   html_table()
@@ -44,21 +50,15 @@ time2 <- separate(time2, '1', into = c("Player", "Team"), sep ="\\s+", extra = "
 timeA <- time1$Player
 timeB <- time2$Player
 
-# Arrumando as colunas -------------------------------------------------------------------------------------
-dados_gerais <- dplyr::select(dados_gerais, Player, R, ACS, K.D, KAST, ADR)
-row.names(dados_gerais) <- make.names(dados_gerais[,1], unique = T)
-dados_gerais <- dplyr::select(dados_gerais, -Player)
-dados_gerais$KAST <- parse_number(dados_gerais$KAST)
-
 # Time A
-#timeA = c('morti', 'Xérox', 'tyzz', 'Clory', 'Lewn')
+#timeA = c('nome1', 'nome2', 'nome3', 'nome4', 'nome5') # se preferir passar de forma manual
 timeA <- paste0('\\b', timeA, '\\b') 
 dados_gerais$timeA <- ifelse(grepl(paste(timeA, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
 dados_gerais['nobody.1',]$timeA <- 0
 dados_gerais['Laz.1',]$timeA <- 0 
 
 # Time B
-#timeB = c('Masic', 'XiSTOU', 'DeepMans', 'skylen', 'cacan')
+#timeB = c('nome1', 'nome2', 'nome3', 'nome4', 'nome5') # se preferir passar de forma manual
 timeB <- paste0('\\b', timeB, '\\b') 
 dados_gerais$timeB <- ifelse(grepl(paste(timeB, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
 dados_gerais['Shiro.1',]$timeB<- 0
