@@ -23,7 +23,7 @@ dados_gerais <- dplyr::select(dados_gerais, -Player)
 dados_gerais$KAST <- parse_number(dados_gerais$KAST)
 
 # Link da partida ------------------------------------------------------------------------------------------
-url <- "https://www.vlr.gg/163379/bleed-vs-boom-esports-penta-pro-series-gf"
+url <- "https://www.vlr.gg/163347/where-is-fullerton-vs-kitten-shelter-nerd-street-valorant-lockdown-open-3-gf"
 
 # Pegando os dados no link da partida ----------------------------------------------------------------------
 info <- read_html(url) %>% 
