@@ -30,25 +30,27 @@ info <- read_html(url) %>%
   html_nodes("table") %>% 
   html_table()
 
-time1 <- info[[1]]
-time2 <- info[[2]]
+timeA <- info[[1]]
+timeB <- info[[2]]
 
-time1 <- lapply(time1, str_replace_all, '\n', '') %>% 
+timeA <- lapply(timeA, str_replace_all, '\n', '') %>% 
   lapply(str_replace_all, '\t', '')
-time2 <- lapply(time2, str_replace_all, '\n', '') %>% 
+timeB <- lapply(timeB, str_replace_all, '\n', '') %>% 
   lapply(str_replace_all, '\t', '')
 
-time1 <- as.data.frame(time1[1])
-time2 <- as.data.frame(time2[1])
+timeA <- as.data.frame(timeA[1])
+timeB <- as.data.frame(timeB[1])
 
-colnames(time1) <- '1'
-colnames(time2) <- '1'
+colnames(timeA) <- '1'
+colnames(timeB) <- '1'
 
-time1 <- separate(time1, '1', into = c("Player", "Team"), sep = "\\s+", extra = "merge")
-time2 <- separate(time2, '1', into = c("Player", "Team"), sep ="\\s+", extra = "merge")
+timeA <- separate(timeA, '1', into = c("Player", "Team"), sep = "\\s+", extra = "merge")
+timeB <- separate(timeB, '1', into = c("Player", "Team"), sep ="\\s+", extra = "merge")
 
-timeA <- time1$Player
-timeB <- time2$Player
+timeA <- timeA$Player
+timeB <- timeB$Player
+
+rm(info, partida, url)
 
 # Time A
 #timeA = c('nome1', 'nome2', 'nome3', 'nome4', 'nome5') # se preferir passar de forma manual
