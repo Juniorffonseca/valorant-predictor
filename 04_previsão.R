@@ -10,28 +10,29 @@ library(stringr)
 library(neuralnet)
 library(reshape2)
 
-# Carregando o modelo
+# Carregando o modelo --------------------------------------------------------------------------------------
 load(file = "model_nnet.rda")
 
-# Carregando o dataframe jogadores
+# Carregando o dataframe jogadores -------------------------------------------------------------------------
 dados_gerais <- read.csv2('csv/jogadores.csv')
 
-# Arrumando as colunas 
+# Arrumando as colunas -------------------------------------------------------------------------------------
 dados_gerais <- dplyr::select(dados_gerais, Player, R, ACS, K.D, KAST, ADR)
 row.names(dados_gerais) <- make.names(dados_gerais[,1], unique = T)
 dados_gerais <- dplyr::select(dados_gerais, -Player)
 dados_gerais$KAST <- parse_number(dados_gerais$KAST)
 
 # Time A
-timeA = c('mada', 'v1c', 'dazzLe', 'bdog', 'moose')
+timeA = c('morti', 'Xérox', 'tyzz', 'Clory', 'Lewn')
 timeA <- paste0('\\b', timeA, '\\b') 
 dados_gerais$timeA <- ifelse(grepl(paste(timeA, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
 dados_gerais['nobody.1',]$timeA <- 0
 
 # Time B
-timeB = c('fletcher', 'd1msumboi', 'monSi', 'BlackHeart', 'khanartist')
+timeB = c('Masic', 'XiSTOU', 'DeepMans', 'skylen', 'cacan')
 timeB <- paste0('\\b', timeB, '\\b') 
 dados_gerais$timeB <- ifelse(grepl(paste(timeB, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
+dados_gerais['Shiro.1',]$timeB<- 0
 
 timeA_df <- filter(dados_gerais, dados_gerais$timeA == 1)
 timeA_df <- dplyr::select(timeA_df, R, ACS, K.D, KAST, ADR)
