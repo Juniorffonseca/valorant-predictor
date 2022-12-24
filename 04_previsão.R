@@ -23,13 +23,13 @@ dados_gerais <- dplyr::select(dados_gerais, -Player)
 dados_gerais$KAST <- parse_number(dados_gerais$KAST)
 
 # Time A
-timeA = c('WerlasS', 'ALL3Y', 'reazy', 'fred', 'CyderX')
+timeA = c('mada', 'v1c', 'dazzLe', 'bdog', 'moose')
 timeA <- paste0('\\b', timeA, '\\b') 
 dados_gerais$timeA <- ifelse(grepl(paste(timeA, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
 dados_gerais['nobody.1',]$timeA <- 0
 
 # Time B
-timeB = c('DeepMans', 'Masic', 'XiSTOU', 'skylen', 'cacan')
+timeB = c('fletcher', 'd1msumboi', 'monSi', 'BlackHeart', 'khanartist')
 timeB <- paste0('\\b', timeB, '\\b') 
 dados_gerais$timeB <- ifelse(grepl(paste(timeB, collapse = '|'), rownames(dados_gerais), useBytes = T), 1, 0)
 
@@ -58,8 +58,6 @@ partida <- scale(partida)
 partida <- t(partida)
 
 partida <- as.data.frame(partida)
-
-partida <- dcast(partida, timeA_R ~ timeB_ADR, fill = 0)
 
 colnames(partida) <- c('timeA_R', 'timeB_R', 'timeA_ACS', 'timeB_ACS', 'timeA_KAST', 'timeB_KAST', 'timeA_KD', 'timeB_KD',
                        'timeA_ADR', 'timeB_ADR')
