@@ -102,7 +102,7 @@ previsao$net.result
 preverResultado <- function (url){
   load(file = "model_nnet.rda")
   
-  dados_gerais <- read.csv2('csv/jogadores.csv')
+  dados_gerais <- read.csv2("csv/jogadores.csv")
   
   dados_gerais <- dplyr::select(dados_gerais, Player, R, ACS, K.D, KAST, ADR)
   row.names(dados_gerais) <- make.names(dados_gerais[,1], unique = T)
