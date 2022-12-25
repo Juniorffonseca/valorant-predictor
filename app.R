@@ -15,8 +15,6 @@ library(data.table)
 
 load(file = "model_nnet.rda")
 
-dados_gerais <- fread('csv/jogadores.csv')
-
 # Define UI
 ui <- fluidPage(theme = shinytheme("cerulean"),
                 navbarPage(
@@ -49,6 +47,8 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
 server <- function(input, output) {
   
   previsaoInput <- reactive({
+  
+  dados_gerais <- read.csv2('csv/jogadores.csv')
   
   # Arrumando as colunas -------------------------------------------------------------------------------------
   dados_gerais <- dplyr::select(dados_gerais, Player, R, ACS, K.D, KAST, ADR)
