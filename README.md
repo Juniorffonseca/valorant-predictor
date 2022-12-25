@@ -33,3 +33,11 @@ Script onde é carregado o arquivo csv com todos os jogos catalogados e passado 
 
 ## 04_previsão.R
 Último script, onde será possível definir dois times especificos e rodar na rede neural que foi salva no script anterior. Nesse script é dado load na rede neural e, após informar os jogadores de cada time será possível dizer qual time tem mais chance de ganhar a partida e qual tem menos.
+
+## app.R
+Arquivo utilizado para deploy de um app no qual é possível informar o url e receber como retorno o resultado final da rede neural para aquela partida em específico.
+
+
+Link do app: 
+
+## [Valorant Prediction](https://jrff.shinyapps.io/scripts/)
