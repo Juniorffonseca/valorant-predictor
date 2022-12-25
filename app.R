@@ -12,12 +12,11 @@ library(stringr)
 library(neuralnet)
 library(reshape2)
 library(data.table)
-library(bslib)
 
 load(file = "model_nnet.rda")
 
 # Define UI
-ui <- fluidPage(theme = bs_theme(),
+ui <- fluidPage(theme = shinytheme("cyborg"),
                 navbarPage(
                   "Valorant Prediction",
                   tabPanel("Prediction",
@@ -145,9 +144,6 @@ server <- function(input, output) {
   
     output$txtout <- renderText(previsaoInput())
 
-    bs_themer()
-    
-    
 } # server
 
 
