@@ -5,9 +5,9 @@ account: jrff
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 7940506
-bundleId: 6672469
+bundleId: 6672488
 url: https://jrff.shinyapps.io/scripts/
-when: 1671996172.0884
-lastSyncTime: 1671996172.08841
+when: 1671997843.78345
+lastSyncTime: 1671997843.78346
 asMultiple: FALSE
 asStatic: FALSE

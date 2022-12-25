@@ -137,6 +137,9 @@ server <- function(input, output) {
   
   return(previsao)
   }
+  else{
+    return('Não foi possível fazer a análise, provavelmente dados de um ou mais jogadores estavam faltantes no site vlr')
+  }
   })
   
     output$txtout <- renderText(previsaoInput())
