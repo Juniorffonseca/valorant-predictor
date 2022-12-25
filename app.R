@@ -137,14 +137,8 @@ server <- function(input, output) {
   
   })
   
-  observe(
-  
-  if(input$goButton>0){
     output$txtout <- renderText(previsaoInput())
-  }
-  )
-  
-  
+
 } # server
 
 
