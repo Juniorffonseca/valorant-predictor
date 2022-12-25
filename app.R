@@ -146,15 +146,13 @@ server <- function(input, output) {
   transforma_probabilidade <- function (y, x){
     z = y / (y + x)
     w = x / (x + y)
-    c = c(z,w)
+    c = as.matrix(c(z,w))
     return(c)
   }
   
-  transforma_positivo(a)
-  transforma_positivo(b)
-  transforma_probabilidade(a,b)
-  
-  previsao <- c
+  a <- transforma_positivo(a)
+  b <- transforma_positivo(b)
+  previsao <- transforma_probabilidade(a,b)
   
   return(previsao)
   }
@@ -163,7 +161,7 @@ server <- function(input, output) {
   }
   })
 
-    output$txtout <- renderText(previsaoInput()[1])
+    output$txtout <- renderText(round(previsaoInput(), digits = 2))
 
 } # server
 
