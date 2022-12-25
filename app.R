@@ -23,7 +23,6 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                            sidebarPanel(
                              tags$h3("Analisar partidas"),
                              textInput("texturl", "url da partida:", ""),
-                             actionButton("goButton", "Prever", class = "btn-sucess"),
                              
                              
                            ),
@@ -103,6 +102,8 @@ server <- function(input, output) {
   timeB_df <- filter(dados_gerais, dados_gerais$timeB == 1) 
   timeB_df <- dplyr::select(timeB_df, R, ACS, K.D, KAST, ADR)
   
+  if(nrow(timeA_df) == 5 && nrow(timeB_df)){
+  
   # Médias
   timeA_R <- mean(timeA_df$R)
   timeA_ACS <- mean(timeA_df$ACS)
@@ -127,6 +128,7 @@ server <- function(input, output) {
   colnames(partida) <- c('timeA_R', 'timeB_R', 'timeA_ACS', 'timeB_ACS', 'timeA_KAST', 'timeB_KAST', 'timeA_KD', 'timeB_KD',
                          'timeA_ADR', 'timeB_ADR')
   
+  
   previsao <- compute(n, partida)
   
   previsao$net.result
@@ -134,7 +136,7 @@ server <- function(input, output) {
   previsao <- previsao$net.result
   
   return(previsao)
-  
+  }
   })
   
     output$txtout <- renderText(previsaoInput())
