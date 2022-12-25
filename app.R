@@ -23,6 +23,7 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                            sidebarPanel(
                              tags$h3("Analisar partidas"),
                              textInput("texturl", "url da partida:", ""),
+                             actionButton("goButton", "Prever", class = "btn-sucess"),
                              
                              
                            ),
@@ -136,7 +137,13 @@ server <- function(input, output) {
   
   })
   
-  output$txtout <- renderText(previsaoInput())
+  observe(
+  
+  if(input$goButton>0){
+    output$txtout <- renderText(previsaoInput())
+  }
+  )
+  
   
 } # server
 
