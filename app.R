@@ -135,17 +135,43 @@ server <- function(input, output) {
   
   previsao <- previsao$net.result
   
+  a <- previsao[1]
+  b <- previsao[2]
+  
+  transforma_positivo <- function (x){
+    y = atan(x) + pi/2
+    return (y)
+  }
+  
+  transforma_probabilidade <- function (y, x){
+    z = y / (y + x)
+    w = x / (x + y)
+    c = c(z,w)
+    return(c)
+  }
+  
+  transforma_positivo(a)
+  transforma_positivo(b)
+  transforma_probabilidade(a,b)
+  
+  previsao <- c
+  
   return(previsao)
   }
   else{
     return('Não foi possível fazer a análise, provavelmente dados de um ou mais jogadores estavam faltantes no site vlr')
   }
   })
-  
-    output$txtout <- renderText(previsaoInput())
+
+    output$txtout <- renderText(previsaoInput()[1])
 
 } # server
 
 
 # Create Shiny object
 shinyApp(ui = ui, server = server)
+
+
+
+
+

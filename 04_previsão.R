@@ -92,3 +92,8 @@ preverResultado <- function (url){
   return(previsao$net.result)
   
 }
+
+return <- preverResultado('https://www.vlr.gg/163367/edward-gaming-vs-funplus-phoenix-zhuque-fgc-valorant-invitational-2022-epilogue-gf')
+
+a <- return[1]
+b <- return[2]
