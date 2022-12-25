@@ -11,10 +11,11 @@ library(tibble)
 library(stringr)
 library(neuralnet)
 library(reshape2)
+library(data.table)
 
 load(file = "model_nnet.rda")
 
-dados_gerais <- read.csv2('csv/jogadores.csv')
+dados_gerais <- fread('csv/jogadores.csv')
 
 # Define UI
 ui <- fluidPage(theme = shinytheme("cerulean"),
