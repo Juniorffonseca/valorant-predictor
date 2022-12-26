@@ -23,6 +23,8 @@ ui <- fluidPage(theme = shinytheme("cyborg"),
                            sidebarPanel(
                              tags$h3("Analisar partidas"),
                              textInput("texturl", "url da partida:", ""),
+                             actionButton('submitbutton', 'Prever', 
+                                          class = 'btn btn-primary')
                              
                              
                            ),
@@ -161,7 +163,17 @@ server <- function(input, output) {
   }
   })
 
-    output$txtout <- renderText(round(previsaoInput(), digits = 2))
+#    output$txtout <- renderText(
+ #     if (input$texturl!= NULL){round(previsaoInput(), digits = 2)})
+    
+    output$txtout <- renderText({
+      if (input$submitbutton>0) { 
+        paste(round(previsaoInput(), 2), '%', '')
+        
+      } else {
+        return("A rede neural está pronta para calcular as probabilidades.")
+      }
+    })
 
 } # server
 
