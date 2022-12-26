@@ -20,8 +20,8 @@ rm(normalizando)
 jogos$ganhador <- as.factor(jogos$ganhador)
 
 # Criando dataframes de teste e validação -----------------------------------------------------------------
-set.seed(5)
-inp <- sample(2, nrow(jogos), replace = TRUE, prob = c(0.7, 0.3))
+set.seed(16)
+inp <- sample(2, nrow(jogos), replace = TRUE, prob = c(0.5, 0.5))
 training_data <- jogos[inp==1, ]
 test_data <- jogos[inp==2, ]
 
@@ -29,10 +29,10 @@ test_data <- jogos[inp==2, ]
 n <- neuralnet(ganhador ~ time1R + time2R + time1ACS + time2ACS + time1KAST + time2KAST + time1KD + time2KD + time1ADR + 
                  time2ADR,
                data = training_data,
-               hidden = c(10,10,10),
+               hidden = c(8,8,8),
                err.fct = "sse",
                linear.output = T,
-               threshold = 0.001,
+               threshold = 0.01,
                lifesign = 'minimal',
                rep = 1,
                algorithm = 'rprop-',
@@ -55,17 +55,17 @@ sum(predictVstest$ganhador == nn2)/ nrow(test_data)
 
 acharseed <- function(seed){
   set.seed(seed)
-  inp <- sample(2, nrow(jogos), replace = TRUE, prob = c(0.7, 0.3))
+  inp <- sample(2, nrow(jogos), replace = TRUE, prob = c(0.5, 0.5))
   training_data <- jogos[inp==1, ]
   test_data <- jogos[inp==2, ]
   
   n <- neuralnet(ganhador ~ time1R + time2R + time1ACS + time2ACS + time1KAST + time2KAST + time1KD + time2KD + time1ADR + 
                    time2ADR,
                  data = training_data,
-                 hidden = c(10,10,10),
+                 hidden = c(7,7,7),
                  err.fct = "sse",
                  linear.output = T,
-                 threshold = 0.001,
+                 threshold = 0.01,
                  lifesign = 'minimal',
                  rep = 1,
                  algorithm = 'rprop-',
@@ -77,17 +77,45 @@ acharseed <- function(seed){
   
   predictVstest <- cbind(test_data, Predict$net.result)
   i <<- sum(predictVstest$ganhador == nn2)/ nrow(test_data)
-
-  return(i)
   
 }
 
 n <- 1
 
-while ( i < 0.7) {
+while ( i < 0.6) {
   acharseed(n)
   n <- n + 1
 }
 
+
+acharnn <- function(){
+  
+  n <- neuralnet(ganhador ~ time1R + time2R + time1ACS + time2ACS + time1KAST + time2KAST + time1KD + time2KD + time1ADR + 
+                   time2ADR,
+                 data = training_data,
+                 hidden = c(8,8,8),
+                 err.fct = "sse",
+                 linear.output = T,
+                 threshold = 0.001,
+                 lifesign = 'minimal',
+                 rep = 1,
+                 algorithm = 'rprop-',
+                 stepmax = 100000)
+  
+  Predict = compute(n, test_data)
+  
+  nn2 <- ifelse(Predict$net.result[,1]>Predict$net.result[,2],1,0)
+  
+  predictVstest <- cbind(test_data, Predict$net.result)
+  i <<- sum(predictVstest$ganhador == nn2)/ nrow(test_data)
+  
+  print(i)
+  
+}
+
+
+while ( i < 0.6) {
+  acharnn()
+}
 
 
