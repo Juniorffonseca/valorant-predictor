@@ -1200,19 +1200,19 @@ rm(list = ls())
 
 # União dos dataframes -------------------------------------------------------------------------------------
 jogos1 <- read.csv2('csv/jogos1.csv') %>% dplyr::select(-X)
-#jogos2 <- read.csv2('csv/jogos2.csv') %>% dplyr::select(-X)
+jogos2 <- read.csv2('csv/jogos2.csv') %>% dplyr::select(-X)
 jogos3 <- read.csv2('csv/jogos3.csv') %>% dplyr::select(-X)
 jogos4 <- read.csv2('csv/jogos4.csv') %>% dplyr::select(-X)
 jogos5 <- read.csv2('csv/jogos5.csv') %>% dplyr::select(-X)
 jogos6 <- read.csv2('csv/jogos6.csv') %>% dplyr::select(-X)
 jogos7 <- read.csv2('csv/jogos7.csv') %>% dplyr::select(-X)
 jogos8 <- read.csv2('csv/jogos8.csv') %>% dplyr::select(-X)
-jogos <- rbind(jogos1, jogos3, jogos4, jogos5, jogos6, jogos7, jogos8)
+jogos <- rbind(jogos1, jogos2, jogos3, jogos4, jogos5, jogos6, jogos7, jogos8)
 rm(jogos1, jogos2, jogos3, jogos4, jogos5, jogos6, jogos7, jogos8)
 write.csv2(jogos, 'csv/jogos.csv')
 
 
-# tentando fazer dataframe reverso
+# Dataframe reverso
 
 jogos_reverso <- jogos
 jogos_reverso$time1R <- jogos$time2R
