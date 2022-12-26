@@ -1200,14 +1200,14 @@ rm(list = ls())
 
 # União dos dataframes -------------------------------------------------------------------------------------
 jogos1 <- read.csv2('csv/jogos1.csv') %>% dplyr::select(-X)
-jogos2 <- read.csv2('csv/jogos2.csv') %>% dplyr::select(-X)
+#jogos2 <- read.csv2('csv/jogos2.csv') %>% dplyr::select(-X)
 jogos3 <- read.csv2('csv/jogos3.csv') %>% dplyr::select(-X)
 jogos4 <- read.csv2('csv/jogos4.csv') %>% dplyr::select(-X)
 jogos5 <- read.csv2('csv/jogos5.csv') %>% dplyr::select(-X)
 jogos6 <- read.csv2('csv/jogos6.csv') %>% dplyr::select(-X)
 jogos7 <- read.csv2('csv/jogos7.csv') %>% dplyr::select(-X)
 jogos8 <- read.csv2('csv/jogos8.csv') %>% dplyr::select(-X)
-jogos <- rbind(jogos1, jogos2, jogos3, jogos4, jogos5, jogos6, jogos7, jogos8)
+jogos <- rbind(jogos1, jogos3, jogos4, jogos5, jogos6, jogos7, jogos8)
 rm(jogos1, jogos2, jogos3, jogos4, jogos5, jogos6, jogos7, jogos8)
 write.csv2(jogos, 'csv/jogos.csv')
 
@@ -1225,10 +1225,19 @@ jogos_reverso$time1KAST <- jogos$time2KAST
 jogos_reverso$time2KAST <- jogos$time1KAST
 jogos_reverso$time1ADR <- jogos$time2ADR
 jogos_reverso$time2ADR <- jogos$time1ADR
-jogos_reverso$ganhador <- reverse
+ganhador_invertido <- !jogos$ganhador
+ganhador_invertido <- str_replace(ganhador_invertido, 'TRUE', '1') %>% str_replace('FALSE', '0')
+jogos_reverso$ganhador <- ganhador_invertido
 
+write.csv2(jogos_reverso, 'csv/jogos_reverso.csv')
 
+rm(list=ls())
 
+# Juntando os dois dataframes
 
-jogos_reverso <- as.data.frame(jogos$time2R, jogos$time1R)
+jogos_reverso <- read.csv2('csv/jogos_reverso.csv') %>% dplyr::select(-X)
+jogos <- read.csv2('csv/jogos.csv') %>% dplyr::select(-X)
+jogos_com_reverso <- rbind(jogos, jogos_reverso)
+
+write.csv2(jogos_com_reverso, 'csv/jogos_com_reverso.csv')
 
