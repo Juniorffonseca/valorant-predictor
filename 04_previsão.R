@@ -93,7 +93,7 @@ preverResultado <- function (url){
   
 }
 
-return <- preverResultado('https://www.vlr.gg/163367/edward-gaming-vs-funplus-phoenix-zhuque-fgc-valorant-invitational-2022-epilogue-gf')
+return <- preverResultado(
+  'https://www.vlr.gg/130685/loud-vs-optic-gaming-valorant-champions-2022-gf'
+  )
 
-a <- return[1]
-b <- return[2]

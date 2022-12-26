@@ -1210,3 +1210,25 @@ jogos8 <- read.csv2('csv/jogos8.csv') %>% dplyr::select(-X)
 jogos <- rbind(jogos1, jogos2, jogos3, jogos4, jogos5, jogos6, jogos7, jogos8)
 rm(jogos1, jogos2, jogos3, jogos4, jogos5, jogos6, jogos7, jogos8)
 write.csv2(jogos, 'csv/jogos.csv')
+
+
+# tentando fazer dataframe reverso
+
+jogos_reverso <- jogos
+jogos_reverso$time1R <- jogos$time2R
+jogos_reverso$time2R <- jogos$time1R
+jogos_reverso$time1ACS <- jogos$time2ACS
+jogos_reverso$time2ACS <- jogos$time1ACS
+jogos_reverso$time1KD <- jogos$time2KD
+jogos_reverso$time2KD <- jogos$time1KD
+jogos_reverso$time1KAST <- jogos$time2KAST
+jogos_reverso$time2KAST <- jogos$time1KAST
+jogos_reverso$time1ADR <- jogos$time2ADR
+jogos_reverso$time2ADR <- jogos$time1ADR
+jogos_reverso$ganhador <- reverse
+
+
+
+
+jogos_reverso <- as.data.frame(jogos$time2R, jogos$time1R)
+
