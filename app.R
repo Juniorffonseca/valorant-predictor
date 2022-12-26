@@ -102,7 +102,7 @@ server <- function(input, output) {
   timeB_df <- filter(dados_gerais, dados_gerais$timeB == 1) 
   timeB_df <- dplyr::select(timeB_df, R, ACS, K.D, KAST, ADR)
   
-  if(nrow(timeA_df) == 5 && nrow(timeB_df)){
+  if(nrow(timeA_df) == 5 && nrow(timeB_df) == 5){
   
   # Médias
   timeA_R <- mean(timeA_df$R)

@@ -29,16 +29,16 @@ test_data <- jogos[inp==2, ]
 n <- neuralnet(ganhador ~ time1R + time2R + time1ACS + time2ACS + time1KAST + time2KAST + time1KD + time2KD + time1ADR + 
                  time2ADR,
                data = training_data,
-               hidden = c(8,8,8),
+               hidden = c(6,6),
                err.fct = "sse",
                linear.output = T,
-               threshold = 0.001,
+               threshold = 0.01,
                lifesign = 'minimal',
                rep = 1,
                algorithm = 'rprop-',
                stepmax = 10000)
 
-#plot(n, rep = 1)
+plot(n, rep = 1)
 
 # Prediction ---------------------------------------------------------------------------------------------
 Predict = compute(n, test_data)
@@ -49,4 +49,4 @@ predictVstest <- cbind(test_data, Predict$net.result)
 sum(predictVstest$ganhador == nn2)/30
 
 # Salvando o modelo
-save(n, file = "model_nnet.rda")
+#save(n, file = "model_nnet.rda")
