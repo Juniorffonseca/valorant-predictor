@@ -52,7 +52,7 @@ sum(predictVstest$ganhador == nn2)/ nrow(test_data)
 
 acharseed <- function(seed){
   set.seed(seed)
-  inp <- sample(2, nrow(jogos), replace = TRUE, prob = c(0.7, 0.3))
+  inp <- sample(2, nrow(jogos), replace = TRUE, prob = c(0.8, 0.2))
   training_data <- jogos[inp==1, ]
   test_data <- jogos[inp==2, ]
   
@@ -62,7 +62,7 @@ acharseed <- function(seed){
                  hidden = c(10,10),
                  err.fct = "sse",
                  linear.output = T,
-                 threshold = 0.01,
+                 threshold = 0.001,
                  lifesign = 'minimal',
                  rep = 1,
                  algorithm = 'rprop-',
@@ -92,7 +92,7 @@ acharnn <- function(){
                  data = training_data,
                  hidden = c(10,10),
                  err.fct = "sse",
-                 linear.output = F,
+                 linear.output = T,
                  threshold = 0.01,
                  lifesign = 'minimal',
                  rep = 1,
@@ -111,7 +111,7 @@ acharnn <- function(){
 }
 
 
-while ( i < 0.7) {
+while ( i < 0.8) {
   acharnn()
 }
 

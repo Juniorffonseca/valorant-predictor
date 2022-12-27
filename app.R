@@ -121,15 +121,20 @@ server <- function(input, output) {
   partida <- c(timeA_R, timeB_R, timeA_ACS, timeB_ACS, timeA_KAST, timeB_KAST, timeA_KD, timeB_KD,
                timeA_ADR, timeB_ADR)
   
-  partida <- scale(partida)
+  jogos_scale <- read.csv2('csv/jogos.csv') %>% select(-X, -ganhador)
+  
+  jogos_scale <- rbind(jogos_scale, partida)
+  
+  jogos_scale <- scale(jogos_scale)
+  
+  partida <- jogos_scale[141,]
   
   partida <- t(partida)
   
   partida <- as.data.frame(partida)
   
-  colnames(partida) <- c('timeA_R', 'timeB_R', 'timeA_ACS', 'timeB_ACS', 'timeA_KAST', 'timeB_KAST', 'timeA_KD', 'timeB_KD',
-                         'timeA_ADR', 'timeB_ADR')
-  
+  colnames(partida) <- c('time1R', 'time2R', 'time1ACS', 'time2ACS', 'time1KAST', 'time2KAST', 'time1KD', 'time2KD',
+                         'time1ADR', 'time2ADR')
   
   previsao <- compute(n, partida)
   
@@ -157,6 +162,7 @@ server <- function(input, output) {
   previsao <- transforma_probabilidade(a,b)
   
   return(previsao)
+  
   }
   else{
     return('Não foi possível fazer a análise, provavelmente dados de um ou mais jogadores estavam faltantes no site vlr')
