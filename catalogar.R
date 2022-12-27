@@ -83,8 +83,6 @@ catalogarporUrl <- function (url){
   partida <- c(timeA_R, timeB_R, timeA_ACS, timeB_ACS, timeA_KAST, timeB_KAST, timeA_KD, timeB_KD,
                timeA_ADR, timeB_ADR)
   
-  partida <- scale(partida)
-  
   partida <- t(partida)
   
   partida <- as.data.frame(partida) %>% cbind(ganhador)
