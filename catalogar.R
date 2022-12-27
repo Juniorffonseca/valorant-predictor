@@ -1,6 +1,6 @@
 # Catalogar partidas por url
 
-url <- 'https://www.vlr.gg/163017/unknownpros-vs-digital-athletics-challengers-league-turkey-birlik-split-1-lf'
+url <- 'colocar o url aqui'
 
 catalogarporUrl <- function (url){
   
@@ -98,10 +98,12 @@ catalogarporUrl <- function (url){
   
 }
 
+
+
 partida1 <- catalogarporUrl('https://www.vlr.gg/159483/nter-vs-attacking-soul-esports-fgc-valorant-invitational-2022-epilogue-w1')
 partida2 <- catalogarporUrl('https://www.vlr.gg/161251/oq-academy-vs-over-quality-esl-clash-of-nations-kr-jp-uf')
 partida3 <- catalogarporUrl('https://www.vlr.gg/161329/sr-nacague-vs-made-in-thailand-esl-clash-of-nations-sea-ubsf')
-partida4 <- catalogarporUrl('https://www.vlr.gg/159482/tales-of-eastern-vs-monarch-effect-fgc-valorant-invitational-2022-epilogue-w1')
+partida4 <- catalogarporUrl('https://www.vlr.gg/156889/enigma-gaming-vs-global-esports-skyesports-sea-championship-presented-by-amd-d3')
 partida5 <- catalogarporUrl('https://www.vlr.gg/161145/generation-of-miracles-vs-funcrew-esl-clash-of-nations-oce-uf')
 partida6 <- catalogarporUrl('https://www.vlr.gg/161144/bobo-vs-built-for-greatness-esl-clash-of-nations-oce-lr1')
 partida7 <- catalogarporUrl('https://www.vlr.gg/161002/nearest-airport-vs-ex-soar-nerd-street-valorant-lockdown-open-1-gf')
@@ -116,9 +118,28 @@ partida15 <- catalogarporUrl('https://www.vlr.gg/163322/royal-pekingese-vs-cry-i
 partida16 <- catalogarporUrl('https://www.vlr.gg/163327/da-biggest-birds-vs-neverdone-nerd-street-valorant-lockdown-open-3-ro32')
 partida17 <- catalogarporUrl('https://www.vlr.gg/161980/reckoning-esports-vs-gods-reign-penta-pro-series-lr3')
 partida18 <- catalogarporUrl('https://www.vlr.gg/159485/edward-gaming-vs-nter-fgc-valorant-invitational-2022-epilogue-w1')
+partida19 <- catalogarporUrl('https://www.vlr.gg/158669/sparx-esports-vs-cgn-esports-valorant-regional-league-dach-evolution-unity-lr3')
+partida20 <- catalogarporUrl('https://www.vlr.gg/153010/valorians-vs-bref-valorant-regional-league-france-revolution-coupe-de-france-playoffs-lr3')
+partida21 <- catalogarporUrl('https://www.vlr.gg/158670/cowana-gaming-vs-dsyre-valorant-regional-league-dach-evolution-unity-lr3')
+partida22 <- catalogarporUrl('https://www.vlr.gg/158668/mouz-vs-dsyre-valorant-regional-league-dach-evolution-unity-lr2')
+partida23 <- catalogarporUrl('https://www.vlr.gg/158665/prinzen-von-stuttgart-vs-sparx-esports-valorant-regional-league-dach-evolution-unity-lr2')
+partida24 <- catalogarporUrl('https://www.vlr.gg/159024/team-divinity-vs-parla-esports-g-loot-valorant-clash-grand-finals-qf')
+partida25 <- catalogarporUrl('https://www.vlr.gg/159025/bbl-esports-vs-giants-gaming-g-loot-valorant-clash-grand-finals-qf')
+partida26 <- catalogarporUrl('https://www.vlr.gg/159021/bonk-vs-fire-flux-esports-g-loot-valorant-clash-grand-finals-ro16')
+partida27 <- catalogarporUrl('https://www.vlr.gg/158664/enro-griffins-vs-dsyre-valorant-regional-league-dach-evolution-unity-lr1')
+partida28 <- catalogarporUrl('https://www.vlr.gg/159016/fut-esports-vs-team-divinity-g-loot-valorant-clash-grand-finals-ro16')
+partida29 <- catalogarporUrl('https://www.vlr.gg/158663/into-the-breach-protocol-vs-cowana-gaming-valorant-regional-league-dach-evolution-unity-lr1')
+partida30 <- catalogarporUrl('https://www.vlr.gg/156690/fut-esports-vs-parla-esports-esa-open-fire-all-stars-2022-playoffs-lbf')
+partida31 <- catalogarporUrl('https://www.vlr.gg/159050/velocity-gaming-vs-global-esports-skyesports-sea-championship-presented-by-amd-lr1')
+partida32 <- catalogarporUrl('https://www.vlr.gg/156689/fire-flux-esports-vs-fut-esports-esa-open-fire-all-stars-2022-playoffs-lr2')
+partida33 <- catalogarporUrl('https://www.vlr.gg/158661/kommando-howl-vs-sparx-esports-valorant-regional-league-dach-evolution-unity-lr1')
+partida34 <- catalogarporUrl('https://www.vlr.gg/157517/100jobs-vs-oddik-copa-rakin-2022-playoffs-lr3')
+partida35 <- catalogarporUrl('https://www.vlr.gg/157757/edward-gaming-vs-nter-xyper-arena-weekly-showdown-4-uf')
 
 npartidas <- rbind(partida1, partida2, partida3, partida4, partida5, partida6, partida7, partida8, partida9, partida10,
-                   partida11, partida12, partida13, partida14, partida15, partida16, partida17, partida18)
+                   partida11, partida12, partida13, partida14, partida15, partida16, partida17, partida18, partida19,
+                   partida20, partida21, partida22, partida23, partida24, partida25, partida26, partida27, partida28,
+                   partida29, partida30, partida31, partida32, partida33, partida34, partida35)
 
 write.csv2(npartidas, 'csv/npartidas.csv')
 

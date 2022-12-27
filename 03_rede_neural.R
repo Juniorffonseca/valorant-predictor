@@ -9,7 +9,7 @@ library(stringr)
 library(neuralnet)
 
 # Carregando o dataframe -----------------------------------------------------------------------------------
-jogos <- read.csv2('csv/jogos_com_reverso.csv') %>% dplyr::select(-X)
+jogos <- read.csv2('csv/jogos.csv') %>% dplyr::select(-X)
 
 # Normalizando os dados ------------------------------------------------------------------------------------
 normalizando <- dplyr::select(jogos, -ganhador)
@@ -20,8 +20,8 @@ rm(normalizando)
 jogos$ganhador <- as.factor(jogos$ganhador)
 
 # Criando dataframes de teste e validação -----------------------------------------------------------------
-set.seed(15)
-inp <- sample(2, nrow(jogos), replace = TRUE, prob = c(0.6, 0.4))
+set.seed(6)
+inp <- sample(2, nrow(jogos), replace = TRUE, prob = c(0.7, 0.3))
 training_data <- jogos[inp==1, ]
 test_data <- jogos[inp==2, ]
 
@@ -48,10 +48,7 @@ nn2 <- ifelse(Predict$net.result[,1]>Predict$net.result[,2],1,0)
 predictVstest <- cbind(test_data, Predict$net.result)
 sum(predictVstest$ganhador == nn2)/ nrow(test_data)
 
-# Salvando o modelo
-#save(n, file = "model_nnet.rda")
-
-# ----------------------
+# ----------------------------- functions ------------------------
 
 acharseed <- function(seed){
   set.seed(seed)
@@ -82,7 +79,7 @@ acharseed <- function(seed){
 
 n <- 1
 
-while ( i < 0.6) {
+while ( i < 0.7) {
   acharseed(n)
   n <- n + 1
 }
@@ -95,7 +92,7 @@ acharnn <- function(){
                  data = training_data,
                  hidden = c(10,10),
                  err.fct = "sse",
-                 linear.output = T,
+                 linear.output = F,
                  threshold = 0.01,
                  lifesign = 'minimal',
                  rep = 1,
