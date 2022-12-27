@@ -21,7 +21,7 @@ jogos$ganhador <- as.factor(jogos$ganhador)
 
 # Criando dataframes de teste e validação -----------------------------------------------------------------
 set.seed(2)
-inp <- sample(2, nrow(jogos), replace = TRUE, prob = c(0.5, 0.5))
+inp <- sample(2, nrow(jogos), replace = TRUE, prob = c(0.6, 0.4))
 training_data <- jogos[inp==1, ]
 test_data <- jogos[inp==2, ]
 
@@ -55,7 +55,7 @@ sum(predictVstest$ganhador == nn2)/ nrow(test_data)
 
 acharseed <- function(seed){
   set.seed(seed)
-  inp <- sample(2, nrow(jogos), replace = TRUE, prob = c(0.5, 0.5))
+  inp <- sample(2, nrow(jogos), replace = TRUE, prob = c(0.7, 0.3))
   training_data <- jogos[inp==1, ]
   test_data <- jogos[inp==2, ]
   
