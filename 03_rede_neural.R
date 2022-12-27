@@ -20,7 +20,7 @@ rm(normalizando)
 jogos$ganhador <- as.factor(jogos$ganhador)
 
 # Criando dataframes de teste e validação -----------------------------------------------------------------
-set.seed(16)
+set.seed(2)
 inp <- sample(2, nrow(jogos), replace = TRUE, prob = c(0.5, 0.5))
 training_data <- jogos[inp==1, ]
 test_data <- jogos[inp==2, ]

@@ -1207,8 +1207,9 @@ jogos5 <- read.csv2('csv/jogos5.csv') %>% dplyr::select(-X)
 jogos6 <- read.csv2('csv/jogos6.csv') %>% dplyr::select(-X)
 jogos7 <- read.csv2('csv/jogos7.csv') %>% dplyr::select(-X)
 jogos8 <- read.csv2('csv/jogos8.csv') %>% dplyr::select(-X)
-jogos <- rbind(jogos1, jogos2, jogos3, jogos4, jogos5, jogos6, jogos7, jogos8)
-rm(jogos1, jogos2, jogos3, jogos4, jogos5, jogos6, jogos7, jogos8)
+npartidas <- read.csv2('csv/npartidas.csv') %>% dplyr::select(-X)
+jogos <- rbind(jogos1, jogos2, jogos3, jogos4, jogos5, jogos6, jogos7, jogos8, npartidas)
+rm(jogos1, jogos2, jogos3, jogos4, jogos5, jogos6, jogos7, jogos8, npartidas)
 write.csv2(jogos, 'csv/jogos.csv')
 
 

@@ -117,3 +117,5 @@ npartidas <- rbind(partida1, partida2, partida3, partida4, partida5, partida6, p
                    partida11, partida12, partida13, partida14, partida15, partida16, partida17, partida18)
 
 write.csv2(npartidas, 'csv/npartidas.csv')
+
+
