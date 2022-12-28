@@ -20,7 +20,7 @@ rm(normalizando)
 jogos$ganhador <- as.factor(jogos$ganhador)
 
 # Criando dataframes de teste e validação -----------------------------------------------------------------
-set.seed(6)
+set.seed(1)
 inp <- sample(2, nrow(jogos), replace = TRUE, prob = c(0.7, 0.3))
 training_data <- jogos[inp==1, ]
 test_data <- jogos[inp==2, ]
@@ -32,13 +32,11 @@ n <- neuralnet(ganhador ~ time1R + time2R + time1ACS + time2ACS + time1KAST + ti
                hidden = c(10,10),
                err.fct = "sse",
                linear.output = T,
-               threshold = 0.01,
+               threshold = 0.001,
                lifesign = 'minimal',
                rep = 1,
                algorithm = 'rprop-',
                stepmax = 1000000)
-
-#plot(n, rep = 1)
 
 # Prediction ---------------------------------------------------------------------------------------------
 Predict = compute(n, test_data)
@@ -46,13 +44,12 @@ Predict = compute(n, test_data)
 nn2 <- ifelse(Predict$net.result[,1]>Predict$net.result[,2],1,0)
 
 predictVstest <- cbind(test_data, Predict$net.result)
-sum(predictVstest$ganhador == nn2)/ nrow(test_data)
-
+i <<- sum(predictVstest$ganhador == nn2)/ nrow(test_data)
 # ----------------------------- functions ------------------------
 
 acharseed <- function(seed){
   set.seed(seed)
-  inp <- sample(2, nrow(jogos), replace = TRUE, prob = c(0.8, 0.2))
+  inp <- sample(2, nrow(jogos), replace = TRUE, prob = c(0.7, 0.3))
   training_data <- jogos[inp==1, ]
   test_data <- jogos[inp==2, ]
   
@@ -66,7 +63,7 @@ acharseed <- function(seed){
                  lifesign = 'minimal',
                  rep = 1,
                  algorithm = 'rprop-',
-                 stepmax = 1000000)
+                 stepmax = 100000)
 
   Predict = compute(n, test_data)
   
@@ -77,7 +74,7 @@ acharseed <- function(seed){
   
 }
 
-n <- 1
+n <- 100
 
 while ( i < 0.7) {
   acharseed(n)
@@ -111,7 +108,7 @@ acharnn <- function(){
 }
 
 
-while ( i < 0.8) {
+while ( i < 0.7) {
   acharnn()
 }
 
