@@ -9,17 +9,44 @@ library(tibble)
 library(stringr)
 library(reshape2)
 
-url <- 'https://www.vlr.gg/matches/results'
+paginas <- ''
+p <- 1
 
-matchs <- read_html(url) %>% 
-  html_nodes('a') %>% html_attr('href')
+for (i in 1:33){
+  paginas[p] <- paste('https://www.vlr.gg/matches/results/?page=', p, sep = '')
+  p = p + 1
+}
+# Até aqui Okay!
 
-url2 <- 'https://www.vlr.gg/matches/results/?page=2'
+c <- 1
 
-matchs2 <- read_html(url2) %>% 
-  html_nodes('a') %>% html_attr('href')
+matchs <- 'a'
 
-matchs <- matchs[15:64]
-matchs2 <- matchs2[15:64]
+funcaoPagina <- function(pagina){
+  
+  matchs <- read_html(pagina) %>% 
+    html_nodes('a') %>% html_attr('href')
+  
+  matchs <- matchs[15:64]
+  
+  n <- 1
+  
+  for (i in matchs){
+    matchs[[n]] <- paste('www.vlr.gg', matchs[n], sep = '')
+    n = n+1
+  }
+  
+  # PRECISO DESCOBRIR COMO ARMAZENAR TODAS AS SAIDAS
+  
+}
+
+f <- 1
+
+for (i in paginas){
+  funcaoPagina(paginas[f])
+  f = f + 1
+}
+
+
 
 
