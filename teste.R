@@ -32,19 +32,23 @@ funcaoPagina <- function(pagina){
   n <- 1
   
   for (i in matchs){
-    matchs[[n]] <- paste('www.vlr.gg', matchs[n], sep = '')
+    matchs[n] <- paste('www.vlr.gg', matchs[n], sep = '')
     n = n+1
+    
   }
   
-  # PRECISO DESCOBRIR COMO ARMAZENAR TODAS AS SAIDAS
+  return(matchs)
   
 }
 
 f <- 1
 
+a <- list()
+
 for (i in paginas){
-  funcaoPagina(paginas[f])
+  a[[length(a)+1]] = funcaoPagina(paginas[f])
   f = f + 1
+
 }
 
 
