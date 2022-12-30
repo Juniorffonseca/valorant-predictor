@@ -63,5 +63,13 @@ for (i in a){
   }, error = function(e){cat('error:', conditionMessage(e), '\n')})
 }
 
+teste <- unlist(salvando)
 
+salvando <- dff
+save(salvando, file = 'salvando.rds')
+
+c <- 1
+
+dfc <- as.data.frame(salvando)
+# Preciso organizar em colunas direitinho 
 
