@@ -161,6 +161,8 @@ server <- function(input, output) {
       b <- transforma_positivo(b)
       previsao <- transforma_probabilidade(a,b)
       
+      previsao <- previsao * 100
+      
       return(previsao)
       
     }

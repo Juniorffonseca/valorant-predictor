@@ -16,7 +16,6 @@ for (i in 1:33){
   paginas[p] <- paste('https://www.vlr.gg/matches/results/?page=', p, sep = '')
   p = p + 1
 }
-# Até aqui Okay!
 
 c <- 1
 
@@ -32,8 +31,8 @@ funcaoPagina <- function(pagina){
   n <- 1
   
   for (i in matchs){
-    matchs[n] <- paste('www.vlr.gg', matchs[n], sep = '')
-    n = n+1
+    matchs[n] <- paste('https://www.vlr.gg', matchs[n], sep = '')
+    n = n + 1
     
   }
   
@@ -51,6 +50,18 @@ for (i in paginas){
 
 }
 
+rm (c, f, i, p, matchs, paginas)
+
+m <- 1
+
+dff <- list()
+
+for (i in a){
+  tryCatch({
+  dff[[length(dff)+1]] <- catalogarporUrl(a[m])
+  m = m + 1
+  }, error = function(e){cat('error:', conditionMessage(e), '\n')})
+}
 
 
 

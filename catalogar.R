@@ -1,8 +1,11 @@
 # Catalogar partidas por url
 
-url <- 'colocar o url aqui'
+ur_string <- 'colocar o url aqui'
 
-catalogarporUrl <- function (url){
+catalogarporUrl <- function (string){
+  tryCatch(
+ 
+    {
   
   # Carregando pacotes --------------------------------------------------------------------------------------
   library(tidyverse)
@@ -22,11 +25,11 @@ catalogarporUrl <- function (url){
   dados_gerais <- dplyr::select(dados_gerais, -Player)
   dados_gerais$KAST <- parse_number(dados_gerais$KAST)
   
-  info <- read_html(url) %>% 
+  info <- read_html(string) %>% 
     html_nodes("table") %>% 
     html_table()
   
-  placar <- read_html(url) %>% 
+  placar <- read_html(string) %>% 
     html_nodes("div.js-spoiler") %>% html_text(trim=T)
   
   placar <- str_replace_all(placar, '\t', '') %>% str_replace_all('\n', '')
@@ -93,9 +96,10 @@ catalogarporUrl <- function (url){
                          'time1ADR', 'time2ADR', 'ganhador')
   
   return(partida)
-  
   }
-  
+    }
+  , error = function(e){cat('error:', conditionMessage(e), '\n')})
+
 }
 
 
