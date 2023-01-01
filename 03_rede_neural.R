@@ -9,7 +9,7 @@ library(stringr)
 library(neuralnet)
 
 # Carregando o dataframe -----------------------------------------------------------------------------------
-jogos <- read.csv2('csv/jogos.csv') %>% dplyr::select(-X)
+jogos <- read.csv2('csv/df.csv') %>% dplyr::select(-X)
 
 # Normalizando os dados ------------------------------------------------------------------------------------
 normalizando <- dplyr::select(jogos, -ganhador)
@@ -32,11 +32,11 @@ n <- neuralnet(ganhador ~ time1R + time2R + time1ACS + time2ACS + time1KAST + ti
                hidden = c(10,10),
                err.fct = "sse",
                linear.output = T,
-               threshold = 0.01,
+               threshold = 0.4,
                lifesign = 'minimal',
                rep = 1,
                algorithm = 'rprop-',
-               stepmax = 1000000)
+               stepmax = 10000)
 
 # Prediction ---------------------------------------------------------------------------------------------
 Predict = compute(n, test_data)

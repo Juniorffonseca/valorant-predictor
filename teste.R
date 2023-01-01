@@ -71,9 +71,8 @@ save(salvando, file = 'salvando.rds')
 c <- 1
 
 dfc <- as.data.frame(salvando)
-# Preciso organizar em colunas direitinho 
-# Está ocorrendo algum problema de ler algum comando como "connection" e tá dando erros por causa disso. Preciso descobrir onde e resolver.
-
 
 dff <- dff %>% map_df(as_tibble)
+
+write.csv2(dff, 'csv/df.csv')
 
