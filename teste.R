@@ -73,3 +73,5 @@ c <- 1
 dfc <- as.data.frame(salvando)
 # Preciso organizar em colunas direitinho 
 
+dff <- dff %>% map_df(as_tibble)
+
