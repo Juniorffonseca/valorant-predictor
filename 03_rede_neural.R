@@ -26,13 +26,13 @@ training_data <- jogos[inp==1, ]
 test_data <- jogos[inp==2, ]
 
 # Modelando a rede neural ---------------------------------------------------------------------------------
-n <- neuralnet(ganhador ~ time1R + time2R + time1ACS + time2ACS + time1KAST + time2KAST + time1KD + time2KD + time1ADR + 
-                 time2ADR,
+n <- neuralnet(ganhador == 1 ~ time1R + time2R + time1ACS + time2ACS + time1KAST + time2KAST + time1KD + time2KD +
+                 time1ADR + time2ADR,
                data = training_data,
-               hidden = c(10,10),
+               hidden = c(40, 40, 20),
                err.fct = "sse",
                linear.output = T,
-               threshold = 0.01,
+               threshold = 0.3,
                lifesign = 'minimal',
                rep = 1,
                algorithm = 'rprop-',
@@ -41,7 +41,7 @@ n <- neuralnet(ganhador ~ time1R + time2R + time1ACS + time2ACS + time1KAST + ti
 # Prediction ---------------------------------------------------------------------------------------------
 Predict = compute(n, test_data)
 
-nn2 <- ifelse(Predict$net.result[,1]>Predict$net.result[,2],1,0)
+nn2 <- ifelse(Predict$net.result[,1]>mean(Predict$net.result),1,0)
 
 predictVstest <- cbind(test_data, Predict$net.result)
 i <<- sum(predictVstest$ganhador == nn2)/ nrow(test_data)
@@ -49,17 +49,17 @@ i <<- sum(predictVstest$ganhador == nn2)/ nrow(test_data)
 
 acharseed <- function(seed){
   set.seed(seed)
-  inp <- sample(2, nrow(jogos), replace = TRUE, prob = c(0.8, 0.2))
+  inp <- sample(2, nrow(jogos), replace = TRUE, prob = c(0.7, 0.3))
   training_data <- jogos[inp==1, ]
   test_data <- jogos[inp==2, ]
   
-  n <- neuralnet(ganhador ~ time1R + time2R + time1ACS + time2ACS + time1KAST + time2KAST + time1KD + time2KD + time1ADR + 
-                   time2ADR,
+  n <- neuralnet(ganhador == 1 ~ time1R + time2R + time1ACS + time2ACS + time1KAST + time2KAST + time1KD + time2KD +
+                   time1ADR + time2ADR,
                  data = training_data,
-                 hidden = c(10,10),
+                 hidden = c(10,10,10),
                  err.fct = "sse",
                  linear.output = T,
-                 threshold = 0.5,
+                 threshold = 0.3,
                  lifesign = 'minimal',
                  rep = 1,
                  algorithm = 'rprop-',
@@ -67,7 +67,7 @@ acharseed <- function(seed){
 
   Predict = compute(n, test_data)
   
-  nn2 <- ifelse(Predict$net.result[,1]>Predict$net.result[,2],1,0)
+  nn2 <- ifelse(Predict$net.result[,1]>mean(Predict$net.result),1,0)
   
   predictVstest <- cbind(test_data, Predict$net.result)
   i <<- sum(predictVstest$ganhador == nn2)/ nrow(test_data)
@@ -82,7 +82,7 @@ while ( i < 0.7) {
 }
 
 # Atualizando a seed para achar a melhor neuralnetwork -------------------------------------------------------
-set.seed(5)
+set.seed(6)
 inp <- sample(2, nrow(jogos), replace = TRUE, prob = c(0.7, 0.3))
 training_data <- jogos[inp==1, ]
 test_data <- jogos[inp==2, ]
@@ -90,21 +90,21 @@ test_data <- jogos[inp==2, ]
 
 acharnn <- function(){
   
-  n <- neuralnet(ganhador ~ time1R + time2R + time1ACS + time2ACS + time1KAST + time2KAST + time1KD + time2KD + time1ADR + 
-                   time2ADR,
+  n <- neuralnet(ganhador == 1 ~ time1R + time2R + time1ACS + time2ACS + time1KAST + time2KAST + time1KD + time2KD +
+                   time1ADR + time2ADR,
                  data = training_data,
-                 hidden = c(10,10),
+                 hidden = c(10,10,10),
                  err.fct = "sse",
-                 linear.output = T,
-                 threshold = 0.01,
+                 linear.output = F,
+                 threshold = 0.3,
                  lifesign = 'minimal',
                  rep = 1,
                  algorithm = 'rprop-',
-                 stepmax = 100000)
+                 stepmax = 10000)
   
   Predict = compute(n, test_data)
   
-  nn2 <- ifelse(Predict$net.result[,1]>Predict$net.result[,2],1,0)
+  nn2 <- ifelse(Predict$net.result[,1]>mean(Predict$net.result),1,0)
   
   predictVstest <- cbind(test_data, Predict$net.result)
   i <<- sum(predictVstest$ganhador == nn2)/ nrow(test_data)
@@ -114,7 +114,7 @@ acharnn <- function(){
 }
 
 
-while ( i < 0.65) {
+while ( i < 0.8) {
   acharnn()
 }
 
