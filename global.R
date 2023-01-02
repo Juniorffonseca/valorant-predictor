@@ -12,6 +12,7 @@ library(stringr)
 library(neuralnet)
 library(reshape2)
 library(data.table)
+library(readr)
 
 #Sources
 source('ui.R')
