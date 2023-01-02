@@ -1,50 +1,3 @@
-# Carregamento de pacotes, dataframes, rede neural e sources
-library(shiny)
-library(shinythemes)
-library(tidyverse)
-library(dplyr)
-library(tidyr)
-library(rvest)
-library(quantmod)
-library(httr)
-library(tibble)
-library(stringr)
-library(neuralnet)
-library(reshape2)
-library(data.table)
-
-load(file = "model_nnet.rda")
-
-# Define UI
-ui <- fluidPage(theme = shinytheme("cyborg"),
-                navbarPage(
-                  "Valorant Prediction",
-                  tabPanel("Prediction",
-                           sidebarPanel(
-                             tags$h3("Analisar partidas"),
-                             textInput("texturl", "url da partida:", ""),
-                             actionButton('submitbutton', 'Prever', 
-                                          class = 'btn btn-primary')
-                             
-                             
-                           ),
-                           mainPanel(
-                             h1("Resultado"),
-                             
-                             h4("Probabilidade de vitória de cada Time"),
-                             verbatimTextOutput("txtout"),
-                             
-                           )
-                           
-                  ),
-                  tabPanel("Navbar 2", "Em breve mais funções"),
-                  tabPanel("Navbar 3", "Em breve mais funções")
-                  
-                )
-)
-
-
-
 # Define server function  
 server <- function(input, output) {
   
@@ -186,6 +139,5 @@ server <- function(input, output) {
 } # server
 
 
-# Create Shiny object
-shinyApp(ui = ui, server = server)
+
 

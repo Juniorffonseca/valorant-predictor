@@ -1,5 +1,4 @@
 # Carregando pacotes ---------------------------------------------------------------------------------------
-library(tidyverse)
 library(FactoMineR)
 library(factoextra)
 library(cluster)
@@ -7,6 +6,7 @@ library(xlsx)
 library(ineq)
 library(stringr)
 library(dplyr)
+library(tidyr)
 
 # CHAMPIONS -------------------------------------------------------------------------------------------------
 # Carregando a base de dados de jogadores 

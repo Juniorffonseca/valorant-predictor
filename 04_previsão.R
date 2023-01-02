@@ -4,7 +4,6 @@
 preverResultado <- function (url){
   
   # Carregando pacotes --------------------------------------------------------------------------------------
-  library(tidyverse)
   library(dplyr)
   library(tidyr)
   library(rvest)
