@@ -114,7 +114,7 @@ acharnn <- function(){
 }
 
 
-while ( i < 0.8) {
+while ( i < 0.77) {
   acharnn()
 }
 

@@ -74,13 +74,13 @@ server <- function(input, output) {
       partida <- c(timeA_R, timeB_R, timeA_ACS, timeB_ACS, timeA_KAST, timeB_KAST, timeA_KD, timeB_KD,
                    timeA_ADR, timeB_ADR)
       
-      jogos_scale <- read.csv2('csv/jogos.csv') %>% select(-X, -ganhador)
+      jogos_scale <- read.csv2('csv/df.csv') %>% select(-X, -ganhador)
       
       jogos_scale <- rbind(jogos_scale, partida)
       
       jogos_scale <- scale(jogos_scale)
       
-      partida <- jogos_scale[141,]
+      partida <- jogos_scale[814,]
       
       partida <- t(partida)
       
@@ -95,26 +95,26 @@ server <- function(input, output) {
       
       previsao <- previsao$net.result
       
-      a <- previsao[1]
-      b <- previsao[2]
-      
-      transforma_positivo <- function (x){
-        y = atan(x) + pi/2
-        return (y)
-      }
-      
-      transforma_probabilidade <- function (y, x){
-        z = y / (y + x)
-        w = x / (x + y)
-        c = as.matrix(c(z,w))
-        return(c)
-      }
-      
-      a <- transforma_positivo(a)
-      b <- transforma_positivo(b)
-      previsao <- transforma_probabilidade(a,b)
-      
-      previsao <- previsao * 100
+      # a <- previsao[1]
+      # b <- previsao[2]
+      # 
+      # transforma_positivo <- function (x){
+      #   y = atan(x) + pi/2
+      #   return (y)
+      # }
+      # 
+      # transforma_probabilidade <- function (y, x){
+      #   z = y / (y + x)
+      #   w = x / (x + y)
+      #   c = as.matrix(c(z,w))
+      #   return(c)
+      # }
+      # 
+      # a <- transforma_positivo(a)
+      # b <- transforma_positivo(b)
+      # previsao <- transforma_probabilidade(a,b)
+      # 
+      # previsao <- previsao * 100
       
       return(previsao)
       
