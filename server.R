@@ -138,10 +138,7 @@ server <- function(input, output) {
       return('Não foi possível fazer a análise, provavelmente dados de um ou mais jogadores estavam faltantes no site vlr')
     }
   })
-  
-  #    output$txtout <- renderText(
-  #     if (input$texturl!= NULL){round(previsaoInput(), digits = 2)})
-  
+
   output$txtout <- renderText({
     if (input$submitbutton>0) { 
       paste(round(previsaoInput(), 2), '%', '')
