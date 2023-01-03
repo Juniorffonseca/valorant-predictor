@@ -10,7 +10,7 @@ library(tidyverse)
 paginas <- ''
 p <- 1
 
-for (i in 1:33){
+for (i in 34:44){
   paginas[p] <- paste('https://www.vlr.gg/matches/results/?page=', p, sep = '')
   p = p + 1
 }
