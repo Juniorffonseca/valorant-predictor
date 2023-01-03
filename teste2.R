@@ -6,6 +6,7 @@ library(tibble)
 library(stringr)
 library(reshape2)
 library(tidyverse)
+library(neuralnet)
 
 paginas <- ''
 p <- 1
@@ -168,4 +169,60 @@ dff <- dff %>% map_df(as_tibble)
 
 write.csv2(dff, 'csv/df2.csv')
 
+load(file = "model_nnet.rda")
+
+# Testando a acurácia
+
+dados_gerais <- read.csv2('csv/jogadores.csv')
+  
+  # Arrumando as colunas -------------------------------------------------------------------------------------
+dados_gerais <- dplyr::select(dados_gerais, Player, R, ACS, K.D, KAST, ADR)
+row.names(dados_gerais) <- make.names(dados_gerais[,1], unique = T)
+dados_gerais <- dplyr::select(dados_gerais, -Player)
+dados_gerais$KAST <- parse_number(dados_gerais$KAST)
+  
+  # Pegando os dados no link da partida ----------------------------------------------------------------------
+jogos <- read.csv2('csv/df2.csv') %>% dplyr::select(-X, -ganhador)
+    
+jogos_scale <- read.csv2('csv/df.csv') %>% dplyr::select(-X, -ganhador)
+    
+jogos_scale <- rbind(jogos_scale, jogos)
+    
+jogos_scale <- scale(jogos_scale)
+    
+partidas <- jogos_scale[814:1090,]
+    
+partidas <- as.data.frame(partidas)
+    
+previsao <- compute(n, partidas)
+
+previsao <- previsao$net.result
+    
+partidas_reversas <- partidas
+    
+partidas_reversas$time1R <- partidas$time2R
+partidas_reversas$time2R <- partidas$time1R
+partidas_reversas$time1ACS <- partidas$time2ACS
+partidas_reversas$time2ACS <- partidas$time1ACS
+partidas_reversas$time1KAST <- partidas$time2KAST
+partidas_reversas$time2KAST <- partidas$time1KAST
+partidas_reversas$time1KD <- partidas$time2KD
+partidas_reversas$time2KD <- partidas$time1KD
+partidas_reversas$time1ADR <- partidas$time2ADR
+partidas_reversas$time2ADR <- partidas$time1ADR
+    
+previsao2 <- compute(n, partidas_reversas)
+    
+previsao2 <- previsao2$net.result
+    
+previsoes <- ifelse (previsao[,1] > previsao2[,1], 1, 0)
+    
+resultados <- read.csv2('csv/df2.csv') %>% dplyr::select(ganhador)
+    
+resultadovspredict <- cbind(partidas, previsoes, resultados)
+    
+i <- sum(resultadovspredict$ganhador == resultadovspredict$previsoes)/nrow(resultadovspredict)
+
+# i = 0.747292418772563
+# Acurácia de 75%
 

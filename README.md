@@ -19,9 +19,17 @@ Das 247 partidas usadas na base de teste **199** foram previstas corretamente e 
 ## 04_previsão.R
 Último script, onde será possível definir dois times especificos e rodar na rede neural que foi salva no script anterior. Nesse script é dado load na rede neural e, após informar os jogadores de cada time será possível dizer qual time tem mais chance de ganhar a partida e qual tem menos.
 
-## app.R
+## global.R
 Arquivo utilizado para deploy de um app no qual é possível informar o url e receber como retorno o resultado final da rede neural para aquela partida em específico.
 
+## ui.R
+Faz parte do deploy do shinyapp. Nesse script é possível alterar a forma como a página é apresentada ao usuário.
+
+## server.R
+A outra parte do deploy, responsável pela parte "backend". Contém script que faz com que seja possível rodar a rede neural no servidor e receber como resposta a predição da rede neural.
+
+## Teste2.R
+Script que estou utilizando para catalogar novas partidas e testar elas na rede neural para checar a acurácia. Testei mais **277** partidas com **207** acertos e **70** erros. Mantendo uma acurácia de **75%**, muito próxima da obtida na base de teste (**81%**).
 
 Link do app: 
 
