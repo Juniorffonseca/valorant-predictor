@@ -12,7 +12,9 @@ Após isso, é realizada uma análise desses dados de forma a retirar aquelas in
 Atualmente foram catalogadas 813 partidas de diferentes competições por meio do site vlr.gg
 
 ## 03_rede_neural.R
-Script onde é carregado o arquivo csv com todos os jogos catalogados e passado para um dataframe. Após isso, é feita uma divisão de aproximadamente 70% desses dados para base de treinamento e 30% desses dados para base de teste. É feita uma rede neural e conforme resultados obtidos será possível guardar uma rede neural para carregar posteriormente com os mesmos parâmetros.
+Script onde é carregado o arquivo csv com todos os jogos catalogados e passado para um dataframe. Após isso, é feita uma divisão de aproximadamente 70% (566 partidas) desses dados para base de treinamento e 30% (247 partidas) desses dados para base de teste. É feita uma rede neural e conforme resultados obtidos será possível guardar uma rede neural para carregar posteriormente com os mesmos parâmetros.
+
+Das 247 partidas usadas na base de teste 199 foram previstas corretamente e 48 incorretamente, registrando uma acurácia de 81%.
 
 ## 04_previsão.R
 Último script, onde será possível definir dois times especificos e rodar na rede neural que foi salva no script anterior. Nesse script é dado load na rede neural e, após informar os jogadores de cada time será possível dizer qual time tem mais chance de ganhar a partida e qual tem menos.
