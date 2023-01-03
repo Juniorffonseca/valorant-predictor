@@ -1,6 +1,4 @@
 # Carregando pacotes --------------------------------------------------------------------------------------
-library(dplyr)
-library(tidyr)
 library(rvest)
 library(quantmod)
 library(httr)
@@ -47,7 +45,7 @@ a <- list()
 for (i in paginas){
   a[[length(a)+1]] = funcaoPagina(paginas[f])
   f = f + 1
-
+  
 }
 
 rm (c, f, i, p, matchs, paginas)
@@ -58,8 +56,8 @@ dff <- list()
 
 for (i in a){
   tryCatch({
-  dff[[length(dff)+1]] <- catalogarporUrl(a[m])
-  m = m + 1
+    dff[[length(dff)+1]] <- catalogarporUrl(a[m])
+    m = m + 1
   }, error = function(e){cat('error:', conditionMessage(e), '\n')})
 }
 
