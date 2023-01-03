@@ -2,11 +2,7 @@
 library(dplyr)
 library(tidyr)
 library(rvest)
-library(quantmod)
 library(httr)
-library(tibble)
-library(stringr)
-library(car)
 
 # Armazenando a url em uma variável -----------------------------------------------------------------------
 vlr_url_players <- "https://www.vlr.gg/stats/?event_group_id=all&event_id=all&region=all&country=all&min_rounds=50&min_rating=1550&agent=all&map_id=all&timespan=all"
@@ -32,5 +28,5 @@ players["IK"] <- players$FK - players$FD
 players <- select(players, 'Player', 'Team', 'Rnd', 'R', 'ACS', 'K:D', 'KAST', 'ADR', 'HS%', 'KMax', 'IK')
 
 # Exportando como csv -------------------------------------------------------------------------------------
-write.csv2(players, 'csv/jogadores.csv')
+#write.csv2(players, 'csv/jogadores.csv')
 
