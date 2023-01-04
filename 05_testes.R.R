@@ -7,6 +7,10 @@ library(stringr)
 library(reshape2)
 library(tidyverse)
 library(neuralnet)
+library(readr)
+library(purrr)
+
+dados_gerais <- read.csv2("csv/jogadores.csv")
 
 paginas <- ''
 p <- 1
@@ -17,7 +21,6 @@ for (i in 34:44){
 }
 
 c <- 1
-
 matchs <- 'a'
 
 funcaoPagina <- function(pagina){
@@ -40,7 +43,6 @@ funcaoPagina <- function(pagina){
 }
 
 f <- 1
-
 a <- list()
 
 for (i in paginas){
@@ -55,20 +57,6 @@ catalogarporUrl <- function (string){
   tryCatch(
     
     {
-      
-      # Carregando pacotes --------------------------------------------------------------------------------------
-      library(tidyverse)
-      library(dplyr)
-      library(tidyr)
-      library(rvest)
-      library(quantmod)
-      library(httr)
-      library(tibble)
-      library(stringr)
-      library(reshape2)
-      
-      dados_gerais <- read.csv2("csv/jogadores.csv")
-      
       dados_gerais <- dplyr::select(dados_gerais, Player, R, ACS, K.D, KAST, ADR)
       row.names(dados_gerais) <- make.names(dados_gerais[,1], unique = T)
       dados_gerais <- dplyr::select(dados_gerais, -Player)
