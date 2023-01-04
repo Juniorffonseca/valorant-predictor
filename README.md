@@ -1,5 +1,5 @@
 # Valorant
- Usando Aprendizado de Máquina para prever resultados de partidas do cenário competitivo de Valorant.
+Usando Aprendizado de Máquina para prever resultados de partidas do cenário competitivo de Valorant.
 
 ## 01_jogadores.R
 Esse script contém todos os códigos utilizados para coletar os dados dos jogadores no site *vlr.gg*, contém ainda, códigos que limpam esses dados, organizam e filtram conforme a necessidade do projeto. Deixando apenas jogadores com times, tirando jogadores que não tenham um número minimo específico de rounds 
