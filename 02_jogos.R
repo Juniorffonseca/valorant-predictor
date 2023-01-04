@@ -7,17 +7,18 @@ library(httr)
 library(tibble)
 library(stringr)
 library(reshape2)
+library(readr)
+library(purrr)
 
 paginas <- ''
 p <- 1
 
-for (i in 1:3){
+for (i in 1:33){
   paginas[p] <- paste('https://www.vlr.gg/matches/results/?page=', p, sep = '')
   p = p + 1
 }
 
 c <- 1
-
 matchs <- 'a'
 
 funcaoPagina <- function(pagina){
@@ -40,7 +41,6 @@ funcaoPagina <- function(pagina){
 }
 
 f <- 1
-
 a <- list()
 
 for (i in paginas){
@@ -50,26 +50,14 @@ for (i in paginas){
 }
 
 rm (c, f, i, p, matchs, paginas)
-
 m <- 1
-
+a <- unlist(a)
 dff <- list()
 
 catalogarporUrl <- function (string){
   tryCatch(
     
     {
-      
-      # Carregando pacotes --------------------------------------------------------------------------------------
-      library(dplyr)
-      library(tidyr)
-      library(rvest)
-      library(quantmod)
-      library(httr)
-      library(tibble)
-      library(stringr)
-      library(reshape2)
-      library(readr)
       
       dados_gerais <- read.csv2("csv/jogadores.csv")
       
@@ -154,8 +142,6 @@ catalogarporUrl <- function (string){
     , error = function(e){cat('error:', conditionMessage(e), '\n')})
   
 }
-
-
 
 for (i in a){
   tryCatch({
