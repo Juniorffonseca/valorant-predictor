@@ -1,22 +1,22 @@
 # Função preverResultado (basta colocar o url como parametro)
 # IMPORTANTE: o link precisa estar entre aspas.
+# Carregando pacotes --------------------------------------------------------------------------------------
+library(dplyr)
+library(tidyr)
+library(rvest)
+library(quantmod)
+library(httr)
+library(tibble)
+library(stringr)
+library(neuralnet)
+library(reshape2)
+
+load(file = "model_nnet.rda")
+
+dados_gerais <- read.csv2("csv/jogadores.csv")
+
 
 preverResultado <- function (url){
-  
-  # Carregando pacotes --------------------------------------------------------------------------------------
-  library(dplyr)
-  library(tidyr)
-  library(rvest)
-  library(quantmod)
-  library(httr)
-  library(tibble)
-  library(stringr)
-  library(neuralnet)
-  library(reshape2)
-  
-  load(file = "model_nnet.rda")
-  
-  dados_gerais <- read.csv2("csv/jogadores.csv")
   
   dados_gerais <- dplyr::select(dados_gerais, Player, R, ACS, K.D, KAST, ADR)
   row.names(dados_gerais) <- make.names(dados_gerais[,1], unique = T)
