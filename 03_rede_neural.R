@@ -7,6 +7,7 @@ library(httr)
 library(tibble)
 library(stringr)
 library(neuralnet)
+library(caret)
 
 # Carregando o dataframe -----------------------------------------------------------------------------------
 jogos <- read.csv2('csv/df.csv') %>% dplyr::select(-X)
@@ -20,7 +21,7 @@ rm(normalizando)
 jogos$ganhador <- as.factor(jogos$ganhador)
 
 # Criando dataframes de teste e validação -----------------------------------------------------------------
-set.seed(1)
+set.seed(6)
 inp <- sample(2, nrow(jogos), replace = TRUE, prob = c(0.7, 0.3))
 training_data <- jogos[inp==1, ]
 test_data <- jogos[inp==2, ]
@@ -114,8 +115,18 @@ acharnn <- function(){
 }
 
 
-while ( i < 0.77) {
+while ( i < 0.82) {
   acharnn()
 }
 
-save(n, file ='model_nnet.rda')
+#save(n, file ='model_nnet.rda')
+
+# Matriz de confusão
+load('model_nnet.rda')
+Predict = compute(n, test_data)
+nn2 <- ifelse(Predict$net.result[,1]>mean(Predict$net.result),1,0)
+nn2 <- as.factor(nn2)
+confusionMatrix(nn2, test_data$ganhador)
+
+
+
