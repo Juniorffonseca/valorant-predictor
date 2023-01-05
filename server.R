@@ -4,6 +4,7 @@ server <- function(input, output) {
   previsaoInput <- reactive({
     
     dados_gerais <- read.csv2('csv/jogadores.csv')
+    melhores_times <- read.csv2('csv/melhores_times.csv')
     
     # Arrumando as colunas -------------------------------------------------------------------------------------
     dados_gerais <- dplyr::select(dados_gerais, Player, R, ACS, K.D, KAST, ADR)
@@ -142,10 +143,11 @@ server <- function(input, output) {
   output$txtout <- renderText({
     if (input$submitbutton>0) { 
       paste(round(previsaoInput(), 2), '%', '')
-      
     } else {
       return("A rede neural está pronta para calcular as probabilidades.")
     }
+    
+    output$table <- renderTable(melhores_times)
   })
   
 } # server

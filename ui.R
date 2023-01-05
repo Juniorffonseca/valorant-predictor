@@ -1,27 +1,34 @@
 # Define UI
 ui <- fluidPage(theme = shinytheme("cyborg"),
                 navbarPage(
-                  "Valorant Prediction",
-                  tabPanel("Prediction",
+                  "Valorant",
+                  tabPanel("Prever partidas",
                            sidebarPanel(
-                             tags$h3("Analisar partidas"),
-                             textInput("texturl", "url da partida:", ""),
+                             textInput("texturl", "Url da partida:", ""),
                              actionButton('submitbutton', 'Prever', 
-                                          class = 'btn btn-primary')
+                                          class = 'btn btn-primary'),
                              
                              
                            ),
                            mainPanel(
-                             h1("Resultado"),
-                             
-                             h4("Probabilidade de vitória de cada Time"),
+                             h4("Probabilidade de vitória de cada time:"),
                              verbatimTextOutput("txtout"),
                              
                            )
                            
                   ),
-                  tabPanel("Navbar 2", "Em breve mais funções"),
-                  tabPanel("Navbar 3", "Em breve mais funções")
+                  tabPanel("Melhores times",
+                           sidebarPanel(
+                             fluidRow(
+                               column(12,
+                                      tableOutput('table')
+                                      )
+                             )
+                           )),
+                  tabPanel("Melhores jogadores",
+                           sidebarPanel(
+                             
+                           ))
                   
                 )
 )
