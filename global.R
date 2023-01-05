@@ -13,6 +13,8 @@ library(neuralnet)
 library(reshape2)
 library(data.table)
 library(readr)
+library(ggplot2)
+library(DT)
 
 #Sources
 source('ui.R')

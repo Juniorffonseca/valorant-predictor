@@ -11,24 +11,10 @@ ui <- fluidPage(theme = shinytheme("cyborg"),
                              
                            ),
                            mainPanel(
-                             h4("Probabilidade de vitória de cada time:"),
+                             h5("Probabilidade de vitória de cada time:"),
                              verbatimTextOutput("txtout"),
                              
                            )
-                           
-                  ),
-                  tabPanel("Melhores times",
-                           sidebarPanel(
-                             fluidRow(
-                               column(12,
-                                      tableOutput('table')
-                                      )
-                             )
-                           )),
-                  tabPanel("Melhores jogadores",
-                           sidebarPanel(
-                             
-                           ))
-                  
+                  )
                 )
 )
