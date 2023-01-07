@@ -1,5 +1,4 @@
-# Carregamento de pacotes, dataframes, rede neural e sources
-# Pacotes
+# Carregando pacotes
 library(shiny)
 library(shinythemes)
 library(dplyr)
@@ -16,12 +15,12 @@ library(readr)
 library(ggplot2)
 library(DT)
 
-#Sources
+# Carregando ui e server
 source('ui.R')
 source('server.R')
 
-#Rede neural
+# Carregando a rede neural
 load(file = "model_nnet.rda")
 
-#Criando o app
+# Criando o app
 shinyApp(ui = ui, server = server)
