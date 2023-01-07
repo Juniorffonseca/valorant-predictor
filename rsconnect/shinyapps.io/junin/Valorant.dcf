@@ -1,0 +1,13 @@
+name: Valorant
+title: Valorant
+username:
+account: junin
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 7987180
+bundleId: 6706003
+url: https://junin.shinyapps.io/Valorant/
+when: 1673047879.72216
+lastSyncTime: 1673047879.7222
+asMultiple: FALSE
+asStatic: FALSE
