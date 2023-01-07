@@ -161,4 +161,3 @@ dff <- dff %>% map_df(as_tibble)
 
 # Exportando como csv --------------------------------------------------------------------------------------
 write.csv2(dff, 'csv/df.csv')
-

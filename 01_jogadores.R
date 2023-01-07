@@ -18,4 +18,3 @@ players <- separate(players, Player, into = c("Player", "Team"), sep = "\\s+", e
 
 # Exportando como csv -------------------------------------------------------------------------------------
 write.csv2(players, 'csv/jogadores.csv')
-
