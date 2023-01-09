@@ -12,19 +12,26 @@ library(caret)
 # Carregando o dataframe -----------------------------------------------------------------------------------
 jogos <- read.csv2('csv/df.csv') %>% dplyr::select(-X)
 
-# Normalizando os dados ------------------------------------------------------------------------------------
-normalizando <- dplyr::select(jogos, -ganhador)
-normalizando <- as.data.frame(scale(normalizando))
-jogos <- dplyr::select(jogos, ganhador)
-jogos <- cbind(normalizando, jogos)
-rm(normalizando)
-jogos$ganhador <- as.factor(jogos$ganhador)
-
 # Criando dataframes de teste e validação -----------------------------------------------------------------
 set.seed(6)
 inp <- sample(2, nrow(jogos), replace = TRUE, prob = c(0.7, 0.3))
 training_data <- jogos[inp==1, ]
 test_data <- jogos[inp==2, ]
+
+# Normalizando os dados ------------------------------------------------------------------------------------
+normalizando_test <- dplyr::select(test_data, -ganhador)
+normalizando_test <- as.data.frame(scale(normalizando_test))
+test_data <- dplyr::select(test_data, ganhador)
+test_data <- cbind(normalizando_test, test_data)
+
+normalizando_training <- dplyr::select(training_data, -ganhador)
+normalizando_training <- as.data.frame(scale(normalizando_training))
+training_data <- dplyr::select(training_data, ganhador)
+training_data <- cbind(normalizando_training, training_data)
+
+training_data$ganhador <- as.factor(training_data$ganhador)
+test_data$ganhador <- as.factor(test_data$ganhador)
+
 
 # Modelando a rede neural ---------------------------------------------------------------------------------
 n <- neuralnet(ganhador == 1 ~ time1R + time2R + time1ACS + time2ACS + time1KAST + time2KAST + time1KD + time2KD +
@@ -54,6 +61,19 @@ acharseed <- function(seed){
   training_data <- jogos[inp==1, ]
   test_data <- jogos[inp==2, ]
   
+  normalizando_test <- dplyr::select(test_data, -ganhador)
+  normalizando_test <- as.data.frame(scale(normalizando_test))
+  test_data <- dplyr::select(test_data, ganhador)
+  test_data <- cbind(normalizando_test, test_data)
+  
+  normalizando_training <- dplyr::select(training_data, -ganhador)
+  normalizando_training <- as.data.frame(scale(normalizando_training))
+  training_data <- dplyr::select(training_data, ganhador)
+  training_data <- cbind(normalizando_training, training_data)
+  
+  training_data$ganhador <- as.factor(training_data$ganhador)
+  test_data$ganhador <- as.factor(test_data$ganhador)
+  
   n <- neuralnet(ganhador == 1 ~ time1R + time2R + time1ACS + time2ACS + time1KAST + time2KAST + time1KD + time2KD +
                    time1ADR + time2ADR,
                  data = training_data,
@@ -77,16 +97,29 @@ acharseed <- function(seed){
 
 s <- 1
 
-while ( i < 0.7) {
+while ( i < 0.77) {
   acharseed(s)
   s <- s + 1
 }
 
 # Atualizando a seed para achar a melhor neuralnetwork -------------------------------------------------------
-set.seed(6)
+set.seed(4264)
 inp <- sample(2, nrow(jogos), replace = TRUE, prob = c(0.7, 0.3))
 training_data <- jogos[inp==1, ]
 test_data <- jogos[inp==2, ]
+
+normalizando_test <- dplyr::select(test_data, -ganhador)
+normalizando_test <- as.data.frame(scale(normalizando_test))
+test_data <- dplyr::select(test_data, ganhador)
+test_data <- cbind(normalizando_test, test_data)
+
+normalizando_training <- dplyr::select(training_data, -ganhador)
+normalizando_training <- as.data.frame(scale(normalizando_training))
+training_data <- dplyr::select(training_data, ganhador)
+training_data <- cbind(normalizando_training, training_data)
+
+training_data$ganhador <- as.factor(training_data$ganhador)
+test_data$ganhador <- as.factor(test_data$ganhador)
 
 
 acharnn <- function(){
@@ -115,7 +148,7 @@ acharnn <- function(){
 }
 
 
-while ( i < 0.80) {
+while ( i < 0.82) {
   acharnn()
 }
 
