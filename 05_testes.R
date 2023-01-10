@@ -170,15 +170,17 @@ dados_gerais <- dplyr::select(dados_gerais, -Player)
 dados_gerais$KAST <- parse_number(dados_gerais$KAST)
   
   # Pegando os dados no link da partida ----------------------------------------------------------------------
-jogos <- read.csv2('csv/df2.csv') %>% dplyr::select(-X, -ganhador)
+#jogos <- read.csv2('csv/df2.csv') %>% dplyr::select(-X, -ganhador)
     
 jogos_scale <- read.csv2('csv/df.csv') %>% dplyr::select(-X, -ganhador)
     
-jogos_scale <- rbind(jogos_scale, jogos)
-    
+dff_scale <- dplyr::select(dff, -ganhador)
+
+jogos_scale <- rbind(jogos_scale, dff_scale)
+
 jogos_scale <- scale(jogos_scale)
     
-partidas <- jogos_scale[814:1090,]
+partidas <- jogos_scale[-1:-813,]
     
 partidas <- as.data.frame(partidas)
     
@@ -205,7 +207,7 @@ previsao2 <- previsao2$net.result
     
 previsoes <- ifelse (previsao[,1] > previsao2[,1], 1, 0)
     
-resultados <- read.csv2('csv/df2.csv') %>% dplyr::select(ganhador)
+resultados <- dplyr::select(dff, ganhador)
     
 resultadovspredict <- cbind(partidas, previsoes, resultados)
     
