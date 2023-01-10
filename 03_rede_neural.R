@@ -155,11 +155,28 @@ while ( i < 0.82) {
 #save(n, file ='model_nnet.rda')
 
 # Matriz de confusão
+
+set.seed(3)
+inp <- sample(2, nrow(jogos), replace = TRUE, prob = c(0.7, 0.3))
+training_data <- jogos[inp==1, ]
+test_data <- jogos[inp==2, ]
+
+normalizando_test <- dplyr::select(test_data, -ganhador)
+normalizando_test <- as.data.frame(scale(normalizando_test))
+test_data <- dplyr::select(test_data, ganhador)
+test_data <- cbind(normalizando_test, test_data)
+
+normalizando_training <- dplyr::select(training_data, -ganhador)
+normalizando_training <- as.data.frame(scale(normalizando_training))
+training_data <- dplyr::select(training_data, ganhador)
+training_data <- cbind(normalizando_training, training_data)
+
+training_data$ganhador <- as.factor(training_data$ganhador)
+test_data$ganhador <- as.factor(test_data$ganhador)
+
 load('model_nnet.rda')
 Predict = compute(n, test_data)
 nn2 <- ifelse(Predict$net.result[,1]>mean(Predict$net.result),1,0)
 nn2 <- as.factor(nn2)
 confusionMatrix(nn2, test_data$ganhador)
-
-
 
