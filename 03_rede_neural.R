@@ -155,7 +155,7 @@ while ( i < 0.82) {
 #save(n, file ='model_nnet.rda')
 
 # Matriz de confusão
-
+jogos <- read.csv2('csv/partidas.csv') %>% dplyr::select(-X)
 set.seed(3)
 inp <- sample(2, nrow(jogos), replace = TRUE, prob = c(0.7, 0.3))
 training_data <- jogos[inp==1, ]
