@@ -156,7 +156,7 @@ for (i in a){
 
 dff <- dff %>% map_df(as_tibble)
 
-write.csv2(dff, 'csv/df2.csv')
+write.csv2(dff, 'csv/outras_partidas.csv')
 
 load(file = "model_nnet.rda")
 
