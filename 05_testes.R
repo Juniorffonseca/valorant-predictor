@@ -160,18 +160,17 @@ write.csv2(dff, 'csv/outras_partidas.csv')
 
 load(file = "model_nnet.rda")
 
-# Testando a acurácia
+# Testando a acurácia -------------------------------------------------------------------------------------
 
 dados_gerais <- read.csv2('csv/jogadores.csv')
   
-  # Arrumando as colunas -------------------------------------------------------------------------------------
+# Arrumando as colunas -------------------------------------------------------------------------------------
 dados_gerais <- dplyr::select(dados_gerais, Player, R, ACS, K.D, KAST, ADR)
 row.names(dados_gerais) <- make.names(dados_gerais[,1], unique = T)
 dados_gerais <- dplyr::select(dados_gerais, -Player)
 dados_gerais$KAST <- parse_number(dados_gerais$KAST)
-  
-  # Pegando os dados no link da partida ----------------------------------------------------------------------
-#jogos <- read.csv2('csv/df2.csv') %>% dplyr::select(-X, -ganhador)
+
+#jogos <- read.csv2('csv/outras_partidas.csv') %>% dplyr::select(-X, -ganhador)
     
 jogos_scale <- read.csv2('csv/df.csv') %>% dplyr::select(-X, -ganhador)
     
