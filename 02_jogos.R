@@ -10,6 +10,9 @@ library(reshape2)
 library(readr)
 library(purrr)
 
+# Carregando dataframe de Jogadores ------------------------------------------------------------------------
+dados_gerais <- read.csv2("csv/jogadores.csv")
+
 # Criando variável páginas e criando variável 'p' que será a parte final do url (o número da página) -------
 paginas <- ''
 p <- 1
@@ -63,9 +66,6 @@ catalogarporUrl <- function (string){
   tryCatch(
     
     {
-      
-      dados_gerais <- read.csv2("csv/jogadores.csv")
-      
       dados_gerais <- dplyr::select(dados_gerais, Player, R, ACS, K.D, KAST, ADR)
       row.names(dados_gerais) <- make.names(dados_gerais[,1], unique = T)
       dados_gerais <- dplyr::select(dados_gerais, -Player)
