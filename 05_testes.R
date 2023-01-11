@@ -12,6 +12,7 @@ library(purrr)
 
 dados_gerais <- read.csv2("csv/jogadores.csv")
 
+# Criando variável páginas e criando variável 'p' que será a parte final do url (o número da página) -------
 paginas <- ''
 p <- 1
 

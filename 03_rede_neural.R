@@ -10,7 +10,7 @@ library(neuralnet)
 library(caret)
 
 # Carregando o dataframe -----------------------------------------------------------------------------------
-jogos <- read.csv2('csv/df.csv') %>% dplyr::select(-X)
+jogos <- read.csv2('csv/partidas.csv') %>% dplyr::select(-X)
 
 # Criando dataframes de teste e validação -----------------------------------------------------------------
 set.seed(6)
