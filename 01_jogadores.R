@@ -12,7 +12,8 @@ players <- read_html(link) %>%
   html_node("table") %>% 
   html_table() %>% 
   separate(Player, into = c("Player", "Team"), sep = "\\s+", extra = "merge") %>% 
-  select('Player', 'Team', 'R', 'ACS', 'K:D', 'KAST', 'ADR')
+  select('Player', 'Team', 'R', 'ACS', 'K:D', 'KAST', 'ADR') %>% 
+  as.data.frame()
 
 # Exportando como csv -------------------------------------------------------------------------------------
 write.csv2(players, 'csv/jogadores.csv')
