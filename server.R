@@ -3,8 +3,6 @@ server <- function(input, output) {
   
   previsaoInput <- reactive({
     
-    dados_gerais <- read.csv2('csv/jogadores.csv')
-    
     # Arrumando as colunas -------------------------------------------------------------------------------------
     dados_gerais <- dplyr::select(dados_gerais, Player, R, ACS, K.D, KAST, ADR)
     row.names(dados_gerais) <- make.names(dados_gerais[,1], unique = T)
@@ -141,13 +139,16 @@ server <- function(input, output) {
 
   output$txtout <- renderText({
     if (input$submitbutton>0) { 
-      paste(round(previsaoInput(), 2), '%', '')
-    } else {
+      if (is.numeric(previsaoInput())){
+      paste(round(previsaoInput(), 2), '%', '')}
+      else {
+        paste(previsaoInput())}} 
+    else {
       return("A rede neural está pronta para calcular as probabilidades.")
     }
   })
   
-} # server
+}
 
 
 

@@ -19,8 +19,9 @@ library(DT)
 source('ui.R')
 source('server.R')
 
-# Carregando a rede neural
+# Carregando a rede neural e o dataframe Jogadores
 load(file = "model_nnet.rda")
+dados_gerais <- read.csv2('csv/jogadores.csv')
 
 # Criando o app
 shinyApp(ui = ui, server = server)
