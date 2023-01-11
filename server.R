@@ -9,11 +9,8 @@ server <- function(input, output) {
     dados_gerais <- dplyr::select(dados_gerais, -Player)
     dados_gerais$KAST <- parse_number(dados_gerais$KAST)
     
-    # Link da partida ------------------------------------------------------------------------------------------
-    value = as.character(input$texturl) 
-    
     # Pegando os dados no link da partida ----------------------------------------------------------------------
-    info <- read_html(value) %>% 
+    info <- read_html(input$texturl) %>% 
       html_nodes("table") %>% 
       html_table()
     
@@ -72,7 +69,7 @@ server <- function(input, output) {
       partida <- c(timeA_R, timeB_R, timeA_ACS, timeB_ACS, timeA_KAST, timeB_KAST, timeA_KD, timeB_KD,
                    timeA_ADR, timeB_ADR)
       
-      jogos_scale <- read.csv2('csv/df.csv') %>% select(-X, -ganhador)
+      jogos_scale <- read.csv2('csv/partidas.csv') %>% select(-X, -ganhador)
       
       jogos_scale <- rbind(jogos_scale, partida)
       
