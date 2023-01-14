@@ -63,6 +63,8 @@ for (i in paginas){
 
 a <- unlist(a)
 
+write.csv2(a, 'csv/a.csv')
+
 catalogarporUrl <- function (string){
   tryCatch(
     
