@@ -1,13 +1,13 @@
-name: scripts
-title:
+name: Scripts
+title: Scripts
 username:
 account: jrff
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 7940506
-bundleId: 6701338
+bundleId: 6733676
 url: https://jrff.shinyapps.io/scripts/
-when: 1672942689.86984
-lastSyncTime: 1672942689.86984
+when: 1673717374.57696
+lastSyncTime: 1673717374.57697
 asMultiple: FALSE
 asStatic: FALSE
