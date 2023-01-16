@@ -125,5 +125,11 @@ for (i in a){
   }, error = function(e){cat('error:', conditionMessage(e), '\n')})
 }
 
+write.csv2(dff, 'csv/historico.csv')
+
 dff <- dff %>% map_df(as_tibble)
+
+dff <- na.omit(dff)
+
+write.csv2(dff, 'csv/historico_formatado.csv') # a cada 10 linhas é uma partida
 
