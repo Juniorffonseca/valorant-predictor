@@ -8,6 +8,7 @@ library(tibble)
 library(stringr)
 library(neuralnet)
 library(caret)
+library(ggplot2)
 
 # Carregando o dataframe -----------------------------------------------------------------------------------
 jogos <- read.csv2('csv/partidas.csv') %>% dplyr::select(-X)
@@ -178,5 +179,11 @@ load('model_nnet.rda')
 Predict = compute(n, test_data)
 nn2 <- ifelse(Predict$net.result[,1]>mean(Predict$net.result),1,0)
 nn2 <- as.factor(nn2)
-confusionMatrix(nn2, test_data$ganhador)
+x <- confusionMatrix(nn2, test_data$ganhador)
+x <- as.data.frame(x$table)
 
+ggplot(data = x, mapping = aes(x = Reference, y = Prediction)) +
+  geom_tile(aes(fill = Freq), colour = 'white') +
+  geom_text(aes(label = sprintf('%1.0f', Freq)), vjust = 1) +
+  scale_fill_gradient(low = 'white', high = 'green') +
+  theme_bw() + theme(legend.position = 'none')

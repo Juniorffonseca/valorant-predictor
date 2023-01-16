@@ -1,0 +1,13 @@
+name: Scripts
+title: Scripts
+username:
+account: junin
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 8049129
+bundleId: 6740770
+url: https://junin.shinyapps.io/Scripts/
+when: 1673907891.46907
+lastSyncTime: 1673907891.46907
+asMultiple: FALSE
+asStatic: FALSE
