@@ -36,7 +36,7 @@ Link do app:
 ## [Valorant Prediction](https://jrff.shinyapps.io/scripts/)
 
 ---------------------------------
-# English:
+#### English:
 
 # Valorant
 Using Machine Learning to predict match results from the competitive Valorant scene.
