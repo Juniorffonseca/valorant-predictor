@@ -170,7 +170,7 @@ row.names(dados_gerais) <- make.names(dados_gerais[,1], unique = T)
 dados_gerais <- dplyr::select(dados_gerais, -Player)
 dados_gerais$KAST <- parse_number(dados_gerais$KAST)
 
-#jogos <- read.csv2('csv/outras_partidas.csv') %>% dplyr::select(-X, -ganhador)
+#jogos <- read.csv2('csv/partidas.csv') %>% dplyr::select(-X, -ganhador)
     
 jogos_scale <- read.csv2('csv/df.csv') %>% dplyr::select(-X, -ganhador)
     
@@ -212,6 +212,7 @@ resultados <- dplyr::select(dff, ganhador)
 resultadovspredict <- cbind(partidas, previsoes, resultados)
     
 i <- sum(resultadovspredict$ganhador == resultadovspredict$previsoes)/nrow(resultadovspredict)
+
 
 # i = 0.747292418772563
 # Acurácia de 75%
