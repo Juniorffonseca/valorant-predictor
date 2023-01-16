@@ -35,12 +35,10 @@ server <- function(input, output) {
     timeB <- timeB$Player
     
     # Time A
-    #timeA = c('nome1', 'nome2', 'nome3', 'nome4', 'nome5') # se preferir passar de forma manual
     timeA <- paste0('\\b', timeA, '\\b') 
     players$timeA <- ifelse(grepl(paste(timeA, collapse = '|'), rownames(players), useBytes = T), 1, 0)
     
     # Time B
-    #timeB = c('nome1', 'nome2', 'nome3', 'nome4', 'nome5') # se preferir passar de forma manual
     timeB <- paste0('\\b', timeB, '\\b') 
     players$timeB <- ifelse(grepl(paste(timeB, collapse = '|'), rownames(players), useBytes = T), 1, 0)
     
