@@ -175,6 +175,7 @@ training_data <- cbind(normalizando_training, training_data)
 training_data$ganhador <- as.factor(training_data$ganhador)
 test_data$ganhador <- as.factor(test_data$ganhador)
 
+# Carregando modelo e obtendo os resultados
 load('model_nnet.rda')
 Predict = compute(n, test_data)
 nn2 <- ifelse(Predict$net.result[,1]>mean(Predict$net.result),1,0)
@@ -182,6 +183,7 @@ nn2 <- as.factor(nn2)
 x <- confusionMatrix(nn2, test_data$ganhador)
 x <- as.data.frame(x$table)
 
+# Plot
 ggplot(data = x, mapping = aes(x = Reference, y = Prediction)) +
   geom_tile(aes(fill = Freq), colour = 'white') +
   geom_text(aes(label = sprintf('%1.0f', Freq)), vjust = 1) +
