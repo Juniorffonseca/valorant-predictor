@@ -204,12 +204,41 @@ previsao2 <- compute(n, partidas_reversas)
 previsao2 <- previsao2$net.result
     
 previsoes <- cbind(previsao, previsao2)
+
+transforma_positivo <- function (x){
+  y = atan(x) + pi/2
+  return (y)
+}
+
+transforma_probabilidade <- function (y, x){
+  z = y / (y + x)
+  w = x / (x + y)
+  c = as.matrix(c(z,w))
+  return(c)
+}
+
+a <- transforma_positivo(previsao)
+b <- transforma_positivo(previsao2)
+previsao <- transforma_probabilidade(a,b)
+previsao <- previsao * 100
+previsao2 <- previsao[278:554]
+previsao <- previsao[1:277]
+previsao <- cbind(previsao, previsao2)
+
+ganhadores <- read.csv2('csv/outras_partidas.csv') %>% dplyr::select(ganhador)
+
+previsao <- cbind(previsao, ganhadores)
+colnames(previsao) <- c('previsao1', 'previsao2', 'ganhador')
+
+hist(previsao$previsao1, previsao$ganhador)
+
+
+
+#resultados <- dplyr::select(outras_partidas, ganhador)
     
-resultados <- dplyr::select(dff, ganhador)
+#resultadovspredict <- cbind(partidas, previsoes, resultados)
     
-resultadovspredict <- cbind(partidas, previsoes, resultados)
-    
-i <- sum(resultadovspredict$ganhador == resultadovspredict$previsoes)/nrow(resultadovspredict)
+#i <- sum(resultadovspredict$ganhador == resultadovspredict$previsoes)/nrow(resultadovspredict)
 
 
 
