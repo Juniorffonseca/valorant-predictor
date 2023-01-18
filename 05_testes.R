@@ -230,8 +230,14 @@ ganhadores <- read.csv2('csv/outras_partidas.csv') %>% dplyr::select(ganhador)
 previsao <- cbind(previsao, ganhadores)
 colnames(previsao) <- c('previsao1', 'previsao2', 'ganhador')
 
-hist(previsao$previsao1, previsao$ganhador)
+previsao <- previsao %>% 
+  mutate(ganhador = as.factor(ganhador))
 
+# Plot
+ggplot(data = previsao, mapping = aes(x = previsao1, y = previsao2, colour = ganhador)) +
+  geom_tile(aes(fill = ganhador)) +
+  geom_point() +
+  theme_bw()
 
 
 #resultados <- dplyr::select(outras_partidas, ganhador)
