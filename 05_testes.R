@@ -170,13 +170,11 @@ row.names(dados_gerais) <- make.names(dados_gerais[,1], unique = T)
 dados_gerais <- dplyr::select(dados_gerais, -Player)
 dados_gerais$KAST <- parse_number(dados_gerais$KAST)
 
-#jogos <- read.csv2('csv/partidas.csv') %>% dplyr::select(-X, -ganhador)
+jogos <- read.csv2('csv/partidas.csv') %>% dplyr::select(-X, -ganhador)
     
-jogos_scale <- read.csv2('csv/df.csv') %>% dplyr::select(-X, -ganhador)
-    
-dff_scale <- dplyr::select(dff, -ganhador)
+outras_partidas <- read.csv2('csv/outras_partidas.csv') %>% dplyr::select(-X, -ganhador)
 
-jogos_scale <- rbind(jogos_scale, dff_scale)
+jogos_scale <- rbind(jogos, outras_partidas)
 
 jogos_scale <- scale(jogos_scale)
     
@@ -205,13 +203,14 @@ previsao2 <- compute(n, partidas_reversas)
     
 previsao2 <- previsao2$net.result
     
-previsoes <- ifelse (previsao[,1] > previsao2[,1], 1, 0)
+previsoes <- cbind(previsao, previsao2)
     
 resultados <- dplyr::select(dff, ganhador)
     
 resultadovspredict <- cbind(partidas, previsoes, resultados)
     
 i <- sum(resultadovspredict$ganhador == resultadovspredict$previsoes)/nrow(resultadovspredict)
+
 
 
 # i = 0.747292418772563
