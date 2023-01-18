@@ -206,7 +206,7 @@ previsao2 <- previsao2$net.result
 previsoes <- cbind(previsao, previsao2)
 
 transforma_positivo <- function (x){
-  y = atan(x) + pi/2
+  y = atan(x*10) + pi/2
   return (y)
 }
 
