@@ -136,3 +136,8 @@ write.csv2(dff, 'csv/historico_formatado.csv') # a cada 10 linhas é uma partida
 player <- 'aspas'
 
 player <- dff[dff$Player == player,]
+
+historico <- read.csv2('csv/historico.csv') %>% dplyr::select(-X)
+
+#xy.list <- as.list(as.data.frame(t(xy.df)))
+
