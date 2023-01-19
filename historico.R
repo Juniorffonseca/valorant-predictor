@@ -137,7 +137,9 @@ player <- 'aspas'
 
 player <- dff[dff$Player == player,]
 
-historico <- read.csv2('csv/historico.csv') %>% dplyr::select(-X)
+historico <- read.csv2('csv/historico_formatado.csv') %>% dplyr::select(-X)
+
+teste <- array(data = historico, dim = c(10, 10))
 
 #xy.list <- as.list(as.data.frame(t(xy.df)))
 
