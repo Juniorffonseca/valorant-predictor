@@ -138,7 +138,7 @@ n <- 1
 m <- 10
 partidas <- list()
 
-while(i < 11768){
+while(i < (count(historico) / 10) + 1){
 partidas[[length(partidas)+1]] <- historico[n: m,]
 n = n + 10
 m = m + 10
