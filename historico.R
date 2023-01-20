@@ -125,19 +125,13 @@ for (i in a){
   }, error = function(e){cat('error:', conditionMessage(e), '\n')})
 }
 
-write.csv2(dff, 'csv/historico.csv')
-
 dff <- dff %>% map_df(as_tibble)
 
 dff <- na.omit(dff)
 
-write.csv2(dff, 'csv/historico_formatado.csv') # a cada 10 linhas é uma partida
+write.csv2(dff, 'csv/historico.csv')
 
-player <- 'aspas'
-
-player <- dff[dff$Player == player,]
-
-historico <- read.csv2('csv/historico_formatado.csv') %>% dplyr::select(-X)
+historico <- read.csv2('csv/historico.csv') %>% dplyr::select(-X)
 
 i <- 1
 n <- 1
