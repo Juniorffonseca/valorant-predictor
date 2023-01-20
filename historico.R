@@ -139,11 +139,15 @@ player <- dff[dff$Player == player,]
 
 historico <- read.csv2('csv/historico_formatado.csv') %>% dplyr::select(-X)
 
-teste <- array(data = historico, dim = c(10, 10))
+i <- 1
+n <- 1
+m <- 10
+partidas <- list()
 
-teste <- array(unlist(historico), c(100, 100, 100))
-
-mat <- as.matrix(historico) #testando
-
-#xy.list <- as.list(as.data.frame(t(xy.df)))
+while(i < 11768){
+partidas[[length(partidas)+1]] <- historico[n: m,]
+n = n + 10
+m = m + 10
+i = i + 1
+}
 
