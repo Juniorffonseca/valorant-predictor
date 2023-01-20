@@ -141,5 +141,9 @@ historico <- read.csv2('csv/historico_formatado.csv') %>% dplyr::select(-X)
 
 teste <- array(data = historico, dim = c(10, 10))
 
+teste <- array(unlist(historico), c(100, 100, 100))
+
+mat <- as.matrix(historico) #testando
+
 #xy.list <- as.list(as.data.frame(t(xy.df)))
 
