@@ -149,3 +149,23 @@ rm(historico, i, m, n)
 
 # preciso criar uma iteração que irá checar o nome dos jogadores e todas as partidas que eles jogaram e armazenar todas essas estatisticas
 
+i <- 1
+m <- 1
+n <- 1
+testando <- list()
+
+while(i < length(partidas)){
+  testando[[length(testando)+1]] <- partidas[partidas[[m]]$Player[n] == jogador]
+  m = m + 1
+  n = n + 1
+}
+
+# buscaJogador <- function(jogador){
+#   while(i < length(partidas)){
+#   testando <- partidas[partidas[[m]]$Player[n] == jogador]
+#   m = m + 1
+#   n = n + 1
+#   }
+#   }
+# buscaJogador('grubinho')
+
