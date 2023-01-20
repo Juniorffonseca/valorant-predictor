@@ -145,3 +145,7 @@ m = m + 10
 i = i + 1
 }
 
+rm(historico, i, m, n)
+
+# preciso criar uma iteração que irá checar o nome dos jogadores e todas as partidas que eles jogaram e armazenar todas essas estatisticas
+
