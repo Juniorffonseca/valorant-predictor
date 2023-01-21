@@ -56,14 +56,16 @@ f <- 1
 a <- list()
 
 for (i in paginas){
-  a[[length(a)+1]] = funcaoPagina(paginas[f])
+  a[length(a)+1] = funcaoPagina(paginas[f])
   f = f + 1
   
 }
 
 a <- unlist(a)
 
-write.csv2(a, 'csv/a.csv')
+#write.csv2(a, 'csv/a.csv')
+
+a <- read.csv2('csv/a.csv') %>% dplyr::select(-X)
 
 catalogarporUrl <- function (string){
   tryCatch(
@@ -118,16 +120,22 @@ m <- 1
 
 dff <- list()
 
-for (i in a){
+for (i in a[,]){
   tryCatch({
-    dff[[length(dff)+1]] <- catalogarporUrl(a[m])
+    dff[[length(dff)+1]] <- catalogarporUrl(a[m,])
     m = m + 1
   }, error = function(e){cat('error:', conditionMessage(e), '\n')})
 }
 
-dff <- dff %>% map_df(as_tibble)
+historico_sem_formatar <- read.csv2('csv/historico_sem_formatar.csv') %>% dplyr::select(-X)
 
-dff <- na.omit(dff)
+dff <- historico_sem_formatar %>% map_df(as_tibble)
+
+dff <- t(historico_sem_formatar)
+
+dff2 <- dff %>% map_df(as_tibble)
+
+#dff <- na.omit(dff)
 
 write.csv2(dff, 'csv/historico.csv')
 
@@ -147,7 +155,7 @@ i = i + 1
 
 rm(historico, i, m, n)
 
-# preciso criar uma iteração que irá checar o nome dos jogadores e todas as partidas que eles jogaram e armazenar todas essas estatisticas
+# preciso colocar de volta valores NA
 
 i <- 1
 m <- 1
@@ -155,17 +163,11 @@ n <- 1
 testando <- list()
 
 while(i < length(partidas)){
-  testando[[length(testando)+1]] <- partidas[partidas[[m]]$Player[n] == jogador]
+  if(partidas[[m]]$Player[n] == jogador)
+  testando[[length(testando)+1]] <- partidas[[m]][n,]
+  if(n == 10){n = 0}
   m = m + 1
   n = n + 1
 }
 
-# buscaJogador <- function(jogador){
-#   while(i < length(partidas)){
-#   testando <- partidas[partidas[[m]]$Player[n] == jogador]
-#   m = m + 1
-#   n = n + 1
-#   }
-#   }
-# buscaJogador('grubinho')
-
+ 
