@@ -169,7 +169,7 @@ while(i < length(partidas)){
   n = n + 1
 }
 
-
+# Criando função sem o placar para tentar evitar perca de dados
 catalogarporUrl_sem_placar <- function (string){
   tryCatch(
     
@@ -196,8 +196,6 @@ catalogarporUrl_sem_placar <- function (string){
       info$ADR <- substr(info$ADR, 1, 3)
       
       info <- separate(info, 'jogador', into = c("Player", "Team"), sep = "\\s+", extra = "merge")
-      
-      info <- cbind(info, ganhador)
       
       return(info)
     }
