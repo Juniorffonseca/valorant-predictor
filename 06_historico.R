@@ -1,3 +1,4 @@
+# Script para tentar pegar todas as partidas do cenário de valorant que já tiveram até agora!
 # Carregando pacotes --------------------------------------------------------------------------------------
 library(rvest)
 library(quantmod)
