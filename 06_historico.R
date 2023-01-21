@@ -153,9 +153,6 @@ i = i + 1
 }
 
 rm(historico, i, m, n)
-
-# preciso colocar de volta valores NA
-
 i <- 1
 m <- 1
 n <- 1
