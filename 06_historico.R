@@ -168,4 +168,40 @@ while(i < length(partidas)){
   n = n + 1
 }
 
+
+catalogarporUrl_sem_placar <- function (string){
+  tryCatch(
+    
+    {
+      info <- read_html(string) %>% 
+        html_nodes("table") %>% 
+        html_table()
+      
+      info <- rbind(info[[3]], info[[4]])
+      
+      colnames(info) <- c('jogador', 'time', 'R', 'ACS', 'K', 'D', 'A', '+/-', 'KAST', 'ADR', 'HS%', 'FK', 'FD', 'z')
+      
+      info <- select(info, 'jogador', 'R', 'ACS', 'K', 'D', 'A', 'KAST', 'ADR')
+      
+      info$R <- substr(info$R, 1, 4)
+      info$ACS <- substr(info$ACS, 1, 3)
+      info$K <- substr(info$K, 1, 2)
+      info$D <- str_replace_all(info$D, '\t', '') %>% 
+        str_replace_all('\n', ' ') %>% 
+        str_replace_all('/  ', '')
+      info$D <- substr(info$D, 1, 2)
+      info$A <- substr(info$A, 1, 2)
+      info$KAST <- substr(info$KAST, 1, 3)
+      info$ADR <- substr(info$ADR, 1, 3)
+      
+      info <- separate(info, 'jogador', into = c("Player", "Team"), sep = "\\s+", extra = "merge")
+      
+      info <- cbind(info, ganhador)
+      
+      return(info)
+    }
+    , error = function(e){cat('error:', conditionMessage(e), '\n')})
+  
+}
+
  
