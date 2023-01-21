@@ -10,8 +10,6 @@ library(neuralnet)
 library(readr)
 library(purrr)
 
-dados_gerais <- read.csv2("csv/jogadores.csv")
-
 # Criando variável páginas e criando variável 'p' que será a parte final do url (o número da página) -------
 paginas <- 'https://www.vlr.gg/matches/results'
 p <- 1
