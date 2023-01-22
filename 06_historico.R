@@ -144,7 +144,37 @@ while (z < count(historico)) {
   z = z + 10
 }
 
-testeF <- function(partida){
-  
-}
+partida <- 2
 
+testes <- list()
+
+testeF <- function(partida){
+  time1Players <- matriz_hist[[partida]]$Player[1:5]
+  time2Players <- matriz_hist[[partida]]$Player[6:10]
+  time1Id <- matriz_hist[[partida]]$id[1:5]
+  time2Id <- matriz_hist[[partida]]$id[6:10]
+  time1 <- filter(historico, historico$Player==time1Players & historico$id > time1Id)
+  time2 <- filter(historico, historico$Player==time2Players & historico$id > time2Id)
+  time1R <- mean(as.numeric(time1$R))
+  time2R <- mean(as.numeric(time2$R))
+  time1ACS <- mean(time1$ACS)
+  time2ACS <- mean(time2$ACS)
+  time1KAST <- ifelse(is.character(time1$KAST), mean(parse_number(time1$KAST)), mean(time1$KAST))
+  time2KAST <- ifelse(is.character(time2$KAST), mean(parse_number(time2$KAST)), mean(time2$KAST))
+  time1KD <- mean(time1$K/time1$D)
+  time2KD <- mean(time2$K/time2$D)
+  time1ADR <- mean(time1$ADR)
+  time2ADR <- mean(time2$ADR)
+  ganhador <- ifelse(matriz_hist[[partida]]$ganhador[1] == 1, 1, 0)
+  df <- cbind(time1R, time2R, time1ACS, time2ACS, time1KAST, time2KAST, time1KD, time2KD,
+              time1ADR, time2ADR, ganhador)
+  testes[[length(testes)+1]] <<- df
+  return(testes)
+  }
+
+n <- 1
+
+while(n < 11768){
+  testeF(n)
+  n = n + 1
+}
