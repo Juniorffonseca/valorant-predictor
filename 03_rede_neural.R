@@ -39,14 +39,14 @@ test_data$ganhador <- as.factor(test_data$ganhador)
 n <- neuralnet(ganhador == 1 ~ time1R + time2R + time1ACS + time2ACS + time1KAST + time2KAST + time1KD + time2KD +
                  time1ADR + time2ADR,
                data = training_data,
-               hidden = c(10,10,10),
+               hidden = c(70,70),
                err.fct = "sse",
                linear.output = F,
-               threshold = 0.5,
+               threshold = 2,
                lifesign = 'minimal',
                rep = 1,
                algorithm = 'rprop-',
-               stepmax = 10000)
+               stepmax = 1000)
 
 # Prediction ---------------------------------------------------------------------------------------------
 Predict = compute(n, test_data)
@@ -79,10 +79,10 @@ acharseed <- function(seed){
   n <- neuralnet(ganhador == 1 ~ time1R + time2R + time1ACS + time2ACS + time1KAST + time2KAST + time1KD + time2KD +
                    time1ADR + time2ADR,
                  data = training_data,
-                 hidden = c(50,50),
+                 hidden = c(60,60),
                  err.fct = "sse",
                  linear.output = F,
-                 threshold = 1,
+                 threshold = 2,
                  lifesign = 'minimal',
                  rep = 1,
                  algorithm = 'rprop-',
@@ -133,11 +133,11 @@ acharnn <- function(){
                  hidden = c(50,50),
                  err.fct = "sse",
                  linear.output = F,
-                 threshold = 1,
+                 threshold = 2,
                  lifesign = 'minimal',
                  rep = 1,
                  algorithm = 'rprop-',
-                 stepmax = 10000)
+                 stepmax = 100)
   
   Predict = compute(n, test_data)
   
@@ -151,7 +151,7 @@ acharnn <- function(){
 }
 
 
-while ( i < 0.65) {
+while ( i < 0.647) {
   acharnn()
 }
 

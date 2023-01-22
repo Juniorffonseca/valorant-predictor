@@ -265,10 +265,33 @@ ggplot(data = previsao, mapping = aes(x = previsao1, y = previsao2, colour = gan
 
 resultado_previsto <- ifelse(previsao$previsao1>previsao$previsao2, 1, 0)
 
-resultadovspredict <- cbind(resultado_previsto, ganhadores)
+resultadovspredict <- cbind(partidas, resultado_previsto, ganhadores)
 
 i <- sum(resultadovspredict$ganhador == resultadovspredict$resultado_previsto)/nrow(resultadovspredict)
 
 y <- round(i, 2)
 
 # Acurácia total em 10284 partidas de 60%
+
+
+# Preciso fazer um gráfico de estatisticas em função de vitória, ou seja, quais estatisticas tiveram mais impacto em vitorias
+
+ggplot(data = resultadovspredict, mapping = aes(x = , y = previsao2, colour = ganhador)) +
+  geom_tile(aes(fill = ganhador)) +
+  geom_point() +
+  theme_bw()
+
+
+
+R <- ifelse(resultadovspredict$time1R > resultadovspredict$time2R, 1, 0)
+ACS <- ifelse(resultadovspredict$time1ACS > resultadovspredict$time2ACS, 1, 0)
+KAST <- ifelse(resultadovspredict$time1KAST > resultadovspredict$time2KAST, 1, 0)
+KD <- ifelse(resultadovspredict$time1KD > resultadovspredict$time2KD, 1 , 0)
+ADR <- ifelse(resultadovspredict$time1ADR > resultadovspredict$time2ADR, 1 , 0)
+acertos_erros <- paste(resultadovspredict$resultado_previsto, resultadovspredict$ganhador)
+
+grafico_data <- as.data.frame(cbind(R, ACS, KAST, KD, ADR, acertos_erros))
+
+ggplot(grafico_data, aes(x = (R == 1 & acertos_erros == '1 1'))) +
+  geom_bar(fill = "green")
+
