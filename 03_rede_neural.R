@@ -99,13 +99,14 @@ acharseed <- function(seed){
 
 s <- 1
 
-while ( i < 0.65) {
+while ( i < 0.67) {
   acharseed(s)
   s <- s + 1
 }
 
 # Atualizando a seed para achar a melhor neuralnetwork -----------------------------------------------------
-set.seed(4264)
+#set.seed(4264)
+set.seed(17)
 inp <- sample(2, nrow(jogos), replace = TRUE, prob = c(0.7, 0.3))
 training_data <- jogos[inp==1, ]
 test_data <- jogos[inp==2, ]
@@ -129,10 +130,10 @@ acharnn <- function(){
   n <- neuralnet(ganhador == 1 ~ time1R + time2R + time1ACS + time2ACS + time1KAST + time2KAST + time1KD + time2KD +
                    time1ADR + time2ADR,
                  data = training_data,
-                 hidden = c(10,10,10),
+                 hidden = c(50,50),
                  err.fct = "sse",
                  linear.output = F,
-                 threshold = 0.3,
+                 threshold = 1,
                  lifesign = 'minimal',
                  rep = 1,
                  algorithm = 'rprop-',
@@ -150,7 +151,7 @@ acharnn <- function(){
 }
 
 
-while ( i < 0.82) {
+while ( i < 0.65) {
   acharnn()
 }
 

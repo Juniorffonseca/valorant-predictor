@@ -188,3 +188,87 @@ totalidade_jogos <- read.csv2('csv/totalidade_jogos.csv') %>% dplyr::select(-X)
 totalidade_jogos_sem_na <- totalidade_jogos[is.finite(rowSums(totalidade_jogos)),]
 
 write.csv2(totalidade_jogos_sem_na, 'csv/totalidade_jogos_sem_na.csv')
+
+
+# Testando acurácia 
+
+load(file = "model_nnet.rda")
+
+jogos <- read.csv2('csv/partidas.csv') %>% dplyr::select(-X, -ganhador)
+
+outras_partidas <- read.csv2('csv/totalidade_jogos_sem_na.csv') %>% dplyr::select(-X, -ganhador)
+
+jogos_scale <- rbind(jogos, outras_partidas)
+
+jogos_scale <- scale(jogos_scale)
+
+partidas <- jogos_scale[-1:-813,]
+
+partidas <- as.data.frame(partidas)
+
+previsao <- compute(n, partidas)
+
+previsao <- previsao$net.result
+
+partidas_reversas <- partidas
+
+partidas_reversas$time1R <- partidas$time2R
+partidas_reversas$time2R <- partidas$time1R
+partidas_reversas$time1ACS <- partidas$time2ACS
+partidas_reversas$time2ACS <- partidas$time1ACS
+partidas_reversas$time1KAST <- partidas$time2KAST
+partidas_reversas$time2KAST <- partidas$time1KAST
+partidas_reversas$time1KD <- partidas$time2KD
+partidas_reversas$time2KD <- partidas$time1KD
+partidas_reversas$time1ADR <- partidas$time2ADR
+partidas_reversas$time2ADR <- partidas$time1ADR
+
+previsao2 <- compute(n, partidas_reversas)
+
+previsao2 <- previsao2$net.result
+
+previsoes <- cbind(previsao, previsao2)
+
+transforma_positivo <- function (x){
+  y = atan(x*10) + pi/2
+  return (y)
+}
+
+transforma_probabilidade <- function (y, x){
+  z = y / (y + x)
+  w = x / (x + y)
+  c = as.matrix(c(z,w))
+  return(c)
+}
+
+a <- transforma_positivo(previsao)
+b <- transforma_positivo(previsao2)
+previsao <- transforma_probabilidade(a,b)
+previsao <- previsao * 100
+previsao2 <- previsao[(length(previsao)/2+1):length(previsao)]
+previsao <- previsao[1:(length(previsao)/2)]
+previsao <- cbind(previsao, previsao2)
+
+ganhadores <- read.csv2('csv/totalidade_jogos_sem_na.csv') %>% dplyr::select(ganhador)
+
+previsao <- cbind(previsao, ganhadores)
+colnames(previsao) <- c('previsao1', 'previsao2', 'ganhador')
+
+previsao <- previsao %>% 
+  mutate(ganhador = as.factor(ganhador))
+
+# Plot
+ggplot(data = previsao, mapping = aes(x = previsao1, y = previsao2, colour = ganhador)) +
+  geom_tile(aes(fill = ganhador)) +
+  geom_point() +
+  theme_bw()
+
+resultado_previsto <- ifelse(previsao$previsao1>previsao$previsao2, 1, 0)
+
+resultadovspredict <- cbind(resultado_previsto, ganhadores)
+
+i <- sum(resultadovspredict$ganhador == resultadovspredict$resultado_previsto)/nrow(resultadovspredict)
+
+y <- round(i, 2)
+
+# Acurácia total em 10284 partidas de 60%
