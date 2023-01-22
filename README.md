@@ -1,6 +1,7 @@
 ##### Português (BR):
 # Valorant
 ![image](https://user-images.githubusercontent.com/94936578/213898485-596e55b1-2a8b-4b8f-ba7d-854e92ff9dfd.png)
+
 Usando Aprendizado de Máquina para prever resultados de partidas do cenário competitivo de Valorant.
 
 ## 01_jogadores.R
