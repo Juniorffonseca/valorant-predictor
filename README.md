@@ -1,8 +1,8 @@
 ##### Português (BR):
 # Valorant
-![image](https://user-images.githubusercontent.com/94936578/213898485-596e55b1-2a8b-4b8f-ba7d-854e92ff9dfd.png)
-
 Usando Aprendizado de Máquina para prever resultados de partidas do cenário competitivo de Valorant.
+
+![image](https://user-images.githubusercontent.com/94936578/213898485-596e55b1-2a8b-4b8f-ba7d-854e92ff9dfd.png)
 
 ## 01_jogadores.R
 Esse script contém todos os códigos utilizados para coletar os dados dos jogadores no site *vlr.gg*, contém ainda, códigos que limpam esses dados, organizam e filtram conforme a necessidade do projeto. Deixando apenas jogadores com times, tirando jogadores que não tenham um número minimo específico de rounds 
@@ -42,9 +42,9 @@ Link do app:
 ##### English:
 
 # Valorant
-![image](https://user-images.githubusercontent.com/94936578/213898486-a802af6e-8056-41ea-acb9-4a9a24a58e15.png)
-
 Using Machine Learning to predict match results from the competitive Valorant scene.
+
+![image](https://user-images.githubusercontent.com/94936578/213898486-a802af6e-8056-41ea-acb9-4a9a24a58e15.png)
 
 ## 01_players.R
 This script contains all the codes used to collect player data on the vlr.gg website, it also contains codes that clean this data, organize and filter it as needed by the project. Leaving only players with teams, removing players who don't have a specific minimum number of rounds
