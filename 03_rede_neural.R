@@ -42,7 +42,7 @@ n <- neuralnet(ganhador == 1 ~ time1R + time2R + time1ACS + time2ACS + time1KAST
                hidden = c(10,10,10),
                err.fct = "sse",
                linear.output = F,
-               threshold = 0.3,
+               threshold = 0.5,
                lifesign = 'minimal',
                rep = 1,
                algorithm = 'rprop-',
@@ -79,10 +79,10 @@ acharseed <- function(seed){
   n <- neuralnet(ganhador == 1 ~ time1R + time2R + time1ACS + time2ACS + time1KAST + time2KAST + time1KD + time2KD +
                    time1ADR + time2ADR,
                  data = training_data,
-                 hidden = c(10,10,10),
+                 hidden = c(16,16),
                  err.fct = "sse",
                  linear.output = F,
-                 threshold = 0.3,
+                 threshold = 0.5,
                  lifesign = 'minimal',
                  rep = 1,
                  algorithm = 'rprop-',
@@ -99,7 +99,7 @@ acharseed <- function(seed){
 
 s <- 1
 
-while ( i < 0.77) {
+while ( i < 0.65) {
   acharseed(s)
   s <- s + 1
 }
