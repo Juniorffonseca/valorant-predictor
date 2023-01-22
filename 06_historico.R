@@ -214,5 +214,22 @@ for (i in a[,]){
   }, error = function(e){cat('error:', conditionMessage(e), '\n')})
 }
 
-write.csv2(dff, 'csv/historico_a.csv')
+write.csv2(dff4, 'csv/historico_a.csv')
 
+write.csv2(dff3, 'csv/historico_b.csv')
+
+x <- 1:181966
+
+dff3 <- cbind(dff2, x)
+
+aspas <- filter(dff3, dff3$Player == 'aspas')
+
+dff4 <- list()
+
+
+z <- 1
+
+while (z < count(dff3)) {
+  dff4[[length(dff4)+1]] <- dff3[z:(z+9),]
+  z = z + 10
+}
