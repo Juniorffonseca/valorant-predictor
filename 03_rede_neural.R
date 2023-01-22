@@ -79,10 +79,10 @@ acharseed <- function(seed){
   n <- neuralnet(ganhador == 1 ~ time1R + time2R + time1ACS + time2ACS + time1KAST + time2KAST + time1KD + time2KD +
                    time1ADR + time2ADR,
                  data = training_data,
-                 hidden = c(23,23),
+                 hidden = c(40,40),
                  err.fct = "sse",
                  linear.output = F,
-                 threshold = 0.5,
+                 threshold = 1,
                  lifesign = 'minimal',
                  rep = 1,
                  algorithm = 'rprop-',
