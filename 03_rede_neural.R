@@ -12,6 +12,7 @@ library(ggplot2)
 
 # Carregando o dataframe -----------------------------------------------------------------------------------
 jogos <- read.csv2('csv/partidas.csv') %>% dplyr::select(-X)
+jogos <- read.csv2('csv/totalidade_jogos_sem_na.csv') %>% dplyr::select(-X)
 
 # Criando dataframes de teste e validação -----------------------------------------------------------------
 set.seed(6)

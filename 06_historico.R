@@ -178,3 +178,13 @@ while(n < 11768){
   testeF(n)
   n = n + 1
 }
+
+totalidade_jogos <- totalidade_jogos %>% map_df(as_tibble)
+
+write.csv2(totalidade_jogos, 'csv/totalidade_jogos.csv')
+
+totalidade_jogos <- read.csv2('csv/totalidade_jogos.csv') %>% dplyr::select(-X)
+
+totalidade_jogos_sem_na <- totalidade_jogos[is.finite(rowSums(totalidade_jogos)),]
+
+write.csv2(totalidade_jogos_sem_na, 'csv/totalidade_jogos_sem_na.csv')
