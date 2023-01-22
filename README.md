@@ -1,5 +1,6 @@
 ##### Português (BR):
 # Valorant
+![image](https://user-images.githubusercontent.com/94936578/213898485-596e55b1-2a8b-4b8f-ba7d-854e92ff9dfd.png)
 Usando Aprendizado de Máquina para prever resultados de partidas do cenário competitivo de Valorant.
 
 ## 01_jogadores.R
@@ -40,6 +41,8 @@ Link do app:
 ##### English:
 
 # Valorant
+![image](https://user-images.githubusercontent.com/94936578/213898486-a802af6e-8056-41ea-acb9-4a9a24a58e15.png)
+
 Using Machine Learning to predict match results from the competitive Valorant scene.
 
 ## 01_players.R
