@@ -1,4 +1,3 @@
-# Script para tentar pegar todas as partidas do cenário de valorant que já tiveram até agora!
 # Carregando pacotes --------------------------------------------------------------------------------------
 library(rvest)
 library(quantmod)
@@ -38,7 +37,7 @@ funcaoPagina <- function(pagina){
     html_nodes('a') %>% html_attr('href')
   
   matchs <- matchs[15:64]
-
+  
   n <- 1
   
   for (i in matchs){
@@ -62,120 +61,28 @@ for (i in paginas){
 
 a <- unlist(a)
 
-#write.csv2(a, 'csv/a.csv')
-
-# a <- read.csv2('csv/a.csv') %>% dplyr::select(-X)
-# 
-# catalogarporUrl <- function (string){
-#   tryCatch(
-#     
-#     {
-#       info <- read_html(string) %>% 
-#         html_nodes("table") %>% 
-#         html_table()
-#       
-#       placar <- read_html(string) %>% 
-#         html_nodes("div.js-spoiler") %>% html_text(trim=T)
-#       
-#       placar <- str_replace_all(placar, '\t', '') %>% str_replace_all('\n', '')
-#       
-#       placar <- as.data.frame(placar[1])
-#       
-#       placar <- separate(placar, 'placar[1]', into = c('Time1', 'Time2'), sep = ':', extra = 'merge')
-#       
-#       ifelse(placar$Time1 > placar$Time2, ganhador <- c(1,1,1,1,1,0,0,0,0,0), ganhador <- c(0,0,0,0,0,1,1,1,1,1))
-#       
-#       info <- rbind(info[[3]], info[[4]])
-#       
-#       colnames(info) <- c('jogador', 'time', 'R', 'ACS', 'K', 'D', 'A', '+/-', 'KAST', 'ADR', 'HS%', 'FK', 'FD', 'z')
-#       
-#       info <- select(info, 'jogador', 'R', 'ACS', 'K', 'D', 'A', 'KAST', 'ADR')
-#       
-#       info$R <- substr(info$R, 1, 4)
-#       info$ACS <- substr(info$ACS, 1, 3)
-#       info$K <- substr(info$K, 1, 2)
-#       info$D <- str_replace_all(info$D, '\t', '') %>% 
-#         str_replace_all('\n', ' ') %>% 
-#         str_replace_all('/  ', '')
-#       info$D <- substr(info$D, 1, 2)
-#       info$A <- substr(info$A, 1, 2)
-#       info$KAST <- substr(info$KAST, 1, 3)
-#       info$ADR <- substr(info$ADR, 1, 3)
-#       
-#       info <- separate(info, 'jogador', into = c("Player", "Team"), sep = "\\s+", extra = "merge")
-#       
-#       info <- cbind(info, ganhador)
-#       
-#         return(info)
-#     }
-#     , error = function(e){cat('error:', conditionMessage(e), '\n')})
-#   
-# }
-# 
-# 
-# rm (c, f, i, p, matchs, paginas)
-# 
-# m <- 1
-# 
-# dff <- list()
-# 
-# for (i in a[,]){
-#   tryCatch({
-#     dff[[length(dff)+1]] <- catalogarporUrl(a[m,])
-#     m = m + 1
-#   }, error = function(e){cat('error:', conditionMessage(e), '\n')})
-# }
-# 
-# historico_sem_formatar <- read.csv2('csv/historico_sem_formatar.csv') %>% dplyr::select(-X)
-# 
-# dff <- historico_sem_formatar %>% map_df(as_tibble)
-# 
-# dff <- t(historico_sem_formatar)
-# 
-# dff2 <- dff %>% map_df(as_tibble)
-
-#dff <- na.omit(dff)
-
-# write.csv2(dff, 'csv/historico.csv')
-# 
-# historico <- read.csv2('csv/historico.csv') %>% dplyr::select(-X)
-# 
-# i <- 1
-# n <- 1
-# m <- 10
-# partidas <- list()
-# 
-# while(i < (count(historico) / 10) + 1){
-# partidas[[length(partidas)+1]] <- historico[n: m,]
-# n = n + 10
-# m = m + 10
-# i = i + 1
-# }
-# 
-# rm(historico, i, m, n)
-# i <- 1
-# m <- 1
-# n <- 1
-# testando <- list()
-# 
-# while(i < length(partidas)){
-#   if(partidas[[m]]$Player[n] == jogador)
-#   testando[[length(testando)+1]] <- partidas[[m]][n,]
-#   if(n == 10){n = 0}
-#   m = m + 1
-#   n = n + 1
-# }
+write.csv2(a, 'csv/a.csv')
 
 a <- read.csv2('csv/a.csv') %>% dplyr::select(-X)
 
-# Criando função sem o placar para tentar evitar perca de dados
-catalogarporUrl_sem_placar <- function (string){
+catalogarporUrl <- function (string){
   tryCatch(
     
     {
-      info <- read_html(string) %>% 
-        html_nodes("table") %>% 
+      info <- read_html(string) %>%
+        html_nodes("table") %>%
         html_table()
+      
+      placar <- read_html(string) %>%
+        html_nodes("div.js-spoiler") %>% html_text(trim=T)
+      
+      placar <- str_replace_all(placar, '\t', '') %>% str_replace_all('\n', '')
+      
+      placar <- as.data.frame(placar[1])
+      
+      placar <- separate(placar, 'placar[1]', into = c('Time1', 'Time2'), sep = ':', extra = 'merge')
+      
+      ifelse(placar$Time1 > placar$Time2, ganhador <- c(1,1,1,1,1,0,0,0,0,0), ganhador <- c(0,0,0,0,0,1,1,1,1,1))
       
       info <- rbind(info[[3]], info[[4]])
       
@@ -186,8 +93,8 @@ catalogarporUrl_sem_placar <- function (string){
       info$R <- substr(info$R, 1, 4)
       info$ACS <- substr(info$ACS, 1, 3)
       info$K <- substr(info$K, 1, 2)
-      info$D <- str_replace_all(info$D, '\t', '') %>% 
-        str_replace_all('\n', ' ') %>% 
+      info$D <- str_replace_all(info$D, '\t', '') %>%
+        str_replace_all('\n', ' ') %>%
         str_replace_all('/  ', '')
       info$D <- substr(info$D, 1, 2)
       info$A <- substr(info$A, 1, 2)
@@ -196,6 +103,8 @@ catalogarporUrl_sem_placar <- function (string){
       
       info <- separate(info, 'jogador', into = c("Player", "Team"), sep = "\\s+", extra = "merge")
       
+      info <- cbind(info, ganhador)
+      
       return(info)
     }
     , error = function(e){cat('error:', conditionMessage(e), '\n')})
@@ -203,33 +112,39 @@ catalogarporUrl_sem_placar <- function (string){
 }
 
 
+rm (c, f, i, p, matchs, paginas)
+
 m <- 1
 
 dff <- list()
 
 for (i in a[,]){
   tryCatch({
-    dff[[length(dff)+1]] <- catalogarporUrl_sem_placar(a[m,])
+    dff[[length(dff)+1]] <- catalogarporUrl(a[m,])
     m = m + 1
   }, error = function(e){cat('error:', conditionMessage(e), '\n')})
 }
 
-write.csv2(dff4, 'csv/historico_a.csv')
+dff <- dff %>% map_df(as_tibble)
 
-write.csv2(dff3, 'csv/historico_b.csv')
+write.csv2(dff, 'csv/historico.csv')
 
-x <- 1:181966
+historico <- read.csv2('csv/historico.csv') %>% dplyr::select(-X)
 
-dff3 <- cbind(dff2, x)
+id <- 1:117670
 
-aspas <- filter(dff3, dff3$Player == 'aspas')
+historico <- cbind(historico, id)
 
-dff4 <- list()
-
+matriz_hist <- list()
 
 z <- 1
 
-while (z < count(dff3)) {
-  dff4[[length(dff4)+1]] <- dff3[z:(z+9),]
+while (z < count(historico)) {
+  matriz_hist[[length(matriz_hist)+1]] <- historico[z:(z+9),]
   z = z + 10
 }
+
+testeF <- function(partida){
+  
+}
+
