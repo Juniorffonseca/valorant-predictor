@@ -295,7 +295,7 @@ acertos_erros <- paste(resultadovspredict$resultado_previsto, resultadovspredict
 grafico_data <- as.data.frame(cbind(R, ACS, KAST, KD, ADR, acertos_erros))
 
 # Plot R
-ggplot(grafico_data, aes(y = R, x = acertos_erros)) +
+ggplot(grafico_data, aes(y = R, x = acertos_erros, fill = acertos_erros)) +
   geom_bar(fill = "green", stat = 'identity')
 
 # Plot ACS
