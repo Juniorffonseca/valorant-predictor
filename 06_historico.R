@@ -9,6 +9,8 @@ library(tidyverse)
 library(neuralnet)
 library(readr)
 library(purrr)
+library(plotly)
+library(ggrepel)
 
 # Criando variável páginas e criando variável 'p' que será a parte final do url (o número da página) -------
 paginas <- 'https://www.vlr.gg/matches/results'
@@ -269,7 +271,7 @@ resultadovspredict <- cbind(partidas, resultado_previsto, ganhadores)
 
 i <- sum(resultadovspredict$ganhador == resultadovspredict$resultado_previsto)/nrow(resultadovspredict)
 
-y <- round(i, 2)
+# y <- round(i, 2)
 
 # Acurácia total em 10284 partidas de 60%
 
@@ -292,6 +294,52 @@ acertos_erros <- paste(resultadovspredict$resultado_previsto, resultadovspredict
 
 grafico_data <- as.data.frame(cbind(R, ACS, KAST, KD, ADR, acertos_erros))
 
-ggplot(grafico_data, aes(x = (R == 1 & acertos_erros == '1 1'))) +
-  geom_bar(fill = "green")
+# Plot R
+ggplot(grafico_data, aes(y = R, x = acertos_erros)) +
+  geom_bar(fill = "green", stat = 'identity')
+
+# Plot ACS
+ggplot(grafico_data, aes(y = ACS, x = acertos_erros)) +
+  geom_bar(fill = "green", stat = 'identity')
+
+# Plot KAST
+ggplot(grafico_data, aes(y = KAST, x = acertos_erros)) +
+  geom_bar(fill = "green", stat = 'identity')
+
+# Plot KD
+ggplot(grafico_data, aes(y = KD, x = acertos_erros)) +
+  geom_bar(fill = "green", stat = 'identity')
+
+# Plot ADR
+ggplot(grafico_data, aes(y = ADR, x = acertos_erros)) +
+  geom_bar(fill = "green", stat = 'identity')
+
+# jogos_time1ganhou <- filter(resultadovspredict, resultadovspredict$ganhador == 1)
+# jogos_time2ganhou <- filter(resultadovspredict, resultadovspredict$ganhador == 0)
+# 
+# R_1 <- ifelse(jogos_time1ganhou$time1R > jogos_time1ganhou$time2R, 1, 0)
+# ACS_1 <- ifelse(jogos_time1ganhou$time1ACS > jogos_time1ganhou$time2ACS, 1, 0)
+# KAST_1 <- ifelse(jogos_time1ganhou$time1KAST > jogos_time1ganhou$time2KAST, 1, 0)
+# KD_1 <- ifelse(jogos_time1ganhou$time1KD > jogos_time1ganhou$time2KD, 1 , 0)
+# ADR_1 <- ifelse(jogos_time1ganhou$time1ADR > jogos_time1ganhou$time2ADR, 1 , 0)
+# previu_time1 <- ifelse(jogos_time1ganhou$resultado_previsto == 1, 1, 0)
+# 
+# grafico_data_1 <- as.data.frame(cbind(R_1, ACS_1, KAST_1, KD_1, ADR_1, previu_time1))
+# 
+# R_2 <- ifelse(jogos_time2ganhou$time2R > jogos_time2ganhou$time2R, 1, 0)
+# ACS_2 <- ifelse(jogos_time2ganhou$time2ACS > jogos_time2ganhou$time2ACS, 1, 0)
+# KAST_2 <- ifelse(jogos_time2ganhou$time2KAST > jogos_time2ganhou$time2KAST, 1, 0)
+# KD_2 <- ifelse(jogos_time2ganhou$time2KD > jogos_time2ganhou$time2KD, 1 , 0)
+# ADR_2 <- ifelse(jogos_time2ganhou$time2ADR > jogos_time2ganhou$time2ADR, 1 , 0)
+# previu_time2 <- ifelse(jogos_time2ganhou$resultado_previsto == 1, 1, 0)
+# 
+# grafico_data_2 <- as.data.frame(cbind(R_2, ACS_2, KAST_2, KD_2, ADR_2, previu_time2))
+# 
+# 
+# 
+# ggplot(grafico_data_1, aes(x = 'R_1', y = previu_time1)) +
+#   geom_bar(fill = "green", stat = 'identity')
+# 
+
+
 
