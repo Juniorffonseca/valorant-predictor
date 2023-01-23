@@ -301,23 +301,43 @@ grafico_data <- as.data.frame(cbind(acertos_erros_R, acertos_erros_ACS, acertos_
 
 # Plot R
 ggplot(grafico_data, aes(x = acertos_erros_R)) +
-  geom_bar(fill = "green")
+  geom_bar(fill = "mediumseagreen") +
+  labs(title = 'Relação de acertos com o Rating do time 1 ser maior',
+       x = 'Acertos e Erros',
+       y = 'Quantidade',
+       caption = 'Partidas analisadas: 10284')
 
 # Plot ACS
 ggplot(grafico_data, aes(x = acertos_erros_ACS)) +
-  geom_bar(fill = "green")
+  geom_bar(fill = "mediumseagreen") +
+  labs(title = 'Relação de acertos com o ACS do time 1 ser maior',
+       x = 'Acertos e Erros',
+       y = 'Quantidade',
+       caption = 'Partidas analisadas: 10284')
 
 # Plot KAST
 ggplot(grafico_data, aes(x = acertos_erros_KAST)) +
-  geom_bar(fill = "green")
+  geom_bar(fill = "mediumseagreen") +
+  labs(title = 'Relação de acertos com o KAST do time 1 ser maior',
+       x = 'Acertos e Erros',
+       y = 'Quantidade',
+       caption = 'Partidas analisadas: 10284')
 
 # Plot KD
 ggplot(grafico_data, aes(x = acertos_erros_KD)) +
-  geom_bar(fill = "green")
+  geom_bar(fill = "mediumseagreen") +
+  labs(title = 'Relação de acertos com o KD do time 1 ser maior',
+       x = 'Acertos e Erros',
+       y = 'Quantidade',
+       caption = 'Partidas analisadas: 10284')
 
 # Plot ADR
 ggplot(grafico_data, aes(x = acertos_erros_ADR)) +
-  geom_bar(fill = "green")
+  geom_bar(fill = "mediumseagreen") +
+  labs(title = 'Relação de acertos com o ADR do time 1 ser maior',
+       x = 'Acertos e Erros',
+       y = 'Quantidade',
+       caption = 'Partidas analisadas: 10284')
 
 # jogos_time1ganhou <- filter(resultadovspredict, resultadovspredict$ganhador == 1)
 # jogos_time2ganhou <- filter(resultadovspredict, resultadovspredict$ganhador == 0)
