@@ -299,13 +299,17 @@ acertos_erros_ADR <- paste(ADR, resultadovspredict$resultado_previsto, resultado
 grafico_data <- as.data.frame(cbind(acertos_erros_R, acertos_erros_ACS, acertos_erros_KAST, acertos_erros_KD,
                                     acertos_erros_ADRs))
 
+
 # Plot R
-ggplot(grafico_data, aes(x = acertos_erros_R)) +
-  geom_bar(fill = "mediumseagreen") +
+ggplot(grafico_data, aes(y = acertos_erros_R)) +
+  geom_bar(color = 'black',fill = "mediumseagreen") +
+  geom_label(aes(y = acertos_erros_R, label = ..count..),
+             stat = 'count', hjust = 1.3) +
   labs(title = 'Relação de acertos com o Rating do time 1 ser maior',
-       x = 'Acertos e Erros',
-       y = 'Quantidade',
-       caption = 'Partidas analisadas: 10284')
+       y = 'Tipos de cenário',
+       x = 'Quantidade de ocorrências',
+       caption = 'Partidas analisadas: 10284') +
+  theme_light() 
 
 # Plot ACS
 ggplot(grafico_data, aes(x = acertos_erros_ACS)) +
@@ -338,33 +342,6 @@ ggplot(grafico_data, aes(x = acertos_erros_ADR)) +
        x = 'Acertos e Erros',
        y = 'Quantidade',
        caption = 'Partidas analisadas: 10284')
-
-# jogos_time1ganhou <- filter(resultadovspredict, resultadovspredict$ganhador == 1)
-# jogos_time2ganhou <- filter(resultadovspredict, resultadovspredict$ganhador == 0)
-# 
-# R_1 <- ifelse(jogos_time1ganhou$time1R > jogos_time1ganhou$time2R, 1, 0)
-# ACS_1 <- ifelse(jogos_time1ganhou$time1ACS > jogos_time1ganhou$time2ACS, 1, 0)
-# KAST_1 <- ifelse(jogos_time1ganhou$time1KAST > jogos_time1ganhou$time2KAST, 1, 0)
-# KD_1 <- ifelse(jogos_time1ganhou$time1KD > jogos_time1ganhou$time2KD, 1 , 0)
-# ADR_1 <- ifelse(jogos_time1ganhou$time1ADR > jogos_time1ganhou$time2ADR, 1 , 0)
-# previu_time1 <- ifelse(jogos_time1ganhou$resultado_previsto == 1, 1, 0)
-# 
-# grafico_data_1 <- as.data.frame(cbind(R_1, ACS_1, KAST_1, KD_1, ADR_1, previu_time1))
-# 
-# R_2 <- ifelse(jogos_time2ganhou$time2R > jogos_time2ganhou$time2R, 1, 0)
-# ACS_2 <- ifelse(jogos_time2ganhou$time2ACS > jogos_time2ganhou$time2ACS, 1, 0)
-# KAST_2 <- ifelse(jogos_time2ganhou$time2KAST > jogos_time2ganhou$time2KAST, 1, 0)
-# KD_2 <- ifelse(jogos_time2ganhou$time2KD > jogos_time2ganhou$time2KD, 1 , 0)
-# ADR_2 <- ifelse(jogos_time2ganhou$time2ADR > jogos_time2ganhou$time2ADR, 1 , 0)
-# previu_time2 <- ifelse(jogos_time2ganhou$resultado_previsto == 1, 1, 0)
-# 
-# grafico_data_2 <- as.data.frame(cbind(R_2, ACS_2, KAST_2, KD_2, ADR_2, previu_time2))
-# 
-# 
-# 
-# ggplot(grafico_data_1, aes(x = 'R_1', y = previu_time1)) +
-#   geom_bar(fill = "green", stat = 'identity')
-# 
 
 
 
