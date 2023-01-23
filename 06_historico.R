@@ -290,29 +290,34 @@ ACS <- ifelse(resultadovspredict$time1ACS > resultadovspredict$time2ACS, 1, 0)
 KAST <- ifelse(resultadovspredict$time1KAST > resultadovspredict$time2KAST, 1, 0)
 KD <- ifelse(resultadovspredict$time1KD > resultadovspredict$time2KD, 1 , 0)
 ADR <- ifelse(resultadovspredict$time1ADR > resultadovspredict$time2ADR, 1 , 0)
-acertos_erros <- paste(resultadovspredict$resultado_previsto, resultadovspredict$ganhador)
+acertos_erros_R <- paste(R, resultadovspredict$resultado_previsto, resultadovspredict$ganhador)
+acertos_erros_ACS <- paste(ACS, resultadovspredict$resultado_previsto, resultadovspredict$ganhador)
+acertos_erros_KAST <- paste(KAST, resultadovspredict$resultado_previsto, resultadovspredict$ganhador)
+acertos_erros_KD <- paste(KD, resultadovspredict$resultado_previsto, resultadovspredict$ganhador)
+acertos_erros_ADR <- paste(ADR, resultadovspredict$resultado_previsto, resultadovspredict$ganhador)
 
-grafico_data <- as.data.frame(cbind(R, ACS, KAST, KD, ADR, acertos_erros))
+grafico_data <- as.data.frame(cbind(acertos_erros_R, acertos_erros_ACS, acertos_erros_KAST, acertos_erros_KD,
+                                    acertos_erros_ADRs))
 
 # Plot R
-ggplot(grafico_data, aes(y = (R == 1), x = acertos_erros)) +
-  geom_bar(fill = "green", stat = 'identity')
+ggplot(grafico_data, aes(x = acertos_erros_R)) +
+  geom_bar(fill = "green")
 
 # Plot ACS
-ggplot(grafico_data, aes(y = (ACS == 1), x = acertos_erros)) +
-  geom_bar(fill = "green", stat = 'identity')
+ggplot(grafico_data, aes(x = acertos_erros_ACS)) +
+  geom_bar(fill = "green")
 
 # Plot KAST
-ggplot(grafico_data, aes(y = (KAST == 1), x = acertos_erros)) +
-  geom_bar(fill = "green", stat = 'identity')
+ggplot(grafico_data, aes(x = acertos_erros_KAST)) +
+  geom_bar(fill = "green")
 
 # Plot KD
-ggplot(grafico_data, aes(y = (KD == 1), x = acertos_erros)) +
-  geom_bar(fill = "green", stat = 'identity')
+ggplot(grafico_data, aes(x = acertos_erros_KD)) +
+  geom_bar(fill = "green")
 
 # Plot ADR
-ggplot(grafico_data, aes(y = (ADR == 1), x = acertos_erros)) +
-  geom_bar(fill = "green", stat = 'identity')
+ggplot(grafico_data, aes(x = acertos_erros_ADR)) +
+  geom_bar(fill = "green")
 
 # jogos_time1ganhou <- filter(resultadovspredict, resultadovspredict$ganhador == 1)
 # jogos_time2ganhou <- filter(resultadovspredict, resultadovspredict$ganhador == 0)
