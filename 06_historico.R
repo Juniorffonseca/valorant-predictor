@@ -304,11 +304,29 @@ grafico_data$acertos_erros_R <- factor(grafico_data$acertos_erros_R,
                                                   '0 1 0', '1 0 0'))
                                        # labels = c('Acertou', 'Acertou', 'Errou', 'Errou', 'Errou', 'Acertou',
                                        #            'Errou', 'Acertou'))
-grafico_data$acertos_erros_R <- fct_rev(grafico_data$acertos_erros_R)
+
 
 grafico_data$acertos_erros_ACS <- factor(grafico_data$acertos_erros_ACS,
                                          levels = c('1 1 1', '0 0 0', '0 0 1', '1 1 0', '1 0 1', '0 1 1',
                                                     '0 1 0', '1 0 0'))
+
+grafico_data$acertos_erros_KAST <- factor(grafico_data$acertos_erros_KAST,
+                                         levels = c('1 1 1', '0 0 0', '0 0 1', '1 1 0', '1 0 1', '0 1 1',
+                                                    '0 1 0', '1 0 0'))
+
+grafico_data$acertos_erros_KD <- factor(grafico_data$acertos_erros_KD,
+                                         levels = c('1 1 1', '0 0 0', '0 0 1', '1 1 0', '1 0 1', '0 1 1',
+                                                    '0 1 0', '1 0 0'))
+
+grafico_data$acertos_erros_ADR <- factor(grafico_data$acertos_erros_ADR,
+                                         levels = c('1 1 1', '0 0 0', '0 0 1', '1 1 0', '1 0 1', '0 1 1',
+                                                    '0 1 0', '1 0 0'))
+
+grafico_data$acertos_erros_R <- fct_rev(grafico_data$acertos_erros_R)
+grafico_data$acertos_erros_ACS <- fct_rev(grafico_data$acertos_erros_ACS)
+grafico_data$acertos_erros_KAST <- fct_rev(grafico_data$acertos_erros_KAST)
+grafico_data$acertos_erros_KD <- fct_rev(grafico_data$acertos_erros_KD)
+grafico_data$acertos_erros_ADR <- fct_rev(grafico_data$acertos_erros_ADR)
 
 # Plot R
 ggplot(grafico_data, aes(y = acertos_erros_R)) +
@@ -321,41 +339,90 @@ ggplot(grafico_data, aes(y = acertos_erros_R)) +
        y = 'Tipos de cenário',
        x = 'Quantidade de ocorrências',
        caption = 'Partidas analisadas: 10284') +
-  theme_light() +
-  scale_y_discrete(breaks = factor(acertos_erros_R))
+  theme_light()
 
 
 # Plot ACS
-ggplot(grafico_data, aes(x = acertos_erros_ACS)) +
-  geom_bar(fill = "mediumseagreen") +
+ggplot(grafico_data, aes(y = acertos_erros_ACS)) +
+  geom_bar(color = 'black', fill = "mediumseagreen") +
+  geom_text(aes(label = paste0("(",round(..count..*100/nrow(grafico_data)), "%)")),
+            stat = "count", vjust = 2.1, hjust = 1.3, colour = "black") +
+  geom_label(aes(y = acertos_erros_R, label = ..count..),
+             stat = 'count', hjust = 1.3) +
   labs(title = 'Relação de acertos com o ACS do time 1 ser maior',
-       x = 'Acertos e Erros',
-       y = 'Quantidade',
-       caption = 'Partidas analisadas: 10284')
+       y = 'Tipos de cenário',
+       x = 'Quantidade de ocorrências',
+       caption = 'Partidas analisadas: 10284') +
+  theme_light()
 
 # Plot KAST
-ggplot(grafico_data, aes(x = acertos_erros_KAST)) +
-  geom_bar(fill = "mediumseagreen") +
+ggplot(grafico_data, aes(y = acertos_erros_KAST)) +
+  geom_bar(color = 'black', fill = "mediumseagreen") +
+  geom_text(aes(label = paste0("(",round(..count..*100/nrow(grafico_data)), "%)")),
+            stat = "count", vjust = 2.1, hjust = 1.3, colour = "black") +
+  geom_label(aes(y = acertos_erros_R, label = ..count..),
+             stat = 'count', hjust = 1.3) +
   labs(title = 'Relação de acertos com o KAST do time 1 ser maior',
-       x = 'Acertos e Erros',
-       y = 'Quantidade',
-       caption = 'Partidas analisadas: 10284')
+       y = 'Tipos de cenário',
+       x = 'Quantidade de ocorrências',
+       caption = 'Partidas analisadas: 10284') +
+  theme_light()
 
 # Plot KD
-ggplot(grafico_data, aes(x = acertos_erros_KD)) +
-  geom_bar(fill = "mediumseagreen") +
+ggplot(grafico_data, aes(y = acertos_erros_KD)) +
+  geom_bar(color = 'black', fill = "mediumseagreen") +
+  geom_text(aes(label = paste0("(",round(..count..*100/nrow(grafico_data)), "%)")),
+            stat = "count", vjust = 2.1, hjust = 1.3, colour = "black") +
+  geom_label(aes(y = acertos_erros_R, label = ..count..),
+             stat = 'count', hjust = 1.3) +
   labs(title = 'Relação de acertos com o KD do time 1 ser maior',
-       x = 'Acertos e Erros',
-       y = 'Quantidade',
-       caption = 'Partidas analisadas: 10284')
+       y = 'Tipos de cenário',
+       x = 'Quantidade de ocorrências',
+       caption = 'Partidas analisadas: 10284') +
+  theme_light()
 
 # Plot ADR
-ggplot(grafico_data, aes(x = acertos_erros_ADR)) +
-  geom_bar(fill = "mediumseagreen") +
+ggplot(grafico_data, aes(y = acertos_erros_ADR)) +
+  geom_bar(color = 'black', fill = "mediumseagreen") +
+  geom_text(aes(label = paste0("(",round(..count..*100/nrow(grafico_data)), "%)")),
+            stat = "count", vjust = 2.1, hjust = 1.3, colour = "black") +
+  geom_label(aes(y = acertos_erros_R, label = ..count..),
+             stat = 'count', hjust = 1.3) +
   labs(title = 'Relação de acertos com o ADR do time 1 ser maior',
-       x = 'Acertos e Erros',
-       y = 'Quantidade',
-       caption = 'Partidas analisadas: 10284')
+       y = 'Tipos de cenário',
+       x = 'Quantidade de ocorrências',
+       caption = 'Partidas analisadas: 10284') +
+  theme_light()
 
+# Tentando totalizar os erros e acertos de forma mais contundente
 
+grafico_data$acertos_erros_R <- factor(grafico_data$acertos_erros_R,
+                                       levels = c('1 1 1', '0 0 0', '0 0 1', '1 1 0', '1 0 1', '0 1 1',
+                                                  '0 1 0', '1 0 0'),
+                                       labels = c('Acertou e era maior', 'Acertou e era menor', 'Errou e era menor',
+                                                  'Errou e era maior', 'Errou e era maior', 'Acertou e era menor',
+                                                  'Errou e era menor', 'Acertou e era maior'))
+
+# Plot R
+ggplot(grafico_data, aes(y = acertos_erros_R)) +
+  geom_bar(color = 'black', fill = "mediumseagreen") +
+  geom_text(aes(label = paste0("(",round(..count..*100/nrow(grafico_data)), "%)")),
+            stat = "count", vjust = 2.1, hjust = 1.3, colour = "black") +
+  geom_label(aes(y = acertos_erros_R, label = ..count..),
+             stat = 'count', hjust = 1.3) +
+  labs(title = 'Relação de acertos com o Rating do time 1 ser maior',
+       y = 'Tipos de cenário',
+       x = 'Quantidade de ocorrências',
+       caption = 'Partidas analisadas: 10284') +
+  theme_light()
+
+# Anotações: 61% de importancia Rating
+# 
+# 60% de importancia de ACS
+# 
+# 62% de importancia de KAST
+# 
+# 62% de importancia de KD
+# 
+# 58% de importancia de ADR
 
