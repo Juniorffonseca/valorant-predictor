@@ -297,8 +297,16 @@ acertos_erros_KD <- paste(KD, resultadovspredict$resultado_previsto, resultadovs
 acertos_erros_ADR <- paste(ADR, resultadovspredict$resultado_previsto, resultadovspredict$ganhador)
 
 grafico_data <- as.data.frame(cbind(acertos_erros_R, acertos_erros_ACS, acertos_erros_KAST, acertos_erros_KD,
-                                    acertos_erros_ADRs))
+                                    acertos_erros_ADR))
 
+grafico_data$acertos_erros_R <- factor(grafico_data$acertos_erros_R,
+                                       levels = c('1 1 1', '0 0 0', '0 0 1', '1 1 0', '1 0 1', '0 1 1',
+                                                  '0 1 0', '1 0 0'))
+grafico_data$acertos_erros_R <- fct_rev(grafico_data$acertos_erros_R)
+
+grafico_data$acertos_erros_ACS <- factor(grafico_data$acertos_erros_ACS,
+                                         levels = c('1 1 1', '0 0 0', '0 0 1', '1 1 0', '1 0 1', '0 1 1',
+                                                    '0 1 0', '1 0 0'))
 
 # Plot R
 ggplot(grafico_data, aes(y = acertos_erros_R)) +
@@ -309,7 +317,7 @@ ggplot(grafico_data, aes(y = acertos_erros_R)) +
        y = 'Tipos de cenário',
        x = 'Quantidade de ocorrências',
        caption = 'Partidas analisadas: 10284') +
-  theme_light() 
+  theme_light()
 
 # Plot ACS
 ggplot(grafico_data, aes(x = acertos_erros_ACS)) +
