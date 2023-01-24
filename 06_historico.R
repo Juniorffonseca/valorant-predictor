@@ -302,6 +302,8 @@ grafico_data <- as.data.frame(cbind(acertos_erros_R, acertos_erros_ACS, acertos_
 grafico_data$acertos_erros_R <- factor(grafico_data$acertos_erros_R,
                                        levels = c('1 1 1', '0 0 0', '0 0 1', '1 1 0', '1 0 1', '0 1 1',
                                                   '0 1 0', '1 0 0'))
+                                       # labels = c('Acertou', 'Acertou', 'Errou', 'Errou', 'Errou', 'Acertou',
+                                       #            'Errou', 'Acertou'))
 grafico_data$acertos_erros_R <- fct_rev(grafico_data$acertos_erros_R)
 
 grafico_data$acertos_erros_ACS <- factor(grafico_data$acertos_erros_ACS,
@@ -310,14 +312,18 @@ grafico_data$acertos_erros_ACS <- factor(grafico_data$acertos_erros_ACS,
 
 # Plot R
 ggplot(grafico_data, aes(y = acertos_erros_R)) +
-  geom_bar(color = 'black',fill = "mediumseagreen") +
+  geom_bar(color = 'black', fill = "mediumseagreen") +
+  geom_text(aes(label = paste0("(",round(..count..*100/nrow(grafico_data)), "%)")),
+            stat = "count", vjust = 2.1, hjust = 1.3, colour = "black") +
   geom_label(aes(y = acertos_erros_R, label = ..count..),
              stat = 'count', hjust = 1.3) +
   labs(title = 'Relação de acertos com o Rating do time 1 ser maior',
        y = 'Tipos de cenário',
        x = 'Quantidade de ocorrências',
        caption = 'Partidas analisadas: 10284') +
-  theme_light()
+  theme_light() +
+  scale_y_discrete(breaks = factor(acertos_erros_R))
+
 
 # Plot ACS
 ggplot(grafico_data, aes(x = acertos_erros_ACS)) +
