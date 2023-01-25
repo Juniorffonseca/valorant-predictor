@@ -71,11 +71,11 @@ catalogarporUrl <- function (string){
   tryCatch(
     
     {
-      info <- read_html(string) %>%
+      info <- read_html(as.character(string)) %>%
         html_nodes("table") %>%
         html_table()
       
-      placar <- read_html(string) %>%
+      placar <- read_html(as.character(string)) %>%
         html_nodes("div.js-spoiler") %>% html_text(trim=T)
       
       placar <- str_replace_all(placar, '\t', '') %>% str_replace_all('\n', '')
