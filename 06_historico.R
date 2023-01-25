@@ -71,11 +71,11 @@ catalogarporUrl <- function (string){
   tryCatch(
     
     {
-      info <- read_html('https://www.vlr.gg/108243/ninjas-in-pyjamas-vs-keyd-stars-champions-tour-brazil-stage-2-challengers-lbf') %>%
+      info <- read_html(string) %>%
         html_nodes("table") %>%
         html_table()
       
-      placar <- read_html('https://www.vlr.gg/108243/ninjas-in-pyjamas-vs-keyd-stars-champions-tour-brazil-stage-2-challengers-lbf') %>%
+      placar <- read_html(string) %>%
         html_nodes("div.js-spoiler") %>% html_text(trim=T)
       
       placar <- str_replace_all(placar, '\t', '') %>% str_replace_all('\n', '')
