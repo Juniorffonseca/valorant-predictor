@@ -71,11 +71,11 @@ catalogarporUrl <- function (string){
   tryCatch(
     
     {
-      info <- read_html(string) %>%
+      info <- read_html('https://www.vlr.gg/108243/ninjas-in-pyjamas-vs-keyd-stars-champions-tour-brazil-stage-2-challengers-lbf') %>%
         html_nodes("table") %>%
         html_table()
       
-      placar <- read_html(string) %>%
+      placar <- read_html('https://www.vlr.gg/108243/ninjas-in-pyjamas-vs-keyd-stars-champions-tour-brazil-stage-2-challengers-lbf') %>%
         html_nodes("div.js-spoiler") %>% html_text(trim=T)
       
       placar <- str_replace_all(placar, '\t', '') %>% str_replace_all('\n', '')
@@ -90,16 +90,18 @@ catalogarporUrl <- function (string){
       
       colnames(info) <- c('jogador', 'time', 'R', 'ACS', 'K', 'D', 'A', '+/-', 'KAST', 'ADR', 'HS%', 'FK', 'FD', 'z')
       
-      info <- select(info, 'jogador', 'R', 'ACS', 'K', 'D', 'A', 'KAST', 'ADR')
+      info <- select(info, 'jogador', 'R', 'ACS', 'K', 'D', 'KAST', 'ADR')
       
       info$R <- substr(info$R, 1, 4)
       info$ACS <- substr(info$ACS, 1, 3)
-      info$K <- substr(info$K, 1, 2)
+      info$K <- str_replace_all(info$K, '\t', '') %>% 
+        str_replace_all('\n', ' ') %>% 
+        str_replace_all('/  ', '')
+      info$K <- substr(info$K, 1, 3)
       info$D <- str_replace_all(info$D, '\t', '') %>%
         str_replace_all('\n', ' ') %>%
         str_replace_all('/  ', '')
-      info$D <- substr(info$D, 1, 2)
-      info$A <- substr(info$A, 1, 2)
+      info$D <- substr(info$D, 1, 3)
       info$KAST <- substr(info$KAST, 1, 3)
       info$ADR <- substr(info$ADR, 1, 3)
       
