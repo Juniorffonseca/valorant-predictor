@@ -129,13 +129,14 @@ for (i in a[,]){
   }, error = function(e){cat('error:', conditionMessage(e), '\n')})
 }
 
-dff <- dff %>% map_df(as_tibble)
+dff2 <- dff %>% map_df(as_tibble)
 
-write.csv2(dff, 'csv/historico.csv')
+write.csv2(dff, 'csv/raw_historico.csv')
+write.csv2(dff2, 'csv/historico.csv')
 
 historico <- read.csv2('csv/historico.csv') %>% dplyr::select(-X)
 
-id <- 1:117670
+id <- 1:as.numeric(count(historico))
 
 historico <- cbind(historico, id)
 
@@ -177,8 +178,8 @@ testeF <- function(partida){
   }
 
 n <- 1
-
-while(n < 11768){
+# parei aqui
+while(n < count(historico)){
   testeF(n)
   n = n + 1
 }
