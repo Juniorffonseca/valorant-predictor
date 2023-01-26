@@ -39,7 +39,7 @@ test_data$ganhador <- as.factor(test_data$ganhador)
 n <- neuralnet(ganhador == 1 ~ time1R + time2R + time1ACS + time2ACS + time1KAST + time2KAST + time1KD + time2KD +
                  time1ADR + time2ADR,
                data = training_data,
-               hidden = c(70,70),
+               hidden = c(10, 20, 40),
                err.fct = "sse",
                linear.output = F,
                threshold = 2,
@@ -79,7 +79,7 @@ acharseed <- function(seed){
   n <- neuralnet(ganhador == 1 ~ time1R + time2R + time1ACS + time2ACS + time1KAST + time2KAST + time1KD + time2KD +
                    time1ADR + time2ADR,
                  data = training_data,
-                 hidden = c(60,60),
+                 hidden = c(10, 20, 40),
                  err.fct = "sse",
                  linear.output = F,
                  threshold = 2,
@@ -99,14 +99,14 @@ acharseed <- function(seed){
 
 s <- 1
 
-while ( i < 0.67) {
+while ( i < 0.64) {
   acharseed(s)
   s <- s + 1
 }
 
 # Atualizando a seed para achar a melhor neuralnetwork -----------------------------------------------------
 #set.seed(4264)
-set.seed(17)
+set.seed(120)
 inp <- sample(2, nrow(jogos), replace = TRUE, prob = c(0.7, 0.3))
 training_data <- jogos[inp==1, ]
 test_data <- jogos[inp==2, ]
@@ -130,7 +130,7 @@ acharnn <- function(){
   n <- neuralnet(ganhador == 1 ~ time1R + time2R + time1ACS + time2ACS + time1KAST + time2KAST + time1KD + time2KD +
                    time1ADR + time2ADR,
                  data = training_data,
-                 hidden = c(50,50),
+                 hidden = c(10, 20, 40),
                  err.fct = "sse",
                  linear.output = F,
                  threshold = 2,
@@ -151,11 +151,12 @@ acharnn <- function(){
 }
 
 
-while ( i < 0.647) {
+while ( i < 0.655) {
   acharnn()
 }
 
 #save(n, file ='model_nnet.rda')
+#save(n, file ='model_2_nnet.rda') #2991
 
 # Matriz de confusão ---------------------------------------------------------------------------------------
 jogos <- read.csv2('csv/partidas.csv') %>% dplyr::select(-X)

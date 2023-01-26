@@ -136,6 +136,8 @@ write.csv2(dff2, 'csv/historico.csv')
 
 historico <- read.csv2('csv/historico.csv') %>% dplyr::select(-X)
 
+historico <- na.omit(historico)
+
 id <- 1:as.numeric(count(historico))
 
 historico <- cbind(historico, id)
@@ -149,7 +151,7 @@ while (z < count(historico)) {
   z = z + 10
 }
 
-partida <- 2
+partida <- 1
 
 testes <- list()
 
@@ -166,8 +168,12 @@ testeF <- function(partida){
   time2ACS <- mean(time2$ACS)
   time1KAST <- ifelse(is.character(time1$KAST), mean(parse_number(time1$KAST)), mean(time1$KAST))
   time2KAST <- ifelse(is.character(time2$KAST), mean(parse_number(time2$KAST)), mean(time2$KAST))
-  time1KD <- mean(time1$K/time1$D)
-  time2KD <- mean(time2$K/time2$D)
+  time1$K <- str_replace_all(time1$K, ' ', '')
+  time1$D <- str_replace_all(time1$D, ' ', '')
+  time2$K <- str_replace_all(time2$K, ' ', '')
+  time2$D <- str_replace_all(time2$D, ' ', '')
+  time1KD <- mean(as.numeric(time1$K)/as.numeric(time1$D))
+  time2KD <- mean(as.numeric(time2$K)/as.numeric(time2$D))
   time1ADR <- mean(time1$ADR)
   time2ADR <- mean(time2$ADR)
   ganhador <- ifelse(matriz_hist[[partida]]$ganhador[1] == 1, 1, 0)
@@ -178,11 +184,13 @@ testeF <- function(partida){
   }
 
 n <- 1
-# parei aqui
+
 while(n < count(historico)){
   testeF(n)
   n = n + 1
 }
+
+totalidade_jogos <- testes
 
 totalidade_jogos <- totalidade_jogos %>% map_df(as_tibble)
 
