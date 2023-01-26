@@ -1,5 +1,3 @@
-# Função preverResultado (basta colocar o url como parametro)
-# IMPORTANTE: o link precisa estar entre aspas.
 # Carregando pacotes --------------------------------------------------------------------------------------
 library(dplyr)
 library(tidyr)
