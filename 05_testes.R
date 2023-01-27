@@ -16,7 +16,7 @@ dados_gerais <- read.csv2("csv/jogadores.csv")
 paginas <- ''
 p <- 1
 
-for (i in 34:44){
+for (i in 1:9){
   paginas[p] <- paste('https://www.vlr.gg/matches/results/?page=', p, sep = '')
   p = p + 1
 }
@@ -156,7 +156,7 @@ for (i in a){
 
 dff <- dff %>% map_df(as_tibble)
 
-write.csv2(dff, 'csv/outras_partidas.csv')
+write.csv2(dff, 'csv/outras_partidas_2.csv') #apenas de janeiro 2023 em diante
 
 load(file = "model_nnet.rda")
 
@@ -172,7 +172,7 @@ dados_gerais$KAST <- parse_number(dados_gerais$KAST)
 
 jogos <- read.csv2('csv/partidas.csv') %>% dplyr::select(-X, -ganhador)
     
-outras_partidas <- read.csv2('csv/outras_partidas.csv') %>% dplyr::select(-X, -ganhador)
+outras_partidas <- read.csv2('csv/outras_partidas_2.csv') %>% dplyr::select(-X, -ganhador)
 
 jogos_scale <- rbind(jogos, outras_partidas)
 
@@ -221,11 +221,11 @@ a <- transforma_positivo(previsao)
 b <- transforma_positivo(previsao2)
 previsao <- transforma_probabilidade(a,b)
 previsao <- previsao * 100
-previsao2 <- previsao[278:554]
-previsao <- previsao[1:277]
+previsao2 <- previsao[((length(previsao)/2)+1):length(previsao)]
+previsao <- previsao[1:(length(previsao)/2)]
 previsao <- cbind(previsao, previsao2)
 
-ganhadores <- read.csv2('csv/outras_partidas.csv') %>% dplyr::select(ganhador)
+ganhadores <- read.csv2('csv/outras_partidas_2.csv') %>% dplyr::select(ganhador)
 
 previsao <- cbind(previsao, ganhadores)
 colnames(previsao) <- c('previsao1', 'previsao2', 'ganhador')
@@ -240,13 +240,15 @@ ggplot(data = previsao, mapping = aes(x = previsao1, y = previsao2, colour = gan
   theme_bw()
 
 
-#resultados <- dplyr::select(outras_partidas, ganhador)
-    
-#resultadovspredict <- cbind(partidas, previsoes, resultados)
-    
-#i <- sum(resultadovspredict$ganhador == resultadovspredict$previsoes)/nrow(resultadovspredict)
+resultados <- dplyr::select(previsao, ganhador)
 
+resultadovspredict <- cbind(partidas, previsao)
 
+resultadovspredict$previsoes <-  ifelse(resultadovspredict$previsao1>resultadovspredict$previsao2,
+                                        1,
+                                        0)
+    
+i <- sum(resultadovspredict$ganhador == resultadovspredict$previsoes)/nrow(resultadovspredict)
 
 # i = 0.747292418772563
 # Acurácia de 75%
