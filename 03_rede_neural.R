@@ -160,7 +160,7 @@ while ( i < 0.655) {
 
 # Matriz de confusão ---------------------------------------------------------------------------------------
 jogos <- read.csv2('csv/partidas.csv') %>% dplyr::select(-X)
-set.seed(3)
+set.seed(5)
 inp <- sample(2, nrow(jogos), replace = TRUE, prob = c(0.7, 0.3))
 training_data <- jogos[inp==1, ]
 test_data <- jogos[inp==2, ]
@@ -192,3 +192,4 @@ ggplot(data = x, mapping = aes(x = Reference, y = Prediction)) +
   geom_text(aes(label = sprintf('%1.0f', Freq)), vjust = 1) +
   scale_fill_gradient(low = 'white', high = 'green') +
   theme_bw() + theme(legend.position = 'none')
+
