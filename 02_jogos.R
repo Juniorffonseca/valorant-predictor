@@ -119,28 +119,6 @@ catalogarporUrl <- function (string){
       
       if(nrow(timeA_df) == 5 && nrow(timeB_df) == 5){
         
-        # Médias
-        # timeA_R <- mean(timeA_df$R)
-        # timeA_ACS <- mean(timeA_df$ACS)
-        # timeA_KAST <- mean(timeA_df$KAST)
-        # timeA_KD <- mean(timeA_df$K.D)
-        # timeA_ADR <- mean(timeA_df$ADR)
-        # timeB_R <- mean(timeB_df$R)
-        # timeB_ACS <- mean(timeB_df$ACS)
-        # timeB_KAST <- mean(timeB_df$KAST)
-        # timeB_KD <- mean(timeB_df$K.D)
-        # timeB_ADR <- mean(timeB_df$ADR)
-        
-        # timeA_df$R_2 <- timeA_df$R[2]
-        # timeA_df$R_3 <- timeA_df$R[3]
-        # timeA_df$R_4 <- timeA_df$R[4]
-        # timeA_df$R_5 <- timeA_df$R[5]
-        # 
-        # timeA_df$ACS_2 <- timeA_df$ACS[2]
-        # timeA_df$ACS_3 <- timeA_df$ACS[3]
-        # timeA_df$ACS_4 <- timeA_df$ACS[4]
-        # timeA_df$ACS_5 <- timeA_df$ACS[5]
-        
         cols_to_split <- c('R', 'ACS', 'KAST', 'K.D', 'ADR')
         
         for (col in cols_to_split) {
