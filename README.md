@@ -1,4 +1,4 @@
-##### Português (BR):
+###### Português (BR):
 # Valorant
 Usando Aprendizado de Máquina para prever resultados de partidas do cenário competitivo de Valorant.
 
@@ -39,7 +39,7 @@ Link do app:
 ## [Valorant Prediction](https://jrff.shinyapps.io/scripts/)
 
 ---------------------------------
-##### English:
+###### English:
 
 # Valorant
 Using Machine Learning to predict match results from the competitive Valorant scene.
