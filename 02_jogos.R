@@ -13,6 +13,11 @@ library(purrr)
 # Carregando dataframe de Jogadores ------------------------------------------------------------------------
 dados_gerais <- read.csv2("csv/jogadores.csv")
 
+dados_gerais <- dplyr::select(dados_gerais, Player, R, ACS, K.D, KAST, ADR)
+row.names(dados_gerais) <- make.names(dados_gerais[,1], unique = T)
+dados_gerais <- dplyr::select(dados_gerais, -Player)
+dados_gerais$KAST <- parse_number(dados_gerais$KAST)
+
 # Criando variável páginas e criando variável 'p' que será a parte final do url (o número da página) -------
 paginas <- ''
 p <- 1
@@ -66,16 +71,11 @@ catalogarporUrl <- function (string){
   tryCatch(
     
     {
-      dados_gerais <- dplyr::select(dados_gerais, Player, R, ACS, K.D, KAST, ADR)
-      row.names(dados_gerais) <- make.names(dados_gerais[,1], unique = T)
-      dados_gerais <- dplyr::select(dados_gerais, -Player)
-      dados_gerais$KAST <- parse_number(dados_gerais$KAST)
-      
-      info <- read_html(string) %>% 
+      info <- read_html(a[1]) %>% 
         html_nodes("table") %>% 
         html_table()
       
-      placar <- read_html(string) %>% 
+      placar <- read_html(a[1]) %>% 
         html_nodes("div.js-spoiler") %>% html_text(trim=T)
       
       placar <- str_replace_all(placar, '\t', '') %>% str_replace_all('\n', '')
