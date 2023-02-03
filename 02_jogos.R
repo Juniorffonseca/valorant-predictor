@@ -71,11 +71,11 @@ catalogarporUrl <- function (string){
   tryCatch(
     
     {
-      info <- read_html(a[1]) %>% 
+      info <- read_html(a[5]) %>% 
         html_nodes("table") %>% 
         html_table()
       
-      placar <- read_html(a[1]) %>% 
+      placar <- read_html(a[5]) %>% 
         html_nodes("div.js-spoiler") %>% html_text(trim=T)
       
       placar <- str_replace_all(placar, '\t', '') %>% str_replace_all('\n', '')
@@ -120,26 +120,52 @@ catalogarporUrl <- function (string){
       if(nrow(timeA_df) == 5 && nrow(timeB_df) == 5){
         
         # Médias
-        timeA_R <- mean(timeA_df$R)
-        timeA_ACS <- mean(timeA_df$ACS)
-        timeA_KAST <- mean(timeA_df$KAST)
-        timeA_KD <- mean(timeA_df$K.D)
-        timeA_ADR <- mean(timeA_df$ADR)
-        timeB_R <- mean(timeB_df$R)
-        timeB_ACS <- mean(timeB_df$ACS)
-        timeB_KAST <- mean(timeB_df$KAST)
-        timeB_KD <- mean(timeB_df$K.D)
-        timeB_ADR <- mean(timeB_df$ADR)
+        # timeA_R <- mean(timeA_df$R)
+        # timeA_ACS <- mean(timeA_df$ACS)
+        # timeA_KAST <- mean(timeA_df$KAST)
+        # timeA_KD <- mean(timeA_df$K.D)
+        # timeA_ADR <- mean(timeA_df$ADR)
+        # timeB_R <- mean(timeB_df$R)
+        # timeB_ACS <- mean(timeB_df$ACS)
+        # timeB_KAST <- mean(timeB_df$KAST)
+        # timeB_KD <- mean(timeB_df$K.D)
+        # timeB_ADR <- mean(timeB_df$ADR)
         
-        partida <- c(timeA_R, timeB_R, timeA_ACS, timeB_ACS, timeA_KAST, timeB_KAST, timeA_KD, timeB_KD,
-                     timeA_ADR, timeB_ADR)
+        # timeA_df$R_2 <- timeA_df$R[2]
+        # timeA_df$R_3 <- timeA_df$R[3]
+        # timeA_df$R_4 <- timeA_df$R[4]
+        # timeA_df$R_5 <- timeA_df$R[5]
+        # 
+        # timeA_df$ACS_2 <- timeA_df$ACS[2]
+        # timeA_df$ACS_3 <- timeA_df$ACS[3]
+        # timeA_df$ACS_4 <- timeA_df$ACS[4]
+        # timeA_df$ACS_5 <- timeA_df$ACS[5]
         
-        partida <- t(partida)
+        cols_to_split <- c('R', 'ACS', 'KAST', 'K.D', 'ADR')
         
+        for (col in cols_to_split) {
+          for (i in 2:5) {
+            timeA_df[[paste0(col, '_', i)]] <- timeA_df[[col]][i]
+          }
+          timeA_df[[col]] <- timeA_df[[col]][1]
+        }
+        
+        timeA_df <- timeA_df[1,]
+        
+        for (col in cols_to_split) {
+          for (i in 2:5) {
+            timeB_df[[paste0(col, '_', i)]] <- timeB_df[[col]][i]
+          }
+          timeB_df[[col]] <- timeB_df[[col]][1]
+        }
+        
+        timeB_df <- timeB_df[1,]
+        
+        partida <- cbind(timeA_df, timeB_df)
+      
         partida <- as.data.frame(partida) %>% cbind(ganhador)
         
-        colnames(partida) <- c('time1R', 'time2R', 'time1ACS', 'time2ACS', 'time1KAST', 'time2KAST', 'time1KD', 'time2KD',
-                               'time1ADR', 'time2ADR', 'ganhador')
+        rownames(partida) <- 'partida'
         
         return(partida)
       }
