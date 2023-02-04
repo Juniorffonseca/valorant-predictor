@@ -71,11 +71,11 @@ catalogarporUrl <- function (string){
   tryCatch(
     
     {
-      info <- read_html(a[5]) %>% 
+      info <- read_html(string) %>% 
         html_nodes("table") %>% 
         html_table()
       
-      placar <- read_html(a[5]) %>% 
+      placar <- read_html(string) %>% 
         html_nodes("div.js-spoiler") %>% html_text(trim=T)
       
       placar <- str_replace_all(placar, '\t', '') %>% str_replace_all('\n', '')
@@ -153,6 +153,7 @@ catalogarporUrl <- function (string){
 }
 
 # Iteração para catalogar todos os jogos contidos nos urls armazenados --------------------------------------
+
 for (i in a){
   tryCatch({
   dff[[length(dff)+1]] <- catalogarporUrl(a[m])
@@ -161,7 +162,7 @@ for (i in a){
 }
 
 # Passando os dados recebidos para um dataframe mais organizado --------------------------------------------
-dff <- dff %>% map_df(as_tibble)
+dff <- dff %>% map_df(as_tibble, .name_repair = "unique")
 
 # Exportando como csv --------------------------------------------------------------------------------------
 write.csv2(dff, 'csv/partidas.csv')
