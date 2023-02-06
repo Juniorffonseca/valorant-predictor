@@ -165,4 +165,4 @@ for (i in a){
 dff <- dff %>% map_df(as_tibble, .name_repair = "unique")
 
 # Exportando como csv --------------------------------------------------------------------------------------
-write.csv2(dff, 'csv/partidas.csv')
+write.csv2(dff, 'csv/partidas_2.csv')
