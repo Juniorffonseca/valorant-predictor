@@ -23,7 +23,7 @@ paginas <- ''
 p <- 1
 
 # Criando um laço for que armazenará o url de cada página dentro da variável paginas -----------------------
-for (i in 1:33){
+for (i in 1:50){
   paginas[p] <- paste('https://www.vlr.gg/matches/results/?page=', p, sep = '')
   p = p + 1
 }
