@@ -119,31 +119,27 @@ catalogarporUrl <- function (string){
       
       if(nrow(timeA_df) == 5 && nrow(timeB_df) == 5){
         
-        cols_to_split <- c('R', 'ACS', 'KAST', 'K.D', 'ADR')
+        # Médias
+        timeA_R <- mean(timeA_df$R)
+        timeA_ACS <- mean(timeA_df$ACS)
+        timeA_KAST <- mean(timeA_df$KAST)
+        timeA_KD <- mean(timeA_df$K.D)
+        timeA_ADR <- mean(timeA_df$ADR)
+        timeB_R <- mean(timeB_df$R)
+        timeB_ACS <- mean(timeB_df$ACS)
+        timeB_KAST <- mean(timeB_df$KAST)
+        timeB_KD <- mean(timeB_df$K.D)
+        timeB_ADR <- mean(timeB_df$ADR)
         
-        for (col in cols_to_split) {
-          for (i in 2:5) {
-            timeA_df[[paste0(col, '_', i)]] <- timeA_df[[col]][i]
-          }
-          timeA_df[[col]] <- timeA_df[[col]][1]
-        }
+        partida <- c(timeA_R, timeB_R, timeA_ACS, timeB_ACS, timeA_KAST, timeB_KAST, timeA_KD, timeB_KD,
+                     timeA_ADR, timeB_ADR)
         
-        timeA_df <- timeA_df[1,]
+        partida <- t(partida)
         
-        for (col in cols_to_split) {
-          for (i in 2:5) {
-            timeB_df[[paste0(col, '_', i)]] <- timeB_df[[col]][i]
-          }
-          timeB_df[[col]] <- timeB_df[[col]][1]
-        }
-        
-        timeB_df <- timeB_df[1,]
-        
-        partida <- cbind(timeA_df, timeB_df)
-      
         partida <- as.data.frame(partida) %>% cbind(ganhador)
         
-        rownames(partida) <- 'partida'
+        colnames(partida) <- c('time1R', 'time2R', 'time1ACS', 'time2ACS', 'time1KAST', 'time2KAST', 'time1KD', 'time2KD',
+                               'time1ADR', 'time2ADR', 'ganhador')
         
         return(partida)
       }
@@ -151,6 +147,7 @@ catalogarporUrl <- function (string){
     , error = function(e){cat('error:', conditionMessage(e), '\n')})
   
 }
+
 
 # Iteração para catalogar todos os jogos contidos nos urls armazenados --------------------------------------
 
@@ -162,7 +159,7 @@ for (i in a){
 }
 
 # Passando os dados recebidos para um dataframe mais organizado --------------------------------------------
-dff <- dff %>% map_df(as_tibble, .name_repair = "unique")
+dff <- dff %>% map_df(as_tibble, .name_repair = "unique") # talvez não precise do .name_repair = "unique"
 
 # Exportando como csv --------------------------------------------------------------------------------------
 write.csv2(dff, 'csv/partidas_2.csv')
