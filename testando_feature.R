@@ -33,4 +33,9 @@ infos_jogadores <- read_html(teste_1) %>%
   html_nodes('table') %>% 
   html_table()
 
-infos_jogadores <- infos_jogadores %>%  map_df(as_tibble, .name_repair = 'minimal')
+infos_jogadores <- infos_jogadores %>%  map_df(as_tibble, .name_repair = 'minimal') %>%
+  dplyr::select(Rating, ACS, 'K:D', ADR, KAST)
+
+
+
+
