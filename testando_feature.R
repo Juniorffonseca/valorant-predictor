@@ -14,24 +14,30 @@ library(purrr)
 string_url <- 'https://www.vlr.gg/167037/tropicaos-vs-keyd-stars-challengers-league-brazil-split-1-w3'
 
 # Pegando os dados no link da partida ----------------------------------------------------------------------
-
 links_jogadores <- read_html(string_url) %>% 
   html_nodes('td.mod-player a') %>% 
   html_attr('href')
 
 timeA <- links_jogadores[1:5]
 timeB <- links_jogadores[6:10]
-
-# Criando um laço for que armazenará o url de cada página dentro da variável paginas -----------------------
+#  -----------------------
+n <- 1
 for (i in timeA){
-  teste <- paste('https://www.vlr.gg', '/?timespan=all', sep = i)
+  timeA[n] <- paste('https://www.vlr.gg', '/?timespan=all', sep = i)
+  n = n + 1
 }
 
-teste_1 <- 'https://www.vlr.gg/player/1586/v1nny/?timespan=all'
+n <- 1
+for(i in timeB){
+  timeB[n] <- paste('https://www.vlr.gg', '/?timespan=all', sep = i)
+  n = n + 1
+}
 
-infos_jogadores <- read_html(teste_1) %>% 
+for(i in links_jogadoresA){
+append(infos_jogadores) <- read_html(as.character(links_jogadoresA$value[i])) %>% 
   html_nodes('table') %>% 
   html_table()
+}
 
 infos_jogadores <- infos_jogadores %>%  map_df(as_tibble, .name_repair = 'minimal') %>%
   dplyr::select(Rating, ACS, 'K:D', ADR, KAST)
