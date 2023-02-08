@@ -33,15 +33,32 @@ for(i in timeB){
   n = n + 1
 }
 
-for(i in links_jogadoresA){
-append(infos_jogadores) <- read_html(as.character(links_jogadoresA$value[i])) %>% 
-  html_nodes('table') %>% 
-  html_table()
+rm(links_jogadores, n, string_url)
+
+pegarMedias <- function (url_jogador) {
+  html_lido <- read_html(as.character(url_jogador))
+  
+  dados_jogador <- html_nodes(html_lido, 'table') %>%
+    html_table()
+  dados_jogador <- dados_jogador %>% map_df(as_tibble, .name_repair = 'minimal') %>%
+    dplyr::select(Rating, ACS, 'K:D', ADR, KAST)
+  
+  dados_jogador$KAST <- parse_number(dados_jogador$KAST)
+  
+  means_jogador <- round(colMeans(dados_jogador, na.rm = T), 2)
+  
+  means_jogador[['KAST']] <- round(means_jogador[['KAST']], 0)
+  
+  return(means_jogador)
 }
 
-infos_jogadores <- infos_jogadores %>%  map_df(as_tibble, .name_repair = 'minimal') %>%
-  dplyr::select(Rating, ACS, 'K:D', ADR, KAST)
+timeA_medias <- list()
+timeB_medias <- list()
 
+for (i in timeA){
+  timeA_medias[[length(timeA_medias)+1]] <- pegarMedias(i)
+}
 
-
-
+for (i in timeB){
+  timeB_medias[[length(timeB_medias)+1]] <- pegarMedias(i)
+}
