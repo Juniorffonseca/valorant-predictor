@@ -1,6 +1,3 @@
-# Carregando pacotes --------------------------------------------------------------------------------------
-library(dplyr)
-library(tidyr)
 library(rvest)
 library(quantmod)
 library(httr)
@@ -11,27 +8,12 @@ library(readr)
 library(purrr)
 
 # Função medias_jogadores ---------------------------------------------------------------------------------
-medias_Jogadores <- function (url_jogador) {
-  html_lido <- read_html(as.character(url_jogador))
-  
-  dados_jogador <- html_nodes(html_lido, 'table') %>%
-    html_table()
-  dados_jogador <- dados_jogador %>% map_df(as_tibble, .name_repair = 'minimal') %>%
-    dplyr::select(Rating, ACS, KAST, 'K:D', ADR)
-  
-  dados_jogador$KAST <- parse_number(dados_jogador$KAST)
-  
-  means_jogador <- round(colMeans(dados_jogador, na.rm = T), 2)
-  
-  means_jogador[['KAST']] <- round(means_jogador[['KAST']], 0)
-  
-  return(means_jogador)
-}
+
 
 # Função medias_times -------------------------------------------------------------------------------------
-medias_Times <- function (url_partida){
+
   # Pegando os dados no link da partida -------------------------------------------------------------------
-  links_jogadores <- read_html(url_partida) %>% 
+  links_jogadores <- read_html('https://www.vlr.gg/167041/tbk-esports-vs-the-union-challengers-league-brazil-split-1-w4') %>% 
     html_nodes('td.mod-player a') %>% 
     html_attr('href')
   
@@ -50,6 +32,30 @@ medias_Times <- function (url_partida){
   for(i in timeB){
     timeB[n] <- paste('https://www.vlr.gg', '/?timespan=all', sep = i)
     n = n + 1
+  }
+  
+  
+  medias_Jogadores <- function(url_jogador){
+    
+    html_lido <- read_html(as.character(url_jogador))
+    
+    dados_jogador <- html_nodes(html_lido, 'table') %>%
+      html_table()
+    dados_jogador <- dados_jogador %>% map_df(as_tibble, .name_repair = 'minimal') %>%
+      dplyr::select(Use, Rating, ACS, KAST, 'K:D', ADR)
+    
+    dados_jogador$Use <- gsub(".*\\((.*)\\).*", "\\1", dados_jogador$Use)
+    
+    for (i in dados_jogador$Rating) {
+      dados_jogador$Rating * dados_jogador
+    }
+    
+    dados_jogador$KAST <- parse_number(dados_jogador$KAST)
+    
+    #means_jogador <- round(colMeans(dados_jogador, na.rm = T), 2)
+    
+    #means_jogador[['KAST']] <- round(means_jogador[['KAST']], 0)
+    return(dados_jogador)
   }
   
   timeA_medias <- list()
@@ -76,8 +82,5 @@ medias_Times <- function (url_partida){
   partida <- select(partida, 'time1R', 'time2R', 'time1ACS', 'time2ACS', 'time1KAST', 'time2KAST', 'time1KD', 'time2KD',
                     'time1ADR', 'time2ADR')
   
-  return(partida)
-  
-}
 
 

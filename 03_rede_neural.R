@@ -9,6 +9,7 @@ library(stringr)
 library(neuralnet)
 library(caret)
 library(ggplot2)
+library(valorant)
 
 # Carregando o dataframe -----------------------------------------------------------------------------------
 jogos <- read.csv2('csv/partidas.csv') %>% dplyr::select(-X)
