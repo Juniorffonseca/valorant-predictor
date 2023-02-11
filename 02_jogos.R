@@ -62,6 +62,7 @@ for (i in paginas){
 m <- 1
 a <- unlist(a)
 dff <- list()
+ganhadores <- list()
 
 # Função que vai catalogar e retornar os dados das partidas -------------------------------------------------
 # catalogarporUrl <- function (string){
@@ -155,8 +156,15 @@ for (i in a){
   }, error = function(e){cat('error:', conditionMessage(e), '\n')})
 }
 
+for (i in a){
+  tryCatch({
+    ganhadores[[length(ganhadores)+1]] <- get_Ganhadores(a[m])
+    m = m + 1
+  }, error = function(e) {cat('error:', conditionMessage(e), '\n')})
+}
+
 # Passando os dados recebidos para um dataframe mais organizado --------------------------------------------
 dff <- dff %>% map_df(as_tibble, .name_repair = "unique") # talvez não precise do .name_repair = "unique"
 
 # Exportando como csv --------------------------------------------------------------------------------------
-write.csv2(dff, 'csv/partidas_2.csv')
+write.csv2(dff, 'csv/partidas_3.csv')
