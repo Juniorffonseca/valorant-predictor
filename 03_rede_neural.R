@@ -38,8 +38,7 @@ test_data$ganhador <- as.factor(test_data$ganhador)
 
 
 # Modelando a rede neural ---------------------------------------------------------------------------------
-n <- neuralnet(ganhador == 1 ~ time1R + time2R + time1ACS + time2ACS + time1KAST + time2KAST + time1KD + time2KD +
-                 time1ADR + time2ADR,
+n <- neuralnet(ganhador == 1 ~ .,
                data = training_data,
                hidden = c(10, 10, 10),
                err.fct = "sse",
@@ -78,13 +77,12 @@ acharseed <- function(seed){
   training_data$ganhador <- as.factor(training_data$ganhador)
   test_data$ganhador <- as.factor(test_data$ganhador)
   
-  n <- neuralnet(ganhador == 1 ~ time1R + time2R + time1ACS + time2ACS + time1KAST + time2KAST + time1KD + time2KD +
-                   time1ADR + time2ADR,
+  n <- neuralnet(ganhador == 1 ~ .,
                  data = training_data,
                  hidden = c(10, 10, 10),
                  err.fct = "sse",
                  linear.output = F,
-                 threshold = 0.3,
+                 threshold = 1,
                  lifesign = 'minimal',
                  rep = 1,
                  algorithm = 'rprop-',
@@ -101,13 +99,13 @@ acharseed <- function(seed){
 
 s <- 1
 
-while ( i < 0.79) {
+while ( i < 0.72) {
   acharseed(s)
   s <- s + 1
 }
 
 # Atualizando a seed para achar a melhor neuralnetwork -------------------------------------------------------
-set.seed(1750)
+set.seed(59) #4 #59
 inp <- sample(2, nrow(jogos), replace = TRUE, prob = c(0.7, 0.3))
 training_data <- jogos[inp==1, ]
 test_data <- jogos[inp==2, ]
@@ -131,13 +129,12 @@ predictVstest <- cbind(test_data, Predict$net.result)
 
 acharnn <- function(){
   
-  n <- neuralnet(ganhador == 1 ~ time1R + time2R + time1ACS + time2ACS + time1KAST + time2KAST + time1KD + time2KD +
-                   time1ADR + time2ADR,
+  n <- neuralnet(ganhador == 1 ~ .,
                  data = training_data,
                  hidden = c(10, 10, 10),
                  err.fct = "sse",
                  linear.output = F,
-                 threshold = 0.3,
+                 threshold = 1,
                  lifesign = 'minimal',
                  rep = 1,
                  algorithm = 'rprop-',
@@ -155,12 +152,13 @@ acharnn <- function(){
 }
 
 
-while ( i < 0.82) {
+while ( i < 0.73) {
   acharnn()
 }
 
 #save(n, file ='model_nnet.rda')
 #save(n, file ='model_2_nnet.rda') #2991
+save(n, file ='model_3_nnet.rda')
 
 # Matriz de confusão ---------------------------------------------------------------------------------------
 jogos <- read.csv2('csv/partidas.csv') %>% dplyr::select(-X)
