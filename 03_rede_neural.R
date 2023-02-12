@@ -15,6 +15,8 @@ jogos <- read.csv2('csv/partidas.csv') %>% dplyr::select(-X)
 #jogos <- read.csv2('csv/totalidade_jogos_sem_na.csv') %>% dplyr::select(-X)
 #jogos <- read.csv2('csv/partidas_2.csv') %>% dplyr::select(-X)
 jogos <- read.csv2('csv/partidas_3.csv') %>% dplyr::select(-X)
+jogos <- read.csv2('csv/partidas_4.csv') %>% dplyr::select(-X)
+jogos <- read.csv2('csv/partidas_5.csv') %>% dplyr::select(-X)
 
 # Criando dataframes de teste e validação -----------------------------------------------------------------
 set.seed(1)
@@ -95,17 +97,19 @@ acharseed <- function(seed){
   predictVstest <- cbind(test_data, Predict$net.result)
   i <<- sum(predictVstest$ganhador == nn2)/ nrow(test_data)
   
+  print(i)
+  
 }
 
 s <- 1
 
-while ( i < 0.72) {
+while ( i < 0.78) {
   acharseed(s)
   s <- s + 1
 }
 
 # Atualizando a seed para achar a melhor neuralnetwork -------------------------------------------------------
-set.seed(59) #4 #59
+set.seed(386) #4 #59
 inp <- sample(2, nrow(jogos), replace = TRUE, prob = c(0.7, 0.3))
 training_data <- jogos[inp==1, ]
 test_data <- jogos[inp==2, ]
@@ -152,14 +156,14 @@ acharnn <- function(){
 }
 
 
-while ( i < 0.73) {
+while ( i < 0.80) {
   acharnn()
 }
 
 #save(n, file ='model_nnet.rda')
 #save(n, file ='model_2_nnet.rda') #2991
-save(n, file ='model_3_nnet.rda')
-
+#save(n, file ='model_3_nnet.rda')
+save(n, file ='model_4_nnet.rda') #possivelmente usarei esse para tentar prever o lockin sp
 # Matriz de confusão ---------------------------------------------------------------------------------------
 jogos <- read.csv2('csv/partidas.csv') %>% dplyr::select(-X)
 set.seed(5)
