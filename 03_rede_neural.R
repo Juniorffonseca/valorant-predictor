@@ -194,4 +194,3 @@ ggplot(data = x, mapping = aes(x = Reference, y = Prediction)) +
   geom_text(aes(label = sprintf('%1.0f', Freq)), vjust = 1) +
   scale_fill_gradient(low = 'white', high = 'green') +
   theme_bw() + theme(legend.position = 'none')
-
