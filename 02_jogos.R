@@ -20,7 +20,7 @@ paginas <- ''
 p <- 1
 
 # Criando um laço for que armazenará o url de cada página dentro da variável paginas -----------------------
-for (i in 1:50){
+for (i in 18:36){
   paginas[p] <- paste('https://www.vlr.gg/matches/results/?page=', p, sep = '')
   p = p + 1
 }
@@ -62,6 +62,9 @@ for (i in paginas){
 m <- 1
 a <- unlist(a)
 dff <- list()
+
+# Salvando os links que serão utilizados em um csv
+write.csv2(a, 'csv/a.csv')
 
 # Iteração para catalogar todos os jogos contidos nos urls armazenados --------------------------------------
 for (i in a){
