@@ -4,8 +4,8 @@
 55.5 % 44.5 % 
 
 
-## [DetonatioN FocusMe x Giants Gaming](https://www.vlr.gg/167349/detonation-focusme-vs-giants-gaming-champions-tour-2023-lock-in-s-o-paulo-alpha-ro16): 
-50.14 % 49.86 % 
+[DetonatioN FocusMe x Giants Gaming](https://www.vlr.gg/167349/detonation-focusme-vs-giants-gaming-champions-tour-2023-lock-in-s-o-paulo-alpha-ro16): 
+## 50.14 % 49.86 % 
 
 
 ## [Gen.G x LOUD](https://www.vlr.gg/167350/gen-g-vs-loud-champions-tour-2023-lock-in-s-o-paulo-alpha-ro16):
@@ -28,8 +28,8 @@
 52.06 %  47.94 % 
 
 
-#### [MIBR x Talon Esports](https://www.vlr.gg/167355/mibr-vs-talon-esports-champions-tour-2023-lock-in-s-o-paulo-alpha-ro16):
-55.62 %  44.38 % 
+[MIBR x Talon Esports](https://www.vlr.gg/167355/mibr-vs-talon-esports-champions-tour-2023-lock-in-s-o-paulo-alpha-ro16):
+## 55.62 %  44.38 % 
 
 
 ##### Partidas OMEGA:
