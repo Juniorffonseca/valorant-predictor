@@ -7,7 +7,7 @@
 
 
 [DetonatioN FocusMe x Giants Gaming](https://www.vlr.gg/167349/detonation-focusme-vs-giants-gaming-champions-tour-2023-lock-in-s-o-paulo-alpha-ro16): 
-## 50.14 % 49.86 % 
+## 48.81 %  51.19 %
 
 
 [Gen.G x LOUD](https://www.vlr.gg/167350/gen-g-vs-loud-champions-tour-2023-lock-in-s-o-paulo-alpha-ro16):
