@@ -17,13 +17,14 @@ library(readr)
 library(ggplot2)
 library(DT)
 library(valorant)
+library(purrr)
 
 # Carregando ui e server
 source('ui.R')
 source('server.R')
 
 # Carregando a rede neural e o dataframe Jogadores
-load(file = "model_nnet.rda")
+load(file = "model_4_nnet.rda")
 
 # Criando o app
 shinyApp(ui = ui, server = server)
