@@ -1,6 +1,6 @@
 # Carregando pacotes
 library(devtools)
-install_github("Juniorffonseca/r-pacote-valorant")
+#install_github("Juniorffonseca/r-pacote-valorant")
 library(shiny)
 library(shinythemes)
 library(dplyr)

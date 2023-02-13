@@ -45,7 +45,7 @@ server <- function(input, output) {
     b <- previsao2
     
     transforma_positivo <- function (x){
-      y = atan(x*10) + pi/2
+      y = atan(x) + pi/2
       return (y)
     }
     

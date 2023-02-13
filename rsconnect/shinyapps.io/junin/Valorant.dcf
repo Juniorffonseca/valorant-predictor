@@ -5,9 +5,9 @@ account: junin
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 7987180
-bundleId: 6723019
+bundleId: 6838810
 url: https://junin.shinyapps.io/Valorant/
-when: 1673467612.7972
-lastSyncTime: 1673467612.79722
+when: 1676249747.24009
+lastSyncTime: 1676249747.2401
 asMultiple: FALSE
 asStatic: FALSE
