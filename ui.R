@@ -9,7 +9,7 @@ ui <- fluidPage(theme = shinytheme('superhero'),
                                           class = 'btn btn-primary'),
                              h4('Probabilidade de vitória de cada time, respectivamente:'),
                              verbatimTextOutput('txtout'),
-                             h6('Deploy atualizado em: 12/02/2023'),
+                             h6('Deploy atualizado em: 13/02/2023'),
                              h6('Rede neural atualizada em: 12/02/2023')
                            )
                   ),
