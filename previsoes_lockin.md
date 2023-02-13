@@ -3,13 +3,15 @@
 <div id="header" align="center">
   
 [KOI x NRG Esports](https://www.vlr.gg/167348/koi-vs-nrg-esports-champions-tour-2023-lock-in-s-o-paulo-alpha-ro16):
-## 55.5 % 44.5 % 
+  0 x 2
+  ## 55.5 % 44.5 % 
   0 x 2
 
 
 [DetonatioN FocusMe x Giants Gaming](https://www.vlr.gg/167349/detonation-focusme-vs-giants-gaming-champions-tour-2023-lock-in-s-o-paulo-alpha-ro16): 
-## 48.81 %  51.19 %
   0 x 2
+  ## 48.81 %  51.19 %
+
 
 [Gen.G x LOUD](https://www.vlr.gg/167350/gen-g-vs-loud-champions-tour-2023-lock-in-s-o-paulo-alpha-ro16):
 ## 45.68 % 54.32 % 
