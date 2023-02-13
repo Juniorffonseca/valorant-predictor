@@ -64,13 +64,13 @@ a <- unlist(a)
 dff <- list()
 
 # Salvando os links que serão utilizados em um csv
-write.csv2(a, 'csv/a_2.csv')
+#write.csv2(a, 'csv/urls.csv')
 
 # Iteração para catalogar todos os jogos contidos nos urls armazenados --------------------------------------
 for (i in a){
   tryCatch({
-  dff[[length(dff)+1]] <- medias_Times(a[m], resultado = T)
-  m = m + 1
+    dff[[length(dff)+1]] <- medias_Times(a[m], resultado = T)
+    m = m + 1
   }, error = function(e){cat('error:', conditionMessage(e), '\n')})
 }
 
@@ -78,4 +78,4 @@ for (i in a){
 dff <- dff %>% map_df(as_tibble, .name_repair = "unique") # talvez não precise do .name_repair = "unique"
 
 # Exportando como csv --------------------------------------------------------------------------------------
-write.csv2(dff, 'csv/partidas_5.csv')
+#write.csv2(dff, 'csv/partidas.csv')

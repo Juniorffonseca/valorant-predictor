@@ -163,23 +163,23 @@ load(file = "model_4_nnet.rda")
 # Testando a acurácia -------------------------------------------------------------------------------------
 
 jogos <- read.csv2('csv/partidas_5.csv') %>% dplyr::select(-X, -ganhador)
-    
+
 outras_partidas <- read.csv2('csv/partidas_4.csv') %>% dplyr::select(-X, -ganhador)
 
 jogos_scale <- rbind(jogos, outras_partidas)
 
 jogos_scale <- scale(jogos_scale)
-    
+
 partidas <- jogos_scale[-1:-nrow(jogos),]
-    
+
 partidas <- as.data.frame(partidas)
-    
+
 previsao <- compute(n, partidas)
 
 previsao <- previsao$net.result
-    
+
 partidas_reversas <- partidas
-    
+
 partidas_reversas$time1R <- partidas$time2R
 partidas_reversas$time2R <- partidas$time1R
 partidas_reversas$time1ACS <- partidas$time2ACS
@@ -190,11 +190,11 @@ partidas_reversas$time1KD <- partidas$time2KD
 partidas_reversas$time2KD <- partidas$time1KD
 partidas_reversas$time1ADR <- partidas$time2ADR
 partidas_reversas$time2ADR <- partidas$time1ADR
-    
+
 previsao2 <- compute(n, partidas_reversas)
-    
+
 previsao2 <- previsao2$net.result
-    
+
 previsoes <- cbind(previsao, previsao2)
 
 transforma_positivo <- function (x){
@@ -239,7 +239,7 @@ resultadovspredict <- cbind(partidas, previsao)
 resultadovspredict$previsoes <-  ifelse(resultadovspredict$previsao1>resultadovspredict$previsao2,
                                         1,
                                         0)
-    
+
 i <- sum(resultadovspredict$ganhador == resultadovspredict$previsoes)/nrow(resultadovspredict)
 
 # i = 0.747292418772563

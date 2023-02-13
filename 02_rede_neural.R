@@ -12,11 +12,6 @@ library(ggplot2)
 
 # Carregando o dataframe -----------------------------------------------------------------------------------
 jogos <- read.csv2('csv/partidas.csv') %>% dplyr::select(-X)
-#jogos <- read.csv2('csv/totalidade_jogos_sem_na.csv') %>% dplyr::select(-X)
-#jogos <- read.csv2('csv/partidas_2.csv') %>% dplyr::select(-X)
-jogos <- read.csv2('csv/partidas_3.csv') %>% dplyr::select(-X)
-jogos <- read.csv2('csv/partidas_4.csv') %>% dplyr::select(-X)
-jogos <- read.csv2('csv/partidas_5.csv') %>% dplyr::select(-X)
 
 # Criando dataframes de teste e validação -----------------------------------------------------------------
 set.seed(1)
@@ -150,20 +145,15 @@ acharnn <- function(){
   
   predictVstest <- cbind(test_data, Predict$net.result)
   i <<- sum(predictVstest$ganhador == nn2)/ nrow(test_data)
-  
   print(i)
   
 }
-
 
 while ( i < 0.80) {
   acharnn()
 }
 
-#save(n, file ='model_nnet.rda')
-#save(n, file ='model_2_nnet.rda') #2991
-#save(n, file ='model_3_nnet.rda')
-save(n, file ='model_4_nnet.rda') #possivelmente usarei esse para tentar prever o lockin sp
+save(n, file ='rede_neural.rda')
 # Matriz de confusão ---------------------------------------------------------------------------------------
 jogos <- read.csv2('csv/partidas.csv') %>% dplyr::select(-X)
 set.seed(5)
@@ -185,7 +175,7 @@ training_data$ganhador <- as.factor(training_data$ganhador)
 test_data$ganhador <- as.factor(test_data$ganhador)
 
 # Carregando modelo e obtendo os resultados
-load('model_nnet.rda')
+load('rede_neural.rda')
 Predict = compute(n, test_data)
 nn2 <- ifelse(Predict$net.result[,1]>mean(Predict$net.result),1,0)
 nn2 <- as.factor(nn2)
