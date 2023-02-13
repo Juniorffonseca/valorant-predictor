@@ -69,7 +69,7 @@ write.csv2(a, 'csv/a_2.csv')
 # Iteração para catalogar todos os jogos contidos nos urls armazenados --------------------------------------
 for (i in a){
   tryCatch({
-  dff[[length(dff)+1]] <- medias_Times(a[m])
+  dff[[length(dff)+1]] <- medias_Times(a[m], resultado = T)
   m = m + 1
   }, error = function(e){cat('error:', conditionMessage(e), '\n')})
 }
