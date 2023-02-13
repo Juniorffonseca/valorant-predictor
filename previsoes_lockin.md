@@ -1,4 +1,4 @@
-# Previsões da rede neural sobre o evento [Champions Tour 2023: LOCK//IN São Paulo](https://www.vlr.gg/event/1188/champions-tour-2023-lock-in-s-o-paulo)
+## Previsões da rede neural sobre o evento [Champions Tour 2023: LOCK//IN São Paulo](https://www.vlr.gg/event/1188/champions-tour-2023-lock-in-s-o-paulo)
 
 ## ALPHA:
 ### Round of 16:
