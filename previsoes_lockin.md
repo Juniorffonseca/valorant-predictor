@@ -41,11 +41,25 @@
 53.01 %  46.99 % 
 
 
-
 #### [ZETA DIVISION x Leviatán](https://www.vlr.gg/167364/zeta-division-vs-leviat-n-champions-tour-2023-lock-in-s-o-paulo-omega-ro16):
-<img src = 'https://owcdn.net/img/62a411783d94d.png' width = '30' height = '30'/> <img src = 'https://owcdn.net/img/61b8888cc3860.png' width = '30' height = '30'/>
 44.58 %  55.42 % 
 
 
+#### [Team Vitality x Global Esports](https://www.vlr.gg/167365/team-vitality-vs-global-esports-champions-tour-2023-lock-in-s-o-paulo-omega-ro16):
+45.6 %  54.4 % 
 
-#### [
+
+#### [FUT Esports x Rex Regum Qeon](https://www.vlr.gg/167366/fut-esports-vs-rex-regum-qeon-champions-tour-2023-lock-in-s-o-paulo-omega-ro16):
+45.72 %  54.28 % 
+
+
+#### [100 Thieves x EDward Gaming](https://www.vlr.gg/167367/100-thieves-vs-edward-gaming-champions-tour-2023-lock-in-s-o-paulo-omega-ro16):
+48.52 %  51.48 % 
+
+
+#### [Sentinels x FNATIC](https://www.vlr.gg/167368/sentinels-vs-fnatic-champions-tour-2023-lock-in-s-o-paulo-omega-ro16):
+51.36 %  48.64 % 
+
+
+#### [T1 x FURIA](https://www.vlr.gg/167369/t1-vs-furia-champions-tour-2023-lock-in-s-o-paulo-omega-ro16):
+43.9 %  56.1 % 
