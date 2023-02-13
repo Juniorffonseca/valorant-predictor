@@ -20,29 +20,30 @@
 44.6 % x 55.4 % 
 
 
-#### [Cloud9 x Paper Rex](https://www.vlr.gg/167353/cloud9-vs-paper-rex-champions-tour-2023-lock-in-s-o-paulo-alpha-ro16)
+#### [Cloud9 x Paper Rex](https://www.vlr.gg/167353/cloud9-vs-paper-rex-champions-tour-2023-lock-in-s-o-paulo-alpha-ro16):
 49.67 %  50.33 % 
 
 
-#### [Team Heretics x Evil Geniuses](https://www.vlr.gg/167354/team-heretics-vs-evil-geniuses-champions-tour-2023-lock-in-s-o-paulo-alpha-ro16)
+#### [Team Heretics x Evil Geniuses](https://www.vlr.gg/167354/team-heretics-vs-evil-geniuses-champions-tour-2023-lock-in-s-o-paulo-alpha-ro16):
 52.06 %  47.94 % 
 
 
-#### [MIBR x Talon Esports](https://www.vlr.gg/167355/mibr-vs-talon-esports-champions-tour-2023-lock-in-s-o-paulo-alpha-ro16)
+#### [MIBR x Talon Esports](https://www.vlr.gg/167355/mibr-vs-talon-esports-champions-tour-2023-lock-in-s-o-paulo-alpha-ro16):
 55.62 %  44.38 % 
 
 
 ## Partidas OMEGA:
-#### [Team Liquid x Team Secret](https://www.vlr.gg/167362/team-liquid-vs-team-secret-champions-tour-2023-lock-in-s-o-paulo-omega-ro16)
+#### [Team Liquid x Team Secret](https://www.vlr.gg/167362/team-liquid-vs-team-secret-champions-tour-2023-lock-in-s-o-paulo-omega-ro16):
 50.42 %  49.58 % 
 
 
-#### [Natus Vincere x KRÜ Esports](https://www.vlr.gg/167363/natus-vincere-vs-kr-esports-champions-tour-2023-lock-in-s-o-paulo-omega-ro16)
+#### [Natus Vincere x KRÜ Esports](https://www.vlr.gg/167363/natus-vincere-vs-kr-esports-champions-tour-2023-lock-in-s-o-paulo-omega-ro16):
 53.01 %  46.99 % 
 
-<img src = 'https://owcdn.net/img/62a411783d94d.png' width = '30' height = '30'/> <img src = 'https://owcdn.net/img/61b8888cc3860.png' width = '30' height = '30'/>
 
-#### [ZETA DIVISION x Leviatán](https://www.vlr.gg/167364/zeta-division-vs-leviat-n-champions-tour-2023-lock-in-s-o-paulo-omega-ro16)
+
+#### [ZETA DIVISION x Leviatán](https://www.vlr.gg/167364/zeta-division-vs-leviat-n-champions-tour-2023-lock-in-s-o-paulo-omega-ro16):
+<img src = 'https://owcdn.net/img/62a411783d94d.png' width = '30' height = '30'/> <img src = 'https://owcdn.net/img/61b8888cc3860.png' width = '30' height = '30'/>
 44.58 %  55.42 % 
 
 
