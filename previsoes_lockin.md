@@ -5,19 +5,19 @@
 
 
 #### [DetonatioN FocusMe x Giants Gaming](https://www.vlr.gg/167349/detonation-focusme-vs-giants-gaming-champions-tour-2023-lock-in-s-o-paulo-alpha-ro16): 
-50.14 % x 49.86 % 
+50.14 % 49.86 % 
 
 
 #### [Gen.G x LOUD](https://www.vlr.gg/167350/gen-g-vs-loud-champions-tour-2023-lock-in-s-o-paulo-alpha-ro16):
-45.68 % x 54.32 % 
+45.68 % 54.32 % 
 
 
 #### [FunPlus Phoenix x Karmine Corp](https://www.vlr.gg/167351/funplus-phoenix-vs-karmine-corp-champions-tour-2023-lock-in-s-o-paulo-alpha-ro16):
-43.73 % x 56.27 % 
+43.73 % 56.27 % 
 
 
 #### [BBL Esports x DRX](https://www.vlr.gg/167352/bbl-esports-vs-drx-champions-tour-2023-lock-in-s-o-paulo-alpha-ro16):
-44.6 % x 55.4 % 
+44.6 % 55.4 % 
 
 
 #### [Cloud9 x Paper Rex](https://www.vlr.gg/167353/cloud9-vs-paper-rex-champions-tour-2023-lock-in-s-o-paulo-alpha-ro16):
