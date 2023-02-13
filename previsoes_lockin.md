@@ -40,8 +40,7 @@
 #### [Natus Vincere x KRÜ Esports](https://www.vlr.gg/167363/natus-vincere-vs-kr-esports-champions-tour-2023-lock-in-s-o-paulo-omega-ro16)
 53.01 %  46.99 % 
 
-<img src = 'https://owcdn.net/img/62a411783d94d.png' width = '30' height = '30'/>
-<img src = 'https://owcdn.net/img/61b8888cc3860.png' width = '30' height = '30'/>
+<img src = 'https://owcdn.net/img/62a411783d94d.png' width = '30' height = '30'/> <img src = 'https://owcdn.net/img/61b8888cc3860.png' width = '30' height = '30'/>
 
 #### [ZETA DIVISION x Leviatán](https://www.vlr.gg/167364/zeta-division-vs-leviat-n-champions-tour-2023-lock-in-s-o-paulo-omega-ro16)
 44.58 %  55.42 % 
