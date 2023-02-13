@@ -158,27 +158,19 @@ dff <- dff %>% map_df(as_tibble)
 
 write.csv2(dff, 'csv/outras_partidas_2.csv') #apenas de janeiro 2023 em diante
 
-load(file = "model_nnet.rda")
+load(file = "model_4_nnet.rda")
 
 # Testando a acurácia -------------------------------------------------------------------------------------
 
-dados_gerais <- read.csv2('csv/jogadores.csv')
-  
-# Arrumando as colunas -------------------------------------------------------------------------------------
-dados_gerais <- dplyr::select(dados_gerais, Player, R, ACS, K.D, KAST, ADR)
-row.names(dados_gerais) <- make.names(dados_gerais[,1], unique = T)
-dados_gerais <- dplyr::select(dados_gerais, -Player)
-dados_gerais$KAST <- parse_number(dados_gerais$KAST)
-
-jogos <- read.csv2('csv/partidas.csv') %>% dplyr::select(-X, -ganhador)
+jogos <- read.csv2('csv/partidas_5.csv') %>% dplyr::select(-X, -ganhador)
     
-outras_partidas <- read.csv2('csv/outras_partidas_2.csv') %>% dplyr::select(-X, -ganhador)
+outras_partidas <- read.csv2('csv/partidas_4.csv') %>% dplyr::select(-X, -ganhador)
 
 jogos_scale <- rbind(jogos, outras_partidas)
 
 jogos_scale <- scale(jogos_scale)
     
-partidas <- jogos_scale[-1:-813,]
+partidas <- jogos_scale[-1:-nrow(jogos),]
     
 partidas <- as.data.frame(partidas)
     
@@ -206,7 +198,7 @@ previsao2 <- previsao2$net.result
 previsoes <- cbind(previsao, previsao2)
 
 transforma_positivo <- function (x){
-  y = atan(x*10) + pi/2
+  y = atan(x) + pi/2
   return (y)
 }
 
@@ -225,7 +217,7 @@ previsao2 <- previsao[((length(previsao)/2)+1):length(previsao)]
 previsao <- previsao[1:(length(previsao)/2)]
 previsao <- cbind(previsao, previsao2)
 
-ganhadores <- read.csv2('csv/outras_partidas_2.csv') %>% dplyr::select(ganhador)
+ganhadores <- read.csv2('csv/partidas_4.csv') %>% dplyr::select(ganhador)
 
 previsao <- cbind(previsao, ganhadores)
 colnames(previsao) <- c('previsao1', 'previsao2', 'ganhador')
