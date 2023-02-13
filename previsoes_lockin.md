@@ -16,5 +16,5 @@
 43.73 % x 56.27 % 
 
 
-#### [](https://www.vlr.gg/167352/bbl-esports-vs-drx-champions-tour-2023-lock-in-s-o-paulo-alpha-ro16):
+#### [BBL Esports x DRX](https://www.vlr.gg/167352/bbl-esports-vs-drx-champions-tour-2023-lock-in-s-o-paulo-alpha-ro16):
 44.6 % x 55.4 % 
