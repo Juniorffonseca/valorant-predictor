@@ -31,7 +31,7 @@
 
 
 [Cloud9 x Paper Rex](https://www.vlr.gg/167353/cloud9-vs-paper-rex-champions-tour-2023-lock-in-s-o-paulo-alpha-ro16):
-## 57.37 %  42.63 % 
+## 49.67 %  50.33 % 
 
 
 [Team Heretics x Evil Geniuses](https://www.vlr.gg/167354/team-heretics-vs-evil-geniuses-champions-tour-2023-lock-in-s-o-paulo-alpha-ro16):
