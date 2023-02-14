@@ -25,7 +25,9 @@
 
 
 [BBL Esports x DRX](https://www.vlr.gg/167352/bbl-esports-vs-drx-champions-tour-2023-lock-in-s-o-paulo-alpha-ro16):
-## 44.6 % 55.4 % 
+
+  1 x 2
+  ## 44.6 % 55.4 % 
 
 
 [Cloud9 x Paper Rex](https://www.vlr.gg/167353/cloud9-vs-paper-rex-champions-tour-2023-lock-in-s-o-paulo-alpha-ro16):
