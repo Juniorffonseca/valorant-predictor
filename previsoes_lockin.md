@@ -19,6 +19,8 @@
 
 
 [FunPlus Phoenix x Karmine Corp](https://www.vlr.gg/167351/funplus-phoenix-vs-karmine-corp-champions-tour-2023-lock-in-s-o-paulo-alpha-ro16):
+  
+  1 x 2
 ## 43.73 % 56.27 % 
 
 
