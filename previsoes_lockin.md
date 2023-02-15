@@ -1,7 +1,7 @@
 ### Previsões da rede neural sobre as partidas do [Champions Tour 2023: LOCK//IN São Paulo](https://www.vlr.gg/event/1188/champions-tour-2023-lock-in-s-o-paulo)
 
-# Primeira  rodada (round of 16)
-# Partidas ALPHA:
+## Primeira  rodada (round of 16)
+## Partidas ALPHA:
 <div id="header" align="center">
   
 [KOI x NRG Esports](https://www.vlr.gg/167348/koi-vs-nrg-esports-champions-tour-2023-lock-in-s-o-paulo-alpha-ro16):
@@ -52,8 +52,8 @@
 </div>
 acertos: 4/8
 
-### Primeira  rodada (round of 16)
-##### Partidas OMEGA:
+## Primeira  rodada (round of 16)
+## Partidas OMEGA:
 
 <div id="footer" align="center">
   
@@ -91,8 +91,8 @@ acertos: 4/8
 </div>
 
 
-### Segunda rodada (quartas de finais)
-# Partidas ALPHA:
+## Segunda rodada (quartas de finais)
+## Partidas ALPHA:
 <div id="footer" align="center">
   
 [NRG Esports x Giants Gaming](https://www.vlr.gg/167356/nrg-esports-vs-giants-gaming-champions-tour-2023-lock-in-s-o-paulo-alpha-qf)
