@@ -52,7 +52,6 @@
 </div>
 acertos: 4/8
 
-## Primeira  rodada (round of 16)
 ## Partidas OMEGA:
 
 <div id="footer" align="center">
@@ -95,6 +94,15 @@ acertos: 4/8
 ## Partidas ALPHA:
 <div id="footer" align="center">
   
-[NRG Esports x Giants Gaming](https://www.vlr.gg/167356/nrg-esports-vs-giants-gaming-champions-tour-2023-lock-in-s-o-paulo-alpha-qf)
+[NRG Esports x Giants Gaming](https://www.vlr.gg/167356/nrg-esports-vs-giants-gaming-champions-tour-2023-lock-in-s-o-paulo-alpha-qf):
 ## 43.96 %  56.04 % 
+  
+[LOUD x Karmine Corp]()
+##
+ 
+[DRX x Cloud9](https://www.vlr.gg/167358/drx-vs-cloud9-champions-tour-2023-lock-in-s-o-paulo-alpha-qf):
+
+  ##52.56 %  47.44 % 
 </div>
+
+## Partidas OMEGA:
