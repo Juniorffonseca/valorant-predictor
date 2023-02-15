@@ -15,7 +15,9 @@
 
 
 [Gen.G x LOUD](https://www.vlr.gg/167350/gen-g-vs-loud-champions-tour-2023-lock-in-s-o-paulo-alpha-ro16):
-## 45.68 % 54.32 % 
+
+  0 x 2
+  ## 45.68 % 54.32 % 
 
 
 [FunPlus Phoenix x Karmine Corp](https://www.vlr.gg/167351/funplus-phoenix-vs-karmine-corp-champions-tour-2023-lock-in-s-o-paulo-alpha-ro16):
@@ -84,4 +86,4 @@
   
 </div>
 
-acertos: 3/7
+acertos: 4/8
