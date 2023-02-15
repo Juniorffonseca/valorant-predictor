@@ -31,6 +31,7 @@
 
 
 [Cloud9 x Paper Rex](https://www.vlr.gg/167353/cloud9-vs-paper-rex-champions-tour-2023-lock-in-s-o-paulo-alpha-ro16):
+ 
   2 x 0
 ## 49.67 %  50.33 % 
 
