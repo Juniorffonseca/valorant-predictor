@@ -148,7 +148,3 @@ resultadovspredict$previsoes <-  ifelse(resultadovspredict$previsao1>resultadovs
                                         0)
 
 i <- sum(resultadovspredict$ganhador == resultadovspredict$previsoes)/nrow(resultadovspredict)
-
-# i = 0.747292418772563
-# Acurácia de 75%
-
