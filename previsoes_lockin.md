@@ -48,6 +48,8 @@
 ## 55.62 %  44.38 % 
   
 </div>
+acertos: 4/8
+
 
 ##### Partidas OMEGA:
 
@@ -86,4 +88,5 @@
   
 </div>
 
-acertos: 4/8
+
+acertos totais: 4/8
