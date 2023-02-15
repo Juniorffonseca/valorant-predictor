@@ -84,4 +84,4 @@
   
 </div>
 
-acertos: 3/6
+acertos: 3/7
