@@ -102,6 +102,7 @@ acertos: 4/8
  
 [DRX x Cloud9](https://www.vlr.gg/167358/drx-vs-cloud9-champions-tour-2023-lock-in-s-o-paulo-alpha-qf):
 ##52.56 %  47.44 % 
+
 </div>
 
 ## Partidas OMEGA:
