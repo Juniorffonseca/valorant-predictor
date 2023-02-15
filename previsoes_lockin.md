@@ -19,19 +19,27 @@
 
 
 [FunPlus Phoenix x Karmine Corp](https://www.vlr.gg/167351/funplus-phoenix-vs-karmine-corp-champions-tour-2023-lock-in-s-o-paulo-alpha-ro16):
+  
+  1 x 2
 ## 43.73 % 56.27 % 
 
 
 [BBL Esports x DRX](https://www.vlr.gg/167352/bbl-esports-vs-drx-champions-tour-2023-lock-in-s-o-paulo-alpha-ro16):
-## 44.6 % 55.4 % 
+
+  1 x 2
+  ## 44.6 % 55.4 % 
 
 
 [Cloud9 x Paper Rex](https://www.vlr.gg/167353/cloud9-vs-paper-rex-champions-tour-2023-lock-in-s-o-paulo-alpha-ro16):
+ 
+  2 x 0
 ## 49.67 %  50.33 % 
 
 
 [Team Heretics x Evil Geniuses](https://www.vlr.gg/167354/team-heretics-vs-evil-geniuses-champions-tour-2023-lock-in-s-o-paulo-alpha-ro16):
-## 52.06 %  47.94 % 
+
+  0 x 2
+  ## 52.06 %  47.94 % 
 
 
 [MIBR x Talon Esports](https://www.vlr.gg/167355/mibr-vs-talon-esports-champions-tour-2023-lock-in-s-o-paulo-alpha-ro16):
@@ -75,3 +83,5 @@
 ## 43.9 %  56.1 % 
   
 </div>
+
+acertos: 3/6
