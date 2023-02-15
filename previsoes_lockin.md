@@ -37,7 +37,9 @@
 
 
 [Team Heretics x Evil Geniuses](https://www.vlr.gg/167354/team-heretics-vs-evil-geniuses-champions-tour-2023-lock-in-s-o-paulo-alpha-ro16):
-## 52.06 %  47.94 % 
+
+  0 x 2
+  ## 52.06 %  47.94 % 
 
 
 [MIBR x Talon Esports](https://www.vlr.gg/167355/mibr-vs-talon-esports-champions-tour-2023-lock-in-s-o-paulo-alpha-ro16):
