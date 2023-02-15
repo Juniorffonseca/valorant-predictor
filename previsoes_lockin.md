@@ -93,6 +93,7 @@ acertos: 4/8
 
 ### Segunda rodada (quartas de finais)
 # Partidas ALPHA:
+
 <div id="footer" align="center">
 [NRG Esports x Giants Gaming](https://www.vlr.gg/167356/nrg-esports-vs-giants-gaming-champions-tour-2023-lock-in-s-o-paulo-alpha-qf)
 ## 43.96 %  56.04 % 
