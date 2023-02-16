@@ -1,5 +1,7 @@
 ### Previsões da rede neural sobre as partidas do [Champions Tour 2023: LOCK//IN São Paulo](https://www.vlr.gg/event/1188/champions-tour-2023-lock-in-s-o-paulo)
-##### Partidas ALPHA:
+
+## Primeira  rodada (round of 16)
+## Partidas ALPHA:
 <div id="header" align="center">
   
 [KOI x NRG Esports](https://www.vlr.gg/167348/koi-vs-nrg-esports-champions-tour-2023-lock-in-s-o-paulo-alpha-ro16):
@@ -15,7 +17,9 @@
 
 
 [Gen.G x LOUD](https://www.vlr.gg/167350/gen-g-vs-loud-champions-tour-2023-lock-in-s-o-paulo-alpha-ro16):
-## 45.68 % 54.32 % 
+
+  0 x 2
+  ## 45.68 % 54.32 % 
 
 
 [FunPlus Phoenix x Karmine Corp](https://www.vlr.gg/167351/funplus-phoenix-vs-karmine-corp-champions-tour-2023-lock-in-s-o-paulo-alpha-ro16):
@@ -46,8 +50,9 @@
 ## 55.62 %  44.38 % 
   
 </div>
+acertos: 4/8
 
-##### Partidas OMEGA:
+## Partidas OMEGA:
 
 <div id="footer" align="center">
   
@@ -84,4 +89,23 @@
   
 </div>
 
-acertos: 3/6
+
+## Segunda rodada (quartas de finais)
+## Partidas ALPHA:
+<div id="footer" align="center">
+  
+[NRG Esports x Giants Gaming](https://www.vlr.gg/167356/nrg-esports-vs-giants-gaming-champions-tour-2023-lock-in-s-o-paulo-alpha-qf):
+## 43.96 %  56.04 % 
+  
+[LOUD x Karmine Corp](https://www.vlr.gg/167357/loud-vs-karmine-corp-champions-tour-2023-lock-in-s-o-paulo-alpha-qf)
+## 53.7 %  46.3 % 
+ 
+[DRX x Cloud9](https://www.vlr.gg/167358/drx-vs-cloud9-champions-tour-2023-lock-in-s-o-paulo-alpha-qf):
+## 52.56 %  47.44 % 
+
+[Evil Geniuses x Talon Esports](https://www.vlr.gg/167359/evil-geniuses-vs-talon-esports-champions-tour-2023-lock-in-s-o-paulo-alpha-qf)
+## 53.37 %  46.63 % 
+  
+</div>
+
+## Partidas OMEGA:
