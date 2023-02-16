@@ -138,7 +138,6 @@ ggplot(data = previsao, mapping = aes(x = previsao1, y = previsao2, colour = gan
   geom_point() +
   theme_bw()
 
-
 resultados <- dplyr::select(previsao, ganhador)
 
 resultadovspredict <- cbind(partidas, previsao)
