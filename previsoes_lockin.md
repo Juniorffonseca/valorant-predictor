@@ -81,8 +81,18 @@ acertos: 1/2
 [NRG Esports x LOUD](https://www.vlr.gg/167360/nrg-esports-vs-loud-champions-tour-2023-lock-in-s-o-paulo-alpha-sf)
 ## 44.13 %  55.87 % 
   
+[Indefinido x Indefinido]()
+## ??.??% ??.??%
+  
 </div>
 
+acertos: ?/?
+
+## Quarta rodada (final)
+<div align='center'>
+
+[Indefinido x Indefinido]()
+## ??.??% ??.??%
 
 
 # Partidas OMEGA:
