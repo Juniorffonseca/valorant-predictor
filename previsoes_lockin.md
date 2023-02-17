@@ -95,7 +95,9 @@ acertos: 4/8
 <div id="footer" align="center">
   
 [NRG Esports x Giants Gaming](https://www.vlr.gg/167356/nrg-esports-vs-giants-gaming-champions-tour-2023-lock-in-s-o-paulo-alpha-qf):
-## 43.96 %  56.04 % 
+
+  2 x 1
+  ## 43.96 %  56.04 % 
   
 [LOUD x Karmine Corp](https://www.vlr.gg/167357/loud-vs-karmine-corp-champions-tour-2023-lock-in-s-o-paulo-alpha-qf)
 ## 53.7 %  46.3 % 
