@@ -73,6 +73,7 @@ acertos: 4/8
 ## 53.37 %  46.63 % 
   
 </div>
+acertos: 1/2
 
 ## Terceira rodada (semi-finais)
 <div align='center'>
