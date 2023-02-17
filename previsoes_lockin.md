@@ -94,6 +94,9 @@ acertos: ?/?
 [Indefinido x Indefinido]()
 ## ??.??% ??.??%
 
+</div>
+
+acertos: ?/1
 
 # Partidas OMEGA:
 
