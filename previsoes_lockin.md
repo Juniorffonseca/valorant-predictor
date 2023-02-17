@@ -3,7 +3,7 @@
 # Partidas ALPHA:
 ## Primeira  rodada (round of 16)
 
-<div id="header" align="center">
+<div align="center">
   
 [KOI x NRG Esports](https://www.vlr.gg/167348/koi-vs-nrg-esports-champions-tour-2023-lock-in-s-o-paulo-alpha-ro16):
  
@@ -54,7 +54,7 @@
 acertos: 4/8
 
 ## Segunda rodada (quartas de finais)
-<div id="footer" align="center">
+<div align="center">
   
 [NRG Esports x Giants Gaming](https://www.vlr.gg/167356/nrg-esports-vs-giants-gaming-champions-tour-2023-lock-in-s-o-paulo-alpha-qf):
 
