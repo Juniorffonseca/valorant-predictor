@@ -65,6 +65,7 @@ dff <- list()
 
 # Salvando os links que serão utilizados em um csv
 #write.csv2(a, 'csv/urls.csv')
+a <- read.csv2('csv/urls.csv') %>% select(-X)
 
 # Iteração para catalogar todos os jogos contidos nos urls armazenados --------------------------------------
 for (i in a){
@@ -79,3 +80,4 @@ dff <- dff %>% map_df(as_tibble, .name_repair = "unique") # talvez não precise 
 
 # Exportando como csv --------------------------------------------------------------------------------------
 #write.csv2(dff, 'csv/partidas.csv')
+write.csv2(dff, 'csv/partidas_teste.csv')

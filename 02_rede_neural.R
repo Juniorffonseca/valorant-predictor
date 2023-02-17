@@ -12,6 +12,7 @@ library(ggplot2)
 
 # Carregando o dataframe -----------------------------------------------------------------------------------
 jogos <- read.csv2('csv/partidas.csv') %>% dplyr::select(-X)
+jogos <- read.csv2('csv/partidas_teste.csv') %>% dplyr::select(-X)
 
 # Criando dataframes de teste e validação -----------------------------------------------------------------
 set.seed(1)
@@ -37,14 +38,16 @@ test_data$ganhador <- as.factor(test_data$ganhador)
 # Modelando a rede neural ---------------------------------------------------------------------------------
 n <- neuralnet(ganhador == 1 ~ .,
                data = training_data,
-               hidden = c(10, 10, 10),
+               hidden = c(30),
                err.fct = "sse",
                linear.output = F,
-               threshold = 0.3,
+               threshold = 0.1,
                lifesign = 'minimal',
                rep = 1,
                algorithm = 'rprop-',
                stepmax = 10000)
+
+#plot(n, rep = 1)
 
 # Prediction ---------------------------------------------------------------------------------------------
 Predict = compute(n, test_data)
@@ -76,10 +79,10 @@ acharseed <- function(seed){
   
   n <- neuralnet(ganhador == 1 ~ .,
                  data = training_data,
-                 hidden = c(10, 10, 10),
+                 hidden = c(30),
                  err.fct = "sse",
                  linear.output = F,
-                 threshold = 1,
+                 threshold = 0.1,
                  lifesign = 'minimal',
                  rep = 1,
                  algorithm = 'rprop-',
@@ -104,7 +107,7 @@ while ( i < 0.78) {
 }
 
 # Atualizando a seed para achar a melhor neuralnetwork -------------------------------------------------------
-set.seed(386) #4 #59
+set.seed(61) #4 #59
 inp <- sample(2, nrow(jogos), replace = TRUE, prob = c(0.7, 0.3))
 training_data <- jogos[inp==1, ]
 test_data <- jogos[inp==2, ]
@@ -130,10 +133,10 @@ acharnn <- function(){
   
   n <- neuralnet(ganhador == 1 ~ .,
                  data = training_data,
-                 hidden = c(10, 10, 10),
+                 hidden = c(30),
                  err.fct = "sse",
                  linear.output = F,
-                 threshold = 1,
+                 threshold = 0.1,
                  lifesign = 'minimal',
                  rep = 1,
                  algorithm = 'rprop-',
