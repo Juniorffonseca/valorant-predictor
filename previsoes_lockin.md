@@ -67,13 +67,15 @@ acertos: 4/8
   ## 53.7 %  46.3 % 
  
 [DRX x Cloud9](https://www.vlr.gg/167358/drx-vs-cloud9-champions-tour-2023-lock-in-s-o-paulo-alpha-qf):
-## 52.56 %  47.44 % 
+
+  2 x 1
+  ## 52.56 %  47.44 % 
 
 [Evil Geniuses x Talon Esports](https://www.vlr.gg/167359/evil-geniuses-vs-talon-esports-champions-tour-2023-lock-in-s-o-paulo-alpha-qf)
 ## 53.37 %  46.63 % 
   
 </div>
-acertos: 1/2
+acertos: 2/3
 
 ## Terceira rodada (semi-finais)
 <div align='center'>
