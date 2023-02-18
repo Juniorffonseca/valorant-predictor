@@ -72,10 +72,12 @@ acertos: 4/8
   ## 52.56 %  47.44 % 
 
 [Evil Geniuses x Talon Esports](https://www.vlr.gg/167359/evil-geniuses-vs-talon-esports-champions-tour-2023-lock-in-s-o-paulo-alpha-qf)
-## 53.37 %  46.63 % 
+
+  0 x 2
+  ## 53.37 %  46.63 % 
   
 </div>
-acertos: 2/3
+acertos: 2/4
 
 ## Terceira rodada (semi-finais)
 <div align='center'>
