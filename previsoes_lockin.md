@@ -85,8 +85,8 @@ acertos: 2/4
 [NRG Esports x LOUD](https://www.vlr.gg/167360/nrg-esports-vs-loud-champions-tour-2023-lock-in-s-o-paulo-alpha-sf)
 ## 44.13 %  55.87 % 
   
-[Indefinido x Indefinido]()
-## ??.??% ??.??%
+[DRX x Talon Esports](https://www.vlr.gg/167361/drx-vs-talon-esports-champions-tour-2023-lock-in-s-o-paulo-alpha-sf)
+## 55.67 %  44.33 % 
   
 </div>
 
