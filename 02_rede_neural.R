@@ -152,8 +152,6 @@ acharnn <- function(){
   i <<- sum(predictVstest$ganhador == nn2)/ nrow(test_data)
   print(i)
   
-  
-  
 }
 
 while (i < 0.84) {
