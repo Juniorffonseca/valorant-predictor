@@ -1,0 +1,77 @@
+# Carregando pacotes --------------------------------------------------------------------------------------
+library(rvest)
+library(quantmod)
+library(httr)
+library(tibble)
+library(stringr)
+library(reshape2)
+library(tidyverse)
+library(neuralnet)
+library(readr)
+library(purrr)
+library(valorant)
+library(lubridate)
+
+# Criando variável páginas e criando variável 'p' que será a parte final do url (o número da página) -------
+
+funcaoPagina <- function(pagina){
+  
+  matchs <- read_html(pagina) %>% 
+    html_nodes('a') %>% html_attr('href')
+  
+  matchs <- matchs[15:64]
+  
+  n <- 1
+  
+  for (i in matchs){
+    matchs[n] <- paste('https://www.vlr.gg', matchs[n], sep = '')
+    n = n + 1
+    
+  }
+  
+  return(matchs)
+  
+}
+
+a <- funcaoPagina('https://www.vlr.gg/matches')
+n <- 1
+b <- '' %>% .[0]
+
+for (i in a){
+  tryCatch({
+    diario <- read_html(i) %>% 
+      html_nodes('div.moment-tz-convert') %>% html_text(trim = T) %>% .[1] %>%
+      parse_date_time(., orders = "%A, %B %d", locale = "en_US")
+    if(diario == Sys.Date()){
+      b[length(b)+1] <- i
+    }
+    else{}
+  }
+  , error = function(e){cat('error:', conditionMessage(e), '\n')})
+}
+
+nome_arquivo_urls <- paste(Sys.Date(), '_urls.csv', sep = '')
+write.csv2(b, paste('csv/catalogacao_diaria/', nome_arquivo_urls, sep = ''))
+
+m <- 1
+dff <- list()
+
+for (i in a){
+  tryCatch({
+    diario <- read_html(i) %>% 
+      html_nodes('div.moment-tz-convert') %>% html_text(trim = T) %>% .[1] %>%
+      parse_date_time(., orders = "%A, %B %d", locale = "en_US")
+    if(diario == Sys.Date()){
+      dff[[length(dff)+1]] <- medias_Times(a[m])
+      m = m + 1
+    }
+    else{}
+  }
+  
+  , error = function(e){cat('error:', conditionMessage(e), '\n')})
+}
+
+dff <- dff %>% map_df(as_tibble)
+
+nome_arquivo_partidas <- paste(Sys.Date(), '_partidas.csv', sep = '')
+write.csv2(dff, paste('csv/catalogacao_diaria/', nome_arquivo_partidas, sep = ''))
