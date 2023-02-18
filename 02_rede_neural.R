@@ -152,6 +152,9 @@ acharnn <- function(){
   i <<- sum(predictVstest$ganhador == nn2)/ nrow(test_data)
   print(i)
   
+  z <<- ifelse(i>z, z <<- i, z <<- z) 
+  
+  print(z)
 }
 
 while (i < 0.84) {

@@ -9,6 +9,7 @@ library(tidyverse)
 library(neuralnet)
 library(readr)
 library(purrr)
+library(valorant)
 
 # Criando variável páginas e criando variável 'p' que será a parte final do url (o número da página) -------
 paginas <- ''
@@ -63,15 +64,16 @@ for (i in a){
 
 dff <- dff %>% map_df(as_tibble)
 
-write.csv2(dff, 'csv/outras_partidas_2.csv') #apenas de janeiro 2023 em diante
+write.csv2(dff, 'csv/partidas_2_teste.csv') #apenas de janeiro 2023 em diante
 
 load(file = "rede_neural.rda")
+load(file = 'rede_neural_teste.rda')
 
 # Testando a acurácia -------------------------------------------------------------------------------------
 
-jogos <- read.csv2('csv/partidas.csv') %>% dplyr::select(-X, -ganhador)
+jogos <- read.csv2('csv/partidas_teste.csv') %>% dplyr::select(-X, -ganhador)
 
-outras_partidas <- read.csv2('csv/partidas_2.csv') %>% dplyr::select(-X, -ganhador)
+outras_partidas <- read.csv2('csv/partidas_2_teste.csv') %>% dplyr::select(-X, -ganhador)
 
 jogos_scale <- rbind(jogos, outras_partidas)
 
@@ -124,7 +126,7 @@ previsao2 <- previsao[((length(previsao)/2)+1):length(previsao)]
 previsao <- previsao[1:(length(previsao)/2)]
 previsao <- cbind(previsao, previsao2)
 
-ganhadores <- read.csv2('csv/partidas_2.csv') %>% dplyr::select(ganhador)
+ganhadores <- read.csv2('csv/partidas_2_teste.csv') %>% dplyr::select(ganhador)
 
 previsao <- cbind(previsao, ganhadores)
 colnames(previsao) <- c('previsao1', 'previsao2', 'ganhador')
@@ -147,3 +149,5 @@ resultadovspredict$previsoes <-  ifelse(resultadovspredict$previsao1>resultadovs
                                         0)
 
 i <- sum(resultadovspredict$ganhador == resultadovspredict$previsoes)/nrow(resultadovspredict)
+
+#72% acuracia em 946 jogos
