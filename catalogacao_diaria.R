@@ -11,6 +11,7 @@ library(readr)
 library(purrr)
 library(valorant)
 library(lubridate)
+setwd('C:/Users/anonb/Documents/TCC_Pós/Scripts')
 
 # Criando variável páginas e criando variável 'p' que será a parte final do url (o número da página) -------
 
@@ -75,3 +76,5 @@ dff <- dff %>% map_df(as_tibble)
 
 nome_arquivo_partidas <- paste(Sys.Date(), '_partidas.csv', sep = '')
 write.csv2(dff, paste('csv/catalogacao_diaria/', nome_arquivo_partidas, sep = ''))
+
+
