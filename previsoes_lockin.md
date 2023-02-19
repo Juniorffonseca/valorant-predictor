@@ -72,10 +72,12 @@ acertos: 4/8
   ## 52.56 %  47.44 % 
 
 [Evil Geniuses x Talon Esports](https://www.vlr.gg/167359/evil-geniuses-vs-talon-esports-champions-tour-2023-lock-in-s-o-paulo-alpha-qf)
-## 53.37 %  46.63 % 
+
+  0 x 2
+  ## 53.37 %  46.63 % 
   
 </div>
-acertos: 2/3
+acertos: 2/4
 
 ## Terceira rodada (semi-finais)
 <div align='center'>
@@ -83,8 +85,8 @@ acertos: 2/3
 [NRG Esports x LOUD](https://www.vlr.gg/167360/nrg-esports-vs-loud-champions-tour-2023-lock-in-s-o-paulo-alpha-sf)
 ## 44.13 %  55.87 % 
   
-[Indefinido x Indefinido]()
-## ??.??% ??.??%
+[DRX x Talon Esports](https://www.vlr.gg/167361/drx-vs-talon-esports-champions-tour-2023-lock-in-s-o-paulo-alpha-sf)
+## 55.67 %  44.33 % 
   
 </div>
 
