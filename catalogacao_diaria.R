@@ -45,7 +45,7 @@ for (i in a){
       parse_date_time(., orders = "%A, %B %d", locale = "en_US")
     tbd <- read_html(i) %>% html_nodes('table') %>% html_table() %>% 
       .[1:2] %>% map_df(as_tibble, .name_repair = 'minimal')
-    trues <- tbd[1] == 'TBD'
+
     if(dia == Sys.Date() & sum(tbd[1] == 'TBD') <= 2){
       b[length(b)+1] <- i
     }
