@@ -40,10 +40,13 @@ b <- '' %>% .[0]
 
 for (i in a){
   tryCatch({
-    diario <- read_html(i) %>% 
+    dia <- read_html(i) %>% 
       html_nodes('div.moment-tz-convert') %>% html_text(trim = T) %>% .[1] %>%
       parse_date_time(., orders = "%A, %B %d", locale = "en_US")
-    if(diario == Sys.Date()){
+    tbd <- read_html(i) %>% html_nodes('table') %>% html_table() %>% 
+      .[1:2] %>% map_df(as_tibble, .name_repair = 'minimal')
+    trues <- tbd[1] == 'TBD'
+    if(dia == Sys.Date() & sum(tbd[1] == 'TBD') <= 2){
       b[length(b)+1] <- i
     }
     else{}
@@ -57,16 +60,10 @@ write.csv2(b, paste('csv/catalogacao_diaria/', nome_arquivo_urls, sep = ''))
 m <- 1
 dff <- list()
 
-for (i in a){
+for (i in b){
   tryCatch({
-    diario <- read_html(i) %>% 
-      html_nodes('div.moment-tz-convert') %>% html_text(trim = T) %>% .[1] %>%
-      parse_date_time(., orders = "%A, %B %d", locale = "en_US")
-    if(diario == Sys.Date()){
-      dff[[length(dff)+1]] <- medias_Times(a[m])
+      dff[[length(dff)+1]] <- medias_Times(b[m])
       m = m + 1
-    }
-    else{}
   }
   
   , error = function(e){cat('error:', conditionMessage(e), '\n')})
