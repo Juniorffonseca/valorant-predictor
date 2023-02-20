@@ -14,8 +14,8 @@ library(lubridate)
 setwd('C:/Users/anonb/Documents/TCC_Pós/Scripts')
 
 # Carregando arquivos csv ---------------------------------------------------------------------------------
-nome_arquivo_urls <- paste(Sys.Date(), '_urls.csv', sep = '')
-nome_arquivo_partidas <- paste(Sys.Date(), '_partidas.csv', sep = '')
+nome_arquivo_urls <- paste(Sys.Date() - 1, '_urls.csv', sep = '')
+nome_arquivo_partidas <- paste(Sys.Date() - 1, '_partidas.csv', sep = '')
 
 b <- read.csv2(paste('csv/catalogacao_diaria/', nome_arquivo_urls, sep = '')) %>% select(-X) %>% unlist()
 dff <- read.csv2(paste('csv/catalogacao_diaria/', nome_arquivo_partidas, sep = '')) %>% select(-X)
@@ -26,6 +26,6 @@ for (i in b){
   ganhador[length(ganhador)+1] <- get_Ganhadores(i)
 }
 
-dff <- cbind(dff, ganhador)
+dff$ganhador <- ganhador
 
 write.csv2(dff, paste('csv/catalogacao_diaria/', nome_arquivo_partidas, sep = ''))
