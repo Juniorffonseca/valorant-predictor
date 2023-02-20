@@ -88,17 +88,19 @@ acertos: 2/4
   ## 44.13 %  55.87 % 
   
 [DRX x Talon Esports](https://www.vlr.gg/167361/drx-vs-talon-esports-champions-tour-2023-lock-in-s-o-paulo-alpha-sf)
-## 55.67 %  44.33 % 
+
+  2 x 1
+  ## 55.67 %  44.33 % 
   
 </div>
 
-acertos: 1/1
+acertos: 2/2
 
 ## Quarta rodada (final)
 <div align='center'>
 
-[LOUD x Indefinido]()
-## ??.??% ??.??%
+[LOUD x DRX](https://www.vlr.gg/167391/loud-vs-drx-champions-tour-2023-lock-in-s-o-paulo-sf)
+## 49.2 %  50.8 % 
 
 </div>
 
