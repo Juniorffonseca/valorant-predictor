@@ -12,6 +12,8 @@ library(tibble)
 library(stringr)
 library(neuralnet)
 library(reshape2)
+library(readr)
+library(purrr)
 library(valorant)
 
 load(file = "rede_neural.rda")
