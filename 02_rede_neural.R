@@ -9,6 +9,7 @@ library(stringr)
 library(neuralnet)
 library(caret)
 library(ggplot2)
+library(ModelMetrics)
 
 # Carregando o dataframe -----------------------------------------------------------------------------------
 jogos <- read.csv2('csv/partidas.csv') %>% dplyr::select(-X)
@@ -162,9 +163,10 @@ while (i < 0.84) {
 }
 
 #save(n, file ='rede_neural.rda')
-save(n, file='rede_neural_teste.rda')
+#save(n, file='rede_neural_teste.rda')
+
 # Matriz de confusão ---------------------------------------------------------------------------------------
-jogos <- read.csv2('csv/partidas.csv') %>% dplyr::select(-X)
+jogos <- read.csv2('csv/partidas_teste.csv') %>% dplyr::select(-X)
 set.seed(5)
 inp <- sample(2, nrow(jogos), replace = TRUE, prob = c(0.7, 0.3))
 training_data <- jogos[inp==1, ]
@@ -197,3 +199,7 @@ ggplot(data = x, mapping = aes(x = Reference, y = Prediction)) +
   geom_text(aes(label = sprintf('%1.0f', Freq)), vjust = 1) +
   scale_fill_gradient(low = 'white', high = 'green') +
   theme_bw() + theme(legend.position = 'none')
+
+
+#Log Loss
+logLoss(actual = test_data$ganhador, predicted = Predict$net.result)
