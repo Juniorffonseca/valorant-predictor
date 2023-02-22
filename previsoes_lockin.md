@@ -117,11 +117,15 @@ acertos: ?/1
 
 
 [Natus Vincere x KRÜ Esports](https://www.vlr.gg/167363/natus-vincere-vs-kr-esports-champions-tour-2023-lock-in-s-o-paulo-omega-ro16):
-## 53.01 %  46.99 % 
+
+  2 x 0
+  ## 53.01 %  46.99 % 
 
 
 [ZETA DIVISION x Leviatán](https://www.vlr.gg/167364/zeta-division-vs-leviat-n-champions-tour-2023-lock-in-s-o-paulo-omega-ro16):
-## 44.58 %  55.42 % 
+
+  0 x 1
+  ## 44.58 %  55.42 % 
 
 
 [Team Vitality x Global Esports](https://www.vlr.gg/167365/team-vitality-vs-global-esports-champions-tour-2023-lock-in-s-o-paulo-omega-ro16):
