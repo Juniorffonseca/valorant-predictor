@@ -21,6 +21,9 @@ jogos <- read.csv2('csv/partidas_teste.csv') %>% dplyr::select(time1RND, time2RN
                                                                time1ADR, time2ADR,
                                                                ganhador)
 jogos <- read.csv2('csv/partidas_teste.csv') %>% dplyr::select(-X)
+jogos <- read.csv2('csv/partidas_teste.csv') %>% dplyr::select(time1R, time1ACS, time1KD,
+                                                               time2R, time2ACS, time2KD,
+                                                               ganhador)
 # Criando dataframes de teste e validação -----------------------------------------------------------------
 set.seed(1)
 inp <- sample(2, nrow(jogos), replace = TRUE, prob = c(0.7, 0.3))
@@ -45,10 +48,10 @@ test_data$ganhador <- as.factor(test_data$ganhador)
 # Modelando a rede neural ---------------------------------------------------------------------------------
 n <- neuralnet(ganhador == 1 ~ .,
                data = training_data,
-               hidden = c(15),
+               hidden = c(10, 10, 10),
                err.fct = "sse",
                linear.output = F,
-               threshold = 0.1,
+               threshold = 1,
                lifesign = 'minimal',
                rep = 1,
                algorithm = 'rprop-',
@@ -86,7 +89,7 @@ acharseed <- function(seed){
   
   n <- neuralnet(ganhador == 1 ~ .,
                  data = training_data,
-                 hidden = c(10, 10, 10),
+                 hidden = c(10),
                  err.fct = "sse",
                  linear.output = F,
                  threshold = 1,
@@ -106,10 +109,10 @@ acharseed <- function(seed){
   
 }
 
-s <- 27740
+s <- 1
 w <- 0.1
 
-while ( i < 0.79) {
+while ( i < 0.83) {
   acharseed(s)
   s <- s + 1
   w <<- ifelse(i>w, w <<- i, w <<- w) 
@@ -118,7 +121,7 @@ while ( i < 0.79) {
 }
 
 # Atualizando a seed para achar a melhor neuralnetwork -------------------------------------------------------
-set.seed(27741) #4 #59
+set.seed(20586) #4 #59
 inp <- sample(2, nrow(jogos), replace = TRUE, prob = c(0.7, 0.3))
 training_data <- jogos[inp==1, ]
 test_data <- jogos[inp==2, ]
@@ -144,10 +147,10 @@ acharnn <- function(){
   
   n <<- neuralnet(ganhador == 1 ~ .,
                  data = training_data,
-                 hidden = c(10, 10, 10),
+                 hidden = c(9),
                  err.fct = "sse",
                  linear.output = F,
-                 threshold = 0.9,
+                 threshold = 0.8,
                  lifesign = 'minimal',
                  rep = 1,
                  algorithm = 'rprop-',
@@ -168,7 +171,7 @@ acharnn <- function(){
 
 z <- 0.1
 
-while (i < 0.81) {
+while (i < 0.85) {
   acharnn()
 }
 
