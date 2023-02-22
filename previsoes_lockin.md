@@ -111,7 +111,9 @@ acertos: ?/1
 <div align='center'>
   
 [Team Liquid x Team Secret](https://www.vlr.gg/167362/team-liquid-vs-team-secret-champions-tour-2023-lock-in-s-o-paulo-omega-ro16):
-## 50.42 %  49.58 % 
+
+  0 x 2
+  ## 50.42 %  49.58 % 
 
 
 [Natus Vincere x KRÜ Esports](https://www.vlr.gg/167363/natus-vincere-vs-kr-esports-champions-tour-2023-lock-in-s-o-paulo-omega-ro16):
