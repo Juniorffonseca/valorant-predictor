@@ -13,17 +13,16 @@ library(ModelMetrics)
 
 # Carregando o dataframe -----------------------------------------------------------------------------------
 jogos <- read.csv2('csv/partidas.csv') %>% dplyr::select(-X)
-jogos <- read.csv2('csv/partidas_teste.csv') %>% dplyr::select(-X, -time1K, -time2K, -time1D, -time2D,
-                                                               -time1KPR, -time2KPR, -time1APR, -time2APR,
-                                                               -time1FKPR, -time2FKPR, -time1FDPR, -time2FDPR)
-jogos <- read.csv2('csv/partidas_teste.csv') %>% dplyr::select(time1RND, time2RND, time1R, time2R,
-                                                               time1ACS, time2ACS, time1KAST, time2KAST,
-                                                               time1ADR, time2ADR,
-                                                               ganhador)
-jogos <- read.csv2('csv/partidas_teste.csv') %>% dplyr::select(-X)
 jogos <- read.csv2('csv/partidas_teste.csv') %>% dplyr::select(time1R, time1ACS, time1KD,
                                                                time2R, time2ACS, time2KD,
                                                                ganhador)
+# Carregando partidas diarias e unindo emum df ------------------------------------------------------------
+jogos_1 <- read.csv2('csv/catalogacao_diaria/2023-02-19_partidas.csv') %>% dplyr::select(-X)
+jogos_2 <- read.csv2('csv/catalogacao_diaria/2023-02-20_partidas.csv') %>% dplyr::select(-X)
+jogos_3 <- read.csv2('csv/catalogacao_diaria/2023-02-21_partidas.csv') %>% dplyr::select(-X)
+jogos_4 <- read.csv2('csv/catalogacao_diaria/2023-02-22_partidas.csv') %>% dplyr::select(-X)
+jogos <- rbind(jogos_1, jogos_2, jogos_3, jogos_4)
+
 # Criando dataframes de teste e validação -----------------------------------------------------------------
 set.seed(1)
 inp <- sample(2, nrow(jogos), replace = TRUE, prob = c(0.7, 0.3))
@@ -112,7 +111,7 @@ acharseed <- function(seed){
 s <- 1
 w <- 0.1
 
-while ( i < 0.83) {
+while ( i < 0.85) {
   acharseed(s)
   s <- s + 1
   w <<- ifelse(i>w, w <<- i, w <<- w) 
@@ -121,7 +120,7 @@ while ( i < 0.83) {
 }
 
 # Atualizando a seed para achar a melhor neuralnetwork -------------------------------------------------------
-set.seed(20586) #4 #59
+set.seed(209) #4 #59
 inp <- sample(2, nrow(jogos), replace = TRUE, prob = c(0.7, 0.3))
 training_data <- jogos[inp==1, ]
 test_data <- jogos[inp==2, ]
@@ -171,7 +170,7 @@ acharnn <- function(){
 
 z <- 0.1
 
-while (i < 0.85) {
+while (i < 0.9) {
   acharnn()
 }
 
