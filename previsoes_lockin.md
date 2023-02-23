@@ -124,7 +124,7 @@ acertos: ?/1
 
 [ZETA DIVISION x Leviatán](https://www.vlr.gg/167364/zeta-division-vs-leviat-n-champions-tour-2023-lock-in-s-o-paulo-omega-ro16):
 
-  0 x 1
+  0 x 2
   ## 44.58 %  55.42 % 
 
 
@@ -148,3 +148,7 @@ acertos: ?/1
 ## 43.9 %  56.1 % 
   
 </div>
+
+acertos: 2/3
+
+ACERTOS TOTAIS: 10/17 (59%)
