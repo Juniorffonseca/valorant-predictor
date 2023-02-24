@@ -21,7 +21,8 @@ jogos_1 <- read.csv2('csv/catalogacao_diaria/2023-02-19_partidas.csv') %>% dplyr
 jogos_2 <- read.csv2('csv/catalogacao_diaria/2023-02-20_partidas.csv') %>% dplyr::select(-X)
 jogos_3 <- read.csv2('csv/catalogacao_diaria/2023-02-21_partidas.csv') %>% dplyr::select(-X)
 jogos_4 <- read.csv2('csv/catalogacao_diaria/2023-02-22_partidas.csv') %>% dplyr::select(-X)
-jogos <- rbind(jogos_1, jogos_2, jogos_3, jogos_4)
+jogos_5 <- read.csv2('csv/catalogacao_diaria/2023-02-23_partidas.csv') %>% dplyr::select(-X)
+jogos <- rbind(jogos_1, jogos_2, jogos_3, jogos_4, jogos_5)
 
 # Criando dataframes de teste e validação -----------------------------------------------------------------
 set.seed(1)
@@ -111,7 +112,7 @@ acharseed <- function(seed){
 s <- 1
 w <- 0.1
 
-while ( i < 0.85) {
+while ( i < 0.91) {
   acharseed(s)
   s <- s + 1
   w <<- ifelse(i>w, w <<- i, w <<- w) 
@@ -120,7 +121,7 @@ while ( i < 0.85) {
 }
 
 # Atualizando a seed para achar a melhor neuralnetwork -------------------------------------------------------
-set.seed(209) #4 #59
+set.seed(29609) #4 #59
 inp <- sample(2, nrow(jogos), replace = TRUE, prob = c(0.6, 0.4))
 training_data <- jogos[inp==1, ]
 test_data <- jogos[inp==2, ]
@@ -170,7 +171,7 @@ acharnn <- function(){
 
 z <- 0.1
 
-while (i < 0.99) {
+while (i < 0.96) {
   acharnn()
 }
 
