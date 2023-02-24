@@ -147,7 +147,9 @@ acertos: ?/1
 
 
 [Sentinels x FNATIC](https://www.vlr.gg/167368/sentinels-vs-fnatic-champions-tour-2023-lock-in-s-o-paulo-omega-ro16):
-## 51.36 %  48.64 % 
+
+  0 x 2
+  ## 51.36 %  48.64 % 
 
 
 [T1 x FURIA](https://www.vlr.gg/167369/t1-vs-furia-champions-tour-2023-lock-in-s-o-paulo-omega-ro16):
@@ -157,4 +159,4 @@ acertos: ?/1
 
 acertos: 2/5
 
-###### ACERTOS TOTAIS: 10/20 (50%)
+###### ACERTOS TOTAIS: 10/21 (48%)
