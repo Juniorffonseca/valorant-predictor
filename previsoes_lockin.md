@@ -129,11 +129,15 @@ acertos: ?/1
 
 
 [Team Vitality x Global Esports](https://www.vlr.gg/167365/team-vitality-vs-global-esports-champions-tour-2023-lock-in-s-o-paulo-omega-ro16):
-## 45.6 %  54.4 % 
+
+  2 x 1
+  ## 45.6 %  54.4 % 
 
 
 [FUT Esports x Rex Regum Qeon](https://www.vlr.gg/167366/fut-esports-vs-rex-regum-qeon-champions-tour-2023-lock-in-s-o-paulo-omega-ro16):
-## 45.72 %  54.28 % 
+
+  2 x 0
+  ## 45.72 %  54.28 % 
 
 
 [100 Thieves x EDward Gaming](https://www.vlr.gg/167367/100-thieves-vs-edward-gaming-champions-tour-2023-lock-in-s-o-paulo-omega-ro16):
@@ -149,6 +153,6 @@ acertos: ?/1
   
 </div>
 
-acertos: 2/3
+acertos: 2/5
 
-###### ACERTOS TOTAIS: 10/17 (59%)
+###### ACERTOS TOTAIS: 10/19 (53%)
