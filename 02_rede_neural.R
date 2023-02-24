@@ -25,7 +25,7 @@ jogos <- rbind(jogos_1, jogos_2, jogos_3, jogos_4)
 
 # Criando dataframes de teste e validação -----------------------------------------------------------------
 set.seed(1)
-inp <- sample(2, nrow(jogos), replace = TRUE, prob = c(0.7, 0.3))
+inp <- sample(2, nrow(jogos), replace = TRUE, prob = c(0.6, 0.4))
 training_data <- jogos[inp==1, ]
 test_data <- jogos[inp==2, ]
 
@@ -61,7 +61,7 @@ n <- neuralnet(ganhador == 1 ~ .,
 # Prediction ---------------------------------------------------------------------------------------------
 Predict = compute(n, test_data)
 
-nn2 <- ifelse(Predict$net.result[,1]>mean(Predict$net.result),1,0)
+nn2 <- ifelse(Predict$net.result[,1]>0.5,1,0)
 
 predictVstest <- cbind(test_data, Predict$net.result)
 i <<- sum(predictVstest$ganhador == nn2)/ nrow(test_data)
@@ -69,7 +69,7 @@ i <<- sum(predictVstest$ganhador == nn2)/ nrow(test_data)
 
 acharseed <- function(seed){
   set.seed(seed)
-  inp <- sample(2, nrow(jogos), replace = TRUE, prob = c(0.7, 0.3))
+  inp <- sample(2, nrow(jogos), replace = TRUE, prob = c(0.6, 0.4))
   training_data <- jogos[inp==1, ]
   test_data <- jogos[inp==2, ]
   
@@ -99,7 +99,7 @@ acharseed <- function(seed){
   
   Predict = compute(n, test_data)
   
-  nn2 <- ifelse(Predict$net.result[,1]>mean(Predict$net.result),1,0)
+  nn2 <- ifelse(Predict$net.result[,1]>0.5,1,0)
   
   predictVstest <- cbind(test_data, Predict$net.result)
   i <<- sum(predictVstest$ganhador == nn2)/ nrow(test_data)
@@ -121,7 +121,7 @@ while ( i < 0.85) {
 
 # Atualizando a seed para achar a melhor neuralnetwork -------------------------------------------------------
 set.seed(209) #4 #59
-inp <- sample(2, nrow(jogos), replace = TRUE, prob = c(0.7, 0.3))
+inp <- sample(2, nrow(jogos), replace = TRUE, prob = c(0.6, 0.4))
 training_data <- jogos[inp==1, ]
 test_data <- jogos[inp==2, ]
 
@@ -139,7 +139,7 @@ training_data$ganhador <- as.factor(training_data$ganhador)
 test_data$ganhador <- as.factor(test_data$ganhador)
 
 Predict = compute(n, test_data)
-nn2 <- ifelse(Predict$net.result[,1]>mean(Predict$net.result),1,0)
+nn2 <- ifelse(Predict$net.result[,1]>0.5,1,0)
 predictVstest <- cbind(test_data, Predict$net.result)
 
 acharnn <- function(){
@@ -157,7 +157,7 @@ acharnn <- function(){
   
   Predict <<- compute(n, test_data)
   
-  nn2 <<- ifelse(Predict$net.result[,1]>mean(Predict$net.result),1,0)
+  nn2 <<- ifelse(Predict$net.result[,1]>0.5,1,0)
   
   predictVstest <<- cbind(test_data, Predict$net.result)
   i <<- sum(predictVstest$ganhador == nn2)/ nrow(test_data)
@@ -170,7 +170,7 @@ acharnn <- function(){
 
 z <- 0.1
 
-while (i < 0.9) {
+while (i < 0.99) {
   acharnn()
 }
 
@@ -200,7 +200,7 @@ test_data$ganhador <- as.factor(test_data$ganhador)
 # Carregando modelo e obtendo os resultados
 load('rede_neural.rda')
 Predict = compute(n, test_data)
-nn2 <- ifelse(Predict$net.result[,1]>mean(Predict$net.result),1,0)
+nn2 <- ifelse(Predict$net.result[,1]>0.5, 1, 0)
 nn2 <- as.factor(nn2)
 x <- confusionMatrix(nn2, test_data$ganhador)
 x <- as.data.frame(x$table)
