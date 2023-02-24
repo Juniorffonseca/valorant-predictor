@@ -141,7 +141,9 @@ acertos: ?/1
 
 
 [100 Thieves x EDward Gaming](https://www.vlr.gg/167367/100-thieves-vs-edward-gaming-champions-tour-2023-lock-in-s-o-paulo-omega-ro16):
-## 48.52 %  51.48 % 
+
+  2 x 1
+  ## 48.52 %  51.48 % 
 
 
 [Sentinels x FNATIC](https://www.vlr.gg/167368/sentinels-vs-fnatic-champions-tour-2023-lock-in-s-o-paulo-omega-ro16):
@@ -155,4 +157,4 @@ acertos: ?/1
 
 acertos: 2/5
 
-###### ACERTOS TOTAIS: 10/19 (53%)
+###### ACERTOS TOTAIS: 10/20 (50%)
