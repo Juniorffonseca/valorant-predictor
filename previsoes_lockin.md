@@ -51,6 +51,7 @@
 ## 55.62 %  44.38 % 
   
 </div>
+
 ###### acertos: 4/8
 
 ## Segunda rodada (quartas de finais)
@@ -77,7 +78,8 @@
   ## 53.37 %  46.63 % 
   
 </div>
-acertos: 2/4
+
+###### acertos: 2/4
 
 ## Terceira rodada (semi-finais)
 <div align='center'>
