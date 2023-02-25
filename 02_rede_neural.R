@@ -122,7 +122,7 @@ while ( i < 0.87) {
 }
 
 # Atualizando a seed para achar a melhor neuralnetwork -------------------------------------------------------
-set.seed(772) #4 #59
+set.seed(930) #4 #59
 inp <- sample(2, nrow(jogos), replace = TRUE, prob = c(0.7, 0.3))
 training_data <- jogos[inp==1, ]
 test_data <- jogos[inp==2, ]
