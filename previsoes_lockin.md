@@ -107,6 +107,7 @@ acertos: 2/2
 acertos: ?/1
 
 # Partidas OMEGA:
+## Primeira  rodada (round of 16)
 
 <div align='center'>
   
@@ -153,10 +154,25 @@ acertos: ?/1
 
 
 [T1 x FURIA](https://www.vlr.gg/167369/t1-vs-furia-champions-tour-2023-lock-in-s-o-paulo-omega-ro16):
-## 43.9 %  56.1 % 
+
+  0 x 2
+  ## 43.9 %  56.1 % 
   
 </div>
 
-acertos: 2/5
+acertos: 3/8
 
-###### ACERTOS TOTAIS: 10/21 (48%)
+## Segunda rodada (quartas de finais)
+<div align='center'>
+  
+[Team Secret x Natus Vincere](https://www.vlr.gg/167370/team-secret-vs-natus-vincere-champions-tour-2023-lock-in-s-o-paulo-omega-qf):
+  
+  0 x 2
+  ## 42.91 %  57.09 % 
+  
+[Leviatán x Team Vitality](https://www.vlr.gg/167371/leviat-n-vs-team-vitality-champions-tour-2023-lock-in-s-o-paulo-omega-qf):
+  
+  2 x 0
+  ## 52.35 %  47.65 % 
+
+###### ACERTOS TOTAIS: 12/23 (48%)
