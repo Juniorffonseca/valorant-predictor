@@ -51,7 +51,7 @@
 ## 55.62 %  44.38 % 
   
 </div>
-acertos: 4/8
+###### acertos: 4/8
 
 ## Segunda rodada (quartas de finais)
 <div align='center'>
@@ -104,7 +104,7 @@ acertos: 2/2
 
 </div>
 
-acertos: ?/1
+###### acertos: ?/1
 
 # Partidas OMEGA:
 ## Primeira  rodada (round of 16)
@@ -160,7 +160,7 @@ acertos: ?/1
   
 </div>
 
-acertos: 3/8
+###### acertos: 3/8
 
 ## Segunda rodada (quartas de finais)
 <div align='center'>
@@ -174,5 +174,7 @@ acertos: 3/8
   
   2 x 0
   ## 52.35 %  47.65 % 
+  
+</div>
 
 ###### ACERTOS TOTAIS: 13/24 (54%)
