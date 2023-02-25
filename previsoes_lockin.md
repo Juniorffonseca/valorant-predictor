@@ -52,7 +52,7 @@
   
 </div>
 
-###### acertos: 4/8
+###### ACERTOS: 4/8
 
 ## Segunda rodada (quartas de finais)
 <div align='center'>
@@ -96,7 +96,7 @@
   
 </div>
 
-acertos: 2/2
+###### ACERTOS: 2/2
 
 ## Quarta rodada (final)
 <div align='center'>
@@ -106,7 +106,7 @@ acertos: 2/2
 
 </div>
 
-###### acertos: ?/1
+###### ACERTOS: ?/1
 
 # Partidas OMEGA:
 ## Primeira  rodada (round of 16)
@@ -162,7 +162,7 @@ acertos: 2/2
   
 </div>
 
-###### acertos: 3/8
+###### ACERTOS: 3/8
 
 ## Segunda rodada (quartas de finais)
 <div align='center'>
