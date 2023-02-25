@@ -79,7 +79,7 @@
   
 </div>
 
-###### acertos: 2/4
+###### ACERTOS: 2/4
 
 ## Terceira rodada (semi-finais)
 <div align='center'>
