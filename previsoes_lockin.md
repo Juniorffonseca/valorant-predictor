@@ -177,6 +177,18 @@
   2 x 0
   ## 52.35 %  47.65 % 
   
+[FUT Esports x 100 Thieves](https://www.vlr.gg/167372/fut-esports-vs-100-thieves-champions-tour-2023-lock-in-s-o-paulo-omega-qf)  
+
+  
+  ## 57.37 %  42.63 % 
+  
+[FNATIC x FURIA](https://www.vlr.gg/167373/fnatic-vs-furia-champions-tour-2023-lock-in-s-o-paulo-omega-qf)
+  
+  ## 50.41 %  49.59 % 
 </div>
+
+###### ACERTOS: 2/4
+
+#
 
 ###### ACERTOS TOTAIS: 13/24 (54%)
