@@ -175,4 +175,4 @@ acertos: 3/8
   2 x 0
   ## 52.35 %  47.65 % 
 
-###### ACERTOS TOTAIS: 12/23 (48%)
+###### ACERTOS TOTAIS: 13/24 (54%)
