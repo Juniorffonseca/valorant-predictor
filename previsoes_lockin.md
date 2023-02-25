@@ -189,6 +189,14 @@
 
 ###### ACERTOS: 2/4
 
+## Terceira rodada (semi-finais)
+<div align='center'>
+
+[Natus Vincere x Leviatán](https://www.vlr.gg/167374/natus-vincere-vs-leviat-n-champions-tour-2023-lock-in-s-o-paulo-omega-sf):
+
+  ## 55.4 %  44.6 % 
+
+</div>
 #
 
 ###### ACERTOS TOTAIS: 13/24 (54%)
