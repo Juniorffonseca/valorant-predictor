@@ -23,11 +23,12 @@ jogos_3 <- read.csv2('csv/catalogacao_diaria/2023-02-21_partidas.csv') %>% dplyr
 jogos_4 <- read.csv2('csv/catalogacao_diaria/2023-02-22_partidas.csv') %>% dplyr::select(-X)
 jogos_5 <- read.csv2('csv/catalogacao_diaria/2023-02-23_partidas.csv') %>% dplyr::select(-X)
 jogos_6 <- read.csv2('csv/catalogacao_diaria/2023-02-24_partidas.csv') %>% dplyr::select(-X)
-jogos <- rbind(jogos_1, jogos_2, jogos_3, jogos_4, jogos_5)
+jogos_7 <- read.csv2('csv/catalogacao_diaria/2023-02-25_partidas.csv') %>% dplyr::select(-X)
+jogos <- rbind(jogos_1, jogos_2, jogos_3, jogos_4, jogos_5, jogos_6, jogos_7)
 
 # Criando dataframes de teste e validação -----------------------------------------------------------------
 set.seed(1)
-inp <- sample(2, nrow(jogos), replace = TRUE, prob = c(0.7, 0.3))
+inp <- sample(2, nrow(jogos), replace = TRUE, prob = c(0.6, 0.4))
 training_data <- jogos[inp==1, ]
 test_data <- jogos[inp==2, ]
 
@@ -113,7 +114,7 @@ acharseed <- function(seed){
 s <- 1
 w <- 0.1
 
-while ( i < 0.87) {
+while ( i < 0.84) {
   acharseed(s)
   s <- s + 1
   w <<- ifelse(i>w, w <<- i, w <<- w) 
@@ -122,8 +123,8 @@ while ( i < 0.87) {
 }
 
 # Atualizando a seed para achar a melhor neuralnetwork -------------------------------------------------------
-set.seed(930) #4 #59
-inp <- sample(2, nrow(jogos), replace = TRUE, prob = c(0.7, 0.3))
+set.seed(2835) #4 #59
+inp <- sample(2, nrow(jogos), replace = TRUE, prob = c(0.6, 0.4))
 training_data <- jogos[inp==1, ]
 test_data <- jogos[inp==2, ]
 
@@ -148,10 +149,10 @@ acharnn <- function(){
   
   n <<- neuralnet(ganhador == 1 ~ .,
                  data = training_data,
-                 hidden = c(9),
+                 hidden = c(10),
                  err.fct = "sse",
                  linear.output = F,
-                 threshold = 0.8,
+                 threshold = 1,
                  lifesign = 'minimal',
                  rep = 1,
                  algorithm = 'rprop-',
@@ -172,7 +173,7 @@ acharnn <- function(){
 
 z <- 0.1
 
-while (i < 0.96) {
+while (i < 0.93) {
   acharnn()
 }
 
