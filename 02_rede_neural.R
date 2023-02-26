@@ -50,7 +50,7 @@ test_data$ganhador <- as.factor(test_data$ganhador)
 # Modelando a rede neural ---------------------------------------------------------------------------------
 n <- neuralnet(ganhador == 1 ~ .,
                data = training_data,
-               hidden = c(10, 10, 10),
+               hidden = c(10),
                err.fct = "sse",
                linear.output = F,
                threshold = 1,
