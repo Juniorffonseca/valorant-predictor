@@ -184,11 +184,11 @@
   
 [FNATIC x FURIA](https://www.vlr.gg/167373/fnatic-vs-furia-champions-tour-2023-lock-in-s-o-paulo-omega-qf)
   
-  0 x 0
+  2 x 0
   ## 50.41 %  49.59 % 
 </div>
 
-###### ACERTOS: 2/4
+###### ACERTOS: 3/4
 
 ## Terceira rodada (semi-finais)
 <div align='center'>
@@ -201,4 +201,4 @@
 
 #
 
-###### ACERTOS TOTAIS: 13/25 (52%)
+###### ACERTOS TOTAIS: 14/26 (54%)
