@@ -51,7 +51,8 @@
 ## 55.62 %  44.38 % 
   
 </div>
-acertos: 4/8
+
+###### ACERTOS: 4/8
 
 ## Segunda rodada (quartas de finais)
 <div align='center'>
@@ -77,7 +78,8 @@ acertos: 4/8
   ## 53.37 %  46.63 % 
   
 </div>
-acertos: 2/4
+
+###### ACERTOS: 2/4
 
 ## Terceira rodada (semi-finais)
 <div align='center'>
@@ -94,7 +96,7 @@ acertos: 2/4
   
 </div>
 
-acertos: 2/2
+###### ACERTOS: 2/2
 
 ## Quarta rodada (final)
 <div align='center'>
@@ -104,9 +106,10 @@ acertos: 2/2
 
 </div>
 
-acertos: ?/1
+###### ACERTOS: ?/1
 
 # Partidas OMEGA:
+## Primeira  rodada (round of 16)
 
 <div align='center'>
   
@@ -153,10 +156,48 @@ acertos: ?/1
 
 
 [T1 x FURIA](https://www.vlr.gg/167369/t1-vs-furia-champions-tour-2023-lock-in-s-o-paulo-omega-ro16):
-## 43.9 %  56.1 % 
+
+  0 x 2
+  ## 43.9 %  56.1 % 
   
 </div>
 
-acertos: 2/5
+###### ACERTOS: 3/8
 
-###### ACERTOS TOTAIS: 10/21 (48%)
+## Segunda rodada (quartas de finais)
+<div align='center'>
+  
+[Team Secret x Natus Vincere](https://www.vlr.gg/167370/team-secret-vs-natus-vincere-champions-tour-2023-lock-in-s-o-paulo-omega-qf):
+  
+  0 x 2
+  ## 42.91 %  57.09 % 
+  
+[Leviatán x Team Vitality](https://www.vlr.gg/167371/leviat-n-vs-team-vitality-champions-tour-2023-lock-in-s-o-paulo-omega-qf):
+  
+  2 x 0
+  ## 52.35 %  47.65 % 
+  
+[FUT Esports x 100 Thieves](https://www.vlr.gg/167372/fut-esports-vs-100-thieves-champions-tour-2023-lock-in-s-o-paulo-omega-qf)  
+
+  
+  ## 57.37 %  42.63 % 
+  
+[FNATIC x FURIA](https://www.vlr.gg/167373/fnatic-vs-furia-champions-tour-2023-lock-in-s-o-paulo-omega-qf)
+  
+  ## 50.41 %  49.59 % 
+</div>
+
+###### ACERTOS: 2/4
+
+## Terceira rodada (semi-finais)
+<div align='center'>
+
+[Natus Vincere x Leviatán](https://www.vlr.gg/167374/natus-vincere-vs-leviat-n-champions-tour-2023-lock-in-s-o-paulo-omega-sf):
+
+  ## 55.4 %  44.6 % 
+
+</div>
+
+#
+
+###### ACERTOS TOTAIS: 13/24 (54%)
