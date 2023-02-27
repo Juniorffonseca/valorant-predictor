@@ -13,8 +13,6 @@ library(valorant)
 library(lubridate)
 setwd('C:/Users/anonb/Documents/TCC_Pós/Scripts')
 
-# Criando variável páginas e criando variável 'p' que será a parte final do url (o número da página) -------
-
 funcaoPagina <- function(pagina){
   
   matchs <- read_html(pagina) %>% 
