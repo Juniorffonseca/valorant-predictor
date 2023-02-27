@@ -10,6 +10,7 @@ library(neuralnet)
 library(caret)
 library(ggplot2)
 library(ModelMetrics)
+library(beepr)
 
 # Carregando o dataframe -----------------------------------------------------------------------------------
 jogos <- read.csv2('csv/partidas.csv') %>% dplyr::select(-X)
@@ -174,9 +175,10 @@ acharnn <- function(){
 
 z <- 0.1
 
-while (i < 0.96) {
+while (i < 0.93) {
   acharnn()
 }
+beep(8)
 
 #save(n, file ='rede_neural.rda')
 #save(n, file='rede_neural_teste.rda')
@@ -206,7 +208,7 @@ load('rede_neural.rda')
 Predict = compute(n, test_data)
 nn2 <- ifelse(Predict$net.result[,1]>0.5, 1, 0)
 nn2 <- as.factor(nn2)
-x <- confusionMatrix(nn2, test_data$ganhador)
+x <- caret::confusionMatrix(nn2, test_data$ganhador)
 x <- as.data.frame(x$table)
 
 # Plot
