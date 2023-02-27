@@ -209,4 +209,4 @@
 
 #
 
-###### ACERTOS TOTAIS: 14/26 (54%)
+###### ACERTOS TOTAIS: 16/28 (57%)
