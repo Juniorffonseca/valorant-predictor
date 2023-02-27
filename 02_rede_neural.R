@@ -221,3 +221,13 @@ ggplot(data = x, mapping = aes(x = Reference, y = Prediction)) +
 
 #Log Loss
 logLoss(actual = test_data$ganhador, predicted = Predict$net.result)
+
+
+# Testando em algum url:
+load(file = "rede_neural_teste.rda")
+
+prever(link)
+
+return <- prever(
+  'https://www.vlr.gg/130685/loud-vs-optic-gaming-valorant-champions-2022-gf'
+)
