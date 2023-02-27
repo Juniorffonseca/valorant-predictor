@@ -195,16 +195,18 @@
 
 [Natus Vincere x Leviatán](https://www.vlr.gg/167374/natus-vincere-vs-leviat-n-champions-tour-2023-lock-in-s-o-paulo-omega-sf):
 
+  2 x 0
   ## 55.4 %  44.6 % 
   
 [100 Thieves x FNATIC](https://www.vlr.gg/167375/100-thieves-vs-fnatic-champions-tour-2023-lock-in-s-o-paulo-omega-sf):
   
+  0 x 2
   ## 46.38 %  53.62 % 
 
 </div>
 
-###### ACERTOS: 0/2
+###### ACERTOS: 2/2
 
 #
 
-###### ACERTOS TOTAIS: 14/26 (54%)
+###### ACERTOS TOTAIS: 16/28 (57%)
