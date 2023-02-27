@@ -14,12 +14,6 @@ Script onde é carregado o arquivo csv com todos os jogos catalogados e passado 
 
 Das 231 partidas usadas na base de teste **181** foram previstas corretamente e **50** incorretamente, registrando uma acurácia de **80%**.
 
-## 03_previsão.R
-Último script, onde será possível definir dois times especificos e rodar na rede neural que foi salva no script anterior. Nesse script é dado load na rede neural e, após informar os jogadores de cada time será possível dizer qual time tem mais chance de ganhar a partida e qual tem menos.
-
-## 04_testes.R
-Script que estou utilizando para catalogar novas partidas e testar elas na rede neural para checar a acurácia. Atualmente foram testadas mais **277** partidas com **207** acertos e **70** erros. Mantendo uma acurácia de **75%**, muito próxima da obtida na base de teste (**81%**).
-
 ## global.R
 Arquivo utilizado para deploy de um app no qual é possível informar o url e receber como retorno o resultado final da rede neural para aquela partida em específico.
 
@@ -50,12 +44,6 @@ Currently, 848 matches from different competitions have been cataloged through t
 Script where the csv file with all cataloged games is loaded and passed to a dataframe. After that, a division of approximately 70% (**617** matches) of these data is made for the training base and 30% (**231** matches) of these data for the test base. A neural network is made and according to the results obtained, it will be possible to save a neural network to load later with the same parameters.
 
 Of the 231 matches used in the test base **181** were predicted correctly and **50** incorrectly, registering an accuracy of **80%**.
-
-## 03_previsão.R
-Last script, where it will be possible to define two specific teams and run in the neural network that was saved in the previous script. In this script, the neural network is loaded and, after informing the players of each team, it will be possible to say which team has more chances of winning the match and which has less.
-
-## 04_testes.R
-Script I'm using to catalog new matches and test them on the neural network to check accuracy. Currently, 277 matches have been tested, with 207 hits and 70 errors. Maintaining an accuracy of 75%, very close to that obtained in the test base (81%).
 
 ## global.R
 File used to deploy an app in which it is possible to inform the url and receive the final result of the neural network for that specific game as a return.
