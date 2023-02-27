@@ -29,32 +29,13 @@ for (i in 1:17){
 c <- 1
 partidas <- 'a'
 
-# Função que retorna o url de cada partida -----------------------------------------------------------------
-funcaoPagina <- function(pagina){
-  
-  partidas <- read_html(pagina) %>% 
-    html_nodes('a') %>% html_attr('href') # Nessa parte ele pega todos os urls que estão contidos na página.
-  
-  partidas <- partidas[15:64] # Aqui é separado os urls que são efetivamente de partidas.
-  
-  n <- 1
-  
-  for (i in partidas){
-    partidas[n] <- paste('https://www.vlr.gg', partidas[n], sep = '') # Salvando urls dentro da variável partida
-    n = n + 1
-  }
-  
-  return(partidas)
-  
-}
-
 # Criando f e uma lista que receberá todos os returns da funcaoPagina (url de cada partida) ----------------
 f <- 1
 a <- list()
 
 # Executando um for que fará a iteração da funcaoPagina todas as vezes necessárias -------------------------
 for (i in paginas){
-  a[[length(a)+1]] = funcaoPagina(paginas[f])
+  a[[length(a)+1]] = urls_Pagina(paginas[f])
   f = f + 1
 }
 

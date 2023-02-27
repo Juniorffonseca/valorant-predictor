@@ -1,3 +1,7 @@
+#Instalando pacotes (se necessário)
+library(devtools)
+install_github("Juniorffonseca/r-pacote-valorant")
+
 # Carregando pacotes --------------------------------------------------------------------------------------
 library(dplyr)
 library(tidyr)
@@ -11,6 +15,7 @@ library(caret)
 library(ggplot2)
 library(ModelMetrics)
 library(beepr)
+library(valorant)
 
 # Carregando o dataframe -----------------------------------------------------------------------------------
 jogos <- read.csv2('csv/partidas.csv') %>% dplyr::select(-X)
@@ -30,7 +35,10 @@ jogos <- rbind(jogos_1, jogos_2, jogos_3, jogos_4, jogos_5, jogos_6, jogos_7, jo
 
 # Criando dataframes de teste e validação -----------------------------------------------------------------
 set.seed(1)
-inp <- sample(2, nrow(jogos), replace = TRUE, prob = c(0.7, 0.3))
+prob_a <- 0.7
+prob_b <- 0.3
+hidden_n <- c(10)
+inp <- sample(2, nrow(jogos), replace = TRUE, prob = c(prob_a, prob_b))
 training_data <- jogos[inp==1, ]
 test_data <- jogos[inp==2, ]
 
@@ -52,7 +60,7 @@ test_data$ganhador <- as.factor(test_data$ganhador)
 # Modelando a rede neural ---------------------------------------------------------------------------------
 n <- neuralnet(ganhador == 1 ~ .,
                data = training_data,
-               hidden = c(10),
+               hidden = hidden_n,
                err.fct = "sse",
                linear.output = F,
                threshold = 1,
@@ -70,63 +78,22 @@ nn2 <- ifelse(Predict$net.result[,1]>0.5,1,0)
 
 predictVstest <- cbind(test_data, Predict$net.result)
 i <<- sum(predictVstest$ganhador == nn2)/ nrow(test_data)
-# ----------------------------- functions ------------------------
 
-acharseed <- function(seed){
-  set.seed(seed)
-  inp <- sample(2, nrow(jogos), replace = TRUE, prob = c(0.7, 0.3))
-  training_data <- jogos[inp==1, ]
-  test_data <- jogos[inp==2, ]
-  
-  normalizando_test <- dplyr::select(test_data, -ganhador)
-  normalizando_test <- as.data.frame(scale(normalizando_test))
-  test_data <- dplyr::select(test_data, ganhador)
-  test_data <- cbind(normalizando_test, test_data)
-  
-  normalizando_training <- dplyr::select(training_data, -ganhador)
-  normalizando_training <- as.data.frame(scale(normalizando_training))
-  training_data <- dplyr::select(training_data, ganhador)
-  training_data <- cbind(normalizando_training, training_data)
-  
-  training_data$ganhador <- as.factor(training_data$ganhador)
-  test_data$ganhador <- as.factor(test_data$ganhador)
-  
-  n <- neuralnet(ganhador == 1 ~ .,
-                 data = training_data,
-                 hidden = c(10),
-                 err.fct = "sse",
-                 linear.output = F,
-                 threshold = 1,
-                 lifesign = 'minimal',
-                 rep = 1,
-                 algorithm = 'rprop-',
-                 stepmax = 10000)
-  
-  Predict = compute(n, test_data)
-  
-  nn2 <- ifelse(Predict$net.result[,1]>0.5,1,0)
-  
-  predictVstest <- cbind(test_data, Predict$net.result)
-  i <<- sum(predictVstest$ganhador == nn2)/ nrow(test_data)
-  
-  print(i)
-  
-}
-
+# Achar uma boa seed -------------------------------------------------------------------------------------
 s <- 1
 w <- 0.1
 
 while ( i < 0.84) {
-  acharseed(s)
+  achar_Seed(s, prob_a, prob_b, hidden_n)
   s <- s + 1
   w <<- ifelse(i>w, w <<- i, w <<- w) 
   
   print(w)
 }
 
-# Atualizando a seed para achar a melhor neuralnetwork -------------------------------------------------------
-set.seed(1137) #4 #59
-inp <- sample(2, nrow(jogos), replace = TRUE, prob = c(0.7, 0.3))
+# Atualizando a seed para achar a melhor neuralnetwork ----------------------------------------------------
+set.seed(s-1) #4 #59
+inp <- sample(2, nrow(jogos), replace = TRUE, prob = c(prob_a, prob_b))
 training_data <- jogos[inp==1, ]
 test_data <- jogos[inp==2, ]
 
@@ -147,36 +114,11 @@ Predict = compute(n, test_data)
 nn2 <- ifelse(Predict$net.result[,1]>0.5,1,0)
 predictVstest <- cbind(test_data, Predict$net.result)
 
-acharnn <- function(){
-  
-  n <<- neuralnet(ganhador == 1 ~ .,
-                 data = training_data,
-                 hidden = c(10),
-                 err.fct = "sse",
-                 linear.output = F,
-                 threshold = 1,
-                 lifesign = 'minimal',
-                 rep = 1,
-                 algorithm = 'rprop-',
-                 stepmax = 10000)
-  
-  Predict <<- compute(n, test_data)
-  
-  nn2 <<- ifelse(Predict$net.result[,1]>0.5,1,0)
-  
-  predictVstest <<- cbind(test_data, Predict$net.result)
-  i <<- sum(predictVstest$ganhador == nn2)/ nrow(test_data)
-  print(i)
-  
-  z <<- ifelse(i>z, z <<- i, z <<- z) 
-  
-  print(z)
-}
-
+# Procurando uma rede neural com acuracia a cima de determinado percentual --------------------------------
 z <- 0.1
 
 while (i < 0.93) {
-  acharnn()
+  achar_Nn()
 }
 beep(8)
 
