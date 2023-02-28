@@ -44,7 +44,7 @@ for (i in a){
     tbd <- read_html(i) %>% html_nodes('table') %>% html_table() %>% 
       .[1:2] %>% map_df(as_tibble, .name_repair = 'minimal')
 
-    if(dia == Sys.Date() & sum(tbd[1] == 'TBD') < 1){
+    if(dia == Sys.Date() && !grepl('TBD', tbd[,1])){
       b[length(b)+1] <- i
     }
     else{}
