@@ -33,8 +33,7 @@ jogos_7 <- read.csv2('csv/catalogacao_diaria/2023-02-25_partidas.csv') %>% dplyr
 jogos_8 <- read.csv2('csv/catalogacao_diaria/2023-02-26_partidas.csv') %>% dplyr::select(-X)
 jogos_9 <- read.csv2('csv/catalogacao_diaria/2023-02-27_partidas.csv') %>% dplyr::select(-X)
 jogos_10 <- read.csv2('csv/catalogacao_diaria/2023-02-28_partidas.csv') %>% dplyr::select(-X)
-jogos <- rbind(jogos_1, jogos_2, jogos_3, jogos_4, jogos_5, jogos_6, jogos_7, jogos_8, jogos_9,
-               jogos_10)
+jogos <- rbind(jogos_1, jogos_2, jogos_3, jogos_4, jogos_5, jogos_6, jogos_7, jogos_8)
 
 # Criando dataframes de teste e validação -----------------------------------------------------------------
 set.seed(1)
@@ -120,7 +119,7 @@ predictVstest <- cbind(test_data, Predict$net.result)
 # Procurando uma rede neural com acuracia a cima de determinado percentual --------------------------------
 z <- 0.1
 
-while (i < 0.85) {
+while (i < 0.94) {
   achar_Nn()
 }
 beep(8)
