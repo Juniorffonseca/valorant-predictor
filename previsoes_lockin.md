@@ -102,11 +102,13 @@
 <div align='center'>
 
 [LOUD x DRX](https://www.vlr.gg/167391/loud-vs-drx-champions-tour-2023-lock-in-s-o-paulo-sf)
-## 49.2 %  50.8 % 
+
+  3 x 2
+  ## 49.2 %  50.8 % 
 
 </div>
 
-###### ACERTOS: ?/1
+###### ACERTOS: 0/1
 
 # Partidas OMEGA:
 ## Primeira  rodada (round of 16)
@@ -207,6 +209,28 @@
 
 ###### ACERTOS: 2/2
 
+## Quarta rodada (final)
+<div align='center'>
+
+[NAVI x FNATIC](https://www.vlr.gg/167391/loud-vs-drx-champions-tour-2023-lock-in-s-o-paulo-sf)
+
+  0 x 3
+  ## 49.18 %  50.82 % 
+
+</div>
+
+###### ACERTOS: 1/1
+
+
+## GRANDE FINAL
+<div align='center'>
+  
+[LOUD x FNATIC](https://www.vlr.gg/167393/loud-vs-fnatic-champions-tour-2023-lock-in-s-o-paulo-gf):
+
+  ## 47.98 %  52.02 % 
+
+</div>
+
 #
 
-###### ACERTOS TOTAIS: 16/28 (57%)
+###### ACERTOS TOTAIS: 17/29 (59%)
