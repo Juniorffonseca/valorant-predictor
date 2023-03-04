@@ -227,10 +227,11 @@
   
 [LOUD x FNATIC](https://www.vlr.gg/167393/loud-vs-fnatic-champions-tour-2023-lock-in-s-o-paulo-gf):
 
+  2 x 3
   ## 47.98 %  52.02 % 
 
 </div>
 
 #
 
-###### ACERTOS TOTAIS: 17/29 (59%)
+###### ACERTOS TOTAIS: 18/30 (60%)
