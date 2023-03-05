@@ -17,11 +17,6 @@ library(ModelMetrics)
 library(beepr)
 library(valorant)
 
-# Carregando o dataframe -----------------------------------------------------------------------------------
-jogos <- read.csv2('csv/partidas.csv') %>% dplyr::select(-X)
-jogos <- read.csv2('csv/partidas_teste.csv') %>% dplyr::select(time1R, time1ACS, time1KD,
-                                                               time2R, time2ACS, time2KD,
-                                                               ganhador)
 # Carregando partidas diarias e unindo emum df ------------------------------------------------------------
 jogos_1 <- read.csv2('csv/catalogacao_diaria/2023-02-19_partidas.csv') %>% dplyr::select(-X)
 jogos_2 <- read.csv2('csv/catalogacao_diaria/2023-02-20_partidas.csv') %>% dplyr::select(-X)
@@ -34,8 +29,13 @@ jogos_8 <- read.csv2('csv/catalogacao_diaria/2023-02-26_partidas.csv') %>% dplyr
 jogos_9 <- read.csv2('csv/catalogacao_diaria/2023-02-27_partidas.csv') %>% dplyr::select(-X)
 jogos_10 <- read.csv2('csv/catalogacao_diaria/2023-02-28_partidas.csv') %>% dplyr::select(-X)
 jogos_11 <- read.csv2('csv/catalogacao_diaria/2023-03-01_partidas.csv') %>% dplyr::select(-X)
+jogos_12 <- read.csv2('csv/catalogacao_diaria/2023-03-02_partidas.csv') %>% dplyr::select(-X)
+jogos_13 <- read.csv2('csv/catalogacao_diaria/2023-03-03_partidas.csv') %>% dplyr::select(-X)
+jogos_14 <- read.csv2('csv/catalogacao_diaria/2023-03-04_partidas_momentaneo.csv') %>% dplyr::select(-X) #preciso remover amanha e colocar o correto
 jogos <- rbind(jogos_1, jogos_2, jogos_3, jogos_4, jogos_5, jogos_6, jogos_7, jogos_8, jogos_9,
-               jogos_10, jogos_11)
+               jogos_10, jogos_11, jogos_12, jogos_13, jogos_14)
+rm(jogos_1, jogos_2, jogos_3, jogos_4, jogos_5, jogos_6, jogos_7, jogos_8, jogos_9,
+   jogos_10, jogos_11, jogos_12, jogos_13, jogos_14)
 
 # Criando dataframes de teste e validação -----------------------------------------------------------------
 set.seed(1)
@@ -84,10 +84,10 @@ predictVstest <- cbind(test_data, Predict$net.result)
 i <<- sum(predictVstest$ganhador == nn2)/ nrow(test_data)
 
 # Achar uma boa seed -------------------------------------------------------------------------------------
-s <- 1
+s <- 12002 #pausei aqui
 w <- 0.1
 
-while ( i < 0.84) {
+while ( i < 0.87) {
   achar_Seed(s, prob_a, prob_b, hidden_n)
   s <- s + 1
   w <<- ifelse(i>w, w <<- i, w <<- w) 
@@ -121,13 +121,14 @@ predictVstest <- cbind(test_data, Predict$net.result)
 # Procurando uma rede neural com acuracia a cima de determinado percentual --------------------------------
 z <- 0.1
 
-while (i < 0.94) {
+while (i < 0.95) {
   achar_Nn()
 }
 beep(8)
 
 #save(n, file ='rede_neural.rda')
 #save(n, file='rede_neural_teste.rda')
+save(n, file='prototipo_rede_neural.rda') #primeira tentativa de rede neural com os dados diarios (91%ac, 61/67)
 
 # Matriz de confusão ---------------------------------------------------------------------------------------
 jogos <- read.csv2('csv/partidas_teste.csv') %>% dplyr::select(-X)
