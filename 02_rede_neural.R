@@ -31,7 +31,7 @@ jogos_10 <- read.csv2('csv/catalogacao_diaria/2023-02-28_partidas.csv') %>% dply
 jogos_11 <- read.csv2('csv/catalogacao_diaria/2023-03-01_partidas.csv') %>% dplyr::select(-X)
 jogos_12 <- read.csv2('csv/catalogacao_diaria/2023-03-02_partidas.csv') %>% dplyr::select(-X)
 jogos_13 <- read.csv2('csv/catalogacao_diaria/2023-03-03_partidas.csv') %>% dplyr::select(-X)
-jogos_14 <- read.csv2('csv/catalogacao_diaria/2023-03-04_partidas_momentaneo.csv') %>% dplyr::select(-X) #preciso remover amanha e colocar o correto
+jogos_14 <- read.csv2('csv/catalogacao_diaria/2023-03-04_partidas.csv') %>% dplyr::select(-X)
 jogos <- rbind(jogos_1, jogos_2, jogos_3, jogos_4, jogos_5, jogos_6, jogos_7, jogos_8, jogos_9,
                jogos_10, jogos_11, jogos_12, jogos_13, jogos_14)
 rm(jogos_1, jogos_2, jogos_3, jogos_4, jogos_5, jogos_6, jogos_7, jogos_8, jogos_9,
@@ -84,7 +84,7 @@ predictVstest <- cbind(test_data, Predict$net.result)
 i <<- sum(predictVstest$ganhador == nn2)/ nrow(test_data)
 
 # Achar uma boa seed -------------------------------------------------------------------------------------
-s <- 12002 #pausei aqui
+s <- 15467 #pausei aqui
 w <- 0.1
 
 while ( i < 0.87) {
