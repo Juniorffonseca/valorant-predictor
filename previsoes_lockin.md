@@ -232,6 +232,8 @@
 
 </div>
 
+###### ACERTOS: 1/1
+
 #
 
-###### ACERTOS TOTAIS: 18/30 (60%)
+###### ACERTOS TOTAIS: 19/31 (61%)
