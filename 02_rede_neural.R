@@ -115,7 +115,7 @@ predictVstest <- cbind(test_data, Predict$net.result)
 # Procurando uma rede neural com acuracia a cima de determinado percentual --------------------------------
 z <- 0.1
 
-while (i < 0.95) {
+while (i < 0.9) {
   achar_Nn()
 }
 beep(8)
