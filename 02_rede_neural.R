@@ -17,25 +17,19 @@ library(ModelMetrics)
 library(beepr)
 library(valorant)
 
-# Carregando partidas diarias e unindo emum df ------------------------------------------------------------
-jogos_1 <- read.csv2('csv/catalogacao_diaria/2023-02-19_partidas.csv') %>% dplyr::select(-X)
-jogos_2 <- read.csv2('csv/catalogacao_diaria/2023-02-20_partidas.csv') %>% dplyr::select(-X)
-jogos_3 <- read.csv2('csv/catalogacao_diaria/2023-02-21_partidas.csv') %>% dplyr::select(-X)
-jogos_4 <- read.csv2('csv/catalogacao_diaria/2023-02-22_partidas.csv') %>% dplyr::select(-X)
-jogos_5 <- read.csv2('csv/catalogacao_diaria/2023-02-23_partidas.csv') %>% dplyr::select(-X)
-jogos_6 <- read.csv2('csv/catalogacao_diaria/2023-02-24_partidas.csv') %>% dplyr::select(-X)
-jogos_7 <- read.csv2('csv/catalogacao_diaria/2023-02-25_partidas.csv') %>% dplyr::select(-X)
-jogos_8 <- read.csv2('csv/catalogacao_diaria/2023-02-26_partidas.csv') %>% dplyr::select(-X)
-jogos_9 <- read.csv2('csv/catalogacao_diaria/2023-02-27_partidas.csv') %>% dplyr::select(-X)
-jogos_10 <- read.csv2('csv/catalogacao_diaria/2023-02-28_partidas.csv') %>% dplyr::select(-X)
-jogos_11 <- read.csv2('csv/catalogacao_diaria/2023-03-01_partidas.csv') %>% dplyr::select(-X)
-jogos_12 <- read.csv2('csv/catalogacao_diaria/2023-03-02_partidas.csv') %>% dplyr::select(-X)
-jogos_13 <- read.csv2('csv/catalogacao_diaria/2023-03-03_partidas.csv') %>% dplyr::select(-X)
-jogos_14 <- read.csv2('csv/catalogacao_diaria/2023-03-04_partidas.csv') %>% dplyr::select(-X)
-jogos <- rbind(jogos_1, jogos_2, jogos_3, jogos_4, jogos_5, jogos_6, jogos_7, jogos_8, jogos_9,
-               jogos_10, jogos_11, jogos_12, jogos_13, jogos_14)
-rm(jogos_1, jogos_2, jogos_3, jogos_4, jogos_5, jogos_6, jogos_7, jogos_8, jogos_9,
-   jogos_10, jogos_11, jogos_12, jogos_13, jogos_14)
+# Carregando partidas diarias e unindo em um df ------------------------------------------------------------
+datas <- seq(as.Date("2023-02-19"), Sys.Date() - 1, by = "day")
+nomes_arquivos <- paste0("csv/catalogacao_diaria/", format(datas, "%Y-%m-%d"), "_partidas.csv")
+
+jogos_lista <- list()
+
+for (arquivo in nomes_arquivos) {
+  jogos_lista[[arquivo]] <- read.csv2(arquivo) %>% select(-X)
+}
+
+jogos <- bind_rows(jogos_lista)
+
+
 
 # Criando dataframes de teste e validação -----------------------------------------------------------------
 set.seed(1)
