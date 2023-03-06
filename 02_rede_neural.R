@@ -81,7 +81,7 @@ i <<- sum(predictVstest$ganhador == nn2)/ nrow(test_data)
 s <- 15467 #pausei aqui
 w <- 0.1
 
-while ( i < 0.87) {
+while ( i < 0.82) {
   achar_Seed(s, prob_a, prob_b, hidden_n)
   s <- s + 1
   w <<- ifelse(i>w, w <<- i, w <<- w) 
