@@ -35,7 +35,7 @@ jogos <- bind_rows(jogos_lista)
 set.seed(1)
 prob_a <- 0.7
 prob_b <- 0.3
-hidden_n <- c(10)
+hidden_n <- c(30)
 inp <- sample(2, nrow(jogos), replace = TRUE, prob = c(prob_a, prob_b))
 training_data <- jogos[inp==1, ]
 test_data <- jogos[inp==2, ]
@@ -81,7 +81,7 @@ i <<- sum(predictVstest$ganhador == nn2)/ nrow(test_data)
 s <- 15467 #pausei aqui
 w <- 0.1
 
-while ( i < 0.82) {
+while ( i < 0.83) {
   achar_Seed(s, prob_a, prob_b, hidden_n)
   s <- s + 1
   w <<- ifelse(i>w, w <<- i, w <<- w) 
@@ -115,7 +115,7 @@ predictVstest <- cbind(test_data, Predict$net.result)
 # Procurando uma rede neural com acuracia a cima de determinado percentual --------------------------------
 z <- 0.1
 
-while (i < 0.9) {
+while (i < 0.86) {
   achar_Nn()
 }
 beep(8)
