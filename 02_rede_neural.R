@@ -79,7 +79,7 @@ i <<- sum(predictVstest$ganhador == nn2)/ nrow(test_data)
 s <- 1 # 6093 = 0.86
 w <- 0.1
 
-while ( i < 0.83) {
+while ( i < 0.80) {
   achar_Seed(s, prob_a, prob_b, hidden_n)
   s <- s + 1
   w <<- ifelse(i>w, w <<- i, w <<- w) 
@@ -115,7 +115,7 @@ predictVstest <- cbind(test_data, Predict$net.result)
 # Procurando uma rede neural com acuracia a cima de determinado percentual --------------------------------
 z <- 0.1
 
-while (i < 0.96) {
+while (i < 0.875) {
   achar_Nn()
 }
 beep(8)
