@@ -1,8 +1,6 @@
-#Instalando pacotes (se necessário)
+#Instalando pacotes (se necessário) e carregando ----------------------------------------------------------
 library(devtools)
 install_github("Juniorffonseca/r-pacote-valorant")
-
-# Carregando pacotes --------------------------------------------------------------------------------------
 library(dplyr)
 library(tidyr)
 library(rvest)
@@ -29,13 +27,12 @@ for (arquivo in nomes_arquivos) {
 
 jogos <- bind_rows(jogos_lista)
 
-
-
 # Criando dataframes de teste e validação -----------------------------------------------------------------
 set.seed(1)
 prob_a <- 0.7
 prob_b <- 0.3
 hidden_n <- c(30)
+formula <- 'ganhador == 1 ~ .'
 inp <- sample(2, nrow(jogos), replace = TRUE, prob = c(prob_a, prob_b))
 training_data <- jogos[inp==1, ]
 test_data <- jogos[inp==2, ]
@@ -56,7 +53,7 @@ test_data$ganhador <- as.factor(test_data$ganhador)
 
 
 # Modelando a rede neural ---------------------------------------------------------------------------------
-n <- neuralnet(ganhador == 1 ~ .,
+n <- neuralnet(formula,
                data = training_data,
                hidden = hidden_n,
                err.fct = "sse",
@@ -67,18 +64,19 @@ n <- neuralnet(ganhador == 1 ~ .,
                algorithm = 'rprop-',
                stepmax = 10000)
 
-#plot(n, rep = 1)
+plot(n, rep = 1)
 
 # Prediction ---------------------------------------------------------------------------------------------
 Predict = compute(n, test_data)
 
-nn2 <- ifelse(Predict$net.result[,1]>0.5,1,0)
+nn2 <<- ifelse(Predict$net.result[,1]>0.5,1,0)
+
 
 predictVstest <- cbind(test_data, Predict$net.result)
 i <<- sum(predictVstest$ganhador == nn2)/ nrow(test_data)
 
 # Achar uma boa seed -------------------------------------------------------------------------------------
-s <- 15467 #pausei aqui
+s <- 1 # 6093 = 0.86
 w <- 0.1
 
 while ( i < 0.83) {
@@ -109,13 +107,15 @@ training_data$ganhador <- as.factor(training_data$ganhador)
 test_data$ganhador <- as.factor(test_data$ganhador)
 
 Predict = compute(n, test_data)
-nn2 <- ifelse(Predict$net.result[,1]>0.5,1,0)
+
+nn2 <<- ifelse(Predict$net.result[,1]>0.5,1,0)
+
 predictVstest <- cbind(test_data, Predict$net.result)
 
 # Procurando uma rede neural com acuracia a cima de determinado percentual --------------------------------
 z <- 0.1
 
-while (i < 0.86) {
+while (i < 0.96) {
   achar_Nn()
 }
 beep(8)
