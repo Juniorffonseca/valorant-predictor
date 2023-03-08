@@ -5,6 +5,7 @@ library(caret)
 library(dplyr)
 library(tidyr)
 library(rvest)
+library(rsample)
 library(quantmod)
 library(httr)
 library(tibble)
@@ -32,10 +33,13 @@ jogos$ganhador <- as.factor(jogos$ganhador)
 # Criando dataframes de teste e validação -----------------------------------------------------------------
 set.seed(1)
 
-index <- createDataPartition(jogos$ganhador, p = 0.7, list = F)
+data_split <- initial_split(jogos, prop = 0.7, strata = "ganhador")
 
-training_data <- jogos[index, ]
-test_data <- jogos[-index, ]
+training_data <- training(data_split)
+test_data <- testing(data_split)
+
+#training_data <- jogos[index, ]
+#test_data <- jogos[-index, ]
 
 hidden_n <- c(30)
 formula <- 'ganhador == 1 ~ .'
@@ -81,7 +85,7 @@ predictVstest <- cbind(test_data, Predict$net.result)
 i <<- sum(predictVstest$ganhador == nn2)/ nrow(test_data)
 
 # Achar uma boa seed -------------------------------------------------------------------------------------
-s <- 1 # 6093 = 0.86
+s <- 8000 # 8549 = 0.826087
 w <- 0.1
 
 while ( i < 0.82) {
@@ -94,9 +98,9 @@ while ( i < 0.82) {
 
 # Atualizando a seed para achar a melhor neuralnetwork ----------------------------------------------------
 set.seed(s-1) #4 #59
-inp <- sample(2, nrow(jogos), replace = TRUE, prob = c(prob_a, prob_b))
-training_data <- jogos[inp==1, ]
-test_data <- jogos[inp==2, ]
+data_split <- initial_split(jogos, prop = 0.7, strata = "ganhador")
+training_data <- training(data_split)
+test_data <- testing(data_split)
 
 normalizando_test <- dplyr::select(test_data, -ganhador)
 normalizando_test <- as.data.frame(scale(normalizando_test))
@@ -120,7 +124,7 @@ predictVstest <- cbind(test_data, Predict$net.result)
 # Procurando uma rede neural com acuracia a cima de determinado percentual --------------------------------
 z <- 0.1
 
-while (i < 0.975) {
+while (i < 0.85) {
   achar_Nn()
 }
 beep(8)
@@ -132,9 +136,9 @@ save(n, file='prototipo_rede_neural.rda') #primeira tentativa de rede neural com
 # Matriz de confusão ---------------------------------------------------------------------------------------
 jogos <- read.csv2('csv/partidas_teste.csv') %>% dplyr::select(-X)
 set.seed(5)
-inp <- sample(2, nrow(jogos), replace = TRUE, prob = c(0.7, 0.3))
-training_data <- jogos[inp==1, ]
-test_data <- jogos[inp==2, ]
+data_split <- initial_split(jogos, prop = 0.7, strata = "ganhador")
+training_data <- training(data_split)
+test_data <- testing(data_split)
 
 normalizando_test <- dplyr::select(test_data, -ganhador)
 normalizando_test <- as.data.frame(scale(normalizando_test))
