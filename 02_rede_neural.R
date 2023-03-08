@@ -1,6 +1,7 @@
-#Instalando pacotes (se necessário) e carregando ----------------------------------------------------------
+# Instalando pacotes (se necessário) e carregando ----------------------------------------------------------
 library(devtools)
 install_github("Juniorffonseca/r-pacote-valorant")
+library(caret)
 library(dplyr)
 library(tidyr)
 library(rvest)
@@ -26,16 +27,20 @@ for (arquivo in nomes_arquivos) {
 }
 
 jogos <- bind_rows(jogos_lista)
+jogos$ganhador <- as.factor(jogos$ganhador)
 
 # Criando dataframes de teste e validação -----------------------------------------------------------------
 set.seed(1)
-prob_a <- 0.7
-prob_b <- 0.3
+
+index <- createDataPartition(jogos$ganhador, p = 0.7, list = F)
+
+training_data <- jogos[index, ]
+test_data <- jogos[-index, ]
+
 hidden_n <- c(30)
 formula <- 'ganhador == 1 ~ .'
-inp <- sample(2, nrow(jogos), replace = TRUE, prob = c(prob_a, prob_b))
-training_data <- jogos[inp==1, ]
-test_data <- jogos[inp==2, ]
+
+
 
 # Normalizando os dados ------------------------------------------------------------------------------------
 normalizando_test <- dplyr::select(test_data, -ganhador)
@@ -64,7 +69,7 @@ n <- neuralnet(formula,
                algorithm = 'rprop-',
                stepmax = 10000)
 
-plot(n, rep = 1)
+#plot(n, rep = 1)
 
 # Prediction ---------------------------------------------------------------------------------------------
 Predict = compute(n, test_data)
@@ -79,8 +84,8 @@ i <<- sum(predictVstest$ganhador == nn2)/ nrow(test_data)
 s <- 1 # 6093 = 0.86
 w <- 0.1
 
-while ( i < 0.80) {
-  achar_Seed(s, prob_a, prob_b, hidden_n)
+while ( i < 0.82) {
+  achar_Seed(s, hidden_n)
   s <- s + 1
   w <<- ifelse(i>w, w <<- i, w <<- w) 
   
@@ -115,7 +120,7 @@ predictVstest <- cbind(test_data, Predict$net.result)
 # Procurando uma rede neural com acuracia a cima de determinado percentual --------------------------------
 z <- 0.1
 
-while (i < 0.875) {
+while (i < 0.975) {
   achar_Nn()
 }
 beep(8)
