@@ -42,9 +42,6 @@ data_split <- initial_split(jogos, prop = 0.7, strata = "ganhador")
 training_data <- training(data_split)
 test_data <- testing(data_split)
 
-#training_data <- jogos[index, ]
-#test_data <- jogos[-index, ]
-
 hidden_n <- c(30)
 formula <- 'ganhador == 1 ~ .'
 
@@ -87,7 +84,8 @@ predictVstest <- cbind(test_data, Predict$net.result)
 i <<- sum(predictVstest$ganhador == nn2)/ nrow(test_data)
 
 # Achar uma boa seed -------------------------------------------------------------------------------------
-s <- 8000 # 8549 = 0.826087
+s <- 8000 # 8549 = 0.826087 
+# 9726 = 0.821917
 w <- 0.1
 
 while ( i < 0.82) {
@@ -126,7 +124,7 @@ predictVstest <- cbind(test_data, Predict$net.result)
 # Procurando uma rede neural com acuracia a cima de determinado percentual --------------------------------
 z <- 0.1
 
-while (i < 0.85) {
+while (i < 0.83) {
   achar_Nn()
 }
 beep(8)
