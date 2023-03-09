@@ -32,6 +32,8 @@ for (arquivo in nomes_arquivos) {
 jogos <- bind_rows(jogos_lista)
 jogos$ganhador <- as.factor(jogos$ganhador)
 
+write.csv2(jogos, 'csv/partidas_teste.csv')
+
 # Criando dataframes de teste e validação -----------------------------------------------------------------
 set.seed(1)
 
@@ -45,8 +47,6 @@ test_data <- testing(data_split)
 
 hidden_n <- c(30)
 formula <- 'ganhador == 1 ~ .'
-
-
 
 # Normalizando os dados ------------------------------------------------------------------------------------
 normalizando_test <- dplyr::select(test_data, -ganhador)
