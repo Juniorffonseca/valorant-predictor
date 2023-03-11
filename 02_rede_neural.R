@@ -32,7 +32,7 @@ for (arquivo in nomes_arquivos) {
 jogos <- bind_rows(jogos_lista)
 jogos$ganhador <- as.factor(jogos$ganhador)
 
-write.csv2(jogos, 'csv/partidas_teste.csv')
+#write.csv2(jogos, 'csv/partidas_teste_2.csv')
 
 # Criando dataframes de teste e validação -----------------------------------------------------------------
 set.seed(1)
