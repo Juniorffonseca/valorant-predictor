@@ -86,6 +86,7 @@ i <<- sum(predictVstest$ganhador == nn2)/ nrow(test_data)
 # Achar uma boa seed -------------------------------------------------------------------------------------
 s <- 8000 # 8549 = 0.826087 
 # 9726 = 0.821917
+# 7867 11/03 0.80 acuracia
 w <- 0.1
 
 while ( i < 0.8) {
@@ -132,7 +133,7 @@ beep(8)
 #save(n, file ='rede_neural.rda')
 #save(n, file='rede_neural_teste.rda')
 save(n, file='prototipo_rede_neural.rda') #primeira tentativa de rede neural com os dados diarios (91%ac, 61/67)
-save(n, file='prototipo_rede_neural_2.rda') #10/03/2023 66/80 base de testes (0.825% acuracia)
+save(n, file='prototipo_rede_neural_2.rda') #11/03/2023 71/87 base de testes (0.825% acuracia)
 
 # Matriz de confusão ---------------------------------------------------------------------------------------
 jogos <- read.csv2('csv/partidas_teste.csv') %>% dplyr::select(-X)
