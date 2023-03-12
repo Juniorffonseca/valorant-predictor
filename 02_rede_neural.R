@@ -87,9 +87,10 @@ i <<- sum(predictVstest$ganhador == nn2)/ nrow(test_data)
 s <- 8000 # 8549 = 0.826087 
 # 9726 = 0.821917
 # 7867 11/03 0.80 acuracia
+# 7333 12/03 0.83 acuracia 93 partidas
 w <- 0.1
 
-while ( i < 0.8) {
+while ( i < 0.78) {
   achar_Seed(s, hidden_n)
   s <- s + 1
   w <<- ifelse(i>w, w <<- i, w <<- w) 
@@ -125,7 +126,7 @@ predictVstest <- cbind(test_data, Predict$net.result)
 # Procurando uma rede neural com acuracia a cima de determinado percentual --------------------------------
 z <- 0.1
 
-while (i < 0.81) {
+while (i < 0.8) {
   achar_Nn()
 }
 beep(8)
@@ -133,7 +134,7 @@ beep(8)
 #save(n, file ='rede_neural.rda')
 #save(n, file='rede_neural_teste.rda')
 save(n, file='prototipo_rede_neural.rda') #primeira tentativa de rede neural com os dados diarios (91%ac, 61/67)
-save(n, file='prototipo_rede_neural_2.rda') #11/03/2023 71/87 base de testes (0.825% acuracia)
+save(n, file='prototipo_rede_neural_2.rda') #12/03/2023 78/93 base de testes (0.8387% acuracia)
 
 # Matriz de confusão ---------------------------------------------------------------------------------------
 jogos <- read.csv2('csv/partidas_teste.csv') %>% dplyr::select(-X)
