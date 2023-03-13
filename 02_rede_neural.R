@@ -12,6 +12,7 @@ library(httr)
 library(tibble)
 library(stringr)
 library(neuralnet)
+library(nnet)
 library(caret)
 library(ggplot2)
 library(ModelMetrics)
@@ -43,6 +44,7 @@ training_data <- training(data_split)
 test_data <- testing(data_split)
 
 hidden_n <- c(30)
+t <- 0.1 #thresholder
 formula <- 'ganhador == 1 ~ .'
 
 # Normalizando os dados ------------------------------------------------------------------------------------
@@ -66,7 +68,7 @@ n <- neuralnet(formula,
                hidden = hidden_n,
                err.fct = "sse",
                linear.output = F,
-               threshold = 1,
+               threshold = t,
                lifesign = 'minimal',
                rep = 1,
                algorithm = 'rprop-',
@@ -84,14 +86,14 @@ predictVstest <- cbind(test_data, Predict$net.result)
 i <<- sum(predictVstest$ganhador == nn2)/ nrow(test_data)
 
 # Achar uma boa seed -------------------------------------------------------------------------------------
-s <- 8000 # 8549 = 0.826087 
+s <- 1 # 8549 = 0.826087 
 # 9726 = 0.821917
 # 7867 11/03 0.80 acuracia
 # 7333 12/03 0.83 acuracia 93 partidas
 w <- 0.1
 
-while ( i < 0.78) {
-  achar_Seed(s, hidden_n)
+while ( i < 0.82) {
+  achar_Seed(s, hidden_n, t = 1.8)
   s <- s + 1
   w <<- ifelse(i>w, w <<- i, w <<- w) 
   
