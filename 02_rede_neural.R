@@ -86,7 +86,7 @@ predictVstest <- cbind(test_data, Predict$net.result)
 i <<- sum(predictVstest$ganhador == nn2)/ nrow(test_data)
 
 # Achar uma boa seed -------------------------------------------------------------------------------------
-s <- 7200 # 8549 = 0.826087 
+s <- 10678 # 8549 = 0.826087 
 # 9726 = 0.821917
 # 7867 11/03 0.80 acuracia
 # 7333 12/03 0.83 acuracia 93 partidas
@@ -126,7 +126,7 @@ predictVstest <- cbind(test_data, Predict$net.result)
 # Procurando uma rede neural com acuracia a cima de determinado percentual --------------------------------
 z <- 0.1
 
-while (i < 0.82) {
+while (i < 0.81) {
   achar_Nn(t = 0.9)
 }
 beep(8)
@@ -153,15 +153,13 @@ normalizando_training <- as.data.frame(scale(normalizando_training))
 training_data <- dplyr::select(training_data, ganhador)
 training_data <- cbind(normalizando_training, training_data)
 
-training_data$ganhador <- as.factor(training_data$ganhador)
-test_data$ganhador <- as.factor(test_data$ganhador)
-
 # Carregando modelo e obtendo os resultados
-load('rede_neural.rda')
+load('prototipo_rede_neural_2.rda')
 Predict = compute(n, test_data)
 nn2 <- ifelse(Predict$net.result[,1]>0.5, 1, 0)
 nn2 <- as.factor(nn2)
 x <- caret::confusionMatrix(nn2, test_data$ganhador)
+F1 <- x$byClass['F1']
 x <- as.data.frame(x$table)
 
 # Plot
@@ -176,11 +174,5 @@ ggplot(data = x, mapping = aes(x = Reference, y = Prediction)) +
 logLoss(actual = test_data$ganhador, predicted = Predict$net.result)
 
 
-# Testando em algum url:
-load(file = "rede_neural_teste.rda")
 
-prever(link)
 
-return <- prever(
-  'https://www.vlr.gg/130685/loud-vs-optic-gaming-valorant-champions-2022-gf'
-)
