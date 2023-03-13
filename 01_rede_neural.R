@@ -33,7 +33,7 @@ for (arquivo in nomes_arquivos) {
 jogos <- bind_rows(jogos_lista)
 jogos$ganhador <- as.factor(jogos$ganhador)
 
-#write.csv2(jogos, 'csv/partidas_teste_2.csv')
+#write.csv2(jogos, 'csv/partidas_teste.csv')
 
 # Criando dataframes de teste e validação -----------------------------------------------------------------
 set.seed(1)
@@ -129,8 +129,7 @@ beep(8)
 
 #save(n, file ='rede_neural.rda')
 #save(n, file='rede_neural_teste.rda')
-save(n, file='prototipo_rede_neural.rda') #primeira tentativa de rede neural com os dados diarios (91%ac, 61/67)
-save(n, file='prototipo_rede_neural_2.rda') #14/03/2023 81/98 base de testes (0.8265306% acuracia)
+save(n, file='prototipo_rede_neural.rda') #14/03/2023 81/98 base de testes (0.8265306% acuracia)
 
 # Matriz de confusão ---------------------------------------------------------------------------------------
 jogos <- read.csv2('csv/partidas_teste.csv') %>% dplyr::select(-X)
