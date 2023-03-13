@@ -122,7 +122,7 @@ predictVstest <- cbind(test_data, Predict$net.result)
 # Procurando uma rede neural com acuracia a cima de determinado percentual --------------------------------
 z <- 0.1
 
-while (i < 0.82) {
+while (i < 0.83) {
   achar_Nn(t = 0.9)
 }
 beep(8)
@@ -169,5 +169,9 @@ ggplot(data = x, mapping = aes(x = Reference, y = Prediction)) +
 logLoss(actual = test_data$ganhador, predicted = Predict$net.result)
 
 
+prever('https://www.vlr.gg/167393/loud-vs-fnatic-champions-tour-2023-lock-in-s-o-paulo-gf')
 
+#[1,] 43.10593
+#[2,] 56.89407
 
+# preciso ver a questão de espelhamento, provavelmente está errada a forma q estou fazendo atualmente, preciso fazer antes de treinar o modelo.
