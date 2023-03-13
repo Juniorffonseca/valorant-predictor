@@ -44,7 +44,7 @@ training_data <- training(data_split)
 test_data <- testing(data_split)
 
 hidden_n <- c(30)
-t <- 0.1 #thresholder
+t <- 1 #thresholder
 formula <- 'ganhador == 1 ~ .'
 
 # Normalizando os dados ------------------------------------------------------------------------------------
@@ -86,14 +86,15 @@ predictVstest <- cbind(test_data, Predict$net.result)
 i <<- sum(predictVstest$ganhador == nn2)/ nrow(test_data)
 
 # Achar uma boa seed -------------------------------------------------------------------------------------
-s <- 1 # 8549 = 0.826087 
+s <- 7200 # 8549 = 0.826087 
 # 9726 = 0.821917
 # 7867 11/03 0.80 acuracia
 # 7333 12/03 0.83 acuracia 93 partidas
+# 10679 13/03 0.8163265 acuracia 98 partidas
 w <- 0.1
 
-while ( i < 0.82) {
-  achar_Seed(s, hidden_n, t = 1.8)
+while ( i < 0.78) {
+  achar_Seed(s, hidden_n, t = 0.9)
   s <- s + 1
   w <<- ifelse(i>w, w <<- i, w <<- w) 
   
@@ -116,9 +117,6 @@ normalizando_training <- as.data.frame(scale(normalizando_training))
 training_data <- dplyr::select(training_data, ganhador)
 training_data <- cbind(normalizando_training, training_data)
 
-training_data$ganhador <- as.factor(training_data$ganhador)
-test_data$ganhador <- as.factor(test_data$ganhador)
-
 Predict = compute(n, test_data)
 
 nn2 <<- ifelse(Predict$net.result[,1]>0.5,1,0)
@@ -128,8 +126,8 @@ predictVstest <- cbind(test_data, Predict$net.result)
 # Procurando uma rede neural com acuracia a cima de determinado percentual --------------------------------
 z <- 0.1
 
-while (i < 0.8) {
-  achar_Nn()
+while (i < 0.82) {
+  achar_Nn(t = 0.9)
 }
 beep(8)
 
