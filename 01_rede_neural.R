@@ -89,7 +89,7 @@ s <- 10678 # 8549 = 0.826087
 # 10679 13/03 0.8163265 acuracia 98 partidas
 w <- 0.1
 
-while ( i < 0.78) {
+while ( i < 0.84) {
   achar_Seed(s, hidden_n, t = 0.9)
   s <- s + 1
   w <<- ifelse(i>w, w <<- i, w <<- w) 
@@ -133,7 +133,7 @@ save(n, file='prototipo_rede_neural.rda') #14/03/2023 81/98 base de testes (0.82
 
 # Matriz de confusão ---------------------------------------------------------------------------------------
 jogos <- read.csv2('csv/partidas_teste.csv') %>% dplyr::select(-X)
-set.seed(5)
+set.seed(6)
 data_split <- initial_split(jogos, prop = 0.7, strata = "ganhador")
 training_data <- training(data_split)
 test_data <- testing(data_split)
