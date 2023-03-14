@@ -89,7 +89,7 @@ s <- 10678 # 8549 = 0.826087
 # 10679 13/03 0.8163265 acuracia 98 partidas
 w <- 0.1
 
-while ( i < 0.84) {
+while ( i < 0.79) {
   achar_Seed(s, hidden_n, t = 0.9)
   s <- s + 1
   w <<- ifelse(i>w, w <<- i, w <<- w) 
