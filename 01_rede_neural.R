@@ -27,10 +27,10 @@ nomes_arquivos <- paste0("csv/catalogacao_diaria/", format(datas, "%Y-%m-%d"), "
 jogos_lista <- list()
 
 for (arquivo in nomes_arquivos) {
-  jogos_lista[[arquivo]] <- read.csv2(arquivo) %>% select(-X)
+  jogos_lista[[arquivo]] <- possibly(read.csv2, otherwise = NULL)(arquivo)
 }
 
-jogos <- bind_rows(jogos_lista)
+jogos <- bind_rows(jogos_lista) %>% select(-X)
 jogos$ganhador <- as.factor(jogos$ganhador)
 
 #write.csv2(jogos, 'csv/partidas_teste.csv')
@@ -149,7 +149,7 @@ training_data <- dplyr::select(training_data, ganhador)
 training_data <- cbind(normalizando_training, training_data)
 
 # Carregando modelo e obtendo os resultados
-load('prototipo_rede_neural_2.rda')
+load('prototipo_rede_neural.rda')
 Predict = compute(n, test_data)
 nn2 <- ifelse(Predict$net.result[,1]>0.5, 1, 0)
 nn2 <- as.factor(nn2)
@@ -168,6 +168,19 @@ ggplot(data = x, mapping = aes(x = Reference, y = Prediction)) +
 #Log Loss
 logLoss(actual = test_data$ganhador, predicted = Predict$net.result)
 
+#Plot distribuição
+ggplot(data = predictVstest, mapping = aes(x = 'predict$netresult', y = ganhador, colour = ganhador)) +
+  geom_tile(aes(fill = ganhador)) +
+  geom_point() +
+  theme_bw()
+
+
+ggplot(data = predictVstest, aes(x = 'predict$netresult')) +
+  geom_histogram(stat = 'count', aes(fill = 'ganhador'), width = 0.5) +
+  scale_fill_manual(values = c("blue", "red"))
+
+histogram(predictVstest$`Predict$net.result`, breaks = 50)
+scale_fill_manual(values = c("blue", "red"))
 
 prever('https://www.vlr.gg/167393/loud-vs-fnatic-champions-tour-2023-lock-in-s-o-paulo-gf')
 
