@@ -34,6 +34,7 @@ jogos <- bind_rows(jogos_lista) %>% select(-X)
 jogos$ganhador <- as.factor(jogos$ganhador)
 
 #write.csv2(jogos, 'csv/partidas_teste.csv')
+#jogos <- read.csv2('csv/partidas_teste.csv')
 
 # Criando dataframes de teste e validação -----------------------------------------------------------------
 set.seed(1)
@@ -82,7 +83,7 @@ predictVstest <- cbind(test_data, Predict$net.result)
 i <<- sum(predictVstest$ganhador == nn2)/ nrow(test_data)
 
 # Achar uma boa seed -------------------------------------------------------------------------------------
-s <- 10678 # 8549 = 0.826087 
+s <- 1 # 8549 = 0.826087 
 # 9726 = 0.821917
 # 7867 11/03 0.80 acuracia
 # 7333 12/03 0.83 acuracia 93 partidas
@@ -133,7 +134,7 @@ save(n, file='prototipo_rede_neural.rda') #14/03/2023 81/98 base de testes (0.82
 
 # Matriz de confusão ---------------------------------------------------------------------------------------
 jogos <- read.csv2('csv/partidas_teste.csv') %>% dplyr::select(-X)
-set.seed(6)
+set.seed(s-1)
 data_split <- initial_split(jogos, prop = 0.7, strata = "ganhador")
 training_data <- training(data_split)
 test_data <- testing(data_split)
@@ -147,6 +148,8 @@ normalizando_training <- dplyr::select(training_data, -ganhador)
 normalizando_training <- as.data.frame(scale(normalizando_training))
 training_data <- dplyr::select(training_data, ganhador)
 training_data <- cbind(normalizando_training, training_data)
+
+test_data$ganhador <- as.factor(test_data$ganhador)
 
 # Carregando modelo e obtendo os resultados
 load('prototipo_rede_neural.rda')
