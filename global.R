@@ -3,6 +3,7 @@ library(devtools)
 #install_github("Juniorffonseca/r-pacote-valorant")
 library(shiny)
 library(shinythemes)
+library(bslib)
 library(dplyr)
 library(tidyr)
 library(rvest)
@@ -24,7 +25,7 @@ source('ui.R')
 source('server.R')
 
 # Carregando a rede neural e o dataframe Jogadores
-load(file = "rede_neural_teste.rda")
+load(file = "prototipo_rede_neural.rda")
 
 # Criando o app
 shinyApp(ui = ui, server = server)

@@ -18,10 +18,7 @@ server <- function(input, output) {
   
   output$txtout <- renderText({
     if (input$submitbutton>0) { 
-      if (is.numeric(previsaoInput())){
-        paste(round(previsaoInput(), 2), '%', '')}
-      else {
-        paste(previsaoInput())}} 
+        paste(previsaoInput())} 
     else {
       return("A rede neural está pronta para calcular as probabilidades.")
     }
