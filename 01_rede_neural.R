@@ -19,6 +19,7 @@ library(ModelMetrics)
 library(beepr)
 library(purrr)
 library(plotly)
+library(pROC)
 library(valorant)
 
 # Carregando partidas diarias e unindo em um df ------------------------------------------------------------
@@ -131,7 +132,7 @@ beep(8)
 
 # Matriz de confusão ---------------------------------------------------------------------------------------
 jogos <- read.csv2('csv/partidas_teste.csv') %>% dplyr::select(-X)
-set.seed(s-1)
+set.seed(s-1) #10679
 data_split <- initial_split(jogos, prop = 0.7, strata = "ganhador")
 training_data <- training(data_split)
 test_data <- testing(data_split)
@@ -156,6 +157,8 @@ nn2 <- as.factor(nn2)
 x <- caret::confusionMatrix(nn2, test_data$ganhador)
 F1 <- x$byClass['F1']
 x <- as.data.frame(x$table)
+predictVstest <- cbind(test_data, Predict$net.result)
+names(predictVstest)[32] <- 'previsao'
 
 # Plot
 ggplot(data = x, mapping = aes(x = Reference, y = Prediction)) +
@@ -184,7 +187,7 @@ legend("left", legend = c("Time 2 ganhador", "Time 1 ganhador"), col = c("red", 
 
 abline(v = 0.5, lty = 2, col = "black")
 
-plot_ly(data = predictVstest, x = ~`Predict$net.result`, y = ~ganhador,
+plot_ly(data = predictVstest, x = ~previsao, y = ~ganhador,
         color = ~factor(ganhador), colors = c("red", "green"), type = "scatter",
         mode = "markers", marker = list(size = 10)) %>%
   layout(xaxis = list(title = "Porcentagem"), yaxis = list(title = "Ganhador"),
