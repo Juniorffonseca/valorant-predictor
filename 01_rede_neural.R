@@ -18,6 +18,7 @@ library(ggplot2)
 library(ModelMetrics)
 library(beepr)
 library(purrr)
+library(plotly)
 library(valorant)
 
 # Carregando partidas diarias e unindo em um df ------------------------------------------------------------
@@ -83,11 +84,7 @@ predictVstest <- cbind(test_data, Predict$net.result)
 i <<- sum(predictVstest$ganhador == nn2)/ nrow(test_data)
 
 # Achar uma boa seed -------------------------------------------------------------------------------------
-s <- 1 # 8549 = 0.826087 
-# 9726 = 0.821917
-# 7867 11/03 0.80 acuracia
-# 7333 12/03 0.83 acuracia 93 partidas
-# 10679 13/03 0.8163265 acuracia 98 partidas
+s <- 1 # 10679 13/03 0.7959% acuracia 98 partidas
 w <- 0.1
 
 while ( i < 0.79) {
@@ -99,7 +96,7 @@ while ( i < 0.79) {
 }
 
 # Atualizando a seed para achar a melhor neuralnetwork ----------------------------------------------------
-set.seed(s-1) #4 #59
+set.seed(s-1)
 data_split <- initial_split(jogos, prop = 0.7, strata = "ganhador")
 training_data <- training(data_split)
 test_data <- testing(data_split)
@@ -130,7 +127,7 @@ beep(8)
 
 #save(n, file ='rede_neural.rda')
 #save(n, file='rede_neural_teste.rda')
-save(n, file='prototipo_rede_neural.rda') #14/03/2023 81/98 base de testes (0.8265306% acuracia)
+#save(n, file='prototipo_rede_neural.rda') #14/03/2023 81/98 base de testes (0.8265306% acuracia)
 
 # Matriz de confusão ---------------------------------------------------------------------------------------
 jogos <- read.csv2('csv/partidas_teste.csv') %>% dplyr::select(-X)
@@ -172,18 +169,29 @@ ggplot(data = x, mapping = aes(x = Reference, y = Prediction)) +
 logLoss(actual = test_data$ganhador, predicted = Predict$net.result)
 
 #Plot distribuição
-ggplot(data = predictVstest, mapping = aes(x = 'predict$netresult', y = ganhador, colour = ganhador)) +
-  geom_tile(aes(fill = ganhador)) +
-  geom_point() +
-  theme_bw()
+histogram(predictVstest$`Predict$net.result`, breaks = 98,
+          col = ifelse(as.factor(predictVstest$ganhador) == 1, "blue", "red"))
 
+plot(predictVstest$`Predict$net.result`, predictVstest$ganhador,
+     col = ifelse(predictVstest$ganhador == 1, "green", "red"),
+     xlim = c(0,1), xlab = "Porcentagem", ylab = "Ganhador",
+     cex = 1, pch = 19, yaxt = 'n')
 
-ggplot(data = predictVstest, aes(x = 'predict$netresult')) +
-  geom_histogram(stat = 'count', aes(fill = 'ganhador'), width = 0.5) +
-  scale_fill_manual(values = c("blue", "red"))
+axis(side = 2, at = c(0, 1), labels = c("0", "1"))
 
-histogram(predictVstest$`Predict$net.result`, breaks = 50)
-scale_fill_manual(values = c("blue", "red"))
+# Adicionar legenda para as cores
+legend("left", legend = c("Time 2 ganhador", "Time 1 ganhador"), col = c("red", "green"), pch = 1)
+
+abline(v = 0.5, lty = 2, col = "black")
+
+plot_ly(data = predictVstest, x = ~`Predict$net.result`, y = ~ganhador,
+        color = ~factor(ganhador), colors = c("red", "green"), type = "scatter",
+        mode = "markers", marker = list(size = 10)) %>%
+  layout(xaxis = list(title = "Porcentagem"), yaxis = list(title = "Ganhador"),
+         legend = list(title = "Ganhador", font = list(size = 16)),
+         margin = list(l = 50, r = 50, t = 50, b = 50),
+         shapes = list(list(type = "line", x0 = 0.5, x1 = 0.5, y0 = 0, y1 = 1,
+                            line = list(color = "gray", width = 2))))
 
 prever('https://www.vlr.gg/167393/loud-vs-fnatic-champions-tour-2023-lock-in-s-o-paulo-gf')
 
