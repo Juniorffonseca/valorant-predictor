@@ -31,7 +31,10 @@ for (i in b){
 
 df$ganhador <- ganhador
 
-df$prev <- ifelse(df$V1>df$V2, 1, 0)
+df$V1_n <- as.numeric(gsub('[^0-9.]+', '', df$V1)) 
+df$V2_n <- as.numeric(gsub('[^0-9.]+', '', df$V2))
+
+df$prev <- ifelse(as.numeric(df$V1_n)>as.numeric(df$V2_n), 1, 0)
 
 acertos <- sum(df$ganhador == df$prev)
 
