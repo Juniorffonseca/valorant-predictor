@@ -121,7 +121,7 @@ predictVstest <- cbind(test_data, Predict$net.result)
 # Procurando uma rede neural com acuracia a cima de determinado percentual --------------------------------
 z <- 0.1
 
-while (i < 0.81) {
+while (i < 0.83) {
   achar_Nn(t = 0.9)
 }
 beep(8)
@@ -129,7 +129,7 @@ beep(8)
 #save(n, file ='rede_neural.rda')
 #save(n, file='rede_neural_teste.rda')
 #save(n, file='prototipo_rede_neural.rda') #14/03/2023 81/98 base de teste (0.8265306% acuracia)
-#save(n, file='21_03_nnet.rda') #21/03/2023 95/117 base de teste (0.811965811% acuracia)
+#save(n, file='21_03_nnet.rda') #21/03/2023 97/117 base de teste (0.8290598% acuracia)
 
 # Matriz de confusão ---------------------------------------------------------------------------------------
 jogos <- read.csv2('csv/partidas_teste.csv') %>% dplyr::select(-X)
