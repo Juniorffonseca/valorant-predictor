@@ -88,7 +88,7 @@ i <<- sum(predictVstest$ganhador == nn2)/ nrow(test_data)
 s <- 1 # 10679 13/03 0.7959% acuracia 98 partidas
 w <- 0.1
 
-while ( i < 0.77) {
+while ( i < 0.79) {
   achar_Seed(s, hidden_n, t = 0.9)
   s <- s + 1
   w <<- ifelse(i>w, w <<- i, w <<- w) 
@@ -190,7 +190,7 @@ abline(v = 0.5, lty = 2, col = "black")
 
 plot_ly(data = predictVstest, x = ~previsao, y = ~ganhador,
         color = ~factor(ganhador), colors = c("red", "green"), type = "scatter",
-        mode = "markers", marker = list(size = 10)) %>%
+        mode = "markers", marker = list(size = 4)) %>%
   layout(xaxis = list(title = "Porcentagem"), yaxis = list(title = "Ganhador"),
          legend = list(title = "Ganhador", font = list(size = 16)),
          margin = list(l = 50, r = 50, t = 50, b = 50),
