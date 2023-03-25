@@ -202,4 +202,12 @@ prever('https://www.vlr.gg/167393/loud-vs-fnatic-champions-tour-2023-lock-in-s-o
 #[1,] 43.10593
 #[2,] 56.89407
 
-# preciso ver a questão de espelhamento, provavelmente está errada a forma q estou fazendo atualmente, preciso fazer antes de treinar o modelo.
+ggplotly(
+  jogos %>% 
+    ggplot() +
+    geom_point(aes(x = time2R, y = ganhador), color = "orange", size = 2) +
+    geom_point(aes(x = time1R, y = ganhador), color = 'blue', size = 1) +
+    labs(x = "Estatística",
+         y = "Ganhador") +
+    theme_bw()
+)
