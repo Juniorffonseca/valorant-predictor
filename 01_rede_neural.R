@@ -1,6 +1,6 @@
 # Instalando pacotes (se necessário) e carregando ----------------------------------------------------------
 library(devtools)
-install_github("Juniorffonseca/r-pacote-valorant")
+install_github('Juniorffonseca/r-pacote-valorant')
 library(caret)
 library(dplyr)
 library(tidyr)
@@ -23,8 +23,8 @@ library(pROC)
 library(valorant)
 
 # Carregando partidas diarias e unindo em um df ------------------------------------------------------------
-datas <- seq(as.Date("2023-02-19"), Sys.Date() - 1, by = "day")
-nomes_arquivos <- paste0("csv/catalogacao_diaria/", format(datas, "%Y-%m-%d"), "_partidas.csv")
+datas <- seq(as.Date('2023-02-19'), Sys.Date() - 1, by = 'day')
+nomes_arquivos <- paste0('csv/catalogacao_diaria/', format(datas, '%Y-%m-%d'), '_partidas.csv')
 
 jogos_lista <- list()
 
@@ -41,7 +41,7 @@ jogos$ganhador <- as.factor(jogos$ganhador)
 # Criando dataframes de teste e validação -----------------------------------------------------------------
 set.seed(1)
 
-data_split <- initial_split(jogos, prop = 0.7, strata = "ganhador")
+data_split <- initial_split(jogos, prop = 0.7, strata = 'ganhador')
 
 training_data <- training(data_split)
 test_data <- testing(data_split)
@@ -65,7 +65,7 @@ training_data <- cbind(normalizando_training, training_data)
 n <- neuralnet(formula,
                data = training_data,
                hidden = hidden_n,
-               err.fct = "sse",
+               err.fct = 'sse',
                linear.output = F,
                threshold = t,
                lifesign = 'minimal',
@@ -98,7 +98,7 @@ while ( i < 0.77) {
 
 # Atualizando a seed para achar a melhor neuralnetwork ----------------------------------------------------
 set.seed(s-1)
-data_split <- initial_split(jogos, prop = 0.7, strata = "ganhador")
+data_split <- initial_split(jogos, prop = 0.7, strata = 'ganhador')
 training_data <- training(data_split)
 test_data <- testing(data_split)
 
@@ -135,7 +135,7 @@ beep(8)
 # Matriz de confusão ---------------------------------------------------------------------------------------
 jogos <- read.csv2('csv/partidas_teste.csv') %>% dplyr::select(-X)
 set.seed(s-1) #10679
-data_split <- initial_split(jogos, prop = 0.7, strata = "ganhador")
+data_split <- initial_split(jogos, prop = 0.7, strata = 'ganhador')
 training_data <- training(data_split)
 test_data <- testing(data_split)
 
@@ -176,28 +176,28 @@ logLoss(actual = test_data$ganhador, predicted = Predict$net.result)
 
 #Plot distribuição
 histogram(predictVstest$`Predict$net.result`, breaks = 98,
-          col = ifelse(as.factor(predictVstest$ganhador) == 1, "blue", "red"))
+          col = ifelse(as.factor(predictVstest$ganhador) == 1, 'blue', 'red'))
 
 plot(predictVstest$`Predict$net.result`, predictVstest$ganhador,
-     col = ifelse(predictVstest$ganhador == 1, "green", "red"),
-     xlim = c(0,1), xlab = "Porcentagem", ylab = "Ganhador",
+     col = ifelse(predictVstest$ganhador == 1, 'green', 'red'),
+     xlim = c(0,1), xlab = 'Porcentagem', ylab = 'Ganhador',
      cex = 1, pch = 19, yaxt = 'n')
 
-axis(side = 2, at = c(0, 1), labels = c("0", "1"))
+axis(side = 2, at = c(0, 1), labels = c('0', '1'))
 
 # Adicionar legenda para as cores
-legend("left", legend = c("Time 2 ganhador", "Time 1 ganhador"), col = c("red", "green"), pch = 1)
+legend('left', legend = c('Time 2 ganhador', 'Time 1 ganhador'), col = c('red', 'green'), pch = 1)
 
-abline(v = 0.5, lty = 2, col = "black")
+abline(v = 0.5, lty = 2, col = 'black')
 
 plot_ly(data = predictVstest, x = ~previsao, y = ~ganhador,
-        color = ~factor(ganhador), colors = c("red", "green"), type = "scatter",
-        mode = "markers", marker = list(size = 4)) %>%
-  layout(xaxis = list(title = "Porcentagem"), yaxis = list(title = "Ganhador"),
-         legend = list(title = "Ganhador", font = list(size = 16)),
+        color = ~factor(ganhador), colors = c('red', 'green'), type = 'scatter',
+        mode = 'markers', marker = list(size = 4)) %>%
+  layout(xaxis = list(title = 'Porcentagem'), yaxis = list(title = 'Ganhador'),
+         legend = list(title = 'Ganhador', font = list(size = 16)),
          margin = list(l = 50, r = 50, t = 50, b = 50),
-         shapes = list(list(type = "line", x0 = 0.5, x1 = 0.5, y0 = 0, y1 = 1,
-                            line = list(color = "gray", width = 2))))
+         shapes = list(list(type = 'line', x0 = 0.5, x1 = 0.5, y0 = 0, y1 = 1,
+                            line = list(color = 'gray', width = 2))))
 
 prever('https://www.vlr.gg/167393/loud-vs-fnatic-champions-tour-2023-lock-in-s-o-paulo-gf')
 
@@ -207,10 +207,10 @@ prever('https://www.vlr.gg/167393/loud-vs-fnatic-champions-tour-2023-lock-in-s-o
 ggplotly(
   jogos %>% 
     ggplot() +
-    geom_point(aes(x = time2R, y = ganhador), color = "orange", size = 2) +
+    geom_point(aes(x = time2R, y = ganhador), color = 'orange', size = 2) +
     geom_point(aes(x = time1R, y = ganhador), color = 'blue', size = 1) +
-    labs(x = "Estatística",
-         y = "Ganhador") +
+    labs(x = 'Estatística',
+         y = 'Ganhador') +
     theme_bw()
 )
 
@@ -228,12 +228,12 @@ train_acc <- mean(train_preds == training_data$ganhador)
 test_acc <- mean(test_preds == test_data$ganhador)
 
 # Exibir a precisão nos conjuntos de treinamento e teste
-cat("Precisão nos dados de treinamento:", train_acc, "\n")
-cat("Precisão nos dados de teste:", test_acc, "\n")
+cat('Precisão nos dados de treinamento:', train_acc, '\n')
+cat('Precisão nos dados de teste:', test_acc, '\n')
 
 # Verificar se há overfitting comparando a precisão nos conjuntos de treinamento e teste
 if(test_acc < train_acc){
-  cat("A precisão nos dados de teste é menor do que a precisão nos dados de treinamento, o que pode indicar overfitting.\n")
+  cat('A precisão nos dados de teste é menor do que a precisão nos dados de treinamento, o que pode indicar overfitting.\n')
 } else {
-  cat("Não há evidência de overfitting.\n")
+  cat('Não há evidência de overfitting.\n')
 }
