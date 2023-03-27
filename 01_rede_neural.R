@@ -150,6 +150,7 @@ training_data <- dplyr::select(training_data, ganhador)
 training_data <- cbind(normalizando_training, training_data)
 
 test_data$ganhador <- as.factor(test_data$ganhador)
+training_data$ganhador <- as.factor(training_data$ganhador)
 
 # Carregando modelo e obtendo os resultados
 load('prototipo_rede_neural.rda')
@@ -212,3 +213,37 @@ ggplotly(
          y = "Ganhador") +
     theme_bw()
 )
+
+
+
+# Treinar a rede neural com validação cruzada usando a função train() do caret
+set.seed(123)
+nn_model <- train(ganhador ~ ., data = training_data, 
+                  method = "neuralnet", 
+                  trControl = trainControl(method = "cv", number = 5), 
+                  tuneLength = 5)
+
+# Fazer previsões nos dados de treinamento e teste usando a rede neural treinada
+train_preds <- predict(n, training_data)
+test_preds <- predict(n, test_data)
+
+train_preds <- ifelse(train_preds > 0.5, 1, 0)
+test_preds <- ifelse(test_preds > 0.5, 1, 0)
+
+# Calcular a precisão da rede neural nos conjuntos de treinamento e teste
+train_acc <- mean(train_preds == training_data$ganhador)
+test_acc <- mean(test_preds == test_data$ganhador)
+
+test_cm <- confusionMatrix(test_preds, test_data$ganhador)
+test_acc <- accuracy(test_cm)
+
+# Exibir a precisão nos conjuntos de treinamento e teste
+cat("Precisão nos dados de treinamento:", train_acc, "\n")
+cat("Precisão nos dados de teste:", test_acc, "\n")
+
+# Verificar se há overfitting comparando a precisão nos conjuntos de treinamento e teste
+if(test_acc < train_acc){
+  cat("A precisão nos dados de teste é menor do que a precisão nos dados de treinamento, o que pode indicar overfitting.\n")
+} else {
+  cat("Não há evidência de overfitting.\n")
+}
