@@ -216,13 +216,6 @@ ggplotly(
 
 
 
-# Treinar a rede neural com validação cruzada usando a função train() do caret
-set.seed(123)
-nn_model <- train(ganhador ~ ., data = training_data, 
-                  method = "neuralnet", 
-                  trControl = trainControl(method = "cv", number = 5), 
-                  tuneLength = 5)
-
 # Fazer previsões nos dados de treinamento e teste usando a rede neural treinada
 train_preds <- predict(n, training_data)
 test_preds <- predict(n, test_data)
@@ -233,9 +226,6 @@ test_preds <- ifelse(test_preds > 0.5, 1, 0)
 # Calcular a precisão da rede neural nos conjuntos de treinamento e teste
 train_acc <- mean(train_preds == training_data$ganhador)
 test_acc <- mean(test_preds == test_data$ganhador)
-
-test_cm <- confusionMatrix(test_preds, test_data$ganhador)
-test_acc <- accuracy(test_cm)
 
 # Exibir a precisão nos conjuntos de treinamento e teste
 cat("Precisão nos dados de treinamento:", train_acc, "\n")
