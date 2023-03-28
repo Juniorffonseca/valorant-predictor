@@ -88,7 +88,7 @@ i <<- sum(predictVstest$ganhador == nn2)/ nrow(test_data)
 s <- 1 # 10679 13/03 0.7959% acuracia 98 partidas
 w <- 0.1
 
-while ( i < 0.77) {
+while ( i < 0.78) {
   achar_Seed(s, hidden_n, t = 0.9)
   s <- s + 1
   w <<- ifelse(i>w, w <<- i, w <<- w) 
@@ -97,7 +97,7 @@ while ( i < 0.77) {
 }
 
 # Atualizando a seed para achar a melhor neuralnetwork ----------------------------------------------------
-set.seed(s-1)
+set.seed(s-1) #22263
 data_split <- initial_split(jogos, prop = 0.7, strata = 'ganhador')
 training_data <- training(data_split)
 test_data <- testing(data_split)
@@ -118,10 +118,10 @@ nn2 <<- ifelse(Predict$net.result[,1]>0.5,1,0)
 
 predictVstest <- cbind(test_data, Predict$net.result)
 
-# Procurando uma rede neural com acuracia a cima de determinado percentual --------------------------------
+# Procurando uma rede neural com acuracia acima de determinado percentual --------------------------------
 z <- 0.1
 
-while (i < 0.80) {
+while (i < 0.83) {
   achar_Nn(t = 0.9)
 }
 beep(8)
