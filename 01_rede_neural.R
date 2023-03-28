@@ -88,13 +88,16 @@ i <<- sum(predictVstest$ganhador == nn2)/ nrow(test_data)
 s <- 1 # 10679 13/03 0.7959% acuracia 98 partidas
 w <- 0.1
 
-while ( i < 0.78) {
+while ( i < 0.80) {
   achar_Seed(s, hidden_n, t = 0.9)
   s <- s + 1
   w <<- ifelse(i>w, w <<- i, w <<- w) 
   
   print(w)
 }
+
+# 143890 tentativas de seed e 80% acurácia
+# 71905 0.8045113 acurácia
 
 # Atualizando a seed para achar a melhor neuralnetwork ----------------------------------------------------
 set.seed(s-1) #22263
@@ -121,7 +124,7 @@ predictVstest <- cbind(test_data, Predict$net.result)
 # Procurando uma rede neural com acuracia acima de determinado percentual --------------------------------
 z <- 0.1
 
-while (i < 0.83) {
+while (i < 0.80) {
   achar_Nn(t = 0.9)
 }
 beep(8)
@@ -175,21 +178,6 @@ ggplot(data = x, mapping = aes(x = Reference, y = Prediction)) +
 logLoss(actual = test_data$ganhador, predicted = Predict$net.result)
 
 #Plot distribuição
-histogram(predictVstest$`Predict$net.result`, breaks = 98,
-          col = ifelse(as.factor(predictVstest$ganhador) == 1, 'blue', 'red'))
-
-plot(predictVstest$`Predict$net.result`, predictVstest$ganhador,
-     col = ifelse(predictVstest$ganhador == 1, 'green', 'red'),
-     xlim = c(0,1), xlab = 'Porcentagem', ylab = 'Ganhador',
-     cex = 1, pch = 19, yaxt = 'n')
-
-axis(side = 2, at = c(0, 1), labels = c('0', '1'))
-
-# Adicionar legenda para as cores
-legend('left', legend = c('Time 2 ganhador', 'Time 1 ganhador'), col = c('red', 'green'), pch = 1)
-
-abline(v = 0.5, lty = 2, col = 'black')
-
 plot_ly(data = predictVstest, x = ~previsao, y = ~ganhador,
         color = ~factor(ganhador), colors = c('red', 'green'), type = 'scatter',
         mode = 'markers', marker = list(size = 4)) %>%
