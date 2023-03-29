@@ -170,61 +170,23 @@ predictVstest <- cbind(test_data, Predict$net.result)
 names(predictVstest)[32] <- 'previsao'
 
 # Curva ROC
-predicoes <- ROCR::prediction(predictions = predictVstest$previsao,
-                              labels = as.factor(predictVstest$ganhador))
-
-dados_curva_roc <- ROCR::performance(predicoes, measure = 'sens')
-
-sensitividade <- (performance(predicoes, measure = 'sens'))@y.values[[1]]
-
-especificidade <- (performance(predicoes, measure = 'spec'))@y.values[[1]]
-
-# Extraindo os CUTOFFS:
-cutoffs <- dados_curva_roc@x.values[[1]]
-
-dados_plotagem <- cbind.data.frame(cutoffs, especificidade, sensitividade)
-
-dados_plotagem %>% 
-  kable() %>% 
-  kable_styling(bootstrap_options = 'striped',
-               full_width = F,
-               font_size = 22)
-
-ggplotly(dados_plotagem %>%
-           ggplot(aes(x = cutoffs, y = especificidade)) +
-           geom_line(aes(color = "Especificidade"),
-                     size = 1) +
-           geom_point(color = "#95D840FF",
-                      size = 1.9) +
-           geom_line(aes(x = cutoffs, y = sensitividade, color = "Sensitividade"),
-                     size = 1) +
-           geom_point(aes(x = cutoffs, y = sensitividade),
-                      color = "#440154FF",
-                      size = 1.9) +
-           labs(x = "Cutoff",
-                y = "Sensitividade/Especificidade") +
-           scale_color_manual("Legenda:",
-                              values = c("#95D840FF", "#440154FF")) +
-           theme_bw())
-
-
 ROC <- roc(response = as.factor(predictVstest$ganhador), 
            predictor = predictVstest$previsao)
 
 ggplot() +
   geom_segment(aes(x = 0, xend = 1, y = 0, yend = 1),
-               color = "grey40", size = 0.2) +
+               color = 'grey40', size = 0.2) +
   geom_line(aes(x = 1 - especificidade, y = sensitividade),
             color = "darkorchid", size = 2) +
-  labs(x = "1 - Especificidade",
-       y = "Sensitividade",
-       title = paste("Área abaixo da curva:",
+  labs(x = '1 - Especificidade',
+       y = 'Sensitividade',
+       title = paste('Área abaixo da curva:',
                      round(ROC$auc, 4),
-                     "|",
-                     "Coeficiente de Gini:",
+                     '|',
+                     'Coeficiente de Gini:',
                      round((ROC$auc[1] - 0.5) / 0.5, 4))) +
   theme(panel.background = element_rect(NA),
-        panel.border = element_rect(color = "black", fill = NA),
+        panel.border = element_rect(color = 'black', fill = NA),
         legend.text = element_text(size = 10),
         legend.title = element_text(size = 10)
   )
