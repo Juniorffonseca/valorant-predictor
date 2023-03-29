@@ -137,6 +137,7 @@ beep(8)
 
 # Matriz de confusão ---------------------------------------------------------------------------------------
 jogos <- read.csv2('csv/partidas_teste.csv') %>% dplyr::select(-X)
+s <- 10679
 set.seed(s-1) #10679
 data_split <- initial_split(jogos, prop = 0.7, strata = 'ganhador')
 training_data <- training(data_split)
@@ -187,10 +188,7 @@ plot_ly(data = predictVstest, x = ~previsao, y = ~ganhador,
          shapes = list(list(type = 'line', x0 = 0.5, x1 = 0.5, y0 = 0, y1 = 1,
                             line = list(color = 'gray', width = 2))))
 
-prever('https://www.vlr.gg/167393/loud-vs-fnatic-champions-tour-2023-lock-in-s-o-paulo-gf')
-
-#[1,] 43.10593
-#[2,] 56.89407
+# Tentando gráfico para variáveis 
 
 ggplotly(
   jogos %>% 
