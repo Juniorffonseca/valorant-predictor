@@ -37,6 +37,17 @@ ui <- fluidPage(theme = bs_theme(version = 5, base_font = font_google('Yanone Ka
                       h4(''),
                       verbatimTextOutput('txtout2')
                     )
+                  ),
+                  tabPanel(
+                    'Metodologia',
+                    sidebarPanel(
+                      div(style='display:inline-block;',
+                          h3('* Treinada com mais de  300 partidas.'),
+                          h3('* 82,6% de acurácia na base de testes.'),
+                          h3('* Teste F1-Score 0.817.'),
+                          h3('* Valor AUC da curva ROC 0,8809 com um Gini de 0.7618.'),
+                          h5('* '))
+                    )
                   )
                 )
 )
