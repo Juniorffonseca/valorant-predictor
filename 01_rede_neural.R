@@ -173,6 +173,13 @@ names(predictVstest)[32] <- 'previsao'
 ROC <- roc(response = as.factor(predictVstest$ganhador), 
            predictor = predictVstest$previsao)
 
+predicoes <- ROCR::prediction(predictions = predictVstest$previsao, 
+                        labels = as.factor(predictVstest$ganhador))
+
+dados_curva_roc <- performance(predicoes, measure = "sens") 
+sensitividade <- (performance(predicoes, measure = "sens"))@y.values[[1]] 
+especificidade <- (performance(predicoes, measure = "spec"))@y.values[[1]]
+
 ggplot() +
   geom_segment(aes(x = 0, xend = 1, y = 0, yend = 1),
                color = 'grey40', size = 0.2) +
@@ -192,7 +199,7 @@ ggplot() +
   )
 
 
-# Plot
+# Plot matriz de confusão
 ggplot(data = x, mapping = aes(x = Reference, y = Prediction)) +
   geom_tile(aes(fill = Freq), colour = 'white') +
   geom_text(aes(label = sprintf('%1.0f', Freq)), vjust = 1) +
