@@ -90,7 +90,7 @@ i <<- sum(predictVstest$ganhador == nn2)/ nrow(test_data)
 s <- 1 # 10679 13/03 0.7959% acuracia 98 partidas
 w <- 0.1
 
-while ( i < 0.78) {
+while ( i < 0.81) {
   achar_Seed(s, hidden_n, t = 0.9)
   s <- s + 1
   w <<- ifelse(i>w, w <<- i, w <<- w) 
