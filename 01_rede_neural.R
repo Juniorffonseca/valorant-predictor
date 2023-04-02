@@ -130,7 +130,7 @@ z <- 0.1
 while (i < 0.80) {
   achar_Nn(t = 0.9)
 }
-beep(8)
+fbeep(8)
 
 #save(n, file ='rede_neural.rda')
 #save(n, file='rede_neural_teste.rda')
