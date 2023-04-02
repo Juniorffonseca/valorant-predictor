@@ -2,7 +2,7 @@
 # Valorant
 Usando Aprendizado de Máquina para prever resultados de partidas do cenário competitivo de Valorant.
 
-![image](https://user-images.githubusercontent.com/94936578/213898485-596e55b1-2a8b-4b8f-ba7d-854e92ff9dfd.png)
+![image](![image](https://user-images.githubusercontent.com/94936578/229330663-a3b5a254-9ae6-4c3a-9488-978eb94665a1.png))
 
 ## 01_jogos.R
 Esse script contém todos os códigos utilizados para coletar os dados dos jogadores no site *vlr.gg*, contém ainda, códigos que limpam esses dados, organizam e filtram conforme a necessidade do projeto. Os dados dos jogadores são obtidos por meio dos urls das partidas. É feita uma média das estatísticas individuais de R (Rating), ACS (Average Combat Score), KAST (Kill Assistance Survive and Trading), KD (Kill/Death) e ADR (Average Damage per Round), em seguida é feita a média do time como um todo para cada estatística e armazenada em uma lista. Esse processo se repete para todas as páginas de partidas que forem socilitadas no começo do script. Cada página de confrontos do site vlr tem aproximadamente 50 partidas. No final de todo esse processo será exportado um csv em que cada linha conterá as médias dos dois times e o resultado da partida.
