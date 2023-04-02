@@ -31,6 +31,9 @@ Using Machine Learning to predict match results from the competitive Valorant sc
 
 ![image](https://user-images.githubusercontent.com/94936578/229330663-a3b5a254-9ae6-4c3a-9488-978eb94665a1.png)
 
+## catalogacao_diaria.R
+Script executed daily to catalog the matches that will be used in neural network training. I created the daily execution through an R addin called Schedule R scripts on Windows (it would also be possible to do it manually through windows).
+
 ## 01_rede_neural.R
 This script loads all matches that were cataloged, taking into account the first date being '2023-02-19', a date that can be changed as needed, creates the neural network after finding an accuracy above that determined in the while loop and shows some attributes such as F1 score, confusion matrix, ROC curve, AUC, total accuracy, distribution of results and others.
 
