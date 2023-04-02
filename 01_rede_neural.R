@@ -98,6 +98,7 @@ while ( i < 0.78) {
   print(w)
 }
 # 16065 01/04
+# 49260 02/04
 # 143890 tentativas de seed e 80% acurácia
 # 71905 0.8045113 acurácia
 
@@ -126,7 +127,7 @@ predictVstest <- cbind(test_data, Predict$net.result)
 # Procurando uma rede neural com acuracia acima de determinado percentual --------------------------------
 z <- 0.1
 
-while (i < 0.83) {
+while (i < 0.80) {
   achar_Nn(t = 0.9)
 }
 beep(8)
