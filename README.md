@@ -2,7 +2,7 @@
 # Valorant
 Usando Aprendizado de Máquina para prever resultados de partidas do cenário competitivo de Valorant.
 
-![image](![image](https://user-images.githubusercontent.com/94936578/229330663-a3b5a254-9ae6-4c3a-9488-978eb94665a1.png))
+![image](https://user-images.githubusercontent.com/94936578/229330663-a3b5a254-9ae6-4c3a-9488-978eb94665a1.png)
 
 ## 01_jogos.R
 Esse script contém todos os códigos utilizados para coletar os dados dos jogadores no site *vlr.gg*, contém ainda, códigos que limpam esses dados, organizam e filtram conforme a necessidade do projeto. Os dados dos jogadores são obtidos por meio dos urls das partidas. É feita uma média das estatísticas individuais de R (Rating), ACS (Average Combat Score), KAST (Kill Assistance Survive and Trading), KD (Kill/Death) e ADR (Average Damage per Round), em seguida é feita a média do time como um todo para cada estatística e armazenada em uma lista. Esse processo se repete para todas as páginas de partidas que forem socilitadas no começo do script. Cada página de confrontos do site vlr tem aproximadamente 50 partidas. No final de todo esse processo será exportado um csv em que cada linha conterá as médias dos dois times e o resultado da partida.
@@ -33,7 +33,7 @@ Link do app:
 # Valorant
 Using Machine Learning to predict match results from the competitive Valorant scene.
 
-![image](https://user-images.githubusercontent.com/94936578/213898486-a802af6e-8056-41ea-acb9-4a9a24a58e15.png)
+![image](https://user-images.githubusercontent.com/94936578/229330663-a3b5a254-9ae6-4c3a-9488-978eb94665a1.png)
 
 ## 01_jogos.R
 This script contains all the codes used to collect player data on the *vlr.gg* site, it also contains codes that clean this data, organize and filter it as needed by the project. Player data is obtained through match urls. The individual statistics of R (Rating), ACS (Average Combat Score), KAST (Kill Assistance Survive and Trading), KD (Kill/Death) and ADR (Average Damage per Round) are averaged, then averaged of time as a whole for each statistic and stored in a list. This process is repeated for all departure pages that were requested at the beginning of the script. Each vlr site matches page has approximately 50 matches. At the end of this whole process, a csv will be exported in which each line will contain the averages of the two times and the result of the match.
