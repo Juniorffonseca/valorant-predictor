@@ -90,7 +90,7 @@ i <<- sum(predictVstest$ganhador == nn2)/ nrow(test_data)
 s <- 1 # 10679 13/03 0.7959% acuracia 98 partidas
 w <- 0.1
 
-while ( i < 0.78) {
+while ( i < 0.77) {
   achar_Seed(s, hidden_n, t = 0.9)
   s <- s + 1
   w <<- ifelse(i>w, w <<- i, w <<- w) 
@@ -99,6 +99,7 @@ while ( i < 0.78) {
 }
 # 16065 01/04
 # 49260 02/04
+# 122810 04/04
 # 143890 tentativas de seed e 80% acurácia
 # 71905 0.8045113 acurácia
 
@@ -127,10 +128,10 @@ predictVstest <- cbind(test_data, Predict$net.result)
 # Procurando uma rede neural com acuracia acima de determinado percentual --------------------------------
 z <- 0.1
 
-while (i < 0.80) {
+while (i < 0.79) {
   achar_Nn(t = 0.9)
 }
-fbeep(8)
+beep(8)
 
 #save(n, file ='rede_neural.rda')
 #save(n, file='rede_neural_teste.rda')
@@ -256,3 +257,29 @@ if(test_acc < train_acc){
 } else {
   cat('Não há evidência de overfitting.\n')
 }
+
+
+
+# Selecionar as variáveis mais importantes com base na importância das variáveis em um modelo de regressão logística
+model <- train(ganhador ~ ., data = jogos, method = "glm", family = "binomial")
+varImp(model)
+
+# Separar as variáveis preditoras e a variável de resposta
+variaveis_preditoras <- subset(jogos, select = -c(ganhador))
+variavel_resposta <- jogos$ganhador
+
+# Normalizar as variáveis preditoras
+variaveis_preditoras_norm <- scale(variaveis_preditoras)
+
+jogos_normalizados <- cbind(variaveis_preditoras, variavel_resposta)
+
+# Ajustar um modelo de regressão logística com as variáveis preditoras normalizadas
+modelo <- glm(variavel_resposta ~ ., data = jogos_normalizados, family = "binomial")
+
+# Examinar a importância de cada variável no modelo
+importancia <- abs(coef(modelo))
+importancia_rel <- importancia/sum(importancia)
+importancia_rel
+
+# Criar um gráfico de barras para visualizar as importâncias relativas
+barplot(importancia_rel, horiz = TRUE, las = 1, main = "Importância Relativa das Variáveis")
