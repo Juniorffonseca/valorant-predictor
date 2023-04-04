@@ -31,8 +31,12 @@ for (i in b){
 
 df$ganhador <- ganhador
 
-df$V1_n <- as.numeric(str_extract(df$V1, "\\d{1,2}[.,]\\d{1,2}"))
-df$V2_n <- as.numeric(str_extract(df$V2, "\\d{1,2}[.,]\\d{1,2}"))
+df$V1_n <- as.numeric(ifelse(is.na(str_extract(df$V1, "\\d{1,2}[.,]\\d{1,2}")), 
+                             str_extract(df$V1, "\\d{1,2}"), 
+                             str_extract(df$V1, "\\d{1,2}[.,]\\d{1,2}")))
+df$V2_n <- as.numeric(ifelse(is.na(str_extract(df$V2, "\\d{1,2}[.,]\\d{1,2}")), 
+                             str_extract(df$V2, "\\d{1,2}"), 
+                             str_extract(df$V2, "\\d{1,2}[.,]\\d{1,2}")))
 
 df$prev <- ifelse(as.numeric(df$V1_n)>as.numeric(df$V2_n), 1, 0)
 
