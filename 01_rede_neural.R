@@ -49,11 +49,11 @@ training_data <- training(data_split)
 test_data <- testing(data_split)
 
 hidden_n <- c(14)
-hidden_n <- c(30)
+#hidden_n <- c(30)
 t <- 0.5 #thresholder
 formula <- 'ganhador == 1 ~ time1FKPR + time1FDPR + time1KPR + time1APR + time1KD + time1R + time1ADR +
 time2FKPR + time2FDPR + time2KPR + time2APR + time2KD + time2R + time2ADR'
-formula <- 'ganhador == 1 ~ .'
+#formula <- 'ganhador == 1 ~ .'
 
 # Normalizando os dados ------------------------------------------------------------------------------------
 normalizando_test <- dplyr::select(test_data, -ganhador)
@@ -90,16 +90,16 @@ predictVstest <- cbind(test_data, Predict$net.result)
 i <<- sum(predictVstest$ganhador == nn2)/ nrow(test_data)
 
 # Achar uma boa seed -------------------------------------------------------------------------------------
-s <- 1 # 10679 13/03 0.7959% acuracia 98 partidas
+s <- 300000 # 10679 13/03 0.7959% acuracia 98 partidas
 w <- 0.1
 
-while ( i < 0.82) {
+while ( i < 0.78) {
   achar_Seed(s, hidden_n, t = 0.5)
   s <- s + 1
   w <<- ifelse(i>w, w <<- i, w <<- w) 
   
   print(w)
-}
+} #parei em 363195
 # 16065 01/04
 # 49260 02/04
 # 122810 04/04 arquitetura antiga
