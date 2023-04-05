@@ -48,8 +48,11 @@ data_split <- initial_split(jogos, prop = 0.7, strata = 'ganhador')
 training_data <- training(data_split)
 test_data <- testing(data_split)
 
+hidden_n <- c(14)
 hidden_n <- c(30)
 t <- 1 #thresholder
+formula <- 'ganhador == 1 ~ time1FKPR + time1FDPR + time1KPR + time1APR + time1KD + time1R + time1ADR +
+time2FKPR + time2FDPR + time2KPR + time2APR + time2KD + time2R + time2ADR'
 formula <- 'ganhador == 1 ~ .'
 
 # Normalizando os dados ------------------------------------------------------------------------------------
@@ -258,12 +261,6 @@ if(test_acc < train_acc){
   cat('Não há evidência de overfitting.\n')
 }
 
-
-
-# Selecionar as variáveis mais importantes com base na importância das variáveis em um modelo de regressão logística
-model <- train(ganhador ~ ., data = jogos, method = "glm", family = "binomial")
-varImp(model)
-
 # Separar as variáveis preditoras e a variável de resposta
 variaveis_preditoras <- subset(jogos, select = -c(ganhador))
 variavel_resposta <- jogos$ganhador
@@ -274,7 +271,7 @@ variaveis_preditoras_norm <- scale(variaveis_preditoras)
 jogos_normalizados <- cbind(variaveis_preditoras, variavel_resposta)
 
 # Ajustar um modelo de regressão logística com as variáveis preditoras normalizadas
-modelo <- glm(variavel_resposta ~ ., data = jogos_normalizados, family = "binomial")
+modelo <- glm(variavel_resposta ~ ., data = jogos_normalizados, family = 'binomial')
 
 # Examinar a importância de cada variável no modelo
 importancia <- abs(coef(modelo))
@@ -282,4 +279,4 @@ importancia_rel <- importancia/sum(importancia)
 importancia_rel
 
 # Criar um gráfico de barras para visualizar as importâncias relativas
-barplot(importancia_rel, horiz = TRUE, las = 1, main = "Importância Relativa das Variáveis")
+barplot(importancia_rel, horiz = TRUE, las = 1, main = 'Importância Relativa das Variáveis')
