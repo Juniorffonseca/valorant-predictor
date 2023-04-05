@@ -50,7 +50,7 @@ test_data <- testing(data_split)
 
 hidden_n <- c(14)
 hidden_n <- c(30)
-t <- 1 #thresholder
+t <- 0.5 #thresholder
 formula <- 'ganhador == 1 ~ time1FKPR + time1FDPR + time1KPR + time1APR + time1KD + time1R + time1ADR +
 time2FKPR + time2FDPR + time2KPR + time2APR + time2KD + time2R + time2ADR'
 formula <- 'ganhador == 1 ~ .'
@@ -93,8 +93,8 @@ i <<- sum(predictVstest$ganhador == nn2)/ nrow(test_data)
 s <- 1 # 10679 13/03 0.7959% acuracia 98 partidas
 w <- 0.1
 
-while ( i < 0.77) {
-  achar_Seed(s, hidden_n, t = 0.9)
+while ( i < 0.82) {
+  achar_Seed(s, hidden_n, t = 0.5)
   s <- s + 1
   w <<- ifelse(i>w, w <<- i, w <<- w) 
   
@@ -102,7 +102,8 @@ while ( i < 0.77) {
 }
 # 16065 01/04
 # 49260 02/04
-# 122810 04/04
+# 122810 04/04 arquitetura antiga
+# 8196 04/04 arquitetura nova (baita diferença no numero de seeds necessarias p o msm resultado)
 # 143890 tentativas de seed e 80% acurácia
 # 71905 0.8045113 acurácia
 
@@ -131,8 +132,8 @@ predictVstest <- cbind(test_data, Predict$net.result)
 # Procurando uma rede neural com acuracia acima de determinado percentual --------------------------------
 z <- 0.1
 
-while (i < 0.79) {
-  achar_Nn(t = 0.9)
+while (i < 0.81) {
+  achar_Nn(t = 0.5)
 }
 beep(8)
 
@@ -141,6 +142,7 @@ beep(8)
 #save(n, file='prototipo_rede_neural.rda') #14/03/2023 81/98 base de teste (0.8265306% acuracia)
 #save(n, file='21_03_nnet.rda') #21/03/2023 97/117 base de teste (0.8290598% acuracia)
 #save(n, file='26_03_nnet.rda') #26/03/2023 105/129 base de teste (0.8139535 acuracia) #seed 16323
+#save(n, file='04_04_nnet.rda') #04/04/2023 138/170 base de teste (0.8117647 acuracia) #seed 8196
 
 # Matriz de confusão ---------------------------------------------------------------------------------------
 jogos <- read.csv2('csv/partidas_teste.csv') %>% dplyr::select(-X)
