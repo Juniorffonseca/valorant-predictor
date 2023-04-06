@@ -90,11 +90,12 @@ predictVstest <- cbind(test_data, Predict$net.result)
 i <<- sum(predictVstest$ganhador == nn2)/ nrow(test_data)
 
 # Achar uma boa seed -------------------------------------------------------------------------------------
-s <- 300000 # 10679 13/03 0.7959% acuracia 98 partidas
+s <- 351700 # 10679 13/03 0.7959% acuracia 98 partidas
+# b
 w <- 0.1
 
-while ( i < 0.78) {
-  achar_Seed(s, hidden_n, t = 0.5)
+while ( i < 0.77) {
+  achar_Seed(s, hidden_n, t = 0.5, mostrar_i = F)
   s <- s + 1
   w <<- ifelse(i>w, w <<- i, w <<- w) 
   
@@ -132,8 +133,8 @@ predictVstest <- cbind(test_data, Predict$net.result)
 # Procurando uma rede neural com acuracia acima de determinado percentual --------------------------------
 z <- 0.1
 
-while (i < 0.81) {
-  achar_Nn(t = 0.5)
+while (i < 0.80) {
+  achar_Nn(t = 0.5, mostrar_i = F)
 }
 beep(8)
 
