@@ -34,7 +34,9 @@ for (arquivo in nomes_arquivos) {
   jogos_lista[[arquivo]] <- possibly(read.csv2, otherwise = NULL)(arquivo)
 }
 
-jogos <- bind_rows(jogos_lista) %>% select(-X)
+jogos <- bind_rows(jogos_lista) %>% select(time1FKPR, time1FDPR, time1KPR, time1APR, time1KD,
+                                           time2FKPR, time2FDPR, time2KPR, time2APR, time2KD,
+                                           ganhador)
 jogos$ganhador <- as.factor(jogos$ganhador)
 
 #write.csv2(jogos, 'csv/partidas_teste.csv')
@@ -48,12 +50,13 @@ data_split <- initial_split(jogos, prop = 0.7, strata = 'ganhador')
 training_data <- training(data_split)
 test_data <- testing(data_split)
 
-hidden_n <- c(14)
+hidden_n <- c(10)
 #hidden_n <- c(30)
 t <- 0.5 #thresholder
-formula <- 'ganhador == 1 ~ time1FKPR + time1FDPR + time1KPR + time1APR + time1KD + time1R + time1ADR +
-time2FKPR + time2FDPR + time2KPR + time2APR + time2KD + time2R + time2ADR'
-#formula <- 'ganhador == 1 ~ .'
+
+# formula <- 'ganhador == 1 ~ time1FKPR + time1FDPR + time1KPR + time1APR + time1KD + time1R + time1ADR +
+# time2FKPR + time2FDPR + time2KPR + time2APR + time2KD + time2R + time2ADR'
+formula <- 'ganhador == 1 ~ .'
 
 # Normalizando os dados ------------------------------------------------------------------------------------
 normalizando_test <- dplyr::select(test_data, -ganhador)
