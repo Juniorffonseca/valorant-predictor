@@ -90,7 +90,7 @@ predictVstest <- cbind(test_data, Predict$net.result)
 i <<- sum(predictVstest$ganhador == nn2)/ nrow(test_data)
 
 # Achar uma boa seed -------------------------------------------------------------------------------------
-s <- 351700 # 10679 13/03 0.7959% acuracia 98 partidas
+s <- 1 # 10679 13/03 0.7959% acuracia 98 partidas
 # b
 w <- 0.1
 
