@@ -178,7 +178,7 @@ x <- caret::confusionMatrix(nn2, test_data$ganhador)
 F1 <- x$byClass['F1']
 x <- as.data.frame(x$table)
 predictVstest <- cbind(test_data, Predict$net.result)
-names(predictVstest)[32] <- 'previsao'
+names(predictVstest)[length(predictVstest)] <- 'previsao'
 
 # Curva ROC
 ROC <- roc(response = as.factor(predictVstest$ganhador), 
