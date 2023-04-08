@@ -1,6 +1,5 @@
 # Instalando pacotes (se necessário) e carregando ----------------------------------------------------------
-library(devtools)
-install_github('Juniorffonseca/r-pacote-valorant')
+remotes::install_github('Juniorffonseca/r-pacote-valorant')
 library(caret)
 library(dplyr)
 library(tidyr)
@@ -93,17 +92,18 @@ predictVstest <- cbind(test_data, Predict$net.result)
 i <<- sum(predictVstest$ganhador == nn2)/ nrow(test_data)
 
 # Achar uma boa seed -------------------------------------------------------------------------------------
-s <- 1 # 10679 13/03 0.7959% acuracia 98 partidas
+s <- 700 # 10679 13/03 0.7959% acuracia 98 partidas
 # b
 w <- 0.1
 
-while ( i < 0.77) {
+while ( i < 0.76) {
   achar_Seed(s, hidden_n, t = 0.5, mostrar_i = F)
   s <- s + 1
   w <<- ifelse(i>w, w <<- i, w <<- w) 
   
   print(w)
-} #parei em 363195
+}
+#parei em 363195
 # 16065 01/04
 # 49260 02/04
 # 122810 04/04 arquitetura antiga
