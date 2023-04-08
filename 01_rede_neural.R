@@ -93,7 +93,7 @@ i <<- sum(predictVstest$ganhador == nn2)/ nrow(test_data)
 
 # Achar uma boa seed -------------------------------------------------------------------------------------
 s <- 700 # 10679 13/03 0.7959% acuracia 98 partidas
-# b
+# 49308 08/04
 w <- 0.1
 
 while ( i < 0.76) {
