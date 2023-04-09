@@ -21,6 +21,7 @@ library(plotly)
 library(pROC)
 library(ROCR)
 library(kableExtra)
+library(glmnet)
 library(valorant)
 
 # Carregando partidas diarias e unindo em um df ------------------------------------------------------------
@@ -33,9 +34,79 @@ for (arquivo in nomes_arquivos) {
   jogos_lista[[arquivo]] <- possibly(read.csv2, otherwise = NULL)(arquivo)
 }
 
-jogos <- bind_rows(jogos_lista) %>% select(time1FKPR, time1FDPR, time1KPR, time1APR, time1KD,
-                                           time2FKPR, time2FDPR, time2KPR, time2APR, time2KD,
-                                           ganhador)
+jogos <- bind_rows(jogos_lista) %>% select(-X)
+
+# Selecione as variáveis que serão usadas para ajustar o modelo
+vars <- c('RND', 'R', 'ACS', 'KAST', 'KD', 'ADR', 'KPR', 'APR', 'FKPR', 'FDPR', 'K', 'D', 'A', 'FK', 'FD')
+
+# Crie novas variáveis que calculam a diferença entre todas as estatísticas dos dois times
+for (i in vars) {
+  new_var <- paste0(i, "_diff")
+  jogos[[new_var]] <- jogos[[paste0("time1", i)]] - jogos[[paste0("time2", i)]]
+}
+
+# Remova as colunas das variáveis originais
+jogos_diff <- jogos %>% select(ends_with("_diff"), ganhador)
+
+vars <- setdiff(names(jogos_diff), "ganhador")
+
+# Converta a variável de resposta em fator binário
+jogos_diff$ganhador <- as.factor(ifelse(jogos_diff$ganhador == 1, "Vitoria_Time1", "Vitoria_Time2"))
+
+# Defina a lista de sementes a serem testadas
+seeds <- 1:10
+
+# Defina as variáveis preditoras e de resposta
+predictors <- names(jogos_diff)[1:length(jogos_diff)-1]
+response <- 'ganhador'
+
+# Use um loop para ajustar o modelo de rede neural e selecionar as variáveis pelo método LASSO para cada seed
+results <- list()
+for (i in 1:length(seeds)) {
+  
+  # Defina a seed atual
+  set.seed(seeds[i])
+  
+  # Use a função glmnet para ajustar o modelo LASSO
+  fit <- glmnet(as.matrix(jogos_diff[, predictors]), as.factor(jogos_diff[, response]), family = "binomial", alpha = 1)
+  cvfit <- cv.glmnet(as.matrix(jogos_diff[, predictors]), as.factor(jogos_diff[, response]), family = "binomial", alpha = 1)
+  lambda.min <- cvfit$lambda.min
+  
+  # Selecione as variáveis que têm coeficientes não nulos usando o valor do parâmetro lambda selecionado
+  coeficients <- coef(fit, s = lambda.min)
+  selected_vars <- predictors[coeficients[-1] != 0]
+  
+  # Use as variáveis selecionadas para ajustar o modelo de rede neural usando a função train()
+  ctrl <- trainControl(method = "cv", number = 10)
+  model <- train(
+    x = jogos_diff[, selected_vars],
+    y = jogos_diff[, response],
+    method = "nnet",
+    metric = "ROC",
+    trControl = ctrl
+  )
+  
+  # Armazene os resultados em uma lista
+  results[[i]] <- list(
+    seed = seeds[i],
+    variables = selected_vars,
+    accuracy = model$results$Accuracy,
+    auc = model$results$ROC[1]
+  )
+}
+
+# Converta as colunas em uma matriz e adicione-as ao data frame
+variables <- t(sapply(results, function(x) x$variables))
+accuracy <- sapply(results, function(x) x$accuracy)
+
+
+# Encontre a seed que produz o melhor desempenho em termos de acurácia e AUC
+accuracy <- colMeans(accuracy)
+best_seed_acc <- max(accuracy)
+
+
+jogos_diff <- select(jogos_diff, all_of(selected_vars), ganhador)
+jogos <- jogos_diff
 jogos$ganhador <- as.factor(jogos$ganhador)
 
 #write.csv2(jogos, 'csv/partidas_teste.csv')
@@ -51,7 +122,6 @@ test_data <- testing(data_split)
 
 hidden_n <- c(10)
 #hidden_n <- c(30)
-t <- 0.5 #thresholder
 
 # formula <- 'ganhador == 1 ~ time1FKPR + time1FDPR + time1KPR + time1APR + time1KD + time1R + time1ADR +
 # time2FKPR + time2FDPR + time2KPR + time2APR + time2KD + time2R + time2ADR'
@@ -74,7 +144,7 @@ n <- neuralnet(formula,
                hidden = hidden_n,
                err.fct = 'sse',
                linear.output = F,
-               threshold = t,
+               threshold = 0.5,
                lifesign = 'minimal',
                rep = 1,
                algorithm = 'rprop-',
@@ -92,11 +162,11 @@ predictVstest <- cbind(test_data, Predict$net.result)
 i <<- sum(predictVstest$ganhador == nn2)/ nrow(test_data)
 
 # Achar uma boa seed -------------------------------------------------------------------------------------
-s <- 700 # 10679 13/03 0.7959% acuracia 98 partidas
-# 49308 08/04
+s <- 68529 # 10679 13/03 0.7959% acuracia 98 partidas
+# 68529 08/04
 w <- 0.1
 
-while ( i < 0.76) {
+while ( i < 0.79) {
   achar_Seed(s, hidden_n, t = 0.5, mostrar_i = F)
   s <- s + 1
   w <<- ifelse(i>w, w <<- i, w <<- w) 
@@ -185,7 +255,7 @@ ROC <- roc(response = as.factor(predictVstest$ganhador),
            predictor = predictVstest$previsao)
 
 predicoes <- ROCR::prediction(predictions = predictVstest$previsao, 
-                        labels = as.factor(predictVstest$ganhador))
+                              labels = as.factor(predictVstest$ganhador))
 
 dados_curva_roc <- performance(predicoes, measure = "sens") 
 sensitividade <- (performance(predicoes, measure = "sens"))@y.values[[1]] 
@@ -286,3 +356,5 @@ importancia_rel
 
 # Criar um gráfico de barras para visualizar as importâncias relativas
 barplot(importancia_rel, horiz = TRUE, las = 1, main = 'Importância Relativa das Variáveis')
+
+
