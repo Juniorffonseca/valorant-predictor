@@ -77,7 +77,7 @@ for (i in 1:length(seeds)) {
   selected_vars <- predictors[coeficients[-1] != 0]
   
   # Use as variáveis selecionadas para ajustar o modelo de rede neural usando a função train()
-  ctrl <- trainControl(method = "cv", number = 10)
+  ctrl <- trainControl(method = "cv", number = 10, classProbs = T)
   model <- train(
     x = jogos_diff[, selected_vars],
     y = jogos_diff[, response],
