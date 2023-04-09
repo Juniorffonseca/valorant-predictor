@@ -46,89 +46,8 @@ for (i in vars) {
 }
 
 # Remova as colunas das variáveis originais
-jogos_diff <- jogos %>% select(ends_with("_diff"), ganhador)
+jogos <- select(jogos, ends_with("_diff"), ganhador)
 
-vars <- setdiff(names(jogos_diff), "ganhador")
-
-# Converta a variável de resposta em fator binário
-jogos_diff$ganhador <- as.factor(ifelse(jogos_diff$ganhador == 1, "Vitoria_Time1", "Vitoria_Time2"))
-
-# Defina a lista de sementes a serem testadas
-seeds <- 1:10
-
-# Defina as variáveis preditoras e de resposta
-predictors <- names(jogos_diff)[1:length(jogos_diff)-1]
-response <- 'ganhador'
-
-# Inicialize a variável que armazena os resultados
-results <- list()
-
-# Defina a seed inicial e o valor mínimo de acurácia
-s <- 1
-min_accuracy <- 0.75
-
-# Use um loop while para ajustar o modelo de rede neural e selecionar as variáveis pelo método LASSO
-while (TRUE) {
-  
-  # Defina a seed atual
-  set.seed(s)
-  
-  # Use a função glmnet para ajustar o modelo LASSO
-  fit <- glmnet(as.matrix(jogos_diff[, predictors]), as.factor(jogos_diff[, response]), family = "binomial", alpha = 1)
-  cvfit <- cv.glmnet(as.matrix(jogos_diff[, predictors]), as.factor(jogos_diff[, response]), family = "binomial", alpha = 1)
-  lambda.min <- cvfit$lambda.min
-  
-  # Selecione as variáveis que têm coeficientes não nulos usando o valor do parâmetro lambda selecionado
-  coeficients <- coef(fit, s = lambda.min)
-  selected_vars <- predictors[coeficients[-1] != 0]
-  
-  # Use as variáveis selecionadas para ajustar o modelo de rede neural usando a função train()
-  ctrl <- trainControl(method = "cv", number = 10, classProbs = T)
-  model <- train(
-    x = jogos_diff[, selected_vars],
-    y = jogos_diff[, response],
-    method = "nnet",
-    metric = "Accuracy",
-    algorithm = 'rprop-',
-    err.fct = 'sse',
-    hidden = length(selected_vars),
-    threshold = 0.5,
-    maxit = 500,
-    trControl = ctrl
-  )
-  
-  # Armazene os resultados em uma lista
-  results[[length(results)+1]] <- list(
-    seed = s,
-    variables = selected_vars,
-    accuracy = model$results$Accuracy,
-    auc = model$results$ROC[1]
-  )
-  
-  # Verifique se a acurácia máxima atingiu o limite mínimo
-  accuracy <- sapply(results, function(x) x$accuracy)
-  max_accuracy <- max(accuracy)
-  if (max_accuracy >= min_accuracy) {
-    break
-  }
-  
-  # Incremente a seed e continue o loop
-  s <- s + 1
-  
-}
-
-# Converta as colunas em uma matriz e adicione-as ao data frame
-variables <- t(sapply(results, function(x) x$variables))
-accuracy <- sapply(results, function(x) x$accuracy)
-
-# Encontre a seed que produz o melhor desempenho em termos de acurácia e AUC
-accuracy <- colMeans(accuracy)
-best_seed_acc <- max(accuracy)
-
-# 1393 seeds testadas
-
-jogos_diff <- select(jogos_diff, all_of(selected_vars), ganhador)
-jogos <- jogos_diff
 jogos$ganhador <- as.factor(jogos$ganhador)
 
 #write.csv2(jogos, 'csv/partidas_teste.csv')
@@ -188,7 +107,7 @@ s <- 1 # 10679 13/03 0.7959% acuracia 98 partidas
 # 68529 08/04
 w <- 0.1
 
-while ( i < 0.79) {
+while ( i < 0.77) {
   achar_Seed(s, hidden_n, t = 0.5, mostrar_i = F)
   s <- s + 1
   w <<- ifelse(i>w, w <<- i, w <<- w) 
