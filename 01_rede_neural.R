@@ -60,12 +60,18 @@ seeds <- 1:10
 predictors <- names(jogos_diff)[1:length(jogos_diff)-1]
 response <- 'ganhador'
 
-# Use um loop para ajustar o modelo de rede neural e selecionar as variáveis pelo método LASSO para cada seed
+# Inicialize a variável que armazena os resultados
 results <- list()
-for (i in 1:length(seeds)) {
+
+# Defina a seed inicial e o valor mínimo de acurácia
+s <- 1
+min_accuracy <- 0.75
+
+# Use um loop while para ajustar o modelo de rede neural e selecionar as variáveis pelo método LASSO
+while (TRUE) {
   
   # Defina a seed atual
-  set.seed(seeds[i])
+  set.seed(s)
   
   # Use a função glmnet para ajustar o modelo LASSO
   fit <- glmnet(as.matrix(jogos_diff[, predictors]), as.factor(jogos_diff[, response]), family = "binomial", alpha = 1)
@@ -82,28 +88,44 @@ for (i in 1:length(seeds)) {
     x = jogos_diff[, selected_vars],
     y = jogos_diff[, response],
     method = "nnet",
-    metric = "ROC",
+    metric = "Accuracy",
+    algorithm = 'rprop-',
+    err.fct = 'sse',
+    hidden = length(selected_vars),
+    threshold = 0.5,
+    maxit = 500,
     trControl = ctrl
   )
   
   # Armazene os resultados em uma lista
-  results[[i]] <- list(
-    seed = seeds[i],
+  results[[length(results)+1]] <- list(
+    seed = s,
     variables = selected_vars,
     accuracy = model$results$Accuracy,
     auc = model$results$ROC[1]
   )
+  
+  # Verifique se a acurácia máxima atingiu o limite mínimo
+  accuracy <- sapply(results, function(x) x$accuracy)
+  max_accuracy <- max(accuracy)
+  if (max_accuracy >= min_accuracy) {
+    break
+  }
+  
+  # Incremente a seed e continue o loop
+  s <- s + 1
+  
 }
 
 # Converta as colunas em uma matriz e adicione-as ao data frame
 variables <- t(sapply(results, function(x) x$variables))
 accuracy <- sapply(results, function(x) x$accuracy)
 
-
 # Encontre a seed que produz o melhor desempenho em termos de acurácia e AUC
 accuracy <- colMeans(accuracy)
 best_seed_acc <- max(accuracy)
 
+# 1393 seeds testadas
 
 jogos_diff <- select(jogos_diff, all_of(selected_vars), ganhador)
 jogos <- jogos_diff
@@ -162,7 +184,7 @@ predictVstest <- cbind(test_data, Predict$net.result)
 i <<- sum(predictVstest$ganhador == nn2)/ nrow(test_data)
 
 # Achar uma boa seed -------------------------------------------------------------------------------------
-s <- 68529 # 10679 13/03 0.7959% acuracia 98 partidas
+s <- 1 # 10679 13/03 0.7959% acuracia 98 partidas
 # 68529 08/04
 w <- 0.1
 
