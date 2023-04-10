@@ -61,7 +61,7 @@ data_split <- initial_split(jogos, prop = 0.7, strata = 'ganhador')
 training_data <- training(data_split)
 test_data <- testing(data_split)
 
-hidden_n <- c(10)
+hidden_n <- c(15)
 #hidden_n <- c(30)
 
 # formula <- 'ganhador == 1 ~ time1FKPR + time1FDPR + time1KPR + time1APR + time1KD + time1R + time1ADR +
