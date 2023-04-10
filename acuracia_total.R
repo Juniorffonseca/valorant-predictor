@@ -23,7 +23,7 @@ library(pROC)
 library(ROCR)
 library(kableExtra)
 library(valorant)
-
+setwd('C:/Users/anonb/Documents/TCC_Pós/Scripts')
 
 # Carregando partidas diarias e unindo em um df ------------------------------------------------------------
 datas <- seq(as.Date('2023-03-14'), Sys.Date() - 1, by = 'day')

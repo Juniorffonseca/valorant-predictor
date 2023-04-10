@@ -21,6 +21,8 @@ nome_arquivo_acuracia <- paste(Sys.Date() - 1, '_acuracia.csv', sep = '')
 b <- read.csv2(paste('csv/catalogacao_diaria/', nome_arquivo_urls, sep = '')) %>% select(-X) %>% unlist()
 previsoes <- read.csv2(paste('csv/previsao_diaria/', nome_arquivo_previsoes, sep = '')) %>% select(-X)
 
+previsoes <- previsoes[previsoes$b %in% b, ]
+
 df <- cbind(b, previsoes)
 
 ganhador <- '' %>% .[0]
