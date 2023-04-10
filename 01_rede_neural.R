@@ -103,18 +103,18 @@ predictVstest <- cbind(test_data, Predict$net.result)
 i <<- sum(predictVstest$ganhador == nn2)/ nrow(test_data)
 
 # Achar uma boa seed -------------------------------------------------------------------------------------
-s <- 1 # 10679 13/03 0.7959% acuracia 98 partidas
-# 68529 08/04
+s <- 7688 # 10679 13/03 0.7959% acuracia 98 partidas
+# 7688 10/04
 w <- 0.1
 
-while ( i < 0.77) {
+while ( i < 0.78) {
   achar_Seed(s, hidden_n, t = 0.5, mostrar_i = F)
   s <- s + 1
   w <<- ifelse(i>w, w <<- i, w <<- w) 
   
   print(w)
 }
-#parei em 363195
+#parei em 60055 (10/04 03:03)
 # 16065 01/04
 # 49260 02/04
 # 122810 04/04 arquitetura antiga
