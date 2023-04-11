@@ -25,7 +25,7 @@ source('ui.R')
 source('server.R')
 
 # Carregando a rede neural e o dataframe Jogadores
-load(file = "prototipo_rede_neural.rda")
+load(file = "rede_neural_10_04_2023.rda")
 
 # Criando o app
 shinyApp(ui = ui, server = server)

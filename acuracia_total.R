@@ -1,6 +1,6 @@
 # Instalando pacotes (se necessário) e carregando ----------------------------------------------------------
 library(devtools)
-install_github('Juniorffonseca/r-pacote-valorant')
+#install_github('Juniorffonseca/r-pacote-valorant')
 library(caret)
 library(dplyr)
 library(tidyr)
@@ -26,7 +26,7 @@ library(valorant)
 setwd('C:/Users/anonb/Documents/TCC_Pós/Scripts')
 
 # Carregando partidas diarias e unindo em um df ------------------------------------------------------------
-datas <- seq(as.Date('2023-03-14'), Sys.Date() - 1, by = 'day')
+datas <- seq(as.Date('2023-03-14'), Sys.Date() - 18, by = 'day')
 nomes_arquivos <- paste0('csv/previsao_diaria/', format(datas, '%Y-%m-%d'), '_acuracia.csv')
 
 acuracia <- list()

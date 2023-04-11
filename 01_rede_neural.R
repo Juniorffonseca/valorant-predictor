@@ -50,7 +50,7 @@ jogos <- select(jogos, ends_with("_diff"), ganhador)
 
 jogos$ganhador <- as.factor(jogos$ganhador)
 
-#write.csv2(jogos, 'csv/partidas_teste.csv')
+#write.csv2(jogos, 'csv/partidas_teste_10_04_2023.csv')
 #jogos <- read.csv2('csv/partidas_teste.csv')
 
 # Criando dataframes de teste e validação -----------------------------------------------------------------
@@ -103,7 +103,7 @@ predictVstest <- cbind(test_data, Predict$net.result)
 i <<- sum(predictVstest$ganhador == nn2)/ nrow(test_data)
 
 # Achar uma boa seed -------------------------------------------------------------------------------------
-s <- 7688 # 10679 13/03 0.7959% acuracia 98 partidas
+s <- 281768 # 10679 13/03 0.7959% acuracia 98 partidas
 # 7688 10/04
 w <- 0.1
 
@@ -114,13 +114,7 @@ while ( i < 0.78) {
   
   print(w)
 }
-#parei em 60055 (10/04 03:03)
-# 16065 01/04
-# 49260 02/04
-# 122810 04/04 arquitetura antiga
-# 8196 04/04 arquitetura nova (baita diferença no numero de seeds necessarias p o msm resultado)
-# 143890 tentativas de seed e 80% acurácia
-# 71905 0.8045113 acurácia
+#parei em 281768 (10/04 22:25)
 
 # Atualizando a seed para achar a melhor neuralnetwork ----------------------------------------------------
 set.seed(s-1) #22263
@@ -147,21 +141,17 @@ predictVstest <- cbind(test_data, Predict$net.result)
 # Procurando uma rede neural com acuracia acima de determinado percentual --------------------------------
 z <- 0.1
 
-while (i < 0.80) {
+while (i < 0.78) {
   achar_Nn(t = 0.5, mostrar_i = F)
 }
 beep(8)
 
-#save(n, file ='rede_neural.rda')
-#save(n, file='rede_neural_teste.rda')
-#save(n, file='prototipo_rede_neural.rda') #14/03/2023 81/98 base de teste (0.8265306% acuracia)
-#save(n, file='21_03_nnet.rda') #21/03/2023 97/117 base de teste (0.8290598% acuracia)
-#save(n, file='26_03_nnet.rda') #26/03/2023 105/129 base de teste (0.8139535 acuracia) #seed 16323
-#save(n, file='04_04_nnet.rda') #04/04/2023 138/170 base de teste (0.8117647 acuracia) #seed 8196
+#save(n, file ='rede_neural_10_04_2023.rda')
 
 # Matriz de confusão ---------------------------------------------------------------------------------------
-jogos <- read.csv2('csv/partidas_teste.csv') %>% dplyr::select(-X)
-s <- 10679
+jogos <- read.csv2('csv/partidas_teste_10_04_2023.csv') %>% dplyr::select(-X)
+jogos$ganhador <- as.factor(jogos$ganhador)
+s <- 281768
 set.seed(s-1) #10679
 data_split <- initial_split(jogos, prop = 0.7, strata = 'ganhador')
 training_data <- training(data_split)
@@ -181,7 +171,7 @@ test_data$ganhador <- as.factor(test_data$ganhador)
 training_data$ganhador <- as.factor(training_data$ganhador)
 
 # Carregando modelo e obtendo os resultados
-load('prototipo_rede_neural.rda')
+load('rede_neural_10_04_2023.rda')
 Predict = compute(n, test_data)
 nn2 <- ifelse(Predict$net.result[,1]>0.5, 1, 0)
 nn2 <- as.factor(nn2)

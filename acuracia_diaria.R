@@ -21,17 +21,17 @@ nome_arquivo_acuracia <- paste(Sys.Date() - 1, '_acuracia.csv', sep = '')
 b <- read.csv2(paste('csv/catalogacao_diaria/', nome_arquivo_urls, sep = '')) %>% select(-X) %>% unlist()
 previsoes <- read.csv2(paste('csv/previsao_diaria/', nome_arquivo_previsoes, sep = '')) %>% select(-X)
 
-previsoes <- previsoes[previsoes$b %in% b, ]
-
-df <- cbind(b, previsoes)
-
 ganhador <- '' %>% .[0]
 
 for (i in b){
   ganhador[length(ganhador)+1] <- get_Ganhadores(i)
 }
 
+df <- cbind(b, previsoes)
+
 df$ganhador <- ganhador
+
+df <- df[!df$ganhador %in% "empate", ]
 
 df$V1_n <- as.numeric(ifelse(is.na(str_extract(df$V1, "\\d{1,2}[.,]\\d{1,2}")), 
                              str_extract(df$V1, "\\d{1,2}"), 

@@ -1,6 +1,5 @@
 # Instalando pacotes (se necessário) e carregando ----------------------------------------------------------
-library(devtools)
-install_github("Juniorffonseca/r-pacote-valorant")
+remotes::install_github('Juniorffonseca/r-pacote-valorant')
 library(caret)
 library(dplyr)
 library(tidyr)
@@ -20,7 +19,7 @@ library(purrr)
 library(valorant)
 setwd('C:/Users/anonb/Documents/TCC_Pós/Scripts')
 
-load(file = 'prototipo_rede_neural.rda')
+load(file = 'rede_neural_10_04_2023.rda')
 
 nome_arquivo_urls <- paste(Sys.Date(), '_urls.csv', sep = '')
 nome_arquivo_previsoes <- paste(Sys.Date(), '_previsoes.csv', sep = '')
