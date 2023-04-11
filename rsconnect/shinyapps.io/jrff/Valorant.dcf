@@ -5,9 +5,9 @@ account: jrff
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 8049109
-bundleId: 6972745
+bundleId: 7073520
 url: https://jrff.shinyapps.io/Valorant/
-when: 1679079639.12096
-lastSyncTime: 1679079639.12098
+when: 1681183151.33199
+lastSyncTime: 1681183151.332
 asMultiple: FALSE
 asStatic: FALSE
