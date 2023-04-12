@@ -1,4 +1,4 @@
-# Instalando pacotes (se necessário) e carregando ----------------------------------------------------------
+# Instalando (se necessário) e carregando pacotes ----------------------------------------------------------
 remotes::install_github('Juniorffonseca/r-pacote-valorant')
 library(caret)
 library(dplyr)
@@ -23,6 +23,7 @@ library(ROCR)
 library(kableExtra)
 library(glmnet)
 library(valorant)
+setwd('C:/Users/anonb/Documents/TCC_Pós/Scripts')
 
 # Carregando partidas diarias e unindo em um df ------------------------------------------------------------
 datas <- seq(as.Date('2023-02-19'), Sys.Date() - 1, by = 'day')

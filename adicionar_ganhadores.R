@@ -35,6 +35,5 @@ b <- b[as.numeric(rownames(dff)),]
 rownames(dff) <- NULL
 rownames(b) <- NULL
 
-
 write.csv2(dff, paste('csv/catalogacao_diaria/', nome_arquivo_partidas, sep = ''))
 write.csv2(b, paste('csv/catalogacao_diaria/', nome_arquivo_urls, sep = ''))
