@@ -52,23 +52,23 @@ for (i in a){
   , error = function(e){cat('error:', conditionMessage(e), '\n')})
 }
 
-nome_arquivo_urls <- paste(Sys.Date(), '_urls.csv', sep = '')
-write.csv2(b, paste('csv/catalogacao_diaria/', nome_arquivo_urls, sep = ''))
-
-m <- 1
 dff <- list()
 
-for (i in b){
-  tryCatch({
-      dff[[length(dff)+1]] <- medias_Times(b[m])
-      m = m + 1
+c <- c()
+
+for (i in seq_along(b)) {
+  res <- medias_Times(b[i])
+  if (is.null(res)) {
+    cat('erro no link:', b[i], '\n')
+  } else {
+    c <- c(c, b[i])
+    dff[[length(dff)+1]] <- res
   }
-  
-  , error = function(e){cat('error:', conditionMessage(e), '\n')})
 }
 
 dff <- dff %>% map_df(as_tibble)
 
 nome_arquivo_partidas <- paste(Sys.Date(), '_partidas.csv', sep = '')
+nome_arquivo_urls <- paste(Sys.Date(), '_urls.csv', sep = '')
 write.csv2(dff, paste('csv/catalogacao_diaria/', nome_arquivo_partidas, sep = ''))
-
+write.csv2(c, paste('csv/catalogacao_diaria/', nome_arquivo_urls, sep = ''))

@@ -29,14 +29,19 @@ previsoes <- matrix(nrow = 0, ncol = 2)
 
 for (url in b){
   # prever as variáveis
-  prev <- prever(url)
-  
-  # criar matriz temporária com duas colunas para armazenar as previsões
-  temp <- matrix(0, nrow = 1, ncol = 2)
-  temp[1, ] <- prev
-  
-  # adicionar as previsões à matriz
-  previsoes <- rbind(previsoes, temp)
+  tryCatch({
+    prev <- prever(url)
+    
+    # criar matriz temporária com duas colunas para armazenar as previsões
+    temp <- matrix(0, nrow = 1, ncol = 2)
+    temp[1, ] <- prev
+    
+    # adicionar as previsões à matriz
+    previsoes <- rbind(previsoes, temp)
+  }, error = function(e) {
+    # caso ocorra um erro, imprimir mensagem de erro e continuar o loop
+    cat("Erro ao prever a URL", url, ":", conditionMessage(e), "\n")
+  })
 }
 
 write.csv2(previsoes, paste('csv/previsao_diaria/', nome_arquivo_previsoes, sep = ''))
