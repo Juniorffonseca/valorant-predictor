@@ -229,6 +229,13 @@ plot_ly(data = predictVstest, x = ~previsao, y = ~ganhador,
          shapes = list(list(type = 'line', x0 = 0.5, x1 = 0.5, y0 = 0, y1 = 1,
                             line = list(color = 'gray', width = 2))))
 
+# Plot distribuição das probabilidades por densidade
+ggplot(data = predictVstest, aes(x = previsao, fill = ganhador)) +
+  geom_density(alpha = 0.5) +
+  scale_fill_manual(values = c('red', 'green')) +
+  labs(x = 'Porcentagem', y = 'Densidade', fill = 'Ganhador') +
+  theme_bw()
+
 # Tentando gráfico para variáveis 
 
 # Diferença de Rating
