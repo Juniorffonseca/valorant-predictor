@@ -19,6 +19,9 @@ Faz parte do deploy do shinyapp. Nesse script é possível alterar a forma como 
 ## server.R
 A outra parte do deploy, responsável pela parte "backend". Contém script que faz com que seja possível rodar a rede neural no servidor e receber como resposta a predição da rede neural.
 
+## Distribuição dos resultados de acordo com a porcentagem atribuida:
+![image](https://user-images.githubusercontent.com/94936578/231922013-8671ad7a-2883-4a4e-81cc-628cab5e1359.png)
+
 Link do app: 
 
 ## [Valorant Prediction](https://jrff.shinyapps.io/scripts/)
@@ -45,6 +48,9 @@ It's part of the shinyapp deploy. In this script it is possible to change the wa
 
 ## server.R
 The other part of the deploy, responsible for the "backend" part. It contains a script that makes it possible to run the neural network on the server and receive the neural network prediction as a response.
+
+## Distribution of results according to the assigned percentage:
+![image](https://user-images.githubusercontent.com/94936578/231922013-8671ad7a-2883-4a4e-81cc-628cab5e1359.png)
 
 App link:
 
