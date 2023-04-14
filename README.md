@@ -25,6 +25,11 @@ A outra parte do deploy, responsável pela parte "backend". Contém script que f
 ## Metodologia
 ![image](https://user-images.githubusercontent.com/94936578/231924446-3f319e07-02f4-45fd-9c5e-680a4297011a.png)
 
+## Matriz de confusão
+![matriz_de_confusao](https://user-images.githubusercontent.com/94936578/231940287-e96ea578-3e27-4c47-a356-6835cb7315c2.jpeg)
+
+## Curva ROC
+![curva_ROC](https://user-images.githubusercontent.com/94936578/231940421-f0a1f641-ef1c-467c-b6be-f4ef937090fa.jpeg)
 
 Link do app: 
 
@@ -56,8 +61,15 @@ The other part of the deploy, responsible for the "backend" part. It contains a 
 ## Distribution of results according to the assigned percentage:
 ![image](https://user-images.githubusercontent.com/94936578/231922013-8671ad7a-2883-4a4e-81cc-628cab5e1359.png)
 
+## Confusion matrix
+![matriz_de_confusao](https://user-images.githubusercontent.com/94936578/231940287-e96ea578-3e27-4c47-a356-6835cb7315c2.jpeg)
+
+
 ## Methodology
 ![image](https://user-images.githubusercontent.com/94936578/231924435-03616c79-5f8c-4ee4-8b07-0aebd9178b73.png)
+
+## ROC Curve
+![curva_ROC](https://user-images.githubusercontent.com/94936578/231940421-f0a1f641-ef1c-467c-b6be-f4ef937090fa.jpeg)
 
 App link:
 
