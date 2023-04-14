@@ -171,6 +171,8 @@ F1 <- x$byClass['F1']
 x <- as.data.frame(x$table)
 predictVstest <- cbind(test_data, Predict$net.result)
 names(predictVstest)[length(predictVstest)] <- 'previsao'
+accuracy <- sum(predictVstest$ganhador == nn2)/nrow(test_data)
+error_rate <- sum(predictVstest$ganhador != nn2)/nrow(test_data)
 
 # Curva ROC
 ROC <- roc(response = as.factor(predictVstest$ganhador), 
@@ -205,10 +207,14 @@ ggplot() +
 # Plot matriz de confusão
 ggplot(data = x, mapping = aes(x = Reference, y = Prediction)) +
   geom_tile(aes(fill = Freq), colour = 'white') +
-  geom_text(aes(label = sprintf('%1.0f', Freq)), vjust = 1) +
-  scale_fill_gradient(low = 'white', high = 'green') +
-  theme_bw() + theme(legend.position = 'none')
-
+  geom_text(aes(label = sprintf('%1.0f', Freq)), vjust = 1, size = 5) +
+  scale_fill_gradient2(low = hcl(0, 100, 70), mid = 'white', high = 'springgreen', 
+                       limits = c(0, max(x$Freq)), midpoint = max(x$Freq) / 2) +
+  labs(x = "Classe Real", y = "Classe Predita", fill = "Frequência") +
+  theme_bw(base_size = 14) +
+  theme(legend.position = 'none', axis.text.x = element_text(angle = 45, hjust = 1, size = 14),
+        axis.text.y = element_text(hjust = 1, size = 15), legend.title = element_text(size = 15)) +
+  guides(fill = FALSE)
 
 #Log Loss
 logLoss(actual = test_data$ganhador, predicted = Predict$net.result)
