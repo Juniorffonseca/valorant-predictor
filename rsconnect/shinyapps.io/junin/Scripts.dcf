@@ -5,9 +5,9 @@ account: junin
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 8049129
-bundleId: 7073537
+bundleId: 7087770
 url: https://junin.shinyapps.io/Scripts/
-when: 1681183363.28054
-lastSyncTime: 1681183363.28055
+when: 1681439822.59892
+lastSyncTime: 1681439822.59893
 asMultiple: FALSE
 asStatic: FALSE

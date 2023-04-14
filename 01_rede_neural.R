@@ -207,7 +207,7 @@ ggplot() +
 # Plot matriz de confusão
 ggplot(data = x, mapping = aes(x = Reference, y = Prediction)) +
   geom_tile(aes(fill = Freq), colour = 'white') +
-  geom_text(aes(label = sprintf('%1.0f', Freq)), vjust = 1, size = 5) +
+  geom_text(aes(label = sprintf('%1.0f', Freq)), vjust = 1, size = 6.5) +
   scale_fill_gradient2(low = hcl(0, 100, 70), mid = 'white', high = 'springgreen', 
                        limits = c(0, max(x$Freq)), midpoint = max(x$Freq) / 2) +
   labs(x = "Classe Real", y = "Classe Predita", fill = "Frequência") +

@@ -13,7 +13,7 @@ ui <- fluidPage(theme = bs_theme(version = 5, base_font = font_google('Yanone Ka
                                           class = 'btn btn-primary'),
                              h4(''),
                              verbatimTextOutput('txtout'),
-                             h6('Deploy atualizado em: 10/04/2023'),
+                             h6('Deploy atualizado em: 13/04/2023'),
                              h6('Rede neural atualizada em: 10/04/2023')
                            )
                   ),
@@ -42,11 +42,11 @@ ui <- fluidPage(theme = bs_theme(version = 5, base_font = font_google('Yanone Ka
                     'Metodologia',
                     sidebarPanel(
                       div(style='display:inline-block;',
-                          h3('* Treinada com 674 partidas.'),
-                          h3('* 78,32% de acurácia na base de testes.'),
-                          h3('* Teste F1-Score 0,763.'),
-                          h3('* Valor AUC da curva ROC 0,8257 com um Gini de 0.6514.'),
-                          h5('* '))
+                          h3('• Treinada com 674 partidas.'),
+                          h3('• 78,32% de acurácia na base de testes.'),
+                          h3('• Teste F1-Score 0,763.'),
+                          h3('• Valor AUC da curva ROC 0,8257 com um Gini de 0.6514.'),
+                          h3('• Log Loss 0.3082941'))
                     )
                   )
                 )
