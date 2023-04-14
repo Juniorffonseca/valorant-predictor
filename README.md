@@ -22,6 +22,10 @@ A outra parte do deploy, responsável pela parte "backend". Contém script que f
 ## Distribuição dos resultados de acordo com a porcentagem atribuida:
 ![image](https://user-images.githubusercontent.com/94936578/231922013-8671ad7a-2883-4a4e-81cc-628cab5e1359.png)
 
+## Metodologia
+![image](https://user-images.githubusercontent.com/94936578/231923242-29875838-e680-4788-b1ea-cbbc0e40a2f9.png)
+
+
 Link do app: 
 
 ## [Valorant Prediction](https://jrff.shinyapps.io/scripts/)
@@ -51,6 +55,9 @@ The other part of the deploy, responsible for the "backend" part. It contains a 
 
 ## Distribution of results according to the assigned percentage:
 ![image](https://user-images.githubusercontent.com/94936578/231922013-8671ad7a-2883-4a4e-81cc-628cab5e1359.png)
+
+## Methodology
+![image](https://user-images.githubusercontent.com/94936578/231923242-29875838-e680-4788-b1ea-cbbc0e40a2f9.png)
 
 App link:
 
