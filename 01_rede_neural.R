@@ -37,22 +37,18 @@ for (arquivo in nomes_arquivos) {
 
 jogos <- bind_rows(jogos_lista) %>% select(-X)
 
-# Selecione as variáveis que serão usadas para ajustar o modelo
 vars <- c('RND', 'R', 'ACS', 'KAST', 'KD', 'ADR', 'KPR', 'APR', 'FKPR', 'FDPR', 'K', 'D', 'A', 'FK', 'FD')
 
-# Crie novas variáveis que calculam a diferença entre todas as estatísticas dos dois times
 for (i in vars) {
   new_var <- paste0(i, "_diff")
   jogos[[new_var]] <- jogos[[paste0("time1", i)]] - jogos[[paste0("time2", i)]]
 }
 
-# Remova as colunas das variáveis originais
 jogos <- select(jogos, ends_with("_diff"), ganhador)
 
 jogos$ganhador <- as.factor(jogos$ganhador)
 
 #write.csv2(jogos, 'csv/partidas_teste_10_04_2023.csv')
-#jogos <- read.csv2('csv/partidas_teste.csv')
 
 # Criando dataframes de teste e validação -----------------------------------------------------------------
 set.seed(1)
@@ -63,10 +59,7 @@ training_data <- training(data_split)
 test_data <- testing(data_split)
 
 hidden_n <- c(15)
-#hidden_n <- c(30)
 
-# formula <- 'ganhador == 1 ~ time1FKPR + time1FDPR + time1KPR + time1APR + time1KD + time1R + time1ADR +
-# time2FKPR + time2FDPR + time2KPR + time2APR + time2KD + time2R + time2ADR'
 formula <- 'ganhador == 1 ~ .'
 
 # Normalizando os dados ------------------------------------------------------------------------------------
@@ -103,8 +96,7 @@ predictVstest <- cbind(test_data, Predict$net.result)
 i <<- sum(predictVstest$ganhador == nn2)/ nrow(test_data)
 
 # Achar uma boa seed -------------------------------------------------------------------------------------
-s <- 281768 # 10679 13/03 0.7959% acuracia 98 partidas
-# 7688 10/04
+s <- 281768
 w <- 0.1
 
 while ( i < 0.78) {
@@ -114,7 +106,6 @@ while ( i < 0.78) {
   
   print(w)
 }
-#parei em 281768 (10/04 22:25)
 
 # Atualizando a seed para achar a melhor neuralnetwork ----------------------------------------------------
 set.seed(s-1) #22263
@@ -234,17 +225,173 @@ plot_ly(data = predictVstest, x = ~previsao, y = ~ganhador,
 
 # Tentando gráfico para variáveis 
 
+# Diferença de Rating
 ggplotly(
-  jogos %>% 
+  jogos %>%
     ggplot() +
-    geom_point(aes(x = time2R, y = ganhador), color = 'orange', size = 2) +
-    geom_point(aes(x = time1R, y = ganhador), color = 'blue', size = 1) +
-    labs(x = 'Estatística',
-         y = 'Ganhador') +
+    geom_density(aes(x = R_diff, fill = ganhador), alpha = 0.7) +
+    geom_vline(xintercept = 0, color = 'black', size = 0.3) +
+    labs(x = 'Diferença da média de Rating', y = 'Densidade', fill = 'Ganhador') +
+    scale_fill_manual(values = c('red', 'green')) +
+    guides(fill = guide_legend(title = 'Ganhador')) +
     theme_bw()
 )
 
+# Diferença de ROUNDS
+ggplotly(
+  jogos %>%
+    ggplot() +
+    geom_density(aes(x = RND_diff, fill = ganhador), alpha = 0.7) +
+    geom_vline(xintercept = 0, color = 'black', size = 0.3) +
+    labs(x = 'Diferença da média de rounds', y = 'Densidade', fill = 'Ganhador') +
+    scale_fill_manual(values = c('red', 'green')) +
+    guides(fill = guide_legend(title = 'Ganhador')) +
+    theme_bw()
+)
 
+# Diferença de ACS
+ggplotly(
+  jogos %>%
+    ggplot() +
+    geom_density(aes(x = ACS_diff, fill = ganhador), alpha = 0.7) +
+    geom_vline(xintercept = 0, color = 'black', size = 0.3) +
+    labs(x = 'Diferença da média de ACS', y = 'Densidade', fill = 'Ganhador') +
+    scale_fill_manual(values = c('red', 'green')) +
+    guides(fill = guide_legend(title = 'Ganhador')) +
+    theme_bw()
+)
+
+# Diferença de KAST
+ggplotly(
+  jogos %>%
+    ggplot() +
+    geom_density(aes(x = KAST_diff, fill = ganhador), alpha = 0.7) +
+    geom_vline(xintercept = 0, color = 'black', size = 0.3) +
+    labs(x = 'Diferença da média de KAST', y = 'Densidade', fill = 'Ganhador') +
+    scale_fill_manual(values = c('red', 'green')) +
+    guides(fill = guide_legend(title = 'Ganhador')) +
+    theme_bw()
+)
+
+# Diferença de KD
+ggplotly(
+  jogos %>%
+    ggplot() +
+    geom_density(aes(x = KD_diff, fill = ganhador), alpha = 0.7) +
+    geom_vline(xintercept = 0, color = 'black', size = 0.3) +
+    labs(x = 'Diferença da média de KD', y = 'Densidade', fill = 'Ganhador') +
+    scale_fill_manual(values = c('red', 'green')) +
+    guides(fill = guide_legend(title = 'Ganhador')) +
+    theme_bw()
+)
+
+# Diferença de ADR
+ggplotly(
+  jogos %>%
+    ggplot() +
+    geom_density(aes(x = ADR_diff, fill = ganhador), alpha = 0.7) +
+    geom_vline(xintercept = 0, color = 'black', size = 0.3) +
+    labs(x = 'Diferença da média de ADR', y = 'Densidade', fill = 'Ganhador') +
+    scale_fill_manual(values = c('red', 'green')) +
+    guides(fill = guide_legend(title = 'Ganhador')) +
+    theme_bw()
+)
+
+# Diferença de KPR
+ggplotly(
+  jogos %>%
+    ggplot() +
+    geom_density(aes(x = KPR_diff, fill = ganhador), alpha = 0.7) +
+    geom_vline(xintercept = 0, color = 'black', size = 0.3) +
+    labs(x = 'Diferença da média de KPR', y = 'Densidade', fill = 'Ganhador') +
+    scale_fill_manual(values = c('red', 'green')) +
+    guides(fill = guide_legend(title = 'Ganhador')) +
+    theme_bw()
+)
+
+# Diferença de APR
+ggplotly(
+  jogos %>%
+    ggplot() +
+    geom_density(aes(x = APR_diff, fill = ganhador), alpha = 0.7) +
+    geom_vline(xintercept = 0, color = 'black', size = 0.3) +
+    labs(x = 'Diferença da média de APR', y = 'Densidade', fill = 'Ganhador') +
+    scale_fill_manual(values = c('red', 'green')) +
+    guides(fill = guide_legend(title = 'Ganhador')) +
+    theme_bw()
+)
+
+# Diferença de FKPR
+ggplotly(
+  jogos %>%
+    ggplot() +
+    geom_density(aes(x = FKPR_diff, fill = ganhador), alpha = 0.7) +
+    geom_vline(xintercept = 0, color = 'black', size = 0.3) +
+    labs(x = 'Diferença da média de FKPR', y = 'Densidade', fill = 'Ganhador') +
+    scale_fill_manual(values = c('red', 'green')) +
+    guides(fill = guide_legend(title = 'Ganhador')) +
+    theme_bw()
+)
+
+# Diferença de FDPR
+ggplotly(
+  jogos %>%
+    ggplot() +
+    geom_density(aes(x = FDPR_diff, fill = ganhador), alpha = 0.7) +
+    geom_vline(xintercept = 0, color = 'black', size = 0.3) +
+    labs(x = 'Diferença da média de FDPR', y = 'Densidade', fill = 'Ganhador') +
+    scale_fill_manual(values = c('red', 'green')) +
+    guides(fill = guide_legend(title = 'Ganhador')) +
+    theme_bw()
+)
+
+# Diferença de Kill
+ggplotly(
+  jogos %>%
+    ggplot() +
+    geom_density(aes(x = K_diff, fill = ganhador), alpha = 0.7) +
+    geom_vline(xintercept = 0, color = 'black', size = 0.3) +
+    labs(x = 'Diferença da média de Kill', y = 'Densidade', fill = 'Ganhador') +
+    scale_fill_manual(values = c('red', 'green')) +
+    guides(fill = guide_legend(title = 'Ganhador')) +
+    theme_bw()
+)
+
+# Diferença de Assistência
+ggplotly(
+  jogos %>%
+    ggplot() +
+    geom_density(aes(x = A_diff, fill = ganhador), alpha = 0.7) +
+    geom_vline(xintercept = 0, color = 'black', size = 0.3) +
+    labs(x = 'Diferença da média de Assistência', y = 'Densidade', fill = 'Ganhador') +
+    scale_fill_manual(values = c('red', 'green')) +
+    guides(fill = guide_legend(title = 'Ganhador')) +
+    theme_bw()
+)
+
+# Diferença de First Kill
+ggplotly(
+  jogos %>%
+    ggplot() +
+    geom_density(aes(x = FK_diff, fill = ganhador), alpha = 0.7) +
+    geom_vline(xintercept = 0, color = 'black', size = 0.3) +
+    labs(x = 'Diferença da média de First Kill', y = 'Densidade', fill = 'Ganhador') +
+    scale_fill_manual(values = c('red', 'green')) +
+    guides(fill = guide_legend(title = 'Ganhador')) +
+    theme_bw()
+)
+
+# Diferença de First Death
+ggplotly(
+  jogos %>%
+    ggplot() +
+    geom_density(aes(x = FD_diff, fill = ganhador), alpha = 0.7) +
+    geom_vline(xintercept = 0, color = 'black', size = 0.3) +
+    labs(x = 'Diferença da média de First Death', y = 'Densidade', fill = 'Ganhador') +
+    scale_fill_manual(values = c('red', 'green')) +
+    guides(fill = guide_legend(title = 'Ganhador')) +
+    theme_bw()
+)
 
 # Fazer previsões nos dados de treinamento e teste usando a rede neural treinada
 train_preds <- predict(n, training_data)
