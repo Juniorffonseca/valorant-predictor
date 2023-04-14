@@ -23,7 +23,7 @@ A outra parte do deploy, responsável pela parte "backend". Contém script que f
 ![image](https://user-images.githubusercontent.com/94936578/231922013-8671ad7a-2883-4a4e-81cc-628cab5e1359.png)
 
 ## Metodologia
-![image](https://user-images.githubusercontent.com/94936578/231923242-29875838-e680-4788-b1ea-cbbc0e40a2f9.png)
+![image](https://user-images.githubusercontent.com/94936578/231924446-3f319e07-02f4-45fd-9c5e-680a4297011a.png)
 
 
 Link do app: 
@@ -57,7 +57,7 @@ The other part of the deploy, responsible for the "backend" part. It contains a 
 ![image](https://user-images.githubusercontent.com/94936578/231922013-8671ad7a-2883-4a4e-81cc-628cab5e1359.png)
 
 ## Methodology
-![image](https://user-images.githubusercontent.com/94936578/231923242-29875838-e680-4788-b1ea-cbbc0e40a2f9.png)
+![image](https://user-images.githubusercontent.com/94936578/231924435-03616c79-5f8c-4ee4-8b07-0aebd9178b73.png)
 
 App link:
 
