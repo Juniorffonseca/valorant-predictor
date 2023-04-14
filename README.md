@@ -31,6 +31,9 @@ A outra parte do deploy, responsável pela parte "backend". Contém script que f
 ## Curva ROC
 ![curva_ROC](https://user-images.githubusercontent.com/94936578/231940421-f0a1f641-ef1c-467c-b6be-f4ef937090fa.jpeg)
 
+## Plot da rede neural
+![rede_neural](https://user-images.githubusercontent.com/94936578/231940654-65220b3f-1ac0-4f17-a3c1-2466dd8da8c7.jpeg)
+
 Link do app: 
 
 ## [Valorant Prediction](https://jrff.shinyapps.io/scripts/)
@@ -70,6 +73,9 @@ The other part of the deploy, responsible for the "backend" part. It contains a 
 
 ## ROC Curve
 ![curva_ROC](https://user-images.githubusercontent.com/94936578/231940421-f0a1f641-ef1c-467c-b6be-f4ef937090fa.jpeg)
+
+## Neural Network Plot
+![rede_neural](https://user-images.githubusercontent.com/94936578/231940624-5e4b778d-fa26-4333-af12-ff60c79bef4b.jpeg)
 
 App link:
 
