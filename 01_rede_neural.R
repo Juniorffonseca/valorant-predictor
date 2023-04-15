@@ -104,7 +104,7 @@ while ( i < 0.78) {
   s <- s + 1
   w <<- ifelse(i>w, w <<- i, w <<- w) 
   
-  print(w)
+  print(round(w, 2))
 }
 
 # Atualizando a seed para achar a melhor neuralnetwork ----------------------------------------------------
