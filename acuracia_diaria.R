@@ -24,7 +24,13 @@ previsoes <- read.csv2(paste('csv/previsao_diaria/', nome_arquivo_previsoes, sep
 ganhador <- '' %>% .[0]
 
 for (i in b){
+  tryCatch({
   ganhador[length(ganhador)+1] <- get_Ganhadores(i)
+  }, error = function(e) {
+    # caso ocorra um erro, imprimir mensagem de erro e continuar o loop
+    cat("Erro ao checar a URL", url, ":", conditionMessage(e), "\n")
+    return(NULL)
+  })
 }
 
 df <- cbind(b, previsoes)
