@@ -84,9 +84,14 @@ for(url in urls[,]){
     html_attr('title') %>% .[1:10] %>% rbind(paises_jogadores)
 }
 
+paises_jogadores <- as.data.frame(paises_jogadores) %>%
+  `rownames<-`(NULL) %>% slice(rev(row_number()))
+
+write.csv2(paises_jogadores, 'csv/paises_jogadores.csv')
+
 # Tentando pegar países de cada time na amostra
+paises_times <- matrix(nrow = 0, ncol = 2)
 for(url in urls[,]){
-  nomes_jogadores <- read_html(url) %>% html_nodes("div.match-header-vs a") %>% 
-    html_text() %>% str_replace_all("\n", "") %>% str_replace_all("\t", "") %>%
-    .[1:10] %>% rbind(nomes_jogadores)
+  paises_times <- read_html(url) %>% html_nodes('div.match-header a') %>% 
+    html_attr('href') %>% .[2:3] %>% rbind(paises_times)
 }
