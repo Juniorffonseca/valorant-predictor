@@ -99,7 +99,15 @@ for(url in urls[,]){
 paises_times <- as.data.frame(paises_times) %>%
   `rownames<-`(NULL) %>% slice(rev(row_number()))
 
+paises_times$V1 <- paste0('vlr.gg', paises_times$V1)
+paises_times$V2 <- paste0('vlr.gg', paises_times$V2)
+
 write.csv2(paises_times, 'csv/paises_times.csv')
+
+for(url in paises_times[,]){
+  paises_times <- read_html(url) %>% html_nodes('i.flag') %>% 
+    html_attr('href') %>% .[2:3] %>% rbind(paises_times)
+}
 
 freq <- table(unlist(paises_jogadores))
 
@@ -126,4 +134,29 @@ ggplot(df_top10, aes(x = "", y = frequencia, fill = pais)) +
   labs(title = "Frequência de Países") +
   guides(fill = guide_legend(title = "Países"))
 
+
+freq <- table(unlist(paises_times))
+
+df_freq <- data.frame(
+  pais = names(freq),
+  frequencia = as.numeric(freq)
+)
+
+# filtrar as 10 linhas com as maiores frequências
+df_top10 <- df_freq[order(df_freq$frequencia, decreasing = TRUE), ][1:10, ]
+
+# criar um plot de ggplot2 com barras de frequência
+ggplot(df_top10, aes(x = pais, y = frequencia, fill = pais)) +
+  geom_bar(stat = "identity") +
+  theme_classic() +
+  labs(title = "Frequência dos 10 Países Mais Comuns", x = "Países", y = "Frequência") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+# Gráfico de pizza
+ggplot(df_top10, aes(x = "", y = frequencia, fill = pais)) +
+  geom_bar(width = 1, stat = "identity") +
+  coord_polar(theta = "y") +
+  theme_void() +
+  labs(title = "Frequência de Países") +
+  guides(fill = guide_legend(title = "Países"))
 
