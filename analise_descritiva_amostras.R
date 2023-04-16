@@ -99,14 +99,22 @@ for(url in urls[,]){
 paises_times <- as.data.frame(paises_times) %>%
   `rownames<-`(NULL) %>% slice(rev(row_number()))
 
-paises_times$V1 <- paste0('vlr.gg', paises_times$V1)
-paises_times$V2 <- paste0('vlr.gg', paises_times$V2)
+paises_times$V1 <- paste0('https://www.vlr.gg', paises_times$V1)
+paises_times$V2 <- paste0('https://www.vlr.gg', paises_times$V2)
 
 write.csv2(paises_times, 'csv/paises_times.csv')
 
-for(url in paises_times[,]){
-  paises_times <- read_html(url) %>% html_nodes('i.flag') %>% 
-    html_attr('href') %>% .[2:3] %>% rbind(paises_times)
+paises_times_2 <- matrix(nrow = 0, ncol = 2)
+
+for(url in 1:nrow(paises_times)){
+  url1 <- paises_times[url, 'V1']
+  url2 <- paises_times[url, 'V2']
+  pais1 <- read_html(url1) %>% html_nodes('div.team-header-country') %>% 
+    html_text() %>% str_replace_all('\n', '') %>% str_replace_all('\t', '')
+  pais2 <- read_html(url2) %>% html_nodes('div.team-header-country') %>% 
+    html_text() %>% str_replace_all('\n', '') %>% str_replace_all('\t', '')
+  
+  paises_times_2 <- rbind(paises_times_2, pais1, pais2)
 }
 
 freq <- table(unlist(paises_jogadores))
