@@ -75,3 +75,18 @@ count(unique(nomes_times)) #628/674
 
 # Número de jogadores únicos:
 sum(sapply(nomes_jogadores, function(x) length(unique(x)))) #5466/6740
+
+# Tentando pegar países de cada jogador na amostra
+paises_jogadores <- matrix(nrow = 0, ncol = 10)
+
+for(url in urls[,]){
+  paises_jogadores <- read_html(url) %>% html_nodes('td.mod-player') %>% html_nodes('.flag') %>% 
+    html_attr('title') %>% .[1:10] %>% rbind(paises_jogadores)
+}
+
+# Tentando pegar países de cada time na amostra
+for(url in urls[,]){
+  nomes_jogadores <- read_html(url) %>% html_nodes("div.match-header-vs a") %>% 
+    html_text() %>% str_replace_all("\n", "") %>% str_replace_all("\t", "") %>%
+    .[1:10] %>% rbind(nomes_jogadores)
+}
