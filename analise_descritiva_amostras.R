@@ -116,6 +116,10 @@ for(url in 1:nrow(paises_times)){
   
   paises_times_2 <- rbind(paises_times_2, pais1, pais2)
 }
+# PAREI AQUI ANTES DE DORMIR, PRECISO ARRUMAR PQ TÁ REPETIDO OS DADOS OBTIDOS NESSE LOOP
+resultados_matriz <- t(matrix(unlist(paises_times_2), ncol = 2))
+
+resultados_df <- data.frame(paises_times, resultados_matriz)
 
 freq <- table(unlist(paises_jogadores))
 
