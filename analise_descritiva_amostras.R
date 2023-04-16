@@ -95,3 +95,10 @@ for(url in urls[,]){
   paises_times <- read_html(url) %>% html_nodes('div.match-header a') %>% 
     html_attr('href') %>% .[2:3] %>% rbind(paises_times)
 }
+
+
+freq <- table(unlist(paises_jogadores))
+plot(sort(freq), pch = 19, col = "blue", main = "Frequência de países", xlab = "Países", ylab = "Frequência")
+
+dens <- density(unlist(df))
+plot(dens, main = "Densidade de países", xlab = "Países", ylab = "Densidade")
