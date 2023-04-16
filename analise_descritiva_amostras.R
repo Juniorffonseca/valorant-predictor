@@ -102,7 +102,7 @@ paises_times <- as.data.frame(paises_times) %>%
 paises_times$V1 <- paste0('https://www.vlr.gg', paises_times$V1)
 paises_times$V2 <- paste0('https://www.vlr.gg', paises_times$V2)
 
-write.csv2(paises_times, 'csv/paises_times.csv')
+write.csv2(paises_times_urls, 'csv/paises_times_urls.csv')
 
 paises_times_2 <- matrix(nrow = 0, ncol = 2)
 
@@ -114,12 +114,14 @@ for(url in 1:nrow(paises_times)){
   pais2 <- read_html(url2) %>% html_nodes('div.team-header-country') %>% 
     html_text() %>% str_replace_all('\n', '') %>% str_replace_all('\t', '')
   
-  paises_times_2 <- rbind(paises_times_2, pais1, pais2)
+  paises_times_2 <- rbind(paises_times_2, cbind(pais1, pais2))
 }
-# PAREI AQUI ANTES DE DORMIR, PRECISO ARRUMAR PQ TÁ REPETIDO OS DADOS OBTIDOS NESSE LOOP
-resultados_matriz <- t(matrix(unlist(paises_times_2), ncol = 2))
 
-resultados_df <- data.frame(paises_times, resultados_matriz)
+paises_times_2 <- as.data.frame(paises_times_2)
+
+write.csv2(paises_times_2, 'csv/paises_times.csv')
+
+## PAREI AQUI
 
 freq <- table(unlist(paises_jogadores))
 
