@@ -149,7 +149,7 @@ ggplot(df_top10, aes(x = "", y = frequencia, fill = pais)) +
   guides(fill = guide_legend(title = "Países"))
 
 
-freq <- table(unlist(paises_times))
+freq <- table(unlist(paises_times_2))
 
 df_freq <- data.frame(
   pais = names(freq),
