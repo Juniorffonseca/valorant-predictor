@@ -48,6 +48,8 @@ df$V2_n <- as.numeric(ifelse(is.na(str_extract(df$V2, "\\d{1,2}[.,]\\d{1,2}")),
 
 df$prev <- ifelse(as.numeric(df$V1_n)>as.numeric(df$V2_n), 1, 0)
 
+row.names(df) <- NULL
+
 acertos <- sum(df$ganhador == df$prev)
 
 erros <- sum(df$ganhador != df$prev)
