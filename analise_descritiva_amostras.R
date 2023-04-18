@@ -22,6 +22,8 @@ library(pROC)
 library(ROCR)
 library(kableExtra)
 library(glmnet)
+library(googleLanguageR)
+library(countrycode)
 library(valorant)
 setwd('C:/Users/anonb/Documents/TCC_Pós/Scripts')
 
@@ -121,7 +123,11 @@ paises_times_2 <- as.data.frame(paises_times_2)
 
 write.csv2(paises_times_2, 'csv/paises_times.csv')
 
-## PAREI AQUI
+# Carregando os dataframes
+times_catalogados <- read.csv2('csv/times_catalogados.csv') %>% dplyr::select(-X)
+jogadores_catalogados <- read.csv2('csv/jogadores_catalogados.csv') %>% dplyr::select(-X)
+paises_jogadores <- read.csv2('csv/paises_jogadores.csv') %>% dplyr::select(-X)
+paises_times <- read.csv2('csv/paises_times.csv') %>% dplyr::select(-X)
 
 freq <- table(unlist(paises_jogadores))
 
@@ -132,24 +138,43 @@ df_freq <- data.frame(
 
 # filtrar as 10 linhas com as maiores frequências
 df_top10 <- df_freq[order(df_freq$frequencia, decreasing = TRUE), ][1:10, ]
+df_top5 <- df_freq[order(df_freq$frequencia, decreasing = TRUE), ][1:5, ]
+df_top20 <- df_freq[order(df_freq$frequencia, decreasing = TRUE), ][1:20, ]
+
+# Soma a frequência dos países que não estão no top 5
+df_top10 <- rbind(df_top10, list(pais = "Outros", frequencia = sum(df_freq$frequencia[!(df_freq$pais %in% df_top10$pais)])))
+df_top20 <- rbind(df_top20, list(pais = "Outros", frequencia = sum(df_freq$frequencia[!(df_freq$pais %in% df_top20$pais)])))
 
 # criar um plot de ggplot2 com barras de frequência
-ggplot(df_top10, aes(x = pais, y = frequencia, fill = pais)) +
+ggplot(df_top20, aes(x = pais, y = frequencia, fill = pais)) +
   geom_bar(stat = "identity") +
   theme_classic() +
-  labs(title = "Frequência dos 10 Países Mais Comuns", x = "Países", y = "Frequência") +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  labs(x = "País", y = "Frequência")
 
 # Gráfico de pizza
-ggplot(df_top10, aes(x = "", y = frequencia, fill = pais)) +
+ggplot(df_top20, aes(x = "", y = frequencia, fill = pais)) +
   geom_bar(width = 1, stat = "identity") +
+  geom_text(aes(label = scales::percent(round(frequencia/sum(frequencia), 2))), 
+            position = position_stack(vjust = 0.5), size = 4) +
   coord_polar(theta = "y") +
   theme_void() +
-  labs(title = "Frequência de Países") +
-  guides(fill = guide_legend(title = "Países"))
+  scale_fill_viridis_d() +
+  guides(fill = guide_legend(title = "Países")) +
+  labs(x = "País", y = "Frequência")
+
+ggplot(df_top5, aes(x = "", y = frequencia, fill = pais)) +
+  geom_bar(width = 1, stat = "identity") +
+  geom_text(aes(label = scales::percent(round(frequencia/sum(frequencia), 2))), 
+            position = position_stack(vjust = 0.5), size = 4) +
+  coord_polar(theta = "y") +
+  theme_void() +
+  scale_fill_viridis_d() +
+  guides(fill = guide_legend(title = "Países")) +
+  labs(x = "País", y = "Frequência")
 
 
-freq <- table(unlist(paises_times_2))
+freq <- table(unlist(paises_times))
 
 df_freq <- data.frame(
   pais = names(freq),
@@ -158,12 +183,19 @@ df_freq <- data.frame(
 
 # filtrar as 10 linhas com as maiores frequências
 df_top10 <- df_freq[order(df_freq$frequencia, decreasing = TRUE), ][1:10, ]
+df_top20 <- df_freq[order(df_freq$frequencia, decreasing = TRUE), ][1:20, ]
+df_top20 <- rbind(df_top20, list(pais = "Outros", frequencia = sum(df_freq$frequencia[!(df_freq$pais %in% df_top20$pais)])))
+
+# Traduz os nomes dos países para o inglês usando a API do Google Translate
+nomes_paises_ingles <- gl_translate(df_freq$pais, target = "en")
+
+# Adiciona a coluna "regiao" ao data frame df_freq
+df_freq$regiao <- countrycode(sourcevar = df_freq$pais, origin = "iso3c", destination = "region")
 
 # criar um plot de ggplot2 com barras de frequência
-ggplot(df_top10, aes(x = pais, y = frequencia, fill = pais)) +
+ggplot(df_top20, aes(x = reorder(pais, frequencia), y = frequencia, fill = pais)) +
   geom_bar(stat = "identity") +
   theme_classic() +
-  labs(title = "Frequência dos 10 Países Mais Comuns", x = "Países", y = "Frequência") +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
 # Gráfico de pizza
@@ -171,6 +203,6 @@ ggplot(df_top10, aes(x = "", y = frequencia, fill = pais)) +
   geom_bar(width = 1, stat = "identity") +
   coord_polar(theta = "y") +
   theme_void() +
-  labs(title = "Frequência de Países") +
+  scale_fill_brewer(palette = 'Spectral') +
   guides(fill = guide_legend(title = "Países"))
 
