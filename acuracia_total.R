@@ -26,7 +26,7 @@ library(valorant)
 setwd('C:/Users/anonb/Documents/TCC_Pós/Scripts')
 
 # Carregando partidas diarias e unindo em um df ------------------------------------------------------------
-datas <- seq(as.Date('2023-04-11'), Sys.Date() - 1, by = 'day')
+datas <- seq(as.Date('2023-04-13'), Sys.Date() - 1, by = 'day')
 nomes_arquivos <- paste0('csv/previsao_diaria/', format(datas, '%Y-%m-%d'), '_acuracia.csv')
 
 acuracia <- list()
