@@ -40,3 +40,4 @@ acuracia <- bind_rows(acuracia) %>% select(-X)
 acertos <- sum(acuracia$acertos)
 erros <- sum(acuracia$erros)
 print(acuracia_total <- acertos/(acertos+erros))
+
