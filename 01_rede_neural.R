@@ -446,6 +446,6 @@ importancia_rel <- importancia/sum(importancia)
 importancia_rel
 
 # Criar um gráfico de barras para visualizar as importâncias relativas
-barplot(importancia_rel, horiz = TRUE, las = 1, main = 'Importância Relativa das Variáveis')
+barplot(importancia_rel, horiz = F, las = 1, main = 'Importância Relativa das Variáveis')
 
 

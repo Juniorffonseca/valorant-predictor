@@ -186,23 +186,9 @@ df_top10 <- df_freq[order(df_freq$frequencia, decreasing = TRUE), ][1:10, ]
 df_top20 <- df_freq[order(df_freq$frequencia, decreasing = TRUE), ][1:20, ]
 df_top20 <- rbind(df_top20, list(pais = "Outros", frequencia = sum(df_freq$frequencia[!(df_freq$pais %in% df_top20$pais)])))
 
-# Traduz os nomes dos países para o inglês usando a API do Google Translate
-nomes_paises_ingles <- gl_translate(df_freq$pais, target = "en")
-
-# Adiciona a coluna "regiao" ao data frame df_freq
-df_freq$regiao <- countrycode(sourcevar = df_freq$pais, origin = "iso3c", destination = "region")
-
 # criar um plot de ggplot2 com barras de frequência
 ggplot(df_top20, aes(x = reorder(pais, frequencia), y = frequencia, fill = pais)) +
   geom_bar(stat = "identity") +
   theme_classic() +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1))
-
-# Gráfico de pizza
-ggplot(df_top10, aes(x = "", y = frequencia, fill = pais)) +
-  geom_bar(width = 1, stat = "identity") +
-  coord_polar(theta = "y") +
-  theme_void() +
-  scale_fill_brewer(palette = 'Spectral') +
-  guides(fill = guide_legend(title = "Países"))
-
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  labs(x = "País", y = "Frequência")
