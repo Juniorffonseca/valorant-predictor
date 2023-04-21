@@ -1,21 +1,19 @@
-"";"V1";"V2"
-"1";"KunPeng Gaming 38.19%  ";"Invincible Gaming 61.81%  "
-"2";"Number One Player 58.69%  ";"Invictus Gaming 41.31%  "
-"3";"IGZIST 53.54%  ";"SCARZ 46.46%  "
-"4";"Gwangju Shadow 79.88%  ";"Nongshim RedForce 20.12%  "
-"5";"Rambutan ni Tatay 29.9%  ";"Stream Raiders Nacague 70.1%  "
-"6";"Team Big BAAM 84.48%  ";"The Mad Men 15.52%  "
-"7";"Funcrew 26.96%  ";"95x Esports 73.04%  "
-"8";"Royal Never Give Up 56.91%  ";"Trace Esports 43.09%  "
-"9";"FULL SENSE 43.84%  ";"Attack All Around 56.16%  "
-"10";"Crest Gaming Zst 31.66%  ";"Jadeite 68.34%  "
-"11";"SLT Seongam 52.13%  ";"Incheon On Sla2ers 47.87%  "
-"12";"Fancy United Esports 92.74%  ";"TwoKay 7.26%  "
-"13";"The Who? 33.8%  ";"xyz 66.2%  "
-"14";"Action PH 32.53%  ";"Oasis Gaming 67.47%  "
-"15";"Team NKT 54.66%  ";"The Infinity Esport 45.34%  "
-"16";"Velocity Gaming 55.82%  ";"Gods Reign 44.18%  "
-"17";"KOI 43.92%  ";"FNATIC 56.08%  "
-"18";"FUT Esports 25.03%  ";"Giants Gaming 74.97%  "
-"19";"Oxygen Esports 45.44%  ";"Disguised 54.56%  "
-"20";"Liberty 31.79%  ";"RED Canids 68.21%  "
+"";"b";"V1";"V2";"ganhador";"V1_n";"V2_n";"prev"
+"1";"https://www.vlr.gg/198833/kunpeng-gaming-vs-invincible-gaming-fgc-valorant-invitational-2023-act-2-qualifiers-ro16";"KunPeng Gaming 38.19%  ";"Invincible Gaming 61.81%  ";"0";38,19;61,81;0
+"2";"https://www.vlr.gg/198834/number-one-player-vs-invictus-gaming-fgc-valorant-invitational-2023-act-2-qualifiers-ro16";"Number One Player 58.69%  ";"Invictus Gaming 41.31%  ";"1";58,69;41,31;1
+"3";"https://www.vlr.gg/193444/igzist-vs-scarz-challengers-league-japan-split-2-d4";"IGZIST 53.54%  ";"SCARZ 46.46%  ";"0";53,54;46,46;1
+"4";"https://www.vlr.gg/193904/gwangju-shadow-vs-nongshim-redforce-world-cyber-games-challengers-league-korea-split-2-w2";"Gwangju Shadow 79.88%  ";"Nongshim RedForce 20.12%  ";"1";79,88;20,12;1
+"5";"https://www.vlr.gg/189037/rambutan-ni-tatay-vs-stream-raiders-nacague-challengers-league-philippines-split-2-regular-seaso";"Rambutan ni Tatay 29.9%  ";"Stream Raiders Nacague 70.1%  ";"0";29,9;70,1;0
+"6";"https://www.vlr.gg/199040/team-big-baam-vs-the-mad-men-challengers-league-vietnam-split-2-d11";"Team Big BAAM 84.48%  ";"The Mad Men 15.52%  ";"0";84,48;15,52;1
+"7";"https://www.vlr.gg/193267/funcrew-vs-95x-esports-challengers-league-oceania-split-2-group-stage-w3";"Funcrew 26.96%  ";"95x Esports 73.04%  ";"1";26,96;73,04;0
+"8";"https://www.vlr.gg/198835/royal-never-give-up-vs-trace-esports-fgc-valorant-invitational-2023-act-2-qualifiers-ro16";"Royal Never Give Up 56.91%  ";"Trace Esports 43.09%  ";"1";56,91;43,09;1
+"9";"https://www.vlr.gg/188360/full-sense-vs-attack-all-around-challengers-league-thailand-split-2-w3";"FULL SENSE 43.84%  ";"Attack All Around 56.16%  ";"1";43,84;56,16;0
+"10";"https://www.vlr.gg/193445/crest-gaming-zst-vs-jadeite-challengers-league-japan-split-2-d4";"Crest Gaming Zst 31.66%  ";"Jadeite 68.34%  ";"0";31,66;68,34;0
+"11";"https://www.vlr.gg/193905/slt-seongam-vs-incheon-on-sla2ers-world-cyber-games-challengers-league-korea-split-2-w2";"SLT Seongam 52.13%  ";"Incheon On Sla2ers 47.87%  ";"1";52,13;47,87;1
+"12";"https://www.vlr.gg/199041/fancy-united-esports-vs-twokay-challengers-league-vietnam-split-2-d11";"Fancy United Esports 92.74%  ";"TwoKay 7.26%  ";"1";92,74;7,26;1
+"13";"https://www.vlr.gg/193268/the-who-vs-xyz-challengers-league-oceania-split-2-group-stage-w3";"The Who? 33.8%  ";"xyz 66.2%  ";"0";33,8;66,2;0
+"14";"https://www.vlr.gg/188361/team-nkt-vs-the-infinity-esport-challengers-league-thailand-split-2-w3";"Team NKT 54.66%  ";"The Infinity Esport 45.34%  ";"1";54,66;45,34;1
+"15";"https://www.vlr.gg/195702/velocity-gaming-vs-gods-reign-challengers-league-south-asia-split-1-lr1";"Velocity Gaming 55.82%  ";"Gods Reign 44.18%  ";"0";55,82;44,18;1
+"16";"https://www.vlr.gg/184039/fut-esports-vs-giants-gaming-champions-tour-2023-emea-league-w4";"FUT Esports 25.03%  ";"Giants Gaming 74.97%  ";"0";25,03;74,97;0
+"17";"https://www.vlr.gg/196137/oxygen-esports-vs-disguised-challengers-league-north-america-w1";"Oxygen Esports 45.44%  ";"Disguised 54.56%  ";"1";45,44;54,56;0
+"18";"https://www.vlr.gg/193558/liberty-vs-red-canids-challengers-league-brazil-split-2-w3";"Liberty 31.79%  ";"RED Canids 68.21%  ";"1";31,79;68,21;0
