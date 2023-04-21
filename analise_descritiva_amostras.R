@@ -136,13 +136,10 @@ df_freq <- data.frame(
   frequencia = as.numeric(freq)
 )
 
-# filtrar as 10 linhas com as maiores frequências
-df_top10 <- df_freq[order(df_freq$frequencia, decreasing = TRUE), ][1:10, ]
-df_top5 <- df_freq[order(df_freq$frequencia, decreasing = TRUE), ][1:5, ]
+# filtrar as 20 linhas com as maiores frequências
 df_top20 <- df_freq[order(df_freq$frequencia, decreasing = TRUE), ][1:20, ]
 
 # Soma a frequência dos países que não estão no top 5
-df_top10 <- rbind(df_top10, list(pais = "Outros", frequencia = sum(df_freq$frequencia[!(df_freq$pais %in% df_top10$pais)])))
 df_top20 <- rbind(df_top20, list(pais = "Outros", frequencia = sum(df_freq$frequencia[!(df_freq$pais %in% df_top20$pais)])))
 
 # criar um plot de ggplot2 com barras de frequência
@@ -152,26 +149,13 @@ ggplot(df_top20, aes(x = pais, y = frequencia, fill = pais)) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
   labs(x = "País", y = "Frequência")
 
-# Gráfico de pizza
-ggplot(df_top20, aes(x = "", y = frequencia, fill = pais)) +
-  geom_bar(width = 1, stat = "identity") +
-  geom_text(aes(label = scales::percent(round(frequencia/sum(frequencia), 2))), 
-            position = position_stack(vjust = 0.5), size = 4) +
-  coord_polar(theta = "y") +
-  theme_void() +
-  scale_fill_viridis_d() +
-  guides(fill = guide_legend(title = "Países")) +
-  labs(x = "País", y = "Frequência")
-
-ggplot(df_top5, aes(x = "", y = frequencia, fill = pais)) +
-  geom_bar(width = 1, stat = "identity") +
-  geom_text(aes(label = scales::percent(round(frequencia/sum(frequencia), 2))), 
-            position = position_stack(vjust = 0.5), size = 4) +
-  coord_polar(theta = "y") +
-  theme_void() +
-  scale_fill_viridis_d() +
-  guides(fill = guide_legend(title = "Países")) +
-  labs(x = "País", y = "Frequência")
+# criar um plot de ggplot2 com barras de frequência
+ggplot(df_top20, aes(x = reorder(pais, frequencia), y = frequencia, fill = pais)) +
+  geom_bar(stat = "identity") +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  labs(x = "País", y = "Frequência", fill = "Países") +
+  guides(fill=guide_legend(title="Países"))
 
 
 freq <- table(unlist(paises_times))
@@ -182,7 +166,6 @@ df_freq <- data.frame(
 )
 
 # filtrar as 10 linhas com as maiores frequências
-df_top10 <- df_freq[order(df_freq$frequencia, decreasing = TRUE), ][1:10, ]
 df_top20 <- df_freq[order(df_freq$frequencia, decreasing = TRUE), ][1:20, ]
 df_top20 <- rbind(df_top20, list(pais = "Outros", frequencia = sum(df_freq$frequencia[!(df_freq$pais %in% df_top20$pais)])))
 
@@ -191,4 +174,6 @@ ggplot(df_top20, aes(x = reorder(pais, frequencia), y = frequencia, fill = pais)
   geom_bar(stat = "identity") +
   theme_classic() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
-  labs(x = "País", y = "Frequência")
+  labs(x = "País", y = "Frequência", fill = "Países") +
+  guides(fill=guide_legend(title="Países"))
+
