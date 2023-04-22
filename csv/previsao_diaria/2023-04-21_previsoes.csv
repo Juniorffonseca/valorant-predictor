@@ -1,24 +1,24 @@
-"";"V1";"V2"
-"1";"Bilibili Gaming 65.9%  ";"Kingzone 34.1%  "
-"2";"TYLOO 23.74%  ";"Gank Gaming 76.26%  "
-"3";"FENNEL 71.49%  ";"Sengoku Gaming 28.51%  "
-"4";"Maru Gaming 22.17%  ";"Dplus Esports 77.83%  "
-"5";"MVP Esports 24.18%  ";"NAOS 75.82%  "
-"6";"LAZY 64.29%  ";"Syko 35.71%  "
-"7";"Mammoth ESC 22.1%  ";"NerdPunt 77.9%  "
-"8";"Invincible Gaming 46.25%  ";"Number One Player 53.75%  "
-"9";"Sharper Esport 75.47%  ";"The Infinity Esport 24.53%  "
-"10";"NORTHEPTION 23.51%  ";"Crazy Raccoon 76.49%  "
-"11";"Team OGS 70.02%  ";"CNJ esports 29.98%  "
-"12";"Team Lofi 25.42%  ";"Tim Tài Trơ 74.58%  "
-"13";"Oblivion Force 26.01%  ";"ONE Team Esports 73.99%  "
-"14";"Guangzhou Long Lionz 43.92%  ";"Koopa Troopas 56.08%  "
-"15";"Action PH 32.53%  ";"Oasis Gaming 67.47%  "
-"16";"Attack All Around 26.48%  ";"Made in Thailand 73.52%  "
-"17";"Royal Never Give Up 60.85%  ";"JiJieHao 39.15%  "
-"18";"Ghetto Artist 65.56%  ";"Ghost CommandoS 34.44%  "
-"19";"Aster Army 23.06%  ";"Gods Reign 76.94%  "
-"20";"True Rippers 21.94%  ";"Orangutan 78.06%  "
-"21";"LOUD 36.32%  ";"Sentinels 63.68%  "
-"22";"BBL Esports 22.57%  ";"Team Vitality 77.43%  "
-"23";"Leviatán 64.45%  ";"MIBR 35.55%  "
+"";"b";"V1";"V2";"ganhador";"V1_n";"V2_n";"prev"
+"1";"https://www.vlr.gg/198837/bilibili-gaming-vs-kingzone-fgc-valorant-invitational-2023-act-2-qualifiers-qf";"Bilibili Gaming 65.9%  ";"Kingzone 34.1%  ";"1";65,9;34,1;1
+"2";"https://www.vlr.gg/198838/tyloo-vs-gank-gaming-fgc-valorant-invitational-2023-act-2-qualifiers-qf";"TYLOO 23.74%  ";"Gank Gaming 76.26%  ";"0";23,74;76,26;0
+"3";"https://www.vlr.gg/193446/fennel-vs-sengoku-gaming-challengers-league-japan-split-2-d5";"FENNEL 71.49%  ";"Sengoku Gaming 28.51%  ";"0";71,49;28,51;1
+"4";"https://www.vlr.gg/193906/maru-gaming-vs-dplus-esports-world-cyber-games-challengers-league-korea-split-2-w2";"Maru Gaming 22.17%  ";"Dplus Esports 77.83%  ";"0";22,17;77,83;0
+"5";"https://www.vlr.gg/189039/mvp-esports-vs-naos-challengers-league-philippines-split-2-regular-season-w4";"MVP Esports 24.18%  ";"NAOS 75.82%  ";"0";24,18;75,82;0
+"6";"https://www.vlr.gg/199042/lazy-vs-syko-challengers-league-vietnam-split-2-d12";"LAZY 64.29%  ";"Syko 35.71%  ";"1";64,29;35,71;1
+"7";"https://www.vlr.gg/193269/mammoth-esc-vs-nerdpunt-challengers-league-oceania-split-2-group-stage-w3";"Mammoth ESC 22.1%  ";"NerdPunt 77.9%  ";"0";22,1;77,9;0
+"8";"https://www.vlr.gg/198839/invincible-gaming-vs-number-one-player-fgc-valorant-invitational-2023-act-2-qualifiers-qf";"Invincible Gaming 46.25%  ";"Number One Player 53.75%  ";"0";46,25;53,75;0
+"9";"https://www.vlr.gg/188362/sharper-esport-vs-the-infinity-esport-challengers-league-thailand-split-2-w3";"Sharper Esport 75.47%  ";"The Infinity Esport 24.53%  ";"1";75,47;24,53;1
+"10";"https://www.vlr.gg/193447/northeption-vs-crazy-raccoon-challengers-league-japan-split-2-d5";"NORTHEPTION 23.51%  ";"Crazy Raccoon 76.49%  ";"1";23,51;76,49;0
+"11";"https://www.vlr.gg/193907/team-ogs-vs-cnj-esports-world-cyber-games-challengers-league-korea-split-2-w2";"Team OGS 70.02%  ";"CNJ esports 29.98%  ";"0";70,02;29,98;1
+"12";"https://www.vlr.gg/199043/team-lofi-vs-tim-t-i-tr-challengers-league-vietnam-split-2-d12";"Team Lofi 25.42%  ";"Tim Tài Trơ 74.58%  ";"0";25,42;74,58;0
+"13";"https://www.vlr.gg/199855/oblivion-force-vs-one-team-esports-challengers-league-taiwan-hong-kong-split-2-r4";"Oblivion Force 26.01%  ";"ONE Team Esports 73.99%  ";"0";26,01;73,99;0
+"14";"https://www.vlr.gg/193270/guangzhou-long-lionz-vs-koopa-troopas-challengers-league-oceania-split-2-group-stage-w3";"Guangzhou Long Lionz 43.92%  ";"Koopa Troopas 56.08%  ";"0";43,92;56,08;0
+"15";"https://www.vlr.gg/189038/action-ph-vs-oasis-gaming-challengers-league-philippines-split-2-regular-season-w4";"Action PH 32.53%  ";"Oasis Gaming 67.47%  ";"0";32,53;67,47;0
+"16";"https://www.vlr.gg/188363/attack-all-around-vs-made-in-thailand-challengers-league-thailand-split-2-w3";"Attack All Around 26.48%  ";"Made in Thailand 73.52%  ";"0";26,48;73,52;0
+"17";"https://www.vlr.gg/198840/royal-never-give-up-vs-jijiehao-fgc-valorant-invitational-2023-act-2-qualifiers-qf";"Royal Never Give Up 60.85%  ";"JiJieHao 39.15%  ";"1";60,85;39,15;1
+"18";"https://www.vlr.gg/199856/ghetto-artist-vs-ghost-commandos-challengers-league-taiwan-hong-kong-split-2-r4";"Ghetto Artist 65.56%  ";"Ghost CommandoS 34.44%  ";"1";65,56;34,44;1
+"19";"https://www.vlr.gg/195704/aster-army-vs-gods-reign-challengers-league-south-asia-split-1-lr2";"Aster Army 23.06%  ";"Gods Reign 76.94%  ";"0";23,06;76,94;0
+"20";"https://www.vlr.gg/195705/true-rippers-vs-orangutan-challengers-league-south-asia-split-1-uf";"True Rippers 21.94%  ";"Orangutan 78.06%  ";"0";21,94;78,06;0
+"21";"https://www.vlr.gg/183791/loud-vs-sentinels-champions-tour-2023-americas-league-w4";"LOUD 36.32%  ";"Sentinels 63.68%  ";"1";36,32;63,68;0
+"22";"https://www.vlr.gg/184041/bbl-esports-vs-team-vitality-champions-tour-2023-emea-league-w4";"BBL Esports 22.57%  ";"Team Vitality 77.43%  ";"1";22,57;77,43;0
+"23";"https://www.vlr.gg/183792/leviat-n-vs-mibr-champions-tour-2023-americas-league-w4";"Leviatán 64.45%  ";"MIBR 35.55%  ";"1";64,45;35,55;1
