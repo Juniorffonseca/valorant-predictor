@@ -1,31 +1,30 @@
-"";"V1";"V2"
-"1";"Bilibili Gaming 49.13%  ";"Royal Never Give Up 50.87%  "
-"2";"T1 65.09%  ";"Rex Regum Qeon 34.91%  "
-"3";"Gank Gaming 71.6%  ";"Number One Player 28.4%  "
-"4";"Team Secret 54.31%  ";"DetonatioN FocusMe 45.69%  "
-"5";"SAW 80.36%  ";"EX0TIK GAMING 19.64%  "
-"6";"Orangutan 70.96%  ";"Gods Reign 29.04%  "
-"7";"FTW Esports 21.67%  ";"EGN Esports 78.33%  "
-"8";"CGN Esports 73.29%  ";"Angry Titans 26.71%  "
-"9";"B8 Esports 19.5%  ";"Acend 80.5%  "
-"10";"AYM Esports 30.62%  ";"Ramboot Club 69.38%  "
-"11";"GTZ Esports 87.91%  ";"Team Vikings 12.09%  "
-"12";"Zerance 34.24%  ";"Akroma 65.76%  "
-"13";"Team Queso 64.01%  ";"Rebels Gaming 35.99%  "
-"14";"Outplayed 29.05%  ";"Macko Esports 70.95%  "
-"15";"Panthers Esports 46.65%  ";"Impulse GW 53.35%  "
-"16";"AEX-1 25.36%  ";"Unicorns of Love 74.64%  "
-"17";"GONext Esports 44.61%  ";"Diamant Esports 55.39%  "
-"18";"Gentle Mates 45.09%  ";"Mandatory 54.91%  "
-"19";"ZETA Gaming 58.87%  ";"Case Esports 41.13%  "
-"20";"Enterprise Esports 27.61%  ";"Anonymo Esports 72.39%  "
-"21";"VALIANT 60.49%  ";"WYLDE 39.51%  "
-"22";"KPI Gaming 61.12%  ";"Falcons 38.88%  "
-"23";"NRG Esports 33.4%  ";"Cloud9 66.6%  "
-"24";"DSYRE 84.44%  ";"HMBLE 15.56%  "
-"25";"NOM Esports 56.95%  ";"Zero Tenacity 43.05%  "
-"26";"3DMAX 54.49%  ";"BLX UTD 45.51%  "
-"27";"UCAM Tokiers 65.11%  ";"Movistar Riders 34.89%  "
-"28";"QLASH 23.68%  ";"GMT Esports 76.32%  "
-"29";"Joblife 25.62%  ";"Solary 74.38%  "
-"30";"MIBR 37.77%  ";"Sentinels 62.23%  "
+"";"b";"V1";"V2";"ganhador";"V1_n";"V2_n";"prev"
+"1";"https://www.vlr.gg/198843/bilibili-gaming-vs-royal-never-give-up-fgc-valorant-invitational-2023-act-2-qualifiers-uf";"Bilibili Gaming 49.13%  ";"Royal Never Give Up 50.87%  ";"1";49,13;50,87;0
+"2";"https://www.vlr.gg/184479/t1-vs-rex-regum-qeon-champions-tour-2023-pacific-league-w5";"T1 65.09%  ";"Rex Regum Qeon 34.91%  ";"1";65,09;34,91;1
+"3";"https://www.vlr.gg/198846/gank-gaming-vs-number-one-player-fgc-valorant-invitational-2023-act-2-qualifiers-lr1";"Gank Gaming 71.6%  ";"Number One Player 28.4%  ";"1";71,6;28,4;1
+"4";"https://www.vlr.gg/184480/team-secret-vs-detonation-focusme-champions-tour-2023-pacific-league-w5";"Team Secret 54.31%  ";"DetonatioN FocusMe 45.69%  ";"1";54,31;45,69;1
+"5";"https://www.vlr.gg/188481/saw-vs-ex0tik-gaming-challengers-league-portugal-tempest-split-2-regular-season-r8";"SAW 80.36%  ";"EX0TIK GAMING 19.64%  ";"1";80,36;19,64;1
+"6";"https://www.vlr.gg/195707/orangutan-vs-gods-reign-challengers-league-south-asia-split-1-gf";"Orangutan 70.96%  ";"Gods Reign 29.04%  ";"1";70,96;29,04;1
+"7";"https://www.vlr.gg/188482/ftw-esports-vs-egn-esports-challengers-league-portugal-tempest-split-2-regular-season-r8";"FTW Esports 21.67%  ";"EGN Esports 78.33%  ";"0";21,67;78,33;0
+"8";"https://www.vlr.gg/188541/cgn-esports-vs-angry-titans-challengers-league-dach-evolution-split-2-r5";"CGN Esports 73.29%  ";"Angry Titans 26.71%  ";"1";73,29;26,71;1
+"9";"https://www.vlr.gg/189570/b8-esports-vs-acend-challengers-league-east-surge-split-2-r8";"B8 Esports 19.5%  ";"Acend 80.5%  ";"0";19,5;80,5;0
+"10";"https://www.vlr.gg/199366/aym-esports-vs-ramboot-club-challengers-league-spain-rising-split-2-r7";"AYM Esports 30.62%  ";"Ramboot Club 69.38%  ";"0";30,62;69,38;0
+"11";"https://www.vlr.gg/188483/gtz-esports-vs-team-vikings-challengers-league-portugal-tempest-split-2-regular-season-r8";"GTZ Esports 87.91%  ";"Team Vikings 12.09%  ";"1";87,91;12,09;1
+"12";"https://www.vlr.gg/194149/zerance-vs-akroma-challengers-league-france-revolution-split-2-w3";"Zerance 34.24%  ";"Akroma 65.76%  ";"0";34,24;65,76;0
+"13";"https://www.vlr.gg/199367/team-queso-vs-rebels-gaming-challengers-league-spain-rising-split-2-r7";"Team Queso 64.01%  ";"Rebels Gaming 35.99%  ";"1";64,01;35,99;1
+"14";"https://www.vlr.gg/188406/outplayed-vs-macko-esports-challengers-league-italy-rinascimento-split-2-w4";"Outplayed 29.05%  ";"Macko Esports 70.95%  ";"0";29,05;70,95;0
+"15";"https://www.vlr.gg/188484/panthers-esports-vs-impulse-gw-challengers-league-portugal-tempest-split-2-regular-season-r8";"Panthers Esports 46.65%  ";"Impulse GW 53.35%  ";"0";46,65;53,35;0
+"16";"https://www.vlr.gg/189572/gonext-esports-vs-diamant-esports-challengers-league-east-surge-split-2-r8";"GONext Esports 44.61%  ";"Diamant Esports 55.39%  ";"1";44,61;55,39;0
+"17";"https://www.vlr.gg/194150/gentle-mates-vs-mandatory-challengers-league-france-revolution-split-2-w3";"Gentle Mates 45.09%  ";"Mandatory 54.91%  ";"1";45,09;54,91;0
+"18";"https://www.vlr.gg/199368/zeta-gaming-vs-case-esports-challengers-league-spain-rising-split-2-r7";"ZETA Gaming 58.87%  ";"Case Esports 41.13%  ";"1";58,87;41,13;1
+"19";"https://www.vlr.gg/189573/enterprise-esports-vs-anonymo-esports-challengers-league-east-surge-split-2-r8";"Enterprise Esports 27.61%  ";"Anonymo Esports 72.39%  ";"0";27,61;72,39;0
+"20";"https://www.vlr.gg/194151/valiant-vs-wylde-challengers-league-france-revolution-split-2-w3";"VALIANT 60.49%  ";"WYLDE 39.51%  ";"1";60,49;39,51;1
+"21";"https://www.vlr.gg/199369/kpi-gaming-vs-falcons-challengers-league-spain-rising-split-2-r7";"KPI Gaming 61.12%  ";"Falcons 38.88%  ";"1";61,12;38,88;1
+"22";"https://www.vlr.gg/183795/nrg-esports-vs-cloud9-champions-tour-2023-americas-league-w4";"NRG Esports 33.4%  ";"Cloud9 66.6%  ";"0";33,4;66,6;0
+"23";"https://www.vlr.gg/188408/dsyre-vs-hmble-challengers-league-italy-rinascimento-split-2-w4";"DSYRE 84.44%  ";"HMBLE 15.56%  ";"1";84,44;15,56;1
+"24";"https://www.vlr.gg/189574/nom-esports-vs-zero-tenacity-challengers-league-east-surge-split-2-r8";"NOM Esports 56.95%  ";"Zero Tenacity 43.05%  ";"0";56,95;43,05;1
+"25";"https://www.vlr.gg/194152/3dmax-vs-blx-utd-challengers-league-france-revolution-split-2-w3";"3DMAX 54.49%  ";"BLX UTD 45.51%  ";"0";54,49;45,51;1
+"26";"https://www.vlr.gg/199370/ucam-tokiers-vs-movistar-riders-challengers-league-spain-rising-split-2-r7";"UCAM Tokiers 65.11%  ";"Movistar Riders 34.89%  ";"1";65,11;34,89;1
+"27";"https://www.vlr.gg/188409/qlash-vs-gmt-esports-challengers-league-italy-rinascimento-split-2-w4";"QLASH 23.68%  ";"GMT Esports 76.32%  ";"0";23,68;76,32;0
+"28";"https://www.vlr.gg/194153/joblife-vs-solary-challengers-league-france-revolution-split-2-w3";"Joblife 25.62%  ";"Solary 74.38%  ";"0";25,62;74,38;0
+"29";"https://www.vlr.gg/183796/mibr-vs-sentinels-champions-tour-2023-americas-league-w4";"MIBR 37.77%  ";"Sentinels 62.23%  ";"0";37,77;62,23;0

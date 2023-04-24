@@ -143,20 +143,12 @@ df_top20 <- df_freq[order(df_freq$frequencia, decreasing = TRUE), ][1:20, ]
 df_top20 <- rbind(df_top20, list(pais = "Outros", frequencia = sum(df_freq$frequencia[!(df_freq$pais %in% df_top20$pais)])))
 
 # criar um plot de ggplot2 com barras de frequência
-ggplot(df_top20, aes(x = pais, y = frequencia, fill = pais)) +
-  geom_bar(stat = "identity") +
-  theme_classic() +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
-  labs(x = "País", y = "Frequência")
-
-# criar um plot de ggplot2 com barras de frequência
 ggplot(df_top20, aes(x = reorder(pais, frequencia), y = frequencia, fill = pais)) +
   geom_bar(stat = "identity") +
   theme_classic() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
   labs(x = "País", y = "Frequência", fill = "Países") +
   guides(fill=guide_legend(title="Países"))
-
 
 freq <- table(unlist(paises_times))
 

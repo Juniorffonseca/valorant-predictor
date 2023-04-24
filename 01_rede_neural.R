@@ -239,88 +239,75 @@ ggplot(data = predictVstest, aes(x = previsao, fill = ganhador)) +
 # Tentando gráfico para variáveis 
 
 # Diferença de Rating
-ggplotly(
-  jogos %>%
-    ggplot() +
-    geom_density(aes(x = R_diff, fill = ganhador), alpha = 0.7) +
-    geom_vline(xintercept = 0, color = 'black', size = 0.3) +
-    labs(x = 'Diferença da média de Rating', y = 'Densidade', fill = 'Ganhador') +
-    scale_fill_manual(values = c('red', 'green')) +
-    guides(fill = guide_legend(title = 'Ganhador')) +
-    theme_bw()
-)
+ggplot(jogos, aes(x = R_diff, fill = ganhador)) +
+  geom_density(alpha = 0.7) +
+  geom_vline(xintercept = 0, color = 'black', size = 0.3) +
+  labs(x = 'Diferença da média de Rating', y = 'Densidade', fill = 'Ganhador') +
+  scale_fill_manual(values = c('red', 'green')) +
+  guides(fill = guide_legend(title = 'Ganhador')) +
+  theme_bw() +
+  theme(legend.position = 'top')
 
 # Diferença de ROUNDS
-ggplotly(
-  jogos %>%
-    ggplot() +
-    geom_density(aes(x = RND_diff, fill = ganhador), alpha = 0.7) +
-    geom_vline(xintercept = 0, color = 'black', size = 0.3) +
-    labs(x = 'Diferença da média de rounds', y = 'Densidade', fill = 'Ganhador') +
-    scale_fill_manual(values = c('red', 'green')) +
-    guides(fill = guide_legend(title = 'Ganhador')) +
-    theme_bw()
-)
+ggplot(jogos, aes(x = RND_diff, fill = ganhador)) +
+  geom_density(alpha = 0.7) +
+  geom_vline(xintercept = 0, color = 'black', size = 0.3) +
+  labs(x = 'Diferença da média de rounds', y = 'Densidade', fill = 'Ganhador') +
+  scale_fill_manual(values = c('red', 'green')) +
+  guides(fill = guide_legend(title = 'Ganhador')) +
+  theme_bw() +
+  theme(legend.position = 'bottom')
 
 # Diferença de ACS
-ggplotly(
-  jogos %>%
-    ggplot() +
-    geom_density(aes(x = ACS_diff, fill = ganhador), alpha = 0.7) +
-    geom_vline(xintercept = 0, color = 'black', size = 0.3) +
-    labs(x = 'Diferença da média de ACS', y = 'Densidade', fill = 'Ganhador') +
-    scale_fill_manual(values = c('red', 'green')) +
-    guides(fill = guide_legend(title = 'Ganhador')) +
-    theme_bw()
-)
+
+ggplot(jogos, aes(x = ACS_diff, fill = ganhador)) +
+  geom_density(alpha = 0.7) +
+  geom_vline(xintercept = 0, color = 'black', size = 0.3) +
+  labs(x = 'Diferença da média de ACS', y = 'Densidade', fill = 'Ganhador') +
+  scale_fill_manual(values = c('red', 'green')) +
+  guides(fill = guide_legend(title = 'Ganhador')) +
+  theme_bw() +
+  theme(legend.position = 'bottom')
 
 # Diferença de KAST
-ggplotly(
-  jogos %>%
-    ggplot() +
-    geom_density(aes(x = KAST_diff, fill = ganhador), alpha = 0.7) +
-    geom_vline(xintercept = 0, color = 'black', size = 0.3) +
-    labs(x = 'Diferença da média de KAST', y = 'Densidade', fill = 'Ganhador') +
-    scale_fill_manual(values = c('red', 'green')) +
-    guides(fill = guide_legend(title = 'Ganhador')) +
-    theme_bw()
-)
+ggplot(jogos, aes(x = KAST_diff, fill = ganhador)) +
+  geom_density(alpha = 0.7) +
+  geom_vline(xintercept = 0, color = 'black', size = 0.3) +
+  labs(x = 'Diferença da média de KAST', y = 'Densidade', fill = 'Ganhador') +
+  scale_fill_manual(values = c('red', 'green')) +
+  guides(fill = guide_legend(title = 'Ganhador')) +
+  theme_bw() +
+  theme(legend.position = 'bottom')
 
 # Diferença de KD
-ggplotly(
-  jogos %>%
-    ggplot() +
-    geom_density(aes(x = KD_diff, fill = ganhador), alpha = 0.7) +
-    geom_vline(xintercept = 0, color = 'black', size = 0.3) +
-    labs(x = 'Diferença da média de KD', y = 'Densidade', fill = 'Ganhador') +
-    scale_fill_manual(values = c('red', 'green')) +
-    guides(fill = guide_legend(title = 'Ganhador')) +
-    theme_bw()
-)
+ggplot(jogos, aes(x = KD_diff, fill = ganhador)) +
+  geom_density(alpha = 0.7) +
+  geom_vline(xintercept = 0, color = 'black', size = 0.3) +
+  labs(x = 'Diferença da média de KD', y = 'Densidade', fill = 'Ganhador') +
+  scale_fill_manual(values = c('red', 'green')) +
+  guides(fill = guide_legend(title = 'Ganhador')) +
+  theme_bw() +
+  theme(legend.position = 'bottom')
 
 # Diferença de ADR
-ggplotly(
-  jogos %>%
-    ggplot() +
-    geom_density(aes(x = ADR_diff, fill = ganhador), alpha = 0.7) +
-    geom_vline(xintercept = 0, color = 'black', size = 0.3) +
-    labs(x = 'Diferença da média de ADR', y = 'Densidade', fill = 'Ganhador') +
-    scale_fill_manual(values = c('red', 'green')) +
-    guides(fill = guide_legend(title = 'Ganhador')) +
-    theme_bw()
-)
+ggplot(jogos, aes(x = ADR_diff, fill = ganhador)) +
+  geom_density(alpha = 0.7) +
+  geom_vline(xintercept = 0, color = 'black', size = 0.3) +
+  labs(x = 'Diferença da média de ADR', y = 'Densidade', fill = 'Ganhador') +
+  scale_fill_manual(values = c('red', 'green')) +
+  guides(fill = guide_legend(title = 'Ganhador')) +
+  theme_bw() +
+  theme(legend.position = 'bottom')
 
 # Diferença de KPR
-ggplotly(
-  jogos %>%
-    ggplot() +
-    geom_density(aes(x = KPR_diff, fill = ganhador), alpha = 0.7) +
-    geom_vline(xintercept = 0, color = 'black', size = 0.3) +
-    labs(x = 'Diferença da média de KPR', y = 'Densidade', fill = 'Ganhador') +
-    scale_fill_manual(values = c('red', 'green')) +
-    guides(fill = guide_legend(title = 'Ganhador')) +
-    theme_bw()
-)
+ggplot(jogos, aes(x = KPR_diff, fill = ganhador)) +
+  geom_density(alpha = 0.7) +
+  geom_vline(xintercept = 0, color = 'black', size = 0.3) +
+  labs(x = 'Diferença da média de KPR', y = 'Densidade', fill = 'Ganhador') +
+  scale_fill_manual(values = c('red', 'green')) +
+  guides(fill = guide_legend(title = 'Ganhador')) +
+  theme_bw() +
+  theme(legend.position = 'bottom')
 
 # Diferença de APR
 ggplotly(
@@ -371,16 +358,14 @@ ggplotly(
 )
 
 # Diferença de Assistência
-ggplotly(
-  jogos %>%
-    ggplot() +
-    geom_density(aes(x = A_diff, fill = ganhador), alpha = 0.7) +
-    geom_vline(xintercept = 0, color = 'black', size = 0.3) +
-    labs(x = 'Diferença da média de Assistência', y = 'Densidade', fill = 'Ganhador') +
-    scale_fill_manual(values = c('red', 'green')) +
-    guides(fill = guide_legend(title = 'Ganhador')) +
-    theme_bw()
-)
+ggplot(jogos, aes(x = A_diff, fill = ganhador)) +
+  geom_density(alpha = 0.7) +
+  geom_vline(xintercept = 0, color = 'black', size = 0.3) +
+  labs(x = 'Diferença da média de Assistência', y = 'Densidade', fill = 'Ganhador') +
+  scale_fill_manual(values = c('red', 'green')) +
+  guides(fill = guide_legend(title = 'Ganhador')) +
+  theme_bw() +
+  theme(legend.position = 'bottom')
 
 # Diferença de First Kill
 ggplotly(
