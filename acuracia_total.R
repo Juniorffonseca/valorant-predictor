@@ -40,4 +40,6 @@ acuracia <- bind_rows(acuracia) %>% select(-X)
 acertos <- sum(acuracia$acertos)
 erros <- sum(acuracia$erros)
 print(acuracia_total <- acertos/(acertos+erros))
+acuracia_total_df <- as.data.frame(cbind(acuracia_total, acertos, erros))
 
+write.csv2('csv/acuracia_total.csv')
