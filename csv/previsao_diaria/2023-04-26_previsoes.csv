@@ -1,27 +1,26 @@
-"";"V1";"V2"
-"1";"Royal Never Give Up 30.97%  ";"Wings Up Gaming 69.03%  "
-"2";"Nova Esports 63.61%  ";"Invictus Gaming 36.39%  "
-"3";"Crest Gaming Zst 28.16%  ";"Crazy Raccoon 71.84%  "
-"4";"CNJ esports 38.32%  ";"Maru Gaming 61.68%  "
-"5";"SLT Seongam 54.51%  ";"Gwangju Shadow 45.49%  "
-"6";"Kingzone 64.26%  ";"KunPeng Gaming 35.74%  "
-"7";"XERXIA Esports 43.41%  ";"FULL SENSE 56.59%  "
-"8";"Jadeite 62.34%  ";"SCARZ 37.66%  "
-"9";"Ghetto Artist 31.78%  ";"ROA 68.22%  "
-"10";"Team NKT 31.47%  ";"CRIT Esports 68.53%  "
-"11";"Oblivion Force 69.14%  ";"UTT Esports 30.86%  "
-"12";"Invincible Gaming 91.5%  ";"5KS eSports Club 8.5%  "
-"13";"G2 Gozen 58.67%  ";"Alliance Coven 41.33%  "
-"14";"FOKUS Sakura 26.84%  ";"BBL Queens 73.16%  "
-"15";"Natus Vincere Celestials 72.1%  ";"Rebels Velvet 27.9%  "
-"16";"UNtapped 29.48%  ";"CBA 70.52%  "
-"17";"Giants Gaming 68.74%  ";"Team Liquid 31.26%  "
-"18";"Acend Rising 57.25%  ";"GeeKay Esports Cherry 42.75%  "
-"19";"Karmine Corp GC 54.87%  ";"Team Falcons Vega 45.13%  "
-"20";"Ninjas in Pyjamas Lightning 76.03%  ";"Case Hydra 23.97%  "
-"21";"KPI Shine 20.14%  ";"Guild X 79.86%  "
-"22";"Keyd Stars 48.19%  ";"RED Canids 51.81%  "
-"23";"Oxygen Esports 80.01%  ";"Turtle Troop 19.99%  "
-"24";"FUSION 49.01%  ";"Six Karma 50.99%  "
-"25";"TBK Esports 47.66%  ";"Liberty 52.34%  "
-"26";"G2 Esports 63.75%  ";"Moist Moguls 36.25%  "
+"";"b";"V1";"V2";"ganhador";"V1_n";"V2_n";"prev"
+"1";"https://www.vlr.gg/202388/royal-never-give-up-vs-wings-up-gaming-fgc-valorant-invitational-2023-act-2-qualifiers-ro16";"Royal Never Give Up 30.97%  ";"Wings Up Gaming 69.03%  ";"1";30,97;69,03;0
+"2";"https://www.vlr.gg/202389/nova-esports-vs-invictus-gaming-fgc-valorant-invitational-2023-act-2-qualifiers-ro16";"Nova Esports 63.61%  ";"Invictus Gaming 36.39%  ";"1";63,61;36,39;1
+"3";"https://www.vlr.gg/193448/crest-gaming-zst-vs-crazy-raccoon-challengers-league-japan-split-2-d6";"Crest Gaming Zst 28.16%  ";"Crazy Raccoon 71.84%  ";"0";28,16;71,84;0
+"4";"https://www.vlr.gg/201248/cnj-esports-vs-maru-gaming-world-cyber-games-challengers-league-korea-split-2-w3";"CNJ esports 38.32%  ";"Maru Gaming 61.68%  ";"0";38,32;61,68;0
+"5";"https://www.vlr.gg/201249/slt-seongam-vs-gwangju-shadow-world-cyber-games-challengers-league-korea-split-2-w3";"SLT Seongam 54.51%  ";"Gwangju Shadow 45.49%  ";"0";54,51;45,49;1
+"6";"https://www.vlr.gg/202390/kingzone-vs-kunpeng-gaming-fgc-valorant-invitational-2023-act-2-qualifiers-ro16";"Kingzone 64.26%  ";"KunPeng Gaming 35.74%  ";"1";64,26;35,74;1
+"7";"https://www.vlr.gg/188364/xerxia-esports-vs-full-sense-challengers-league-thailand-split-2-w4";"XERXIA Esports 43.41%  ";"FULL SENSE 56.59%  ";"1";43,41;56,59;0
+"8";"https://www.vlr.gg/193449/jadeite-vs-scarz-challengers-league-japan-split-2-d6";"Jadeite 62.34%  ";"SCARZ 37.66%  ";"0";62,34;37,66;1
+"9";"https://www.vlr.gg/202370/ghetto-artist-vs-roa-challengers-league-taiwan-hong-kong-split-2-r5";"Ghetto Artist 31.78%  ";"ROA 68.22%  ";"0";31,78;68,22;0
+"10";"https://www.vlr.gg/188365/team-nkt-vs-crit-esports-challengers-league-thailand-split-2-w4";"Team NKT 31.47%  ";"CRIT Esports 68.53%  ";"0";31,47;68,53;0
+"11";"https://www.vlr.gg/202371/oblivion-force-vs-utt-esports-challengers-league-taiwan-hong-kong-split-2-r5";"Oblivion Force 69.14%  ";"UTT Esports 30.86%  ";"1";69,14;30,86;1
+"12";"https://www.vlr.gg/197227/g2-gozen-vs-alliance-coven-game-changers-2023-series-i-emea-groups-r3";"G2 Gozen 58.67%  ";"Alliance Coven 41.33%  ";"1";58,67;41,33;1
+"13";"https://www.vlr.gg/197228/fokus-sakura-vs-bbl-queens-game-changers-2023-series-i-emea-groups-r3";"FOKUS Sakura 26.84%  ";"BBL Queens 73.16%  ";"0";26,84;73,16;0
+"14";"https://www.vlr.gg/197229/natus-vincere-celestials-vs-rebels-velvet-game-changers-2023-series-i-emea-groups-r3";"Natus Vincere Celestials 72.1%  ";"Rebels Velvet 27.9%  ";"0";72,1;27,9;1
+"15";"https://www.vlr.gg/197230/untapped-vs-cba-game-changers-2023-series-i-emea-groups-r3";"UNtapped 29.48%  ";"CBA 70.52%  ";"0";29,48;70,52;0
+"16";"https://www.vlr.gg/184042/giants-gaming-vs-team-liquid-champions-tour-2023-emea-league-w5";"Giants Gaming 68.74%  ";"Team Liquid 31.26%  ";"0";68,74;31,26;1
+"17";"https://www.vlr.gg/197257/acend-rising-vs-geekay-esports-cherry-game-changers-2023-series-i-emea-groups-r3";"Acend Rising 57.25%  ";"GeeKay Esports Cherry 42.75%  ";"1";57,25;42,75;1
+"18";"https://www.vlr.gg/197258/karmine-corp-gc-vs-team-falcons-vega-game-changers-2023-series-i-emea-groups-r3";"Karmine Corp GC 54.87%  ";"Team Falcons Vega 45.13%  ";"1";54,87;45,13;1
+"19";"https://www.vlr.gg/197259/ninjas-in-pyjamas-gc-vs-case-hydra-game-changers-2023-series-i-emea-groups-r3";"Ninjas in Pyjamas Lightning 76.03%  ";"Case Hydra 23.97%  ";"1";76,03;23,97;1
+"20";"https://www.vlr.gg/197260/kpi-shine-vs-guild-x-game-changers-2023-series-i-emea-groups-r3";"KPI Shine 20.14%  ";"Guild X 79.86%  ";"0";20,14;79,86;0
+"21";"https://www.vlr.gg/193559/keyd-stars-vs-red-canids-challengers-league-brazil-split-2-w4";"Keyd Stars 48.19%  ";"RED Canids 51.81%  ";"0";48,19;51,81;0
+"22";"https://www.vlr.gg/196139/oxygen-esports-vs-turtle-troop-challengers-league-north-america-w2";"Oxygen Esports 80.01%  ";"Turtle Troop 19.99%  ";"0";80,01;19,99;1
+"23";"https://www.vlr.gg/202334/fusion-vs-six-karma-challengers-league-latam-north-ace-split-2-w1";"FUSION 49.01%  ";"Six Karma 50.99%  ";"1";49,01;50,99;0
+"24";"https://www.vlr.gg/193560/tbk-esports-vs-liberty-challengers-league-brazil-split-2-w4";"TBK Esports 47.66%  ";"Liberty 52.34%  ";"1";47,66;52,34;0
+"25";"https://www.vlr.gg/196140/g2-esports-vs-moist-moguls-challengers-league-north-america-w2";"G2 Esports 63.75%  ";"Moist Moguls 36.25%  ";"0";63,75;36,25;1
