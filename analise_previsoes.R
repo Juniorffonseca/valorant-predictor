@@ -43,6 +43,7 @@ previsoes_lista <- lapply(previsoes_lista, function(df) {
 previsoes <- bind_rows(previsoes_lista)
 
 previsoes$ganhador <- as.factor(previsoes$ganhador)
+previsoes$prev <- as.factor(previsoes$prev)
 
 #Plot distribuição
 plot_ly(data = previsoes, x = ~V1_n, y = ~ganhador,
@@ -64,4 +65,50 @@ ggplot(data = previsoes, aes(x = V1_n, fill = ganhador)) +
 odds <- read_html(previsoes$b[1]) %>% html_nodes('div.match-bet-item-half') %>% html_text() %>% 
   str_replace_all('\t', '') %>% str_replace_all('\n', '') %>% .[1] %>% gsub(".*?(\\d+\\.\\d+).*", "\\1", .)
 
+# Loop através das URLs em previsoes$b e extrai as odds
+for (i in 1:nrow(previsoes)) {
+  url <- previsoes$b[i]
+  odds <- read_html(url) %>% 
+    html_nodes('div.match-bet-item-half') %>% 
+    html_text() %>% 
+    str_replace_all('\t', '') %>% 
+    str_replace_all('\n', '') %>% 
+    .[1] %>% 
+    gsub(".*?(\\d+\\.\\d+).*", "\\1", .)
+  previsoes$odds[i] <- odds
+}
+
+
+acertos <- previsoes %>% filter(ganhador == prev)
+erros <- previsoes %>% filter(ganhador != prev)
+
+# Definir o valor da aposta
+valor_aposta <- 5
+
+# Calcular o lucro ou prejuízo de cada aposta, ignorando valores NA nas odds
+previsoes <- previsoes %>%
+  mutate(lucro = ifelse(is.na(odds), NA, ifelse(ganhador == prev, valor_aposta * (as.numeric(odds) - 1), -valor_aposta)))
+
+# Calcular o resultado total das apostas, ignorando valores NA na coluna lucro
+resultado <- sum(previsoes$lucro, na.rm = TRUE)
+
+# Imprimir o resultado
+cat("Resultado total das apostas: R$", resultado, "\n")
+
+# PAREI AQUI... PRECISO RESOLVER ISSO
+# Definir o valor mínimo de probabilidade para considerar uma aposta
+prob_minima <- 0.7
+
+# Converter a coluna odds em números
+previsoes$odds <- as.numeric(previsoes$odds)
+
+# Calcular o lucro ou prejuízo de cada aposta, considerando apenas previsões com probabilidade acima da prob_minima e que estão corretas
+previsoes <- previsoes %>%
+  mutate(lucro = ifelse((V1_n > prob_minima*100 & ganhador == 1 & prev == 1) | (V2_n > prob_minima*100 & ganhador == 2 & prev == 2), valor_aposta * (odds - 1), -valor_aposta))
+
+# Calcular o resultado total das apostas, ignorando valores NA na coluna lucro
+resultado <- sum(previsoes$lucro, na.rm = TRUE)
+
+# Imprimir o resultado
+cat("Resultado total das apostas: R$", resultado, "\n")
 
