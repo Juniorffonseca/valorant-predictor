@@ -42,20 +42,26 @@ previsoes_lista <- lapply(previsoes_lista, function(df) {
 
 previsoes <- bind_rows(previsoes_lista)
 
+previsoes$ganhador <- as.factor(previsoes$ganhador)
 
 #Plot distribuição
 plot_ly(data = previsoes, x = ~V1_n, y = ~ganhador,
         color = ~factor(ganhador), colors = c('red', 'green'), type = 'scatter',
-        mode = 'markers', marker = list(size = 4)) %>%
+        mode = 'markers', marker = list(size = 3)) %>%
   layout(xaxis = list(title = 'Porcentagem'), yaxis = list(title = 'Ganhador'),
          legend = list(title = 'Ganhador', font = list(size = 16)),
          margin = list(l = 50, r = 50, t = 50, b = 50),
-         shapes = list(list(type = 'line', x0 = 50, x1 = 0.5, y0 = 0, y1 = 1,
+         shapes = list(list(type = 'line', x0 = 50, x1 = 50, y0 = 0, y1 = 1,
                             line = list(color = 'gray', width = 2))))
 
 # Plot distribuição das probabilidades por densidade
-ggplot(data = predictVstest, aes(x = previsao, fill = ganhador)) +
+ggplot(data = previsoes, aes(x = V1_n, fill = ganhador)) +
   geom_density(alpha = 0.5) +
   scale_fill_manual(values = c('red', 'green')) +
   labs(x = 'Porcentagem', y = 'Densidade', fill = 'Ganhador') +
   theme_bw()
+
+odds <- read_html(previsoes$b[1]) %>% html_nodes('div.match-bet-item-half') %>% html_text() %>% 
+  str_replace_all('\t', '') %>% str_replace_all('\n', '') %>% .[1] %>% gsub(".*?(\\d+\\.\\d+).*", "\\1", .)
+
+
