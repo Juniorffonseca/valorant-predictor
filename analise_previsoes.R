@@ -101,11 +101,12 @@ valor_aposta <- 5
 
 # PAREI AQUI... PRECISO RESOLVER ISSO
 # Definir o valor mínimo de probabilidade para considerar uma aposta
-prob_minima <- 60
+prob_minima <- 50
+odd_minima <- 1.8
 
 # Calcular o lucro ou prejuízo de cada aposta, considerando apenas previsões com probabilidade acima da prob_minima e que estão corretas
 previsoes <- previsoes %>%
-  mutate(lucro = ifelse(((V1_n > prob_minima & ganhador == 1 & prev == 1) | (V2_n > prob_minima & ganhador == 0 & prev == 0)), valor_aposta * (odds - 1), NA))
+  mutate(lucro = ifelse((V1_n > prob_minima & ganhador == 1 & prev == 1 & odds > odd_minima) | (V2_n > prob_minima & ganhador == 2 & prev == 2 & odds > odd_minima), valor_aposta * (odds - 1), ifelse((V1_n > prob_minima & V1_n < 100-prob_minima & ganhador != 1 & prev == 1 & odds > odd_minima) | (V2_n > prob_minima & V2_n < 100-prob_minima & ganhador != 2 & prev == 2 & odds > odd_minima), -valor_aposta, ifelse((V1_n > prob_minima & ganhador != 1 & prev == 1 & odds > odd_minima) | (V2_n > prob_minima & ganhador != 2 & prev == 2 & odds > odd_minima), -valor_aposta, 0))))
 
 # Calcular o resultado total das apostas, ignorando valores NA na coluna lucro
 resultado <- sum(previsoes$lucro, na.rm = TRUE)
@@ -113,13 +114,33 @@ resultado <- sum(previsoes$lucro, na.rm = TRUE)
 # Imprimir o resultado
 cat("Resultado total das apostas: R$", resultado, "\n")
 
-# Definir o valor mínimo de odd para considerar uma aposta
-odd_minima <- 1.5
-
-# Calcular o lucro ou prejuízo de cada aposta, considerando apenas previsões com probabilidade acima da prob_minima e que estão corretas
-previsoes <- previsoes %>%
-  mutate(lucro = ifelse((V1_n > prob_minima*100 & ganhador == 1 & prev == 1) | (V2_n > prob_minima*100 & ganhador == 2 & prev == 2), valor_aposta * (odds - 1), -valor_aposta))
-
 # ver quantos jogos seriam
 sum(!is.na(previsoes$lucro))
+
+# Definir o valor mínimo de probabilidade e odd para considerar uma aposta
+prob_minima <- seq(50, 95, by = 5)
+odd_minima <- seq(1.0, 2.0, by = 0.1)
+
+# Criar um vetor para armazenar os resultados
+resultados <- numeric(length(prob_minima) * length(odd_minima))
+
+# Loop para calcular o resultado para cada combinação de prob_minima e odd_minima
+k <- 1
+for (i in 1:length(prob_minima)) {
+  for (j in 1:length(odd_minima)) {
+    previsoes_temp <- previsoes %>%
+      mutate(lucro = ifelse((V1_n > prob_minima[i] & ganhador == 1 & prev == 1 & odds > odd_minima[j]) | (V2_n > prob_minima[i] & ganhador == 2 & prev == 2 & odds > odd_minima[j]), valor_aposta * (odds - 1), ifelse((V1_n > prob_minima[i] & V1_n < 100-prob_minima[i] & ganhador != 1 & prev == 1 & odds > odd_minima[j]) | (V2_n > prob_minima[i] & V2_n < 100-prob_minima[i] & ganhador != 2 & prev == 2 & odds > odd_minima[j]), -valor_aposta, ifelse((V1_n > prob_minima[i] & ganhador != 1 & prev == 1 & odds > odd_minima[j]) | (V2_n > prob_minima[i] & ganhador != 2 & prev == 2 & odds > odd_minima[j]), -valor_aposta, 0))))
+    resultados[k] <- sum(previsoes_temp$lucro, na.rm = TRUE)
+    k <- k + 1
+  }
+}
+
+# Encontrar a combinação que resulta no maior lucro
+ind_max <- which.max(resultados)
+prob_minima_max <- prob_minima[(ind_max - 1) %/% length(odd_minima) + 1]
+odd_minima_max <- odd_minima[(ind_max - 1) %% length(odd_minima) + 1]
+
+# Imprimir o resultado máximo e a combinação correspondente
+cat("Maior resultado total das apostas: R$", resultados[ind_max], "\n")
+cat("Combinação que resulta no maior resultado total das apostas: prob_minima =", prob_minima_max, ", odd_minima =", odd_minima_max, "\n")
 
