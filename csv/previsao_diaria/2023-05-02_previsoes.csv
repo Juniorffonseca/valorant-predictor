@@ -1,23 +1,20 @@
-"";"V1";"V2"
-"1";"S2 Esports 78.25%  ";"Ghost CommandoS 21.75%  "
-"2";"Teo Teo Teo 43.79%  ";"X10 Esports 56.21%  "
-"3";"ONE Team Esports 84.43%  ";"UTT Esports 15.57%  "
-"4";"Bikini Bottom Pratahouse 26.59%  ";"Kizuna Esports 73.41%  "
-"5";"AYM Esports 31.67%  ";"Case Esports 68.33%  "
-"6";"HSDIRR 74.94%  ";"Coalesce 25.06%  "
-"7";"Guild X 69.13%  ";"Ninjas in Pyjamas Lightning 30.87%  "
-"8";"Team Falcons Vega 24.15%  ";"Acend Rising 75.85%  "
-"9";"GeeKay Esports Cherry 67.51%  ";"KPI Shine 32.49%  "
-"10";"Case Hydra 45.35%  ";"Karmine Corp GC 54.65%  "
-"11";"Movistar Riders 47.59%  ";"Falcons 52.41%  "
-"12";"KPI Gaming 60.68%  ";"Team Queso 39.32%  "
-"13";"ZETA Gaming 36.53%  ";"Ramboot Club 63.47%  "
-"14";"eMasters 39.24%  ";"who cars? 60.76%  "
-"15";"FOKUS Sakura 34.1%  ";"Rebels Velvet 65.9%  "
-"16";"BBL Queens 51.45%  ";"CBA 48.55%  "
-"17";"UNtapped 29.34%  ";"Alliance Coven 70.66%  "
-"18";"Natus Vincere Celestials 58.33%  ";"G2 Gozen 41.67%  "
-"19";"UCAM Tokiers 52.22%  ";"Rebels Gaming 47.78%  "
-"20";"E-Xolos LAZER 56%  ";"FUSION 44%  "
-"21";"RETA Esports 80.71%  ";"19esports 19.29%  "
-"22";"Jadeite 42.01%  ";"Crazy Raccoon 57.99%  "
+"";"b";"V1";"V2";"ganhador";"V1_n";"V2_n";"prev"
+"1";"https://www.vlr.gg/188040/teo-teo-teo-vs-x10-esports-challengers-league-malaysia-singapore-split-2-d12";"Teo Teo Teo 43.79%  ";"X10 Esports 56.21%  ";"0";43,79;56,21;0
+"2";"https://www.vlr.gg/202377/one-team-esports-vs-utt-esports-challengers-league-taiwan-hong-kong-split-2-r6";"ONE Team Esports 84.43%  ";"UTT Esports 15.57%  ";"1";84,43;15,57;1
+"3";"https://www.vlr.gg/188041/bikini-bottom-pratahouse-vs-kizuna-esports-challengers-league-malaysia-singapore-split-2-d12";"Bikini Bottom Pratahouse 26.59%  ";"Kizuna Esports 73.41%  ";"0";26,59;73,41;0
+"4";"https://www.vlr.gg/203630/aym-esports-vs-case-esports-challengers-league-spain-rising-split-2-r11";"AYM Esports 31.67%  ";"Case Esports 68.33%  ";"0";31,67;68,33;0
+"5";"https://www.vlr.gg/197266/guild-x-vs-ninjas-in-pyjamas-gc-game-changers-2023-series-i-emea-groups-r5";"Guild X 69.13%  ";"Ninjas in Pyjamas Lightning 30.87%  ";"1";69,13;30,87;1
+"6";"https://www.vlr.gg/197267/team-falcons-vega-vs-acend-rising-game-changers-2023-series-i-emea-groups-r5";"Team Falcons Vega 24.15%  ";"Acend Rising 75.85%  ";"0";24,15;75,85;0
+"7";"https://www.vlr.gg/197268/geekay-esports-cherry-vs-kpi-shine-game-changers-2023-series-i-emea-groups-r5";"GeeKay Esports Cherry 67.51%  ";"KPI Shine 32.49%  ";"0";67,51;32,49;1
+"8";"https://www.vlr.gg/197269/case-hydra-vs-karmine-corp-gc-game-changers-2023-series-i-emea-groups-r5";"Case Hydra 45.35%  ";"Karmine Corp GC 54.65%  ";"0";45,35;54,65;0
+"9";"https://www.vlr.gg/203631/movistar-riders-vs-falcons-challengers-league-spain-rising-split-2-r11";"Movistar Riders 47.59%  ";"Falcons 52.41%  ";"0";47,59;52,41;0
+"10";"https://www.vlr.gg/203632/kpi-gaming-vs-team-queso-challengers-league-spain-rising-split-2-r11";"KPI Gaming 60.68%  ";"Team Queso 39.32%  ";"1";60,68;39,32;1
+"11";"https://www.vlr.gg/203633/zeta-gaming-vs-ramboot-club-challengers-league-spain-rising-split-2-r11";"ZETA Gaming 36.53%  ";"Ramboot Club 63.47%  ";"0";36,53;63,47;0
+"12";"https://www.vlr.gg/188577/emasters-vs-who-cars-challengers-league-northern-europe-polaris-split-2-r5";"eMasters 39.24%  ";"who cars? 60.76%  ";"0";39,24;60,76;0
+"13";"https://www.vlr.gg/197235/fokus-sakura-vs-rebels-velvet-game-changers-2023-series-i-emea-groups-r5";"FOKUS Sakura 34.1%  ";"Rebels Velvet 65.9%  ";"0";34,1;65,9;0
+"14";"https://www.vlr.gg/197236/bbl-queens-vs-cba-game-changers-2023-series-i-emea-groups-r5";"BBL Queens 51.45%  ";"CBA 48.55%  ";"1";51,45;48,55;1
+"15";"https://www.vlr.gg/197237/untapped-vs-alliance-coven-game-changers-2023-series-i-emea-groups-r5";"UNtapped 29.34%  ";"Alliance Coven 70.66%  ";"1";29,34;70,66;0
+"16";"https://www.vlr.gg/197238/natus-vincere-celestials-vs-g2-gozen-game-changers-2023-series-i-emea-groups-r5";"Natus Vincere Celestials 58.33%  ";"G2 Gozen 41.67%  ";"0";58,33;41,67;1
+"17";"https://www.vlr.gg/203634/ucam-tokiers-vs-rebels-gaming-challengers-league-spain-rising-split-2-r11";"UCAM Tokiers 52.22%  ";"Rebels Gaming 47.78%  ";"1";52,22;47,78;1
+"18";"https://www.vlr.gg/202339/e-xolos-lazer-vs-fusion-challengers-league-latam-north-ace-split-2-w2";"E-Xolos LAZER 56%  ";"FUSION 44%  ";"0";56;44;1
+"19";"https://www.vlr.gg/193454/jadeite-vs-crazy-raccoon-challengers-league-japan-split-2-d9";"Jadeite 42.01%  ";"Crazy Raccoon 57.99%  ";"1";42,01;57,99;0
