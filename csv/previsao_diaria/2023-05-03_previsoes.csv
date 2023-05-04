@@ -1,23 +1,22 @@
-"";"V1";"V2"
-"1";"Crest Gaming Zst 34.75%  ";"IGZIST 65.25%  "
-"2";"NORTHEPTION 53.85%  ";"Sengoku Gaming 46.15%  "
-"3";"Gwangju Shadow 75.45%  ";"CNJ esports 24.55%  "
-"4";"MVP Esports 45.17%  ";"GameLab Alpha 54.83%  "
-"5";"Attacking Soul Esports 59.11%  ";"Royal Never Give Up 40.89%  "
-"6";"FENNEL 68.05%  ";"SCARZ 31.95%  "
-"7";"Maru Gaming 32.14%  ";"SLT Seongam 67.86%  "
-"8";"Ghost CommandoS 11.28%  ";"ROA 88.72%  "
-"9";"BLEED 81.65%  ";"Enigma Gaming 18.35%  "
-"10";"ZOL Esports 27.07%  ";"Action PH 72.93%  "
-"11";"Anti Eco Eco Club 47.07%  ";"Oblivion Force 52.93%  "
-"12";"Bilibili Gaming 69.43%  ";"Douyu Gaming 30.57%  "
-"13";"Louvre 9.47%  ";"X10 Esports 90.53%  "
-"14";"Reckoning Esports 24.87%  ";"Orangutan 75.13%  "
-"15";"Team Vitality 40.02%  ";"FNATIC 59.98%  "
-"16";"The Union 34.39%  ";"ODDIK 65.61%  "
-"17";"Disguised 75.59%  ";"Turtle Troop 24.41%  "
-"18";"FUSION 77.24%  ";"Skull Cracker 22.76%  "
-"19";"FaZe Clan 43.5%  ";"OREsports 56.5%  "
-"20";"19esports 35.81%  ";"Six Karma 64.19%  "
-"21";"Jadeite 61.05%  ";"Sengoku Gaming 38.95%  "
-"22";"RETA Esports 80.71%  ";"19esports 19.29%  "
+"";"b";"V1";"V2";"ganhador";"V1_n";"V2_n";"prev"
+"1";"https://www.vlr.gg/193455/crest-gaming-zst-vs-igzist-challengers-league-japan-split-2-d9";"Crest Gaming Zst 34.75%  ";"IGZIST 65.25%  ";"1";34,75;65,25;0
+"2";"https://www.vlr.gg/193456/northeption-vs-sengoku-gaming-challengers-league-japan-split-2-d9";"NORTHEPTION 53.85%  ";"Sengoku Gaming 46.15%  ";"1";53,85;46,15;1
+"3";"https://www.vlr.gg/201256/gwangju-shadow-vs-cnj-esports-world-cyber-games-challengers-league-korea-split-2-w4";"Gwangju Shadow 75.45%  ";"CNJ esports 24.55%  ";"1";75,45;24,55;1
+"4";"https://www.vlr.gg/189045/mvp-esports-vs-gamelab-alpha-challengers-league-philippines-split-2-regular-season-w6";"MVP Esports 45.17%  ";"GameLab Alpha 54.83%  ";"0";45,17;54,83;0
+"5";"https://www.vlr.gg/204411/attacking-soul-esports-vs-royal-never-give-up-fgc-valorant-invitational-2023-act-2-opening-a";"Attacking Soul Esports 59.11%  ";"Royal Never Give Up 40.89%  ";"1";59,11;40,89;1
+"6";"https://www.vlr.gg/193457/fennel-vs-scarz-challengers-league-japan-split-2-d9";"FENNEL 68.05%  ";"SCARZ 31.95%  ";"0";68,05;31,95;1
+"7";"https://www.vlr.gg/201257/maru-gaming-vs-slt-seongam-world-cyber-games-challengers-league-korea-split-2-w4";"Maru Gaming 32.14%  ";"SLT Seongam 67.86%  ";"1";32,14;67,86;0
+"8";"https://www.vlr.gg/202378/ghost-commandos-vs-roa-challengers-league-taiwan-hong-kong-split-2-r6";"Ghost CommandoS 11.28%  ";"ROA 88.72%  ";"0";11,28;88,72;0
+"9";"https://www.vlr.gg/188042/bleed-vs-enigma-gaming-challengers-league-malaysia-singapore-split-2-d13";"BLEED 81.65%  ";"Enigma Gaming 18.35%  ";"1";81,65;18,35;1
+"10";"https://www.vlr.gg/189046/zol-esports-vs-action-ph-challengers-league-philippines-split-2-regular-season-w6";"ZOL Esports 27.07%  ";"Action PH 72.93%  ";"0";27,07;72,93;0
+"11";"https://www.vlr.gg/202379/anti-eco-eco-club-vs-oblivion-force-challengers-league-taiwan-hong-kong-split-2-r6";"Anti Eco Eco Club 47.07%  ";"Oblivion Force 52.93%  ";"1";47,07;52,93;0
+"12";"https://www.vlr.gg/204412/bilibili-gaming-vs-douyu-gaming-fgc-valorant-invitational-2023-act-2-opening-a";"Bilibili Gaming 69.43%  ";"Douyu Gaming 30.57%  ";"1";69,43;30,57;1
+"13";"https://www.vlr.gg/188043/louvre-vs-x10-esports-challengers-league-malaysia-singapore-split-2-d13";"Louvre 9.47%  ";"X10 Esports 90.53%  ";"0";9,47;90,53;0
+"14";"https://www.vlr.gg/204036/reckoning-esports-vs-orangutan-challengers-league-south-asia-split-2-w2";"Reckoning Esports 24.87%  ";"Orangutan 75.13%  ";"0";24,87;75,13;0
+"15";"https://www.vlr.gg/184047/team-vitality-vs-fnatic-champions-tour-2023-emea-league-w6";"Team Vitality 40.02%  ";"FNATIC 59.98%  ";"0";40,02;59,98;0
+"16";"https://www.vlr.gg/193563/the-union-vs-oddik-challengers-league-brazil-split-2-w5";"The Union 34.39%  ";"ODDIK 65.61%  ";"1";34,39;65,61;0
+"17";"https://www.vlr.gg/196145/disguised-vs-turtle-troop-challengers-league-north-america-w3";"Disguised 75.59%  ";"Turtle Troop 24.41%  ";"0";75,59;24,41;1
+"18";"https://www.vlr.gg/202341/fusion-vs-skull-cracker-challengers-league-latam-north-ace-split-2-w2";"FUSION 77.24%  ";"Skull Cracker 22.76%  ";"1";77,24;22,76;1
+"19";"https://www.vlr.gg/196146/faze-clan-vs-oresports-challengers-league-north-america-w3";"FaZe Clan 43.5%  ";"OREsports 56.5%  ";"1";43,5;56,5;0
+"20";"https://www.vlr.gg/202342/19esports-vs-six-karma-challengers-league-latam-north-ace-split-2-w2";"19esports 35.81%  ";"Six Karma 64.19%  ";"0";35,81;64,19;0
+"21";"https://www.vlr.gg/193458/jadeite-vs-sengoku-gaming-challengers-league-japan-split-2-d10";"Jadeite 61.05%  ";"Sengoku Gaming 38.95%  ";"1";61,05;38,95;1
