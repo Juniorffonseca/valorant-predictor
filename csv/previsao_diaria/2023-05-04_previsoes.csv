@@ -1,26 +1,25 @@
-"";"V1";"V2"
-"1";"SCARZ 22.61%  ";"Crazy Raccoon 77.39%  "
-"2";"Crest Gaming Zst 20.65%  ";"FENNEL 79.35%  "
-"3";"Rambutan ni Tatay 26.09%  ";"Oasis Gaming 73.91%  "
-"4";"Koopa Troopas 30.37%  ";"NerdPunt 69.63%  "
-"5";"EDward Gaming 82.34%  ";"Four Angry Men 17.66%  "
-"6";"CRIT Esports 42.31%  ";"XERXIA Esports 57.69%  "
-"7";"NORTHEPTION 51.34%  ";"IGZIST 48.66%  "
-"8";"ONE Team Esports 89.12%  ";"Ghetto Artist 10.88%  "
-"9";"Guangzhou Long Lionz 49.17%  ";"The Who? 50.83%  "
-"10";"Todak 33.32%  ";"Kizuna Esports 66.68%  "
-"11";"Stream Raiders Nacague 15.21%  ";"NAOS 84.79%  "
-"12";"Team NKT 30.22%  ";"Attack All Around 69.78%  "
-"13";"S2 Esports 21.44%  ";"UTT Esports 78.56%  "
-"14";"Weibo Gaming 68.29%  ";"Monarch Effect 31.71%  "
-"15";"Teo Teo Teo 54.07%  ";"Bikini Bottom Pratahouse 45.93%  "
-"16";"Orangutan 78.13%  ";"MLT Esports 21.87%  "
-"17";"FUT Esports 74.39%  ";"Karmine Corp 25.61%  "
-"18";"KOI 68.93%  ";"BBL Esports 31.07%  "
-"19";"RED Canids 76.03%  ";"TBK Esports 23.97%  "
-"20";"M80 71.75%  ";"Shopify Rebellion 28.25%  "
-"21";"Optix 19.21%  ";"9z Team 80.79%  "
-"22";"Keyd Stars 54.15%  ";"Liberty 45.85%  "
-"23";"The Guard 42.08%  ";"Moist Moguls 57.92%  "
-"24";"Crest Gaming Zst 40.78%  ";"SCARZ 59.22%  "
-"25";"RETA Esports 80.94%  ";"19esports 19.06%  "
+"";"b";"V1";"V2";"ganhador";"V1_n";"V2_n";"prev"
+"1";"https://www.vlr.gg/193459/scarz-vs-crazy-raccoon-challengers-league-japan-split-2-d10";"SCARZ 22.61%  ";"Crazy Raccoon 77.39%  ";"0";22,61;77,39;0
+"2";"https://www.vlr.gg/193460/crest-gaming-zst-vs-fennel-challengers-league-japan-split-2-d10";"Crest Gaming Zst 20.65%  ";"FENNEL 79.35%  ";"0";20,65;79,35;0
+"3";"https://www.vlr.gg/189047/rambutan-ni-tatay-vs-oasis-gaming-challengers-league-philippines-split-2-regular-season-w6";"Rambutan ni Tatay 26.09%  ";"Oasis Gaming 73.91%  ";"0";26,09;73,91;0
+"4";"https://www.vlr.gg/193275/koopa-troopas-vs-nerdpunt-challengers-league-oceania-split-2-group-stage-w5";"Koopa Troopas 30.37%  ";"NerdPunt 69.63%  ";"0";30,37;69,63;0
+"5";"https://www.vlr.gg/204416/edward-gaming-vs-four-angry-men-fgc-valorant-invitational-2023-act-2-opening-b";"EDward Gaming 82.34%  ";"Four Angry Men 17.66%  ";"1";82,34;17,66;1
+"6";"https://www.vlr.gg/188370/crit-esports-vs-xerxia-esports-challengers-league-thailand-split-2-w5";"CRIT Esports 42.31%  ";"XERXIA Esports 57.69%  ";"0";42,31;57,69;0
+"7";"https://www.vlr.gg/193461/northeption-vs-igzist-challengers-league-japan-split-2-d10";"NORTHEPTION 51.34%  ";"IGZIST 48.66%  ";"0";51,34;48,66;1
+"8";"https://www.vlr.gg/202380/one-team-esports-vs-ghetto-artist-challengers-league-taiwan-hong-kong-split-2-r6";"ONE Team Esports 89.12%  ";"Ghetto Artist 10.88%  ";"1";89,12;10,88;1
+"9";"https://www.vlr.gg/193276/guangzhou-long-lionz-vs-the-who-challengers-league-oceania-split-2-group-stage-w5";"Guangzhou Long Lionz 49.17%  ";"The Who? 50.83%  ";"0";49,17;50,83;0
+"10";"https://www.vlr.gg/188044/todak-vs-kizuna-esports-challengers-league-malaysia-singapore-split-2-d14";"Todak 33.32%  ";"Kizuna Esports 66.68%  ";"0";33,32;66,68;0
+"11";"https://www.vlr.gg/189048/stream-raiders-nacague-vs-naos-challengers-league-philippines-split-2-regular-season-w6";"Stream Raiders Nacague 15.21%  ";"NAOS 84.79%  ";"0";15,21;84,79;0
+"12";"https://www.vlr.gg/188371/team-nkt-vs-attack-all-around-challengers-league-thailand-split-2-w5";"Team NKT 30.22%  ";"Attack All Around 69.78%  ";"0";30,22;69,78;0
+"13";"https://www.vlr.gg/202381/s2-esports-vs-utt-esports-challengers-league-taiwan-hong-kong-split-2-r6";"S2 Esports 21.44%  ";"UTT Esports 78.56%  ";"1";21,44;78,56;0
+"14";"https://www.vlr.gg/204417/weibo-gaming-vs-monarch-effect-fgc-valorant-invitational-2023-act-2-opening-b";"Weibo Gaming 68.29%  ";"Monarch Effect 31.71%  ";"0";68,29;31,71;1
+"15";"https://www.vlr.gg/188045/teo-teo-teo-vs-bikini-bottom-pratahouse-challengers-league-malaysia-singapore-split-2-d14";"Teo Teo Teo 54.07%  ";"Bikini Bottom Pratahouse 45.93%  ";"0";54,07;45,93;1
+"16";"https://www.vlr.gg/204037/orangutan-vs-mlt-esports-challengers-league-south-asia-split-2-w2";"Orangutan 78.13%  ";"MLT Esports 21.87%  ";"1";78,13;21,87;1
+"17";"https://www.vlr.gg/184048/fut-esports-vs-karmine-corp-champions-tour-2023-emea-league-w6";"FUT Esports 74.39%  ";"Karmine Corp 25.61%  ";"1";74,39;25,61;1
+"18";"https://www.vlr.gg/184049/koi-vs-bbl-esports-champions-tour-2023-emea-league-w6";"KOI 68.93%  ";"BBL Esports 31.07%  ";"0";68,93;31,07;1
+"19";"https://www.vlr.gg/193565/red-canids-vs-tbk-esports-challengers-league-brazil-split-2-w5";"RED Canids 76.03%  ";"TBK Esports 23.97%  ";"0";76,03;23,97;1
+"20";"https://www.vlr.gg/196147/m80-vs-shopify-rebellion-challengers-league-north-america-w3";"M80 71.75%  ";"Shopify Rebellion 28.25%  ";"0";71,75;28,25;1
+"21";"https://www.vlr.gg/202357/optix-vs-9z-team-challengers-league-latam-south-fire-split-2-w2";"Optix 19.21%  ";"9z Team 80.79%  ";"1";19,21;80,79;0
+"22";"https://www.vlr.gg/193566/keyd-stars-vs-liberty-challengers-league-brazil-split-2-w5";"Keyd Stars 54.15%  ";"Liberty 45.85%  ";"0";54,15;45,85;1
+"23";"https://www.vlr.gg/196148/the-guard-vs-moist-moguls-challengers-league-north-america-w3";"The Guard 42.08%  ";"Moist Moguls 57.92%  ";"0";42,08;57,92;0
+"24";"https://www.vlr.gg/193462/crest-gaming-zst-vs-scarz-challengers-league-japan-split-2-d11";"Crest Gaming Zst 40.78%  ";"SCARZ 59.22%  ";"0";40,78;59,22;0
