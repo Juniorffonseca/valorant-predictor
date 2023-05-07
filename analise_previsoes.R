@@ -86,23 +86,52 @@ previsoes <- read.csv2('csv/previsao_diaria/previsoes_odds.csv') %>% select(-X)
 previsoes$ganhador <- as.factor(previsoes$ganhador)
 previsoes$prev <- as.factor(previsoes$prev)
 
+# Tentar dividir por região/país
+paises_times <- matrix(nrow = 0, ncol = 2)
+
+urls <- previsoes$b
+
+for(url in urls){
+  paises_times <- read_html(url) %>% html_nodes('div.match-header a') %>% 
+    html_attr('href') %>% .[2:3] %>% rbind(paises_times)
+}
+
+paises_times <- as.data.frame(paises_times) %>%
+  `rownames<-`(NULL) %>% slice(rev(row_number()))
+
+paises_times$V1 <- paste0('https://www.vlr.gg', paises_times$V1)
+paises_times$V2 <- paste0('https://www.vlr.gg', paises_times$V2)
+
+paises_times_2 <- matrix(nrow = 0, ncol = 2)
+
+for(url in 1:nrow(paises_times)){
+  url1 <- paises_times[url, 'V1']
+  url2 <- paises_times[url, 'V2']
+  pais1 <- read_html(url1) %>% html_nodes('div.team-header-country') %>% 
+    html_text() %>% str_replace_all('\n', '') %>% str_replace_all('\t', '')
+  pais2 <- read_html(url2) %>% html_nodes('div.team-header-country') %>% 
+    html_text() %>% str_replace_all('\n', '') %>% str_replace_all('\t', '')
+  
+  paises_times_2 <- rbind(paises_times_2, cbind(pais1, pais2))
+}
+
+paises_times_2 <- as.data.frame(paises_times_2)
+
+previsoes$pais_1 <- paises_times_2$pais1
+previsoes$pais_2 <- paises_times_2$pais2
+previsoes$pais_comum <- ifelse(previsoes$pais_1 == previsoes$pais_2, previsoes$pais_1, 'N')
+
+write.csv2(previsoes, 'csv/previsao_diaria/previsoes_odds.csv')
+previsoes <- read.csv2('csv/previsao_diaria/previsoes_odds.csv') %>% select(-X)
+
 # Definir o valor da aposta
-valor_aposta <- 5
-
-# Calcular o lucro ou prejuízo de cada aposta, ignorando valores NA nas odds
-# previsoes <- previsoes %>%
-#   mutate(lucro = ifelse(is.na(odds), NA, ifelse(ganhador == prev, valor_aposta * (as.numeric(odds) - 1), -valor_aposta)))
-
-# Calcular o resultado total das apostas, ignorando valores NA na coluna lucro
-#resultado <- sum(previsoes$lucro, na.rm = TRUE)
-
-# Imprimir o resultado
-#cat("Resultado total das apostas: R$", resultado, "\n")
-
-# PAREI AQUI... PRECISO RESOLVER ISSO
-# Definir o valor mínimo de probabilidade para considerar uma aposta
+valor_aposta <- 50
 prob_minima <- 50
-odd_minima <- 1.8
+odd_minima <- 1
+pais_desejado <- 'China'
+
+previsoes <- previsoes %>% filter(pais_1 == 'China' | pais_2 == 'China')
+previsoes <- previsoes %>% filter(!is.na(odds))
 
 # Calcular o lucro ou prejuízo de cada aposta, considerando apenas previsões com probabilidade acima da prob_minima e que estão corretas
 previsoes <- previsoes %>%
@@ -113,6 +142,8 @@ resultado <- sum(previsoes$lucro, na.rm = TRUE)
 
 # Imprimir o resultado
 cat("Resultado total das apostas: R$", resultado, "\n")
+
+################################################################################
 
 # ver quantos jogos seriam
 sum(!is.na(previsoes$lucro))
