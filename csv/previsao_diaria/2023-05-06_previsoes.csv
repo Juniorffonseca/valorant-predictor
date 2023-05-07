@@ -1,29 +1,27 @@
-"";"V1";"V2"
-"1";"Talon Esports 26.38%  ";"Gen.G 73.62%  "
-"2";"Totoro Gaming 65.98%  ";"Gank Gaming 34.02%  "
-"3";"ZETA DIVISION 18.86%  ";"Paper Rex 81.14%  "
-"4";"Dragon Ranger Gaming 49.7%  ";"Rare Atom 50.3%  "
-"5";"GTZ Esports 68.47%  ";"EGN Esports 31.53%  "
-"6";"Papara SuperMassive 58.87%  ";"S2G Esports 41.13%  "
-"7";"Orangutan 43.32%  ";"Velocity Gaming 56.68%  "
-"8";"FTW Esports 68.22%  ";"Impulse GW 31.78%  "
-"9";"Unicorns of Love 49.56%  ";"Ovation eSports 50.44%  "
-"10";"Anonymo Esports 71.43%  ";"B8 Esports 28.57%  "
-"11";"EX0TIK GAMING 65.08%  ";"Panthers Esports 34.92%  "
-"12";"Diamant Esports 74.85%  ";"Zero Tenacity 25.15%  "
-"13";"Joblife 36.61%  ";"BLX UTD 63.39%  "
-"14";"Axolotl 23.77%  ";"HMBLE 76.23%  "
-"15";"SAW 81.26%  ";"Team Vikings 18.74%  "
-"16";"Angry Titans 59.71%  ";"Laterious 40.29%  "
-"17";"Rapid Ninjas 25.54%  ";"Acend 74.46%  "
-"18";"Solary 67.37%  ";"WYLDE 32.63%  "
-"19";"Galakticos 25.58%  ";"Galatasaray Esports 74.42%  "
-"20";"Outplayed 13.65%  ";"DSYRE 86.35%  "
-"21";"Enterprise Esports 52.68%  ";"NOM Esports 47.32%  "
-"22";"Gentle Mates 78.7%  ";"Akroma 21.3%  "
-"23";"Evil Geniuses 47.14%  ";"Sentinels 52.86%  "
-"24";"GMT Esports 86.13%  ";"Macko Esports 13.87%  "
-"25";"3DMAX 39.28%  ";"Mandatory 60.72%  "
-"26";"QLASH 38.37%  ";"WLGaming Esports 61.63%  "
-"27";"VALIANT 68.36%  ";"Zerance 31.64%  "
-"28";"Cloud9 53.4%  ";"MIBR 46.6%  "
+"";"b";"V1";"V2";"ganhador";"V1_n";"V2_n";"prev"
+"1";"https://www.vlr.gg/184488/talon-esports-vs-gen-g-champions-tour-2023-pacific-league-w7";"Talon Esports 26.38%  ";"Gen.G 73.62%  ";"1";26,38;73,62;0
+"2";"https://www.vlr.gg/204426/totoro-gaming-vs-gank-gaming-fgc-valorant-invitational-2023-act-2-opening-d";"Totoro Gaming 65.98%  ";"Gank Gaming 34.02%  ";"1";65,98;34,02;1
+"3";"https://www.vlr.gg/184489/zeta-division-vs-paper-rex-champions-tour-2023-pacific-league-w7";"ZETA DIVISION 18.86%  ";"Paper Rex 81.14%  ";"0";18,86;81,14;0
+"4";"https://www.vlr.gg/204427/dragon-ranger-gaming-vs-rare-atom-fgc-valorant-invitational-2023-act-2-opening-d";"Dragon Ranger Gaming 49.7%  ";"Rare Atom 50.3%  ";"0";49,7;50,3;0
+"5";"https://www.vlr.gg/188494/gtz-esports-vs-egn-esports-challengers-league-portugal-tempest-split-2-regular-season-r11";"GTZ Esports 68.47%  ";"EGN Esports 31.53%  ";"1";68,47;31,53;1
+"6";"https://www.vlr.gg/189087/papara-supermassive-vs-s2g-esports-challengers-league-turkey-birlik-split-2-group-stage-w5";"Papara SuperMassive 58.87%  ";"S2G Esports 41.13%  ";"0";58,87;41,13;1
+"7";"https://www.vlr.gg/204039/orangutan-vs-velocity-gaming-challengers-league-south-asia-split-2-w2";"Orangutan 43.32%  ";"Velocity Gaming 56.68%  ";"1";43,32;56,68;0
+"8";"https://www.vlr.gg/188495/ftw-esports-vs-impulse-gw-challengers-league-portugal-tempest-split-2-regular-season-r11";"FTW Esports 68.22%  ";"Impulse GW 31.78%  ";"0";68,22;31,78;1
+"9";"https://www.vlr.gg/189585/anonymo-esports-vs-b8-esports-challengers-league-east-surge-split-2-r11";"Anonymo Esports 71.43%  ";"B8 Esports 28.57%  ";"0";71,43;28,57;1
+"10";"https://www.vlr.gg/188496/ex0tik-gaming-vs-panthers-esports-challengers-league-portugal-tempest-split-2-regular-season-r11";"EX0TIK GAMING 65.08%  ";"Panthers Esports 34.92%  ";"0";65,08;34,92;1
+"11";"https://www.vlr.gg/189586/diamant-esports-vs-zero-tenacity-challengers-league-east-surge-split-2-r11";"Diamant Esports 74.85%  ";"Zero Tenacity 25.15%  ";"0";74,85;25,15;1
+"12";"https://www.vlr.gg/206479/joblife-vs-blx-utd-challengers-league-france-revolution-split-2-w5";"Joblife 36.61%  ";"BLX UTD 63.39%  ";"1";36,61;63,39;0
+"13";"https://www.vlr.gg/188418/axolotl-vs-hmble-challengers-league-italy-rinascimento-split-2-w6";"Axolotl 23.77%  ";"HMBLE 76.23%  ";"1";23,77;76,23;0
+"14";"https://www.vlr.gg/188497/saw-vs-team-vikings-challengers-league-portugal-tempest-split-2-regular-season-r11";"SAW 81.26%  ";"Team Vikings 18.74%  ";"1";81,26;18,74;1
+"15";"https://www.vlr.gg/189587/rapid-ninjas-vs-acend-challengers-league-east-surge-split-2-r11";"Rapid Ninjas 25.54%  ";"Acend 74.46%  ";"0";25,54;74,46;0
+"16";"https://www.vlr.gg/206480/solary-vs-wylde-challengers-league-france-revolution-split-2-w5";"Solary 67.37%  ";"WYLDE 32.63%  ";"0";67,37;32,63;1
+"17";"https://www.vlr.gg/189088/galakticos-vs-galatasaray-esports-challengers-league-turkey-birlik-split-2-group-stage-w5";"Galakticos 25.58%  ";"Galatasaray Esports 74.42%  ";"0";25,58;74,42;0
+"18";"https://www.vlr.gg/188419/outplayed-vs-dsyre-challengers-league-italy-rinascimento-split-2-w6";"Outplayed 13.65%  ";"DSYRE 86.35%  ";"1";13,65;86,35;0
+"19";"https://www.vlr.gg/189588/enterprise-esports-vs-nom-esports-challengers-league-east-surge-split-2-r11";"Enterprise Esports 52.68%  ";"NOM Esports 47.32%  ";"1";52,68;47,32;1
+"20";"https://www.vlr.gg/206481/gentle-mates-vs-akroma-challengers-league-france-revolution-split-2-w5";"Gentle Mates 78.7%  ";"Akroma 21.3%  ";"1";78,7;21,3;1
+"21";"https://www.vlr.gg/183807/evil-geniuses-vs-sentinels-champions-tour-2023-americas-league-w6";"Evil Geniuses 47.14%  ";"Sentinels 52.86%  ";"1";47,14;52,86;0
+"22";"https://www.vlr.gg/188420/gmt-esports-vs-macko-esports-challengers-league-italy-rinascimento-split-2-w6";"GMT Esports 86.13%  ";"Macko Esports 13.87%  ";"0";86,13;13,87;1
+"23";"https://www.vlr.gg/206482/3dmax-vs-mandatory-challengers-league-france-revolution-split-2-w5";"3DMAX 39.28%  ";"Mandatory 60.72%  ";"0";39,28;60,72;0
+"24";"https://www.vlr.gg/188421/qlash-vs-wlgaming-esports-challengers-league-italy-rinascimento-split-2-w6";"QLASH 38.37%  ";"WLGaming Esports 61.63%  ";"1";38,37;61,63;0
+"25";"https://www.vlr.gg/206483/valiant-vs-zerance-challengers-league-france-revolution-split-2-w5";"VALIANT 68.36%  ";"Zerance 31.64%  ";"0";68,36;31,64;1
+"26";"https://www.vlr.gg/183808/cloud9-vs-mibr-champions-tour-2023-americas-league-w6";"Cloud9 53.4%  ";"MIBR 46.6%  ";"1";53,4;46,6;1
