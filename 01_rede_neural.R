@@ -1,29 +1,22 @@
-# Instalando (se necessário) e carregando pacotes ----------------------------------------------------------
-remotes::install_github('Juniorffonseca/r-pacote-valorant')
-library(caret)
-library(dplyr)
-library(tidyr)
-library(rvest)
-library(rsample)
-library(readr)
-library(quantmod)
-library(httr)
-library(tibble)
-library(stringr)
-library(neuralnet)
-library(nnet)
-library(caret)
-library(ggplot2)
-library(ModelMetrics)
-library(beepr)
-library(purrr)
-library(plotly)
-library(pROC)
-library(ROCR)
-library(kableExtra)
-library(glmnet)
-library(valorant)
+# Definindo diretório --------------------------------------------------------------------------------------
 setwd('C:/Users/anonb/Documents/TCC_Pós/Scripts')
+
+# Carregando pacotes ---------------------------------------------------------------------------------------
+pacotes <- c("remotes", "caret", "dplyr", "tidyr", "rvest", "rsample", "readr", "quantmod",
+             "httr", "tibble", "stringr", "neuralnet", "nnet", "ggplot2", "ModelMetrics",
+             "beepr", "purrr", "plotly", "pROC", "ROCR", "kableExtra", "glmnet", "valorant")
+
+for (pacote in pacotes) {
+  if (!require(pacote, character.only = TRUE)) {
+    if (!requireNamespace("remotes", quietly = TRUE)) {
+      install.packages("remotes")
+    }
+    remotes::install_github('Juniorffonseca/r-pacote-valorant')
+    if (!require(pacote, character.only = TRUE)) {
+      stop(paste("Pacote", pacote, "não encontrado"))
+    }
+  }
+}
 
 # Carregando partidas diarias e unindo em um df ------------------------------------------------------------
 datas <- seq(as.Date('2023-02-19'), Sys.Date() - 1, by = 'day')
@@ -48,7 +41,7 @@ jogos <- select(jogos, ends_with("_diff"), ganhador)
 
 jogos$ganhador <- as.factor(jogos$ganhador)
 
-#write.csv2(jogos, 'csv/partidas_teste_10_04_2023.csv')
+#write.csv2(jogos, 'csv/partidas_teste_10_04_2023.csv') # Salvar apenas conforme for criado outro modelo
 
 # Criando dataframes de teste e validação -----------------------------------------------------------------
 set.seed(1)
@@ -62,7 +55,7 @@ hidden_n <- c(15)
 
 formula <- 'ganhador == 1 ~ .'
 
-# Normalizando os dados ------------------------------------------------------------------------------------
+# Normalizando os dados -----------------------------------------------------------------------------------
 normalizando_test <- dplyr::select(test_data, -ganhador)
 normalizando_test <- as.data.frame(scale(normalizando_test))
 test_data <- dplyr::select(test_data, ganhador)
@@ -87,7 +80,7 @@ n <- neuralnet(formula,
 
 #plot(n, rep = 1)
 
-# Prediction ---------------------------------------------------------------------------------------------
+# Prediction ----------------------------------------------------------------------------------------------
 Predict = compute(n, test_data)
 
 nn2 <<- ifelse(Predict$net.result[,1]>0.5,1,0)
@@ -95,7 +88,7 @@ nn2 <<- ifelse(Predict$net.result[,1]>0.5,1,0)
 predictVstest <- cbind(test_data, Predict$net.result)
 i <<- sum(predictVstest$ganhador == nn2)/ nrow(test_data)
 
-# Achar uma boa seed -------------------------------------------------------------------------------------
+# Achar uma boa seed --------------------------------------------------------------------------------------
 s <- 281768
 w <- 0.1
 
@@ -107,7 +100,7 @@ while ( i < 0.78) {
   print(round(w, 2))
 }
 
-# Atualizando a seed para achar a melhor neuralnetwork ----------------------------------------------------
+# Atualizando a seed para achar a melhor neuralnetwork ---------------------------------------------------
 set.seed(s-1) #22263
 data_split <- initial_split(jogos, prop = 0.7, strata = 'ganhador')
 training_data <- training(data_split)
@@ -129,7 +122,7 @@ nn2 <<- ifelse(Predict$net.result[,1]>0.5,1,0)
 
 predictVstest <- cbind(test_data, Predict$net.result)
 
-# Procurando uma rede neural com acuracia acima de determinado percentual --------------------------------
+# Procurando uma rede neural com acuracia acima de determinado percentual ---------------------------------
 z <- 0.1
 
 while (i < 0.78) {
@@ -139,7 +132,7 @@ beep(8)
 
 #save(n, file ='rede_neural_10_04_2023.rda')
 
-# Matriz de confusão ---------------------------------------------------------------------------------------
+# Carregando os dados --------------------------------------------------------------------------------------
 jogos <- read.csv2('csv/partidas_teste_10_04_2023.csv') %>% dplyr::select(-X)
 jogos$ganhador <- as.factor(jogos$ganhador)
 s <- 281768
@@ -161,7 +154,7 @@ training_data <- cbind(normalizando_training, training_data)
 test_data$ganhador <- as.factor(test_data$ganhador)
 training_data$ganhador <- as.factor(training_data$ganhador)
 
-# Carregando modelo e obtendo os resultados
+# Carregando modelo e obtendo os resultados ----------------------------------------------------------------
 load('rede_neural_10_04_2023.rda')
 Predict = compute(n, test_data)
 nn2 <- ifelse(Predict$net.result[,1]>0.5, 1, 0)
@@ -202,7 +195,6 @@ ggplot() +
         legend.text = element_text(size = 10),
         legend.title = element_text(size = 10)
   )
-
 
 # Plot matriz de confusão
 ggplot(data = x, mapping = aes(x = Reference, y = Prediction)) +
@@ -408,7 +400,8 @@ cat('Precisão nos dados de teste:', test_acc, '\n')
 
 # Verificar se há overfitting comparando a precisão nos conjuntos de treinamento e teste
 if(test_acc < train_acc){
-  cat('A precisão nos dados de teste é menor do que a precisão nos dados de treinamento, o que pode indicar overfitting.\n')
+  cat('A precisão nos dados de teste é menor do que a precisão nos dados de treinamento,
+      o que pode indicar overfitting.\n')
 } else {
   cat('Não há evidência de overfitting.\n')
 }
