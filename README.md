@@ -25,6 +25,14 @@ A outra parte do deploy, responsável pela parte "backend". Contém script que f
 
 Gráfico representando as probabilidades do time 1 ganhar baseadas na saída da rede neural. O vermelho representa partidas em que o time 1 não ganhou. O verde as que ganhou. É possível notar que os picos de densidades ocorrem antes e após o 50%, representando que quando a probabilidade era maior que 50%, na maioria dos casos, os times realmente ganharam e quando era menor que 50% eles perderam.
 
+## Frequência de jogadores por países nas amostras de teste e treinamento utilizadas:
+![image](https://github.com/Juniorffonseca/valorant-predictor/assets/94936578/08d9edd3-0d9f-4a8f-8c2d-29f5f0a473b4)
+
+
+## Frequência de times por países nas amostras de teste e treinamento utilizadas:
+![image](https://github.com/Juniorffonseca/valorant-predictor/assets/94936578/7fcb2325-a817-4347-a900-841646573b48)
+
+
 ## Metodologia
 ![image](https://user-images.githubusercontent.com/94936578/231924446-3f319e07-02f4-45fd-9c5e-680a4297011a.png)
 
@@ -70,6 +78,14 @@ The other part of the deploy, responsible for the "backend" part. It contains a 
 
 
 Graph representing the probabilities of team 1 to win based on the output of the neural network. Red represents matches in which team 1 did not win. The green ones won. It is possible to notice that the density peaks occur before and after 50%, representing that when the probability was greater than 50%, in most cases, the teams actually won and when it was less than 50%, they lost.
+
+## Frequency of players by country in Testing and training samples used:
+![image](https://github.com/Juniorffonseca/valorant-predictor/assets/94936578/08d9edd3-0d9f-4a8f-8c2d-29f5f0a473b4)
+
+
+## Frequency of teams by country in Testing and training samples used:
+![image](https://github.com/Juniorffonseca/valorant-predictor/assets/94936578/7fcb2325-a817-4347-a900-841646573b48)
+
 
 ## Confusion matrix
 ![matriz_de_confusao](https://user-images.githubusercontent.com/94936578/231940287-e96ea578-3e27-4c47-a356-6835cb7315c2.jpeg)
