@@ -1,31 +1,29 @@
-"";"V1";"V2"
-"1";"Singapore 25.63%  ";"Vietnam 74.37%  "
-"2";"Cambodia 27.53%  ";"Malaysia 72.47%  "
-"3";"Philippines 69.42%  ";"Indonesia 30.58%  "
-"4";"Vietnam 69.16%  ";"Cambodia 30.84%  "
-"5";"Malaysia 52.24%  ";"Philippines 47.76%  "
-"6";"DRX 49.37%  ";"DetonatioN FocusMe 50.63%  "
-"7";"Singapore 29.96%  ";"Indonesia 70.04%  "
-"8";"Philippines 72.8%  ";"Vietnam 27.2%  "
-"9";"Singapore 84.71%  ";"Cambodia 15.29%  "
-"10";"Indonesia 60.97%  ";"Malaysia 39.03%  "
-"11";"MLT Esports 20.24%  ";"Velocity Gaming 79.76%  "
-"12";"Philippines 76.32%  ";"Cambodia 23.68%  "
-"13";"Guild X 79.6%  ";"Case Hydra 20.4%  "
-"14";"Acend Rising 53.56%  ";"Ninjas in Pyjamas Lightning 46.44%  "
-"15";"Team Falcons Vega 47.76%  ";"KPI Shine 52.24%  "
-"16";"GeeKay Esports Cherry 50.52%  ";"Karmine Corp GC 49.48%  "
-"17";"BLX UTD 35.21%  ";"Mandatory 64.79%  "
-"18";"Gentle Mates 37.93%  ";"VALIANT 62.07%  "
-"19";"Digital Athletics 30.05%  ";"S2G Esports 69.95%  "
-"20";"3DMAX 55.58%  ";"Akroma 44.42%  "
-"21";"NRG Esports 54.37%  ";"FURIA 45.63%  "
-"22";"Les Petits Bouffons 50.71%  ";"Apeks 49.29%  "
-"23";"Natus Vincere Celestials 47.41%  ";"CBA 52.59%  "
-"24";"Rebels Velvet 37.23%  ";"G2 Gozen 62.77%  "
-"25";"BBL Queens 58.97%  ";"Alliance Coven 41.03%  "
-"26";"UNtapped 47.98%  ";"FOKUS Sakura 52.02%  "
-"27";"Solary 69.79%  ";"Zerance 30.21%  "
-"28";"Joblife 38.91%  ";"WYLDE 61.09%  "
-"29";"E-Xolos LAZER 30.83%  ";"RETA Esports 69.17%  "
-"30";"Skull Cracker 39.41%  ";"19esports 60.59%  "
+"";"b";"V1";"V2";"ganhador";"V1_n";"V2_n";"prev"
+"1";"https://www.vlr.gg/206818/singapore-vs-vietnam-32nd-southeast-asian-games-d1";"Singapore 25.63%  ";"Vietnam 74.37%  ";"0";25,63;74,37;0
+"2";"https://www.vlr.gg/206819/cambodia-vs-malaysia-32nd-southeast-asian-games-d1";"Cambodia 27.53%  ";"Malaysia 72.47%  ";"1";27,53;72,47;0
+"3";"https://www.vlr.gg/206820/philippines-vs-indonesia-32nd-southeast-asian-games-d1";"Philippines 69.42%  ";"Indonesia 30.58%  ";"1";69,42;30,58;1
+"4";"https://www.vlr.gg/206821/vietnam-vs-cambodia-32nd-southeast-asian-games-d1";"Vietnam 69.16%  ";"Cambodia 30.84%  ";"1";69,16;30,84;1
+"5";"https://www.vlr.gg/206822/malaysia-vs-philippines-32nd-southeast-asian-games-d1";"Malaysia 52.24%  ";"Philippines 47.76%  ";"0";52,24;47,76;1
+"6";"https://www.vlr.gg/184492/drx-vs-detonation-focusme-champions-tour-2023-pacific-league-w7";"DRX 49.37%  ";"DetonatioN FocusMe 50.63%  ";"1";49,37;50,63;0
+"7";"https://www.vlr.gg/206823/singapore-vs-indonesia-32nd-southeast-asian-games-d1";"Singapore 29.96%  ";"Indonesia 70.04%  ";"1";29,96;70,04;0
+"8";"https://www.vlr.gg/206824/philippines-vs-vietnam-32nd-southeast-asian-games-d1";"Philippines 72.8%  ";"Vietnam 27.2%  ";"1";72,8;27,2;1
+"9";"https://www.vlr.gg/206825/singapore-vs-cambodia-32nd-southeast-asian-games-d1";"Singapore 84.71%  ";"Cambodia 15.29%  ";"1";84,71;15,29;1
+"10";"https://www.vlr.gg/206826/indonesia-vs-malaysia-32nd-southeast-asian-games-d1";"Indonesia 60.97%  ";"Malaysia 39.03%  ";"1";60,97;39,03;1
+"11";"https://www.vlr.gg/204041/mlt-esports-vs-velocity-gaming-challengers-league-south-asia-split-2-w2";"MLT Esports 20.24%  ";"Velocity Gaming 79.76%  ";"0";20,24;79,76;0
+"12";"https://www.vlr.gg/206827/philippines-vs-cambodia-32nd-southeast-asian-games-d1";"Philippines 76.32%  ";"Cambodia 23.68%  ";"1";76,32;23,68;1
+"13";"https://www.vlr.gg/197270/guild-x-vs-case-hydra-game-changers-2023-series-i-emea-groups-r6";"Guild X 79.6%  ";"Case Hydra 20.4%  ";"1";79,6;20,4;1
+"14";"https://www.vlr.gg/197271/acend-rising-vs-ninjas-in-pyjamas-gc-game-changers-2023-series-i-emea-groups-r6";"Acend Rising 53.56%  ";"Ninjas in Pyjamas Lightning 46.44%  ";"1";53,56;46,44;1
+"15";"https://www.vlr.gg/197272/team-falcons-vega-vs-kpi-shine-game-changers-2023-series-i-emea-groups-r6";"Team Falcons Vega 47.76%  ";"KPI Shine 52.24%  ";"0";47,76;52,24;0
+"16";"https://www.vlr.gg/197273/geekay-esports-cherry-vs-karmine-corp-gc-game-changers-2023-series-i-emea-groups-r6";"GeeKay Esports Cherry 50.52%  ";"Karmine Corp GC 49.48%  ";"0";50,52;49,48;1
+"17";"https://www.vlr.gg/206489/blx-utd-vs-mandatory-challengers-league-france-revolution-split-2-w5";"BLX UTD 35.21%  ";"Mandatory 64.79%  ";"0";35,21;64,79;0
+"18";"https://www.vlr.gg/206490/gentle-mates-vs-valiant-challengers-league-france-revolution-split-2-w5";"Gentle Mates 37.93%  ";"VALIANT 62.07%  ";"1";37,93;62,07;0
+"19";"https://www.vlr.gg/189091/digital-athletics-vs-s2g-esports-challengers-league-turkey-birlik-split-2-group-stage-w5";"Digital Athletics 30.05%  ";"S2G Esports 69.95%  ";"1";30,05;69,95;0
+"20";"https://www.vlr.gg/206491/3dmax-vs-akroma-challengers-league-france-revolution-split-2-w5";"3DMAX 55.58%  ";"Akroma 44.42%  ";"0";55,58;44,42;1
+"21";"https://www.vlr.gg/183811/nrg-esports-vs-furia-champions-tour-2023-americas-league-w6";"NRG Esports 54.37%  ";"FURIA 45.63%  ";"1";54,37;45,63;1
+"22";"https://www.vlr.gg/188579/les-petits-bouffons-vs-apeks-challengers-league-northern-europe-polaris-split-2-r6";"Les Petits Bouffons 50.71%  ";"Apeks 49.29%  ";"0";50,71;49,29;1
+"23";"https://www.vlr.gg/197239/natus-vincere-celestials-vs-cba-game-changers-2023-series-i-emea-groups-r6";"Natus Vincere Celestials 47.41%  ";"CBA 52.59%  ";"0";47,41;52,59;0
+"24";"https://www.vlr.gg/197240/rebels-velvet-vs-g2-gozen-game-changers-2023-series-i-emea-groups-r6";"Rebels Velvet 37.23%  ";"G2 Gozen 62.77%  ";"0";37,23;62,77;0
+"25";"https://www.vlr.gg/197241/bbl-queens-vs-alliance-coven-game-changers-2023-series-i-emea-groups-r6";"BBL Queens 58.97%  ";"Alliance Coven 41.03%  ";"1";58,97;41,03;1
+"26";"https://www.vlr.gg/197242/untapped-vs-fokus-sakura-game-changers-2023-series-i-emea-groups-r6";"UNtapped 47.98%  ";"FOKUS Sakura 52.02%  ";"0";47,98;52,02;0
+"27";"https://www.vlr.gg/206492/solary-vs-zerance-challengers-league-france-revolution-split-2-w5";"Solary 69.79%  ";"Zerance 30.21%  ";"0";69,79;30,21;1
+"28";"https://www.vlr.gg/206493/joblife-vs-wylde-challengers-league-france-revolution-split-2-w5";"Joblife 38.91%  ";"WYLDE 61.09%  ";"0";38,91;61,09;0
