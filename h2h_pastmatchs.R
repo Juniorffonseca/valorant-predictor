@@ -44,3 +44,5 @@ z <- read_html(url_teste) %>% html_nodes('div.wf-card.mod-dark.match-histories.m
   html_text() %>% str_replace_all('\n', ' ') %>% str_replace_all('\t', '')
 
 z
+
+# Parei aqui
