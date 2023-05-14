@@ -18,6 +18,9 @@ for (pacote in pacotes) {
   }
 }
 
+# Limpando o Environment
+rm(list=ls())
+
 # Carregando partidas diarias e unindo em um df ------------------------------------------------------------
 datas <- seq(as.Date('2023-02-19'), Sys.Date() - 1, by = 'day')
 nomes_arquivos <- paste0('csv/catalogacao_diaria/', format(datas, '%Y-%m-%d'), '_urls.csv')
@@ -35,15 +38,36 @@ row.names(urls) <- NULL
 url_teste <- urls[1,]
 
 # H2H -------------------------------------------------------------------------------------------------------
-x <- read_html(url_teste) %>% html_nodes('div.match-h2h-matches-score') %>% html_text() %>%
-  str_replace_all('\n', ' ') %>% str_replace_all('\t', '') %>%
-  str_match("^\\s*(\\d+)\\s*(\\d+)\\s*$")
+h2h <- list()
 
-x <- x[,-1] 
+for (url in urls[,]){
+  tryCatch({
+    x <- read_html(url) %>% html_nodes('div.match-h2h-matches-score') %>% html_text() %>%
+      str_replace_all('\n', ' ') %>% str_replace_all('\t', '') %>%
+      str_match("^\\s*(\\d+)\\s*(\\d+)\\s*$")
+    
+    if (is.null(x)) {
+      # Não houve partida no histórico
+      h2h_temp <- cbind(NA, NA)
+    } else if (nrow(x) == 1) {
+      # Houve apenas uma partida no histórico
+      x <- x[,-1]
+      t1 <- as.numeric(x[1])
+      t2 <- as.numeric(x[2])
+      h2h_temp <- cbind(t1, t2)
+    } else {
+      # Houve duas ou mais partidas no histórico
+      x <- x[,-1]
+      t1 <- sum(as.numeric(x[,1]))
+      t2 <- sum(as.numeric(x[,2]))
+      h2h_temp <- cbind(t1, t2)
+    }
+    
+    h2h[[length(h2h)+1]] <- h2h_temp
+  }
+  , error = function(e){cat('error:', conditionMessage(e), '\n')})
+}
 
-t1 <- sum(as.numeric(x[,1]))
-t2 <- sum(as.numeric(x[,2]))
-h2h <- cbind(t1, t2)
 ## Finalizado praticamente, agr só preciso colocar para iterar em todos os links ----------------------------
 
 # Past Matchs -----------------------------------------------------------------------------------------------
