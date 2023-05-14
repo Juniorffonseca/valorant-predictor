@@ -39,6 +39,8 @@ for (i in vars) {
 
 jogos <- select(jogos, ends_with("_diff"), ganhador)
 
+jogos <- cbind(jogos, h2h, p_matchs)
+
 jogos$ganhador <- as.factor(jogos$ganhador)
 
 #write.csv2(jogos, 'csv/partidas_teste_10_04_2023.csv') # Salvar apenas conforme for criado outro modelo
@@ -51,7 +53,7 @@ data_split <- initial_split(jogos, prop = 0.7, strata = 'ganhador')
 training_data <- training(data_split)
 test_data <- testing(data_split)
 
-hidden_n <- c(15)
+hidden_n <- c(20)
 
 formula <- 'ganhador == 1 ~ .'
 
@@ -92,7 +94,7 @@ i <<- sum(predictVstest$ganhador == nn2)/ nrow(test_data)
 s <- 281768
 w <- 0.1
 
-while ( i < 0.78) {
+while ( i < 0.70) {
   achar_Seed(s, hidden_n, t = 0.5, mostrar_i = F)
   s <- s + 1
   w <<- ifelse(i>w, w <<- i, w <<- w) 

@@ -68,22 +68,39 @@ for (url in urls[,]){
   , error = function(e){cat('error:', conditionMessage(e), '\n')})
 }
 
-## Finalizado praticamente, agr só preciso colocar para iterar em todos os links ----------------------------
+h2h <- h2h %>% map_df(as_tibble)
+
+write.csv2(h2h, 'h2h.csv')
 
 # Past Matchs -----------------------------------------------------------------------------------------------
-z <- read_html(url_teste) %>% html_nodes('div.match-histories-item-result span') %>%
-  html_text() %>% str_replace_all('\n', ' ') %>% str_replace_all('\t', '')
+p_matchs <- list()
 
-z <- as.numeric(z)
+for (url in urls[,]){
+  tryCatch({
+    z <- read_html(url) %>% html_nodes('div.match-histories-item-result span') %>%
+      html_text() %>% str_replace_all('\n', ' ') %>% str_replace_all('\t', '')
+    
+    z <- as.numeric(z)
+    
+    wins_t1 <- sum(z[1], z[3], z[5], z[7], z[9])
+    loses_t1 <- sum(z[2], z[4], z[6], z[8], z[10])
+    profit_t1 <- (wins_t1 - loses_t1)
+    
+    wins_t2 <- sum(z[11], z[13], z[15], z[17], z[19])
+    loses_t2 <- sum(z[12], z[14], z[16], z[18], z[20])
+    profit_t2 <- (wins_t2 - loses_t2)
+    
+    past_matches <- cbind(profit_t1, profit_t2) 
+    
+    p_matchs[[length(p_matchs)+1]] <- past_matches
+    ## Finalizado praticamente, agr só preciso colocar para iterar em todos os links ----------------------------
+    
+  }
+  , error = function(e){cat('error:', conditionMessage(e), '\n')})
+}
 
-wins_t1 <- sum(z[1], z[3], z[5], z[7], z[9])
-loses_t1 <- sum(z[2], z[4], z[6], z[8], z[10])
-profit_t1 <- (wins_t1 - loses_t1)
+p_matchs <- p_matchs %>% map_df(as_tibble)
 
-wins_t2 <- sum(z[11], z[13], z[15], z[17], z[19])
-loses_t2 <- sum(z[12], z[14], z[16], z[18], z[20])
-profit_t2 <- (wins_t2 - loses_t2)
+p_matchs[is.na(p_matchs)] <- 0
 
-past_matches <- cbind(profit_t1, profit_t2) 
-## Finalizado praticamente, agr só preciso colocar para iterar em todos os links ----------------------------
-
+write.csv2(p_matchs, 'p_matchs.csv')
