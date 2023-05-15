@@ -125,17 +125,17 @@ write.csv2(previsoes, 'csv/previsao_diaria/previsoes_odds.csv')
 previsoes <- read.csv2('csv/previsao_diaria/previsoes_odds.csv') %>% select(-X)
 
 # Definir o valor da aposta
-valor_aposta <- 50
+valor_aposta <- 10
 prob_minima <- 50
 odd_minima <- 1
-pais_desejado <- 'China'
+#pais_desejado <- 'China'
 
-previsoes <- previsoes %>% filter(pais_1 == 'China' | pais_2 == 'China')
+#previsoes <- previsoes %>% filter(pais_1 == 'China' | pais_2 == 'China')
 previsoes <- previsoes %>% filter(!is.na(odds))
 
 # Calcular o lucro ou prejuízo de cada aposta, considerando apenas previsões com probabilidade acima da prob_minima e que estão corretas
 previsoes <- previsoes %>%
-  mutate(lucro = ifelse((V1_n > prob_minima & ganhador == 1 & prev == 1 & odds > odd_minima) | (V2_n > prob_minima & ganhador == 2 & prev == 2 & odds > odd_minima), valor_aposta * (odds - 1), ifelse((V1_n > prob_minima & V1_n < 100-prob_minima & ganhador != 1 & prev == 1 & odds > odd_minima) | (V2_n > prob_minima & V2_n < 100-prob_minima & ganhador != 2 & prev == 2 & odds > odd_minima), -valor_aposta, ifelse((V1_n > prob_minima & ganhador != 1 & prev == 1 & odds > odd_minima) | (V2_n > prob_minima & ganhador != 2 & prev == 2 & odds > odd_minima), -valor_aposta, 0))))
+  mutate(lucro = ifelse((V1_n > prob_minima & ganhador == 1 & prev == 1 & odds > odd_minima) | (V2_n > prob_minima & ganhador == 0 & prev == 0 & odds > odd_minima), valor_aposta * (odds - 1), ifelse((V1_n > prob_minima & V1_n < 100-prob_minima & ganhador != 1 & prev == 1 & odds > odd_minima) | (V2_n > prob_minima & V2_n < 100-prob_minima & ganhador != 0 & prev == 0 & odds > odd_minima), -valor_aposta, ifelse((V1_n > prob_minima & ganhador != 1 & prev == 1 & odds > odd_minima) | (V2_n > prob_minima & ganhador != 0 & prev == 0 & odds > odd_minima), -valor_aposta, 0))))
 
 # Calcular o resultado total das apostas, ignorando valores NA na coluna lucro
 resultado <- sum(previsoes$lucro, na.rm = TRUE)
@@ -160,7 +160,7 @@ k <- 1
 for (i in 1:length(prob_minima)) {
   for (j in 1:length(odd_minima)) {
     previsoes_temp <- previsoes %>%
-      mutate(lucro = ifelse((V1_n > prob_minima[i] & ganhador == 1 & prev == 1 & odds > odd_minima[j]) | (V2_n > prob_minima[i] & ganhador == 2 & prev == 2 & odds > odd_minima[j]), valor_aposta * (odds - 1), ifelse((V1_n > prob_minima[i] & V1_n < 100-prob_minima[i] & ganhador != 1 & prev == 1 & odds > odd_minima[j]) | (V2_n > prob_minima[i] & V2_n < 100-prob_minima[i] & ganhador != 2 & prev == 2 & odds > odd_minima[j]), -valor_aposta, ifelse((V1_n > prob_minima[i] & ganhador != 1 & prev == 1 & odds > odd_minima[j]) | (V2_n > prob_minima[i] & ganhador != 2 & prev == 2 & odds > odd_minima[j]), -valor_aposta, 0))))
+      mutate(lucro = ifelse((V1_n > prob_minima[i] & ganhador == 1 & prev == 1 & odds > odd_minima[j]) | (V2_n > prob_minima[i] & ganhador == 0 & prev == 0 & odds > odd_minima[j]), valor_aposta * (odds - 1), ifelse((V1_n > prob_minima[i] & V1_n < 100-prob_minima[i] & ganhador != 1 & prev == 1 & odds > odd_minima[j]) | (V2_n > prob_minima[i] & V2_n < 100-prob_minima[i] & ganhador != 0 & prev == 0 & odds > odd_minima[j]), -valor_aposta, ifelse((V1_n > prob_minima[i] & ganhador != 1 & prev == 1 & odds > odd_minima[j]) | (V2_n > prob_minima[i] & ganhador != 0 & prev == 0 & odds > odd_minima[j]), -valor_aposta, 0))))
     resultados[k] <- sum(previsoes_temp$lucro, na.rm = TRUE)
     k <- k + 1
   }
