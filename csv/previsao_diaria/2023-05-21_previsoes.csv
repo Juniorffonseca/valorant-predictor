@@ -1,22 +1,20 @@
-"";"V1";"V2"
-"1";"Team Secret 75.85%  ";"Gen.G 24.15%  "
-"2";"Bilibili Gaming 28.86%  ";"EDward Gaming 71.14%  "
-"3";"T1 72.06%  ";"ZETA DIVISION 27.94%  "
-"4";"GTZ Esports 65.21%  ";"EGN Esports 34.79%  "
-"5";"Thunderbolts Gaming 20.84%  ";"Papara SuperMassive 79.16%  "
-"6";"Revenant Esports 50.48%  ";"Reckoning Esports 49.52%  "
-"7";"MOUZ 56.82%  ";"Ovation eSports 43.18%  "
-"8";"GONext Esports 50.65%  ";"Anonymo Esports 49.35%  "
-"9";"AYM Esports 23.41%  ";"KPI Gaming 76.59%  "
-"10";"NOM Esports 60.18%  ";"B8 Esports 39.82%  "
-"11";"BBL Queens 44.44%  ";"G2 Gozen 55.56%  "
-"12";"Falcons 66.98%  ";"ZETA Gaming 33.02%  "
-"13";"QLASH 37.42%  ";"Macko Esports 62.58%  "
-"14";"Enterprise Esports 65.77%  ";"Zero Tenacity 34.23%  "
-"15";"Ramboot Club 73.32%  ";"Rebels Gaming 26.68%  "
-"16";"Fenerbahçe Esports 27.27%  ";"İstanbul Wildcats 72.73%  "
-"17";"UCAM Tokiers 35.42%  ";"Team Queso 64.58%  "
-"18";"Movistar Riders 28.93%  ";"Case Esports 71.07%  "
-"19";"Furious Gaming 60.65%  ";"Optix 39.35%  "
-"20";"Six Karma 49.18%  ";"FUSION 50.82%  "
-"21";"9z Team 72.53%  ";"All Knights 27.47%  "
+"";"b";"V1";"V2";"ganhador";"V1_n";"V2_n";"prev"
+"1";"https://www.vlr.gg/184518/team-secret-vs-gen-g-champions-tour-2023-pacific-league-playoffs-lr1";"Team Secret 75.85%  ";"Gen.G 24.15%  ";"0";75,85;24,15;1
+"2";"https://www.vlr.gg/204443/bilibili-gaming-vs-edward-gaming-fgc-valorant-invitational-2023-act-2-gf";"Bilibili Gaming 28.86%  ";"EDward Gaming 71.14%  ";"0";28,86;71,14;0
+"3";"https://www.vlr.gg/184517/t1-vs-zeta-division-champions-tour-2023-pacific-league-playoffs-lr1";"T1 72.06%  ";"ZETA DIVISION 27.94%  ";"1";72,06;27,94;1
+"4";"https://www.vlr.gg/213638/gtz-esports-vs-egn-esports-challengers-league-portugal-tempest-split-2-lf";"GTZ Esports 65.21%  ";"EGN Esports 34.79%  ";"1";65,21;34,79;1
+"5";"https://www.vlr.gg/189099/thunderbolts-gaming-vs-papara-supermassive-challengers-league-turkey-birlik-split-2-group-stage";"Thunderbolts Gaming 20.84%  ";"Papara SuperMassive 79.16%  ";"0";20,84;79,16;0
+"6";"https://www.vlr.gg/204055/revenant-esports-vs-reckoning-esports-challengers-league-south-asia-split-2-w4";"Revenant Esports 50.48%  ";"Reckoning Esports 49.52%  ";"0";50,48;49,52;1
+"7";"https://www.vlr.gg/188519/mouz-vs-ovation-esports-challengers-league-dach-evolution-split-2-playoffs-lbf";"MOUZ 56.82%  ";"Ovation eSports 43.18%  ";"1";56,82;43,18;1
+"8";"https://www.vlr.gg/189624/gonext-esports-vs-anonymo-esports-challengers-league-east-surge-split-2-r18";"GONext Esports 50.65%  ";"Anonymo Esports 49.35%  ";"0";50,65;49,35;1
+"9";"https://www.vlr.gg/210232/aym-esports-vs-kpi-gaming-challengers-league-spain-rising-split-2-r17";"AYM Esports 23.41%  ";"KPI Gaming 76.59%  ";"1";23,41;76,59;0
+"10";"https://www.vlr.gg/189625/nom-esports-vs-b8-esports-challengers-league-east-surge-split-2-r18";"NOM Esports 60.18%  ";"B8 Esports 39.82%  ";"0";60,18;39,82;1
+"11";"https://www.vlr.gg/209404/bbl-queens-vs-g2-gozen-game-changers-2023-series-i-emea-playoffs-gf";"BBL Queens 44.44%  ";"G2 Gozen 55.56%  ";"0";44,44;55,56;0
+"12";"https://www.vlr.gg/210233/falcons-vs-zeta-gaming-challengers-league-spain-rising-split-2-r17";"Falcons 66.98%  ";"ZETA Gaming 33.02%  ";"0";66,98;33,02;1
+"13";"https://www.vlr.gg/211784/qlash-vs-macko-esports-challengers-league-italy-rinascimento-split-2-lr1";"QLASH 37.42%  ";"Macko Esports 62.58%  ";"0";37,42;62,58;0
+"14";"https://www.vlr.gg/189626/enterprise-esports-vs-zero-tenacity-challengers-league-east-surge-split-2-r18";"Enterprise Esports 65.77%  ";"Zero Tenacity 34.23%  ";"1";65,77;34,23;1
+"15";"https://www.vlr.gg/210234/ramboot-club-vs-rebels-gaming-challengers-league-spain-rising-split-2-r17";"Ramboot Club 73.32%  ";"Rebels Gaming 26.68%  ";"1";73,32;26,68;1
+"16";"https://www.vlr.gg/189100/fenerbah-e-esports-vs-stanbul-wildcats-challengers-league-turkey-birlik-split-2-group-stage-w7";"Fenerbahçe Esports 27.27%  ";"İstanbul Wildcats 72.73%  ";"1";27,27;72,73;0
+"17";"https://www.vlr.gg/210235/ucam-tokiers-vs-team-queso-challengers-league-spain-rising-split-2-r17";"UCAM Tokiers 35.42%  ";"Team Queso 64.58%  ";"1";35,42;64,58;0
+"18";"https://www.vlr.gg/210236/movistar-riders-vs-case-esports-challengers-league-spain-rising-split-2-r17";"Movistar Riders 28.93%  ";"Case Esports 71.07%  ";"0";28,93;71,07;0
+"19";"https://www.vlr.gg/213528/six-karma-vs-fusion-challengers-league-latam-north-ace-split-2-uf";"Six Karma 49.18%  ";"FUSION 50.82%  ";"0";49,18;50,82;0
