@@ -1,21 +1,21 @@
-"";"V1";"V2"
-"1";"BLEED 65.08%  ";"X10 Esports 34.92%  "
-"2";"Jadeite 66.66%  ";"SCARZ 33.34%  "
-"3";"LAZY 53.88%  ";"Tim Tài Trơ 46.12%  "
-"4";"Dominatus 42.48%  ";"BOOM Esports 57.52%  "
-"5";"Oasis Gaming 59.26%  ";"NAOS 40.74%  "
-"6";"Funcrew 63.38%  ";"xyz 36.62%  "
-"7";"XERXIA Esports 23.66%  ";"Made in Thailand 76.34%  "
-"8";"Gank Gaming 73.81%  ";"Invincible Gaming 26.19%  "
-"9";"Number One Player 48.63%  ";"Kingzone 51.37%  "
-"10";"ONE Team Esports 69.53%  ";"Anti Eco Eco Club 30.47%  "
-"11";"The Who? 58.81%  ";"Koopa Troopas 41.19%  "
-"12";"Les Petits Bouffons 59.56%  ";"FOKUS 40.44%  "
-"13";"Aster Army 28.58%  ";"Gods Reign 71.42%  "
-"14";"Rare Atom 41.56%  ";"Monarch Effect 58.44%  "
-"15";"Weibo Gaming 61.65%  ";"Four Angry Men 38.35%  "
-"16";"Galakticos 33.55%  ";"Digital Athletics 66.45%  "
-"17";"Galatasaray Esports 29.7%  ";"S2G Esports 70.3%  "
-"18";"Turtle Troop 24.94%  ";"MAD Lions 75.06%  "
-"19";"Disguised 36.59%  ";"OREsports 63.41%  "
-"20";"The Union 47.18%  ";"00Nation 52.82%  "
+"";"b";"V1";"V2";"ganhador";"V1_n";"V2_n";"prev"
+"1";"https://www.vlr.gg/197722/bleed-vs-x10-esports-challengers-league-malaysia-singapore-split-2-gf";"BLEED 65.08%  ";"X10 Esports 34.92%  ";"1";65,08;34,92;1
+"2";"https://www.vlr.gg/207173/jadeite-vs-scarz-challengers-league-japan-split-2-gf";"Jadeite 66.66%  ";"SCARZ 33.34%  ";"0";66,66;33,34;1
+"3";"https://www.vlr.gg/219752/lazy-vs-tim-t-i-tr-challengers-league-vietnam-split-2-lf";"LAZY 53.88%  ";"Tim Tài Trơ 46.12%  ";"1";53,88;46,12;1
+"4";"https://www.vlr.gg/214831/dominatus-vs-boom-esports-challengers-league-indonesia-split-2-gf";"Dominatus 42.48%  ";"BOOM Esports 57.52%  ";"0";42,48;57,52;0
+"5";"https://www.vlr.gg/181482/oasis-gaming-vs-naos-challengers-league-philippines-split-2-playoffs-gf";"Oasis Gaming 59.26%  ";"NAOS 40.74%  ";"0";59,26;40,74;1
+"6";"https://www.vlr.gg/219741/funcrew-vs-xyz-challengers-league-oceania-split-2-regional-playoffs-lr1";"Funcrew 63.38%  ";"xyz 36.62%  ";"0";63,38;36,62;1
+"7";"https://www.vlr.gg/213126/xerxia-esports-vs-made-in-thailand-challengers-league-thailand-split-2-lf";"XERXIA Esports 23.66%  ";"Made in Thailand 76.34%  ";"1";23,66;76,34;0
+"8";"https://www.vlr.gg/221180/gank-gaming-vs-invincible-gaming-valorant-champions-2023-china-qualifier-r2";"Gank Gaming 73.81%  ";"Invincible Gaming 26.19%  ";"1";73,81;26,19;1
+"9";"https://www.vlr.gg/221181/number-one-player-vs-kingzone-valorant-champions-2023-china-qualifier-r2";"Number One Player 48.63%  ";"Kingzone 51.37%  ";"1";48,63;51,37;0
+"10";"https://www.vlr.gg/213132/one-team-esports-vs-anti-eco-eco-club-challengers-league-taiwan-hong-kong-split-2-gf";"ONE Team Esports 69.53%  ";"Anti Eco Eco Club 30.47%  ";"1";69,53;30,47;1
+"11";"https://www.vlr.gg/219742/the-who-vs-koopa-troopas-challengers-league-oceania-split-2-regional-playoffs-lr1";"The Who? 58.81%  ";"Koopa Troopas 41.19%  ";"0";58,81;41,19;1
+"12";"https://www.vlr.gg/220100/les-petits-bouffons-vs-fokus-challengers-league-northern-europe-polaris-split-2-playoffs-sf";"Les Petits Bouffons 59.56%  ";"FOKUS 40.44%  ";"0";59,56;40,44;1
+"13";"https://www.vlr.gg/211908/aster-army-vs-gods-reign-challengers-league-south-asia-split-2-ubsf";"Aster Army 28.58%  ";"Gods Reign 71.42%  ";"1";28,58;71,42;0
+"14";"https://www.vlr.gg/221182/rare-atom-vs-monarch-effect-valorant-champions-2023-china-qualifier-r2";"Rare Atom 41.56%  ";"Monarch Effect 58.44%  ";"0";41,56;58,44;0
+"15";"https://www.vlr.gg/221183/weibo-gaming-vs-four-angry-men-valorant-champions-2023-china-qualifier-r2";"Weibo Gaming 61.65%  ";"Four Angry Men 38.35%  ";"1";61,65;38,35;1
+"16";"https://www.vlr.gg/216235/galakticos-vs-digital-athletics-challengers-league-turkey-birlik-split-2-playoffs-lr2";"Galakticos 33.55%  ";"Digital Athletics 66.45%  ";"0";33,55;66,45;0
+"17";"https://www.vlr.gg/216231/galatasaray-esports-vs-s2g-esports-challengers-league-turkey-birlik-split-2-playoffs-uf";"Galatasaray Esports 29.7%  ";"S2G Esports 70.3%  ";"0";29,7;70,3;0
+"18";"https://www.vlr.gg/206806/turtle-troop-vs-mad-lions-challengers-league-north-america-opening";"Turtle Troop 24.94%  ";"MAD Lions 75.06%  ";"1";24,94;75,06;0
+"19";"https://www.vlr.gg/206807/disguised-vs-oresports-challengers-league-north-america-opening";"Disguised 36.59%  ";"OREsports 63.41%  ";"0";36,59;63,41;0
+"20";"https://www.vlr.gg/213484/the-union-vs-00nation-challengers-league-brazil-split-2-gf";"The Union 47.18%  ";"00Nation 52.82%  ";"1";47,18;52,82;0
