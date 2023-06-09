@@ -1,15 +1,13 @@
-"";"V1";"V2"
-"1";"Team SMG GC 75.75%  ";"Global Esports Phoenix 24.25%  "
-"2";"Orangutan X 38.75%  ";"FS SAPPHIRE 61.25%  "
-"3";"Gods Reign 75.24%  ";"Reckoning Esports 24.76%  "
-"4";"Point of Authority Blossom 35.12%  ";"THE HERO KDA 64.88%  "
-"5";"BIGG SCYTHE 15.04%  ";"RRQ Kaguya 84.96%  "
-"6";"WYLDE 39.15%  ";"VALIANT 60.85%  "
-"7";"NASR Esports 63.09%  ";"Triple Esports Club 36.91%  "
-"8";"Joblife 46.38%  ";"Zerance 53.62%  "
-"9";"Team Falcons 61.18%  ";"Team RA'AD 38.82%  "
-"10";"Northwood University 72.18%  ";"Winthrop University 27.82%  "
-"11";"The Guard 40.42%  ";"G2 Esports 59.58%  "
-"12";"9z Team GC 24.54%  ";"Cruzados Esports Fem 75.46%  "
-"13";"Oxygen Esports 63.62%  ";"FaZe Clan 36.38%  "
-"14";"Leviatán GC 48.09%  ";"FUSION X 51.91%  "
+"";"b";"V1";"V2";"ganhador";"V1_n";"V2_n";"prev"
+"1";"https://www.vlr.gg/221300/team-smg-gc-vs-global-esports-phoenix-game-changers-2023-asia-pacific-open-2-playoffs-ubsf";"Team SMG GC 75.75%  ";"Global Esports Phoenix 24.25%  ";"1";75,75;24,25;1
+"2";"https://www.vlr.gg/221301/orangutan-x-vs-fs-sapphire-game-changers-2023-asia-pacific-open-2-playoffs-ubsf";"Orangutan X 38.75%  ";"FS SAPPHIRE 61.25%  ";"0";38,75;61,25;0
+"3";"https://www.vlr.gg/211911/gods-reign-vs-reckoning-esports-challengers-league-south-asia-split-2-lr2";"Gods Reign 75.24%  ";"Reckoning Esports 24.76%  ";"0";75,24;24,76;1
+"4";"https://www.vlr.gg/221302/point-of-authority-blossom-vs-the-hero-kda-game-changers-2023-asia-pacific-open-2-playoffs-lr1";"Point of Authority Blossom 35.12%  ";"THE HERO KDA 64.88%  ";"0";35,12;64,88;0
+"5";"https://www.vlr.gg/221303/bigg-scythe-vs-rrq-kaguya-game-changers-2023-asia-pacific-open-2-playoffs-lr1";"BIGG SCYTHE 15.04%  ";"RRQ Kaguya 84.96%  ";"0";15,04;84,96;0
+"6";"https://www.vlr.gg/214672/wylde-vs-valiant-challengers-league-france-revolution-split-2-qf";"WYLDE 39.15%  ";"VALIANT 60.85%  ";"1";39,15;60,85;0
+"7";"https://www.vlr.gg/220992/nasr-esports-vs-triple-esports-club-challengers-league-mena-resilience-lan-finals-lower-semi-fin";"NASR Esports 63.09%  ";"Triple Esports Club 36.91%  ";"1";63,09;36,91;1
+"8";"https://www.vlr.gg/214673/joblife-vs-zerance-challengers-league-france-revolution-split-2-qf";"Joblife 46.38%  ";"Zerance 53.62%  ";"0";46,38;53,62;0
+"9";"https://www.vlr.gg/220993/team-falcons-vs-team-raad-challengers-league-mena-resilience-lan-finals-upper-finals";"Team Falcons 61.18%  ";"Team RA'AD 38.82%  ";"1";61,18;38,82;1
+"10";"https://www.vlr.gg/206609/northwood-university-vs-winthrop-university-college-valorant-championship-gf";"Northwood University 72.18%  ";"Winthrop University 27.82%  ";"1";72,18;27,82;1
+"11";"https://www.vlr.gg/212534/the-guard-vs-g2-esports-challengers-league-north-america-lr2";"The Guard 40.42%  ";"G2 Esports 59.58%  ";"1";40,42;59,58;0
+"12";"https://www.vlr.gg/212535/oxygen-esports-vs-faze-clan-challengers-league-north-america-lr2";"Oxygen Esports 63.62%  ";"FaZe Clan 36.38%  ";"1";63,62;36,38;1
