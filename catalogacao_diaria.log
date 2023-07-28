@@ -120143,3 +120143,2513 @@ New names:
 New names:
 • `` -> `...1`
 There were 13 warnings (use warnings() to see them)
+Warning message:
+package 'rvest' was built under R version 4.2.3 
+Carregando pacotes exigidos: xts
+Carregando pacotes exigidos: zoo
+
+Attaching package: 'zoo'
+
+The following objects are masked from 'package:base':
+
+    as.Date, as.Date.numeric
+
+Carregando pacotes exigidos: TTR
+Registered S3 method overwritten by 'quantmod':
+  method            from
+  as.zoo.data.frame zoo 
+Warning messages:
+1: package 'quantmod' was built under R version 4.2.3 
+2: package 'xts' was built under R version 4.2.3 
+3: package 'zoo' was built under R version 4.2.3 
+4: package 'TTR' was built under R version 4.2.3 
+Warning message:
+package 'httr' was built under R version 4.2.3 
+Warning message:
+package 'tibble' was built under R version 4.2.3 
+Warning message:
+package 'stringr' was built under R version 4.2.3 
+Warning message:
+package 'reshape2' was built under R version 4.2.3 
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.2     ✔ purrr     1.0.1
+✔ forcats   1.0.0     ✔ readr     2.1.4
+✔ ggplot2   3.4.2     ✔ tidyr     1.3.0
+✔ lubridate 1.9.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter()         masks stats::filter()
+✖ dplyr::first()          masks xts::first()
+✖ readr::guess_encoding() masks rvest::guess_encoding()
+✖ dplyr::lag()            masks stats::lag()
+✖ dplyr::last()           masks xts::last()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+Warning messages:
+1: package 'tidyverse' was built under R version 4.2.3 
+2: package 'ggplot2' was built under R version 4.2.3 
+3: package 'tidyr' was built under R version 4.2.3 
+4: package 'readr' was built under R version 4.2.3 
+5: package 'purrr' was built under R version 4.2.3 
+6: package 'dplyr' was built under R version 4.2.3 
+7: package 'forcats' was built under R version 4.2.3 
+8: package 'lubridate' was built under R version 4.2.3 
+
+Attaching package: 'neuralnet'
+
+The following object is masked from 'package:dplyr':
+
+    compute
+
+Warning message:
+package 'neuralnet' was built under R version 4.2.3 
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+error: Can't subset columns past the end.
+ℹ Location 1 doesn't exist.
+ℹ There are only 0 columns. 
+error: Can't subset columns past the end.
+ℹ Location 1 doesn't exist.
+ℹ There are only 0 columns. 
+error: Can't subset columns past the end.
+ℹ Location 1 doesn't exist.
+ℹ There are only 0 columns. 
+error: Could not resolve host: www.vlr.gghttps 
+error: Could not resolve host: www.vlr.gghttps 
+Warning messages:
+1: All formats failed to parse. No formats found. 
+2: All formats failed to parse. No formats found. 
+Warning message:
+package 'rvest' was built under R version 4.2.3 
+Carregando pacotes exigidos: xts
+Carregando pacotes exigidos: zoo
+
+Attaching package: 'zoo'
+
+The following objects are masked from 'package:base':
+
+    as.Date, as.Date.numeric
+
+Carregando pacotes exigidos: TTR
+Registered S3 method overwritten by 'quantmod':
+  method            from
+  as.zoo.data.frame zoo 
+Warning messages:
+1: package 'quantmod' was built under R version 4.2.3 
+2: package 'xts' was built under R version 4.2.3 
+3: package 'zoo' was built under R version 4.2.3 
+4: package 'TTR' was built under R version 4.2.3 
+Warning message:
+package 'httr' was built under R version 4.2.3 
+Warning message:
+package 'tibble' was built under R version 4.2.3 
+Warning message:
+package 'stringr' was built under R version 4.2.3 
+Warning message:
+package 'reshape2' was built under R version 4.2.3 
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.2     ✔ purrr     1.0.1
+✔ forcats   1.0.0     ✔ readr     2.1.4
+✔ ggplot2   3.4.2     ✔ tidyr     1.3.0
+✔ lubridate 1.9.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter()         masks stats::filter()
+✖ dplyr::first()          masks xts::first()
+✖ readr::guess_encoding() masks rvest::guess_encoding()
+✖ dplyr::lag()            masks stats::lag()
+✖ dplyr::last()           masks xts::last()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+Warning messages:
+1: package 'tidyverse' was built under R version 4.2.3 
+2: package 'ggplot2' was built under R version 4.2.3 
+3: package 'tidyr' was built under R version 4.2.3 
+4: package 'readr' was built under R version 4.2.3 
+5: package 'purrr' was built under R version 4.2.3 
+6: package 'dplyr' was built under R version 4.2.3 
+7: package 'forcats' was built under R version 4.2.3 
+8: package 'lubridate' was built under R version 4.2.3 
+
+Attaching package: 'neuralnet'
+
+The following object is masked from 'package:dplyr':
+
+    compute
+
+Warning message:
+package 'neuralnet' was built under R version 4.2.3 
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+error: Can't subset columns past the end.
+ℹ Location 1 doesn't exist.
+ℹ There are only 0 columns. 
+error: Can't subset columns past the end.
+ℹ Location 1 doesn't exist.
+ℹ There are only 0 columns. 
+error: Can't subset columns past the end.
+ℹ Location 1 doesn't exist.
+ℹ There are only 0 columns. 
+error: Could not resolve host: www.vlr.gghttps 
+error: Could not resolve host: www.vlr.gghttps 
+Warning messages:
+1: All formats failed to parse. No formats found. 
+2: All formats failed to parse. No formats found. 
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+Warning messages:
+1: In for (t in seq_along(app$themes)) { :
+  encerrando conexão não utilizada 4 (https://www.vlr.gghttps://discord.com/invite/VLR)
+2: In for (t in seq_along(app$themes)) { :
+  encerrando conexão não utilizada 3 (https://www.vlr.gghttps://twitter.com/vlrdotgg)
+Warning message:
+package 'rvest' was built under R version 4.2.3 
+Carregando pacotes exigidos: xts
+Carregando pacotes exigidos: zoo
+
+Attaching package: 'zoo'
+
+The following objects are masked from 'package:base':
+
+    as.Date, as.Date.numeric
+
+Carregando pacotes exigidos: TTR
+Registered S3 method overwritten by 'quantmod':
+  method            from
+  as.zoo.data.frame zoo 
+Warning messages:
+1: package 'quantmod' was built under R version 4.2.3 
+2: package 'xts' was built under R version 4.2.3 
+3: package 'zoo' was built under R version 4.2.3 
+4: package 'TTR' was built under R version 4.2.3 
+Warning message:
+package 'httr' was built under R version 4.2.3 
+Warning message:
+package 'tibble' was built under R version 4.2.3 
+Warning message:
+package 'stringr' was built under R version 4.2.3 
+Warning message:
+package 'reshape2' was built under R version 4.2.3 
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.2     ✔ purrr     1.0.1
+✔ forcats   1.0.0     ✔ readr     2.1.4
+✔ ggplot2   3.4.2     ✔ tidyr     1.3.0
+✔ lubridate 1.9.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter()         masks stats::filter()
+✖ dplyr::first()          masks xts::first()
+✖ readr::guess_encoding() masks rvest::guess_encoding()
+✖ dplyr::lag()            masks stats::lag()
+✖ dplyr::last()           masks xts::last()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+Warning messages:
+1: package 'tidyverse' was built under R version 4.2.3 
+2: package 'ggplot2' was built under R version 4.2.3 
+3: package 'tidyr' was built under R version 4.2.3 
+4: package 'readr' was built under R version 4.2.3 
+5: package 'purrr' was built under R version 4.2.3 
+6: package 'dplyr' was built under R version 4.2.3 
+7: package 'forcats' was built under R version 4.2.3 
+8: package 'lubridate' was built under R version 4.2.3 
+
+Attaching package: 'neuralnet'
+
+The following object is masked from 'package:dplyr':
+
+    compute
+
+Warning message:
+package 'neuralnet' was built under R version 4.2.3 
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+error: Can't subset columns past the end.
+ℹ Location 1 doesn't exist.
+ℹ There are only 0 columns. 
+error: Can't subset columns past the end.
+ℹ Location 1 doesn't exist.
+ℹ There are only 0 columns. 
+error: Can't subset columns past the end.
+ℹ Location 1 doesn't exist.
+ℹ There are only 0 columns. 
+error: Could not resolve host: www.vlr.gghttps 
+error: Could not resolve host: www.vlr.gghttps 
+error: Could not resolve host: www.vlr.ggNA 
+error: Could not resolve host: www.vlr.ggNA 
+error: Could not resolve host: www.vlr.ggNA 
+Warning messages:
+1: All formats failed to parse. No formats found. 
+2: All formats failed to parse. No formats found. 
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+Warning messages:
+1: In for (j in seq2(col - 1L, width)) { :
+  encerrando conexão não utilizada 7 (https://www.vlr.ggNA)
+2: In for (j in seq2(col - 1L, width)) { :
+  encerrando conexão não utilizada 6 (https://www.vlr.ggNA)
+3: In for (j in seq2(col - 1L, width)) { :
+  encerrando conexão não utilizada 5 (https://www.vlr.ggNA)
+4: In for (j in seq2(col - 1L, width)) { :
+  encerrando conexão não utilizada 4 (https://www.vlr.gghttps://discord.com/invite/VLR)
+5: In for (j in seq2(col - 1L, width)) { :
+  encerrando conexão não utilizada 3 (https://www.vlr.gghttps://twitter.com/vlrdotgg)
+Warning message:
+package 'rvest' was built under R version 4.2.3 
+Carregando pacotes exigidos: xts
+Carregando pacotes exigidos: zoo
+
+Attaching package: 'zoo'
+
+The following objects are masked from 'package:base':
+
+    as.Date, as.Date.numeric
+
+Carregando pacotes exigidos: TTR
+Registered S3 method overwritten by 'quantmod':
+  method            from
+  as.zoo.data.frame zoo 
+Warning messages:
+1: package 'quantmod' was built under R version 4.2.3 
+2: package 'xts' was built under R version 4.2.3 
+3: package 'zoo' was built under R version 4.2.3 
+4: package 'TTR' was built under R version 4.2.3 
+Warning message:
+package 'httr' was built under R version 4.2.3 
+Warning message:
+package 'tibble' was built under R version 4.2.3 
+Warning message:
+package 'stringr' was built under R version 4.2.3 
+Warning message:
+package 'reshape2' was built under R version 4.2.3 
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.2     ✔ purrr     1.0.1
+✔ forcats   1.0.0     ✔ readr     2.1.4
+✔ ggplot2   3.4.2     ✔ tidyr     1.3.0
+✔ lubridate 1.9.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter()         masks stats::filter()
+✖ dplyr::first()          masks xts::first()
+✖ readr::guess_encoding() masks rvest::guess_encoding()
+✖ dplyr::lag()            masks stats::lag()
+✖ dplyr::last()           masks xts::last()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+Warning messages:
+1: package 'tidyverse' was built under R version 4.2.3 
+2: package 'ggplot2' was built under R version 4.2.3 
+3: package 'tidyr' was built under R version 4.2.3 
+4: package 'readr' was built under R version 4.2.3 
+5: package 'purrr' was built under R version 4.2.3 
+6: package 'dplyr' was built under R version 4.2.3 
+7: package 'forcats' was built under R version 4.2.3 
+8: package 'lubridate' was built under R version 4.2.3 
+
+Attaching package: 'neuralnet'
+
+The following object is masked from 'package:dplyr':
+
+    compute
+
+Warning message:
+package 'neuralnet' was built under R version 4.2.3 
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+New names:
+• `` -> `...1`
+• `` -> `...2`
+• `+/–` -> `+/–...8`
+• `+/–` -> `+/–...14`
+error: Can't subset columns past the end.
+ℹ Location 1 doesn't exist.
+ℹ There are only 0 columns. 
+error: Can't subset columns past the end.
+ℹ Location 1 doesn't exist.
+ℹ There are only 0 columns. 
+error: Can't subset columns past the end.
+ℹ Location 1 doesn't exist.
+ℹ There are only 0 columns. 
+error: Could not resolve host: www.vlr.gghttps 
+error: Could not resolve host: www.vlr.gghttps 
+error: Could not resolve host: www.vlr.ggNA 
+error: Could not resolve host: www.vlr.ggNA 
+error: Could not resolve host: www.vlr.ggNA 
+error: Could not resolve host: www.vlr.ggNA 
+error: Could not resolve host: www.vlr.ggNA 
+error: Could not resolve host: www.vlr.ggNA 
+error: Could not resolve host: www.vlr.ggNA 
+error: Could not resolve host: www.vlr.ggNA 
+error: Could not resolve host: www.vlr.ggNA 
+error: Could not resolve host: www.vlr.ggNA 
+error: Could not resolve host: www.vlr.ggNA 
+error: Could not resolve host: www.vlr.ggNA 
+Warning messages:
+1: All formats failed to parse. No formats found. 
+2: All formats failed to parse. No formats found. 
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+New names:
+• `` -> `...1`
+There were 14 warnings (use warnings() to see them)
